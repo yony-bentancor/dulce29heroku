@@ -1,0 +1,39 @@
+
+{% extends "mastermin.njk" %}
+  
+     {% block main %}<div>
+  <div class="row">
+      <div class="col-md">ACTUALIZAR PEDIDO</div></br></br>
+  </div>
+
+   <div class="row">
+      <form name="formulario" method="post" action="refreshpedido">   
+        <div class="col-md-12">NOMBRE</div>
+        <div class="col-md-12"></br></div>
+        <div class="col-md-12"><input type ="text" name="username" id="username" value="{{username}}" ></div>
+        <div class="col-md-12"></br></div>
+        <div class="col-md-12">LICUADOS</div>
+        <div class="col-md-12"><input type ="text" name="Licuados" id="Licuados" value="{{Licuados}}"></div>
+        <div class="col-md-12"></br></div>
+         <div class="col-md-12">LIMONADA</div>
+        <div class="col-md-12"><input type ="text" name="Limonada" id="Limonada" value="{{Limonada}}"></div>
+        <div class="col-md-12"></br></div>
+          <div class="col-md-12">KEFIR</div>
+        <div class="col-md-12"><input type ="text" name="Kefir" id="Kefir" value="{{Kefir}}"></div>
+        <div class="col-md-12"></br></div>
+          <div class="col-md-12">SMOOTHIE</div>
+        <div class="col-md-12"><input type ="text" name="Smoothie" id="Smoothie" value="{{Smoothie}}"></div>
+        <div class="col-md-12"></br></div>
+
+         <div class="col-md-12">DETOX</div>
+        <div class="col-md-12"><input type ="text" name="Detox" id="Detox" value="{{Detox}}"></div>
+        <div class="col-md-12"></br></div>
+        <div class="col-md-8"></br></div> 
+         <div class="col-md-12"><input type="submit"  class="btn btn-success btn-sm" value="Ingresar Registro" /></div> 
+      </form>
+    </div>
+     
+</div>  
+
+      
+ {% endblock %}

@@ -1,0 +1,163 @@
+{% extends "masterAdministrador.njk" %}
+{% block main %}
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+     <link rel="stylesheet" href="http://localhost:3001/static/css/styleAdmin.css" />
+  <title>PEDIDOS REALIZADOS</title>
+  <script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+
+</script>
+ 
+<body>  
+  <div id="navbarAdministrador">        
+      <div class="row">
+        
+   
+       <div class="col-1"> <a class="menu" href="/session/clientes"> CLIENTES</a></div>
+       <div class="col-3"> <a class="menu" href="/session/pendientes"> PEDIDOS PENDIENTES   </a></div>
+       <div class="col-3"><a class="menu:hover" href="/session/realizados">PEDIDOS REALIZADOS </a></div>
+        <div class="col-2"><a class="menu" href="/session/estadisticas">ESTADISTICAS</a></div>
+       <div class="col-2"><a class="menu" href="/session/finanzas">FINANZAS</a></div>
+       <div class="col-1">  <a class="menu" href="/contacto">PRODUCTOS</a></div>
+        
+          
+         
+
+    
+      </div>
+    </div> 
+
+ <div id="contenedor-pedidosRealizados"> 
+    <div id="infoRealizados">
+    <div class="row rowpedidoRealizados">
+       <div class="col-2"><strong>CLIENTE</strong></div>
+       <div class="col-1"><strong>NºPEDIDO </strong></div>
+       <div class="col-1"><strong>LICUADOS </strong></div>
+       <div class="col-1"><strong>LIMONADA </strong></div>
+        <div class="col-1"><strong>DETOX</strong></div>
+       <div class="col-1"><strong>KEFIR </strong></div>
+       <div class="col-1"><strong>SMOOTHIE </strong></div>
+      <div class="col-1"><strong></strong></div>
+       <div class="col-1"><strong></strong></div> 
+        <div class="col-1"><strong>ESTADO</strong></div>
+       <div class="col-1"><strong>MES</strong></div> 
+     
+     </div> 
+      
+        {% for pedido in pedidos %}
+    <div class="row pedidoPendiente">  
+      <div class="col-2"> {{ pedido.username }}</div>
+      <div class="col-1"> {{ pedido.Numero_pedido }}</div>
+      <div class="col-1"> {{ pedido.Licuados }}</div>
+      <div class="col-1"> {{ pedido.Limonada }}  </div>
+        <div class="col-1"> {{ pedido.Detox }}</div>
+      <div class="col-1"> {{ pedido.Kefir }}</div>
+      <div class="col-1"> {{ pedido.Smoothie }}  </div>
+      <div class="col-1"> </div>
+      <div class="col-1">  </div>
+      <div class="col-1 activo"> {{ pedido.Estado }}</div>
+       <div class="col-1 "> {{ pedido.Mes }}</div>
+    
+    </div> 
+      {% endfor %}
+
+
+  <div class="row rowpedidoRealizados">
+       <div class="col-2"><strong>TOTAL</strong></div>
+       <div class="col-1"><strong> PEDIDOS</strong></div>
+       <div class="col-1"><strong>LICUADOS </strong></div>
+       <div class="col-1"><strong>LIMONADA </strong></div>
+        <div class="col-1"><strong>DETOX</strong></div>
+       <div class="col-1"><strong>KEFIR </strong></div>
+       <div class="col-1"><strong>SMOOTHIE </strong></div>
+       <div class="col-1"><strong></strong></div>
+       <div class="col-1"><strong></strong></div>
+         <div class="col-1 "></div>
+          <div class="col-1 "></div>
+</div>
+  <div class="row rowpedidoRealizados">
+            <div class="col-2"><strong></strong></div>
+       <div class="col-1"><strong> {{ contador }}</strong></div>
+       <div class="col-1"><strong>{{sumarLicuados}} </strong></div>
+       <div class="col-1"><strong>{{sumarLimonadas}} </strong></div>
+        <div class="col-1"><strong>{{sumarDetox}}</strong></div>
+       <div class="col-1"><strong>{{sumarKefir}} </strong></div>
+       <div class="col-1"><strong>{{sumarSmoothie}} </strong></div>
+       <div class="col-1"><strong>    </strong></div>
+       <div class="col-1"><strong></strong></div>
+         <div class="col-1 "></div>
+          <div class="col-1 "></div>
+
+     </div>
+
+     </div>
+
+
+ <div id="buscadorRealizados">
+        
+      
+    <div class="row nuevo-pedido">
+       <div class="col-12"><strong>   PEDIDOS REALIZADOS</strong></div>
+ 
+     
+     </div> 
+     
+        <div class="row">
+         <div class="col-md">
+            
+                    <form name="formulario"  method="post" action="/session/realizadosBusqueda", userController.realizadosBusqueda> 
+                      <!-- Datos del formulario -->
+                   
+                     
+                     
+                      <div class="mb-3">
+                                      </div>
+
+                   
+  <label for="browser" class="formClientetxt">Cliente</label>
+  <input list="browsers" name="browser" id="browser">
+  <datalist id="browsers">{% for pedido in pedidossinrepetir  %}
+    <option type="text" name="username" id="username" value="{{pedido.username}}">  {% endfor %}
+  </datalist>
+  
+                     
+
+                        
+
+                      <!-- Botón de envío de formulario -->
+                      <button type="submit" name="button" class="btn-primary  btnCliente">
+                        Buscar Pedidos
+                      </button>
+                    </form>
+   
+        </div>         
+      </div>  
+    </div> 
+   </div>  
+
+       
+ </body> 
+          
+{% endblock %}  

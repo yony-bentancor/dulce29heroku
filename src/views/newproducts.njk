@@ -1,0 +1,25 @@
+{% extends "mastermin.njk" %}
+{% block main %}
+ 
+<div id="productoNuevo">
+  
+  <div class="row">
+      <div class="col-md">INGRESAR PRODUCTO</div></br></br>
+  </div>
+
+   <div class="row">
+      <form name="formulario" method="post" action="/producto/newproducto" enctype="multipart/form-data">   
+        <div class="col-md-12">PRODUCTO </div>
+        <div class="col-md-12"><input type ="text" name="name" id="name" value="{{name}}"></div>
+        <div class="col-md-12"></br></div>
+        <div class="col-md-12">DESCRIPCION</div>
+        <div class="col-md-12"><input type ="text" name="desc" id="desc" value="{{desc}}"></div>
+        <div class="col-md-12"></br></div>
+        <div class="col-md-4"><input type="file"  id="image" name="image" value="{{img}}}" required></div>
+        <div class="col-md-8"></br></div> 
+         <div class="col-md-12"><input type="submit"  class="btn btn-success btn-sm" value="Ingresar Registro" /></div> 
+      </form>
+    </div>
+     
+</div>      
+{% endblock %}

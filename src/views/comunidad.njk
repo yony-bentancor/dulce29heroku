@@ -1,0 +1,26 @@
+{% extends "master.njk" %}
+{% block main %}
+<body>
+  <div id="contenedor-comunidad">  
+      <div id="slide-comunidad"> 
+        {% for posteo in posteos %}
+        
+        <div id="comunidadInfo"> 
+          <div class="row">
+              <div class="col-12 comunidad-font">{{ posteo.title }}</div>
+              <div class="col-12 "><img class="radius2" src="{{posteo.img}}"/></div>
+              <div class="col-12"> <br>DESCRIPCION: {{ posteo.text  }}</div>
+              <div class="col-12 comunidad-vermas"> <br>ver+</div>
+           </div> 
+        </div>
+          
+        {% endfor %}
+
+      </div>  
+   </div> 
+</body>  
+{% endblock %}
+
+
+                  
+       

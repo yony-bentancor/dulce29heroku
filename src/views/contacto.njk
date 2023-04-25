@@ -1,0 +1,44 @@
+{% extends "master.njk" %}
+  {% block main %}
+<body>
+  <div id="contenedor-contacto">  
+ 
+  
+    <div id="slide-contacto">  
+      <div id="formulario-contacto">            
+        <div class="row">
+          <div class="col-12">
+            <div clas="card">
+              <div clas="card-header text-center">
+                <div class="txtFormulario">Formulario de contacto</div>
+              </div>
+                
+                <div class="card-body cardPosicion">
+                  <form action="/send-email" method="POST">
+                      <div clas="form-group">
+                        <input type="text" class="form-control" name="nombre" placeholder="nombre">
+                      </div>
+                    
+                      <div clas="form-group">
+                        <input type="text" class="form-control" name="email" placeholder="email">
+                      </div>
+                   
+                      <div clas="form-group">
+                        <input type="text" class="form-control" name="celular" placeholder="celular">
+                      </div>
+                  
+                      <div clas="form-group">
+                        <textarea name="mensaje" rows="2" class="form-control"  placeholder="comentario"></textarea>
+                      </div>
+
+                      <button class="btn-primary btnContacto">Enviar</button>
+                  </form>
+                </div>
+            </div>
+          </div>
+        </div
+      </div>
+    </div>
+  </div    
+</body>              
+{% endblock %}

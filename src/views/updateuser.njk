@@ -1,0 +1,33 @@
+
+{% extends "mastermin.njk" %}
+  
+     {% block main %}<div>
+  <div class="row">
+      <div class="col-md">ACTUALIZAR USUARIO {{ user._id }}</div></br></br>
+  </div>
+
+   <div class="row">
+      <form name="formulario" method="post" action="refresh">   
+        <div class="col-md-12">NOMBRE</div>
+        <div class="col-md-12"></br></div>
+        <div class="col-md-12"><input type ="text" name="username" id="username" value="{{username}}" ></div>
+        <div class="col-md-12"></br></div>
+        <div class="col-md-12">TELEFONO</div>
+        <div class="col-md-12"><input type ="text" name="telefono" id="telefono" value="{{telefono}}"></div>
+        <div class="col-md-12"></br></div>
+         <div class="col-md-12">DIRECCION</div>
+        <div class="col-md-12"><input type ="text" name="direccion" id="direccion" value="{{direccion}}"></div>
+        <div class="col-md-12"></br></div>
+
+         <div class="col-md-12">EMAIL</div>
+        <div class="col-md-12"><input type ="text" name="email" id="email" value="{{email}}"></div>
+        <div class="col-md-12"></br></div>
+        <div class="col-md-8"></br></div> 
+         <div class="col-md-12"><input type="submit"  class="btn btn-success btn-sm" value="Ingresar Registro" /></div> 
+      </form>
+    </div>
+     
+</div>  
+
+      
+ {% endblock %}

@@ -1,0 +1,58 @@
+{% extends "master.njk" %}
+  
+     {% block main %}
+        
+          
+
+  
+       {% include "partials/menu.njk" %}
+
+    
+
+
+    
+    <div id="prodcutocontenedor">  
+            {% include "partials/carrito.njk" %}
+       <div id="productoelemento">
+                          {% for producto in productos %}
+        <div id="productoInfo"> 
+             
+                
+     <div class="row">
+       <div class="col-12">{{ producto.name }}</div>
+       <div class="col-12 "><img class="radius" src="{{producto.img}}"/></div>
+      
+         <div class="col-12"> <br>DESCRIPCION: {{ producto.desc }}</div>
+     
+       
+     </div>    
+     
+     
+     <div class="row">  <div class="col-12"></div></div>
+     
+ 
+ 
+    </div>  {% endfor %}  </div>
+        </div>
+        
+
+{# 
+        <div id="productoIndex"> 
+          <div class="row">
+            <div class="col-12"><h5>PRODUCTOS</h5></div> 
+          </div>
+          {% for producto in productos %}         
+          <div class="row">
+            <div class="col-12"><h6  class="productoNameIndex">{{ producto.name }}</h6></div>
+            <div class="col-3"><img src="{{producto.img}}"/> </div>
+            <div class="col-9"><p class="productoDescIndex">{{ producto.desc }}</p> </div>
+          </div><!--<input type="image" id="image" alt="delete" src="http://localhost:3000/static/img/borrado1.png"> </form></div>-->
+          {% endfor %}  
+        </div> #}
+        
+    </div>   
+      
+ 
+   </tbody>
+          
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends "masterAdministrador.njk" %}
+{% block main %}
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+     <link rel="stylesheet" href="http://localhost:3001/static/css/styleAdmin.css" />
+  <title>FINANZAS</title>
+  <script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+
+</script>
+ 
+<body>  
+
+ <div id="contenedor-pedidosPendientes"> 
+  
+    <div class="row rowpedidoPendiente">
+       <div class="col-2"><strong>CLIENTE</strong></div>
+       <div class="col-2"><strong>NUMERO PEDIDO </strong></div>
+       <div class="col-1"><strong>LICUADOS </strong></div>
+       <div class="col-1"><strong>LIMONADA </strong></div>
+        <div class="col-1"><strong>DETOX</strong></div>
+       <div class="col-1"><strong>KEFIR </strong></div>
+       <div class="col-1"><strong>SMOOTHIE </strong></div>
+       <div class="col-1"><strong>UPD</strong></div>
+       <div class="col-1"><strong>DEL</strong></div>
+         <div class="col-1 dropdown">
+  <button onclick="myFunction()" class="dropbtn">ESTADO</button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="#home">Pendiente</a>
+    <a href="#about">Realizado</a>
+
+  </div>
+</div>
+     </div> 
+      
+        {% for pedido in pedidos %}
+    <div class="row rowpedidoPendiente">  
+      <div class="col-2"> {{ pedido.username }}</div>
+      <div class="col-2"> {{ pedido.Numero_pedido }}</div>
+      <div class="col-1"> {{ pedido.Licuados }}</div>
+      <div class="col-1"> {{ pedido.Limonada }}  </div>
+        <div class="col-1"> {{ pedido.Detox }}</div>
+      <div class="col-1"> {{ pedido.Kefir }}</div>
+      <div class="col-1"> {{ pedido.Smoothie }}  </div>
+
+      <div class="col-1"> 
+       <a href="javascript:window.open('/user/updateuser{{ user.id }}','','width=200,height=200,left=756,top=290,toolbar=no');void 0">
+          <img src="http://localhost:3001/static/img/editar.png">
+       </a>
+      </div>
+
+      <div class="col-1">
+        <form name="formulario" method="post" action="/admin-session/deleteuser/{{ user.email }}", teamController.deleteTeam>
+          <input type="image" id="image" alt="delete" src="http://localhost:3001/static/img/borrado1.png"> 
+        </form>
+      </div>
+        <div class="col-1"> {{ pedido.Estado }}  </div>
+    </div> 
+    {% endfor %}
+
+ <div class="col-12"> TOTAL DETOX {{sumarDetox}}</div> 
+  <div class="col-12"> TOTAL LICUADOS {{sumarLicuados}}</div> 
+  <div class="col-12"> TOTAL LIMONADAS {{sumarLimonadas}}</div> 
+  <div class="col-12"> TOTAL KEFIR {{sumarKefir}}</div> 
+  <div class="col-12"> TOTAL SMOOTHIE {{sumarSmoothie}}</div> 
+
+
+   {# 
+     {% for pedido  in pedidos %}
+     
+    <div class="row rowpedidototal">  
+ <div class="col-12"> {{pedido.Detox}}</div>  
+  
+    </div> 
+    {% endfor %} #}
+ 
+   </div>  
+
+       
+ </body> 
+          
+{% endblock %}  

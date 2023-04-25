@@ -1,0 +1,42 @@
+ <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"/>
+    <title>login ADMINISTRADOR</title>
+    <link rel="stylesheet" href="http://localhost:3001/static/css/styleAdmin.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+
+<body>  
+  <div>  
+    
+      <div id="logoAdmin">
+        <label><img src="http://localhost:3001/static/img/logo.jpg"/></label>
+      </div>
+      
+      <div id="login">     
+        <div class="row">
+          <form  method="post" action="/session/administrador", userController.loginSession>
+          
+              <div class="col-12">
+                <label for="username" class="form-label txtLoginAdmin">USUARIO</label>
+                  <input type="text" name="username" value="{{username}}" class="form-control1" required="true"/>
+                 
+                <label for="password" class="form-label txtLoginAdmin">CONTRASEÑA</label>
+                  <input type="password" name="password" value="{{password}}"  class="form-control1" required="true"/>
+           
+                <button type="submit" name="button" class="btninicio">
+                  Iniciar sesión
+                </button>
+              </div>
+               
+          </form>      
+        </div>
+      </div>
+
+    </div>
+   
+</body>              

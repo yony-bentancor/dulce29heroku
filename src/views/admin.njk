@@ -1,0 +1,177 @@
+{% extends "master.njk" %}
+{% block main %}
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+   <link rel="stylesheet" href="http://localhost:3001/static/css/styleAdmin.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<body>  
+  {#  admin- Producto          #}
+  
+  <div id="adminProducto">
+      
+      <div class="row">
+            <div class="col-md-8">
+              <h5>PRODUCTOS</h5>
+            </div>
+       </div>
+
+      <div class="row">
+        <div class="col-md-2"><strong>NOMBRE</strong></div>
+        <div class="col-md-5"><strong> DESCRIPCION</strong></div>
+        <div class="col-md-3"><strong>IMAGEN </strong></div>
+        <div class="col-md-1"><strong>UPD</strong></div>
+        <div class="col-md-1"><strong>DEL</strong></div>
+      </div> 
+     
+     <hr></hr>
+
+        {% for producto in productos %}
+      <div class="row">
+
+       <div class="col-2">{{ producto.name }}</div>
+       <div class="col-5">{{ producto.desc }}</div>
+       <div class="col-3"><img src="{{producto.img_min}}"/></div>
+       <div class="col-1">
+          <a method="get" href="javascript:window.open('/producto/update{{ producto.id }}','','width=200,height=200,left=756,top=290,toolbar=no');void 0">
+            <img src="http://localhost:3001/static/img/editar.png">
+          </a>
+       </div>
+        
+        <div class="col-1"> 
+          <form name="formulario" method="get" action="/producto/deleteproducto{{ producto.name }}">   
+            <input type="image" id="image" src="http://localhost:3001/static/img/borrado1.png"> 
+          </form>
+        </div>
+
+      </div>
+     
+     
+        <div class="row">  
+          <div class="col-12"><br></div>
+        </div>
+          <hr></hr>
+     
+     {% endfor %}  
+        <div id="btnagregarproducto">
+          <button 
+            type="submit" 
+            name="button" 
+            class="btn btn-sm" 
+            onclick="javascript:window.open('/producto/newproducto','','width=400,height=400,left=756,top=290,toolbar=no');">
+            AGREGAR PRODUCTO
+          </button> 
+        </div>
+  </div>
+
+ {#  admin- usuario          #}
+
+  <div id="adminUser">
+    <div class="row">
+      <div class="col-md"><h5>USUARIO</h5></div></br></br>
+    </div>
+  
+    <div class="row">
+       <div class="col-2"><strong>NOMBRE</strong></div>
+       <div class="col-2"><strong>TELEFONO </strong></div>
+       <div class="col-2"><strong>DIRECCION </strong></div>
+       <div class="col-4"><strong>EMAIL </strong></div>
+       <div class="col-1"><strong>UPD</strong></div>
+       <div class="col-1"><strong>DEL</strong></div>
+     </div>  
+           <hr></hr>
+      
+      {% for user in users %}
+    <div class="row">
+      <div class="col-2"> {{ user.username }}</div>
+      <div class="col-2"> {{ user.telefono }}</div>
+      <div class="col-2"> {{ user.direccion }}</div>
+      <div class="col-4"> {{ user.email }}  </div>
+
+      <div class="col-1"> 
+       <a href="javascript:window.open('/user/updateuser{{ user.id }}','','width=200,height=200,left=756,top=290,toolbar=no');void 0">
+          <img src="http://localhost:3001/static/img/editar.png">
+       </a>
+      </div>
+
+      <div class="col-1">
+        <form name="formulario" method="post" action="/admin-session/deleteuser/{{ user.email }}", teamController.deleteTeam>
+          <input type="image" id="image" alt="delete" src="http://localhost:3001/static/img/borrado1.png"> 
+        </form>
+      </div>
+       <hr></hr>
+    </div> 
+    {% endfor %}
+   
+  </div>
+  
+ {#  admin- posteo          #}
+  <div id="adminPosteo">
+    <div class="row">
+      <div class="col-md"><h5>POSTEO</h5></div></br></br>
+    </div>
+    
+    <div class="row">
+       <div class="col-1"><strong>TITULO</strong></div>
+       <div class="col-4"><strong>IMAGEN </strong></div>
+       <div class="col-5"><strong>TEXTO </strong></div>
+       <div class="col-1"><strong>UPD</strong></div>
+       <div class="col-1"><strong>DEL</strong></div>
+     </div>       <hr></hr>
+      
+      {% for posteo in posteos %}
+    <div class="row">
+      <div class="col-1"> {{ posteo.title }}</div>
+      <div class="col-4"> <img src="{{posteo.img_min}}"/></div>
+      <div id="txtposteo" class="col-5"> {{ posteo.text }}  </div>
+      <div class="col-1"> 
+        <a href="javascript:window.open('/posteo/updateposteo{{ posteo.id }}','','width=420,height=150,left=990,top=110,toolbar=no');void 0">
+          <img src="http://localhost:3001/static/img/editar.png">
+        </a>
+      </div>
+
+      <div class="col-1">
+        <form name="formulario" method="post" action="/admin-session/deleteuser/{{ posteo.id }}", teamController.deleteTeam>
+          <input type="image" id="image" alt="delete" src="http://localhost:3001/static/img/borrado1.png"> 
+        </form>
+      </div><hr></hr>
+    </div>
+    {% endfor %}
+
+  </div>      
+
+        {#  admin- slide          #}
+   <div id="adminSlide">
+      
+      <div class="row">
+        <div class="col-md"><h4>SLIDE</h4></div></br></br>
+      </div>
+    
+      <div class="row">
+       <div class="col-1"><strong>TITULO</strong></div>
+       <div class="col-4"><strong>IMAGEN </strong></div>
+       <div class="col-1"><strong>UPD</strong></div>
+       <div class="col-1"><strong>DEL</strong></div>
+      </div>  
+      
+        {% for slide in slides %}
+      <div class="row">
+        <div class="col-1"> {{ slide.slidename }}</div>
+        <div class="col-4"> <img src="http://localhost:3001/static/img/slide1min.jpg"> </div>
+        <div class="col-5"> {{ slide.slidename }}  </div>
+        <div class="col-1"> <a href="javascript:window.open('/posteo/updateposteo{{ slide.id }}','','width=420,height=150,left=990,top=110,toolbar=no');void 0">
+          <img src="http://localhost:3001/static/img/editar.png"></a>
+        </div>
+        <div class="col-1">
+          <form name="formulario" method="post" action="/admin-session/deleteuser/{{ slide.id }}", teamController.deleteTeam>
+            <input type="image" id="image" alt="delete" src="http://localhost:3001/static/img/borrado1.png"> 
+          </form>
+        </div>
+      </div>
+      {% endfor %}
+   </div>         
+         
+ </body> 
+          
+{% endblock %}

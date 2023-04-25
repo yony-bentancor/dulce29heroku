@@ -1,0 +1,96 @@
+{% extends "master.njk" %}
+{% block main %}
+<div id="UserSesion">
+      <div class="row">
+         <table class="table table-sm">
+         <tr>
+         
+         
+          <th>INICIO DE SESION</th>
+         </tr>
+      </table>
+      </div>
+     
+      <div class="row">
+        
+     
+          <div class="col-md">
+
+            <form class="" method="post" action="/session/admin", userController.loginSession>
+              <div class="mb-3">
+               <label for="username" class="form-label">USERNAME</label>
+                 <input type="text" name="username" value="{{username}}" class="form-control" required="true"/>
+              </div>
+     
+     
+              <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                  <input type="password" name="password" value="{{password}}"  class="form-control" required="true"/>
+              </div>
+      
+                <button type="submit" name="button" class="btn btn-success">
+                    Iniciar sesión
+                </button>
+            </form>
+          </div> 
+      </div>
+</div>
+
+   <div id="registroUser">
+      <div class="row">
+         <table class="table table-sm">
+         <tr>
+          <th>REGISTRO DE USUARIO </th>
+         
+         
+         </tr>
+      </table>
+      </div>
+     
+      <div class="row">
+         <div class="col-md">
+            <form name="formulario" method="post" action="/session/newuser", userController.login>
+                <!-- Datos del formulario -->
+                      <div class="mb-3">
+                        <label for="email" class="form-label">  Email </label>
+                          <input type="text" name="email" id="email" value="{{email}}" class="form-control" required="true"/>
+                      </div>
+                    
+                     
+                      <div class="mb-3">
+                        <label for="username" class="form-label">   Nombre </label>
+                          <input type="text" name="username" id="username" value="{{username}}"  class="form-control" required="true"/>
+                      </div>
+
+                       <div class="mb-3">
+                        <label for="telefono" class="form-label">   Telefono </label>
+                          <input type="text" name="telefono" id="telefono" value="{{telefono}}"  class="form-control" required="true"/>
+                      </div>
+                       <div class="mb-3">
+                        <label for="direccion" class="form-label">   Direccion </label>
+                          <input type="text" name="direccion" id="direccion" value="{{direccion}}"  class="form-control" required="true"/>
+                      </div>
+
+                      <div class="mb-3">
+                        <label for="password" class="form-label"> Contraseña</label>
+                          <input type="password" name="password" id="password" value="{{password}}"class="form-control" required="true"/>
+                      </div>
+                     
+                      
+
+
+                <!-- Botón de envío de formulario -->
+                
+                       <button type="submit" name="button" class="btn btn-primary">
+                    Registro
+                </button>
+            </form>
+   
+       
+          </div>
+     
+          
+      </div>
+
+          
+{% endblock %}

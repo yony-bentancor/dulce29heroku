@@ -1,0 +1,143 @@
+{% extends "masterAdministrador.njk" %}
+{% block main %}
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+     <link rel="stylesheet" href="http://localhost:3001/static/css/styleAdmin.css" />
+  <title>ESTADISTICAS</title>
+  <script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+
+</script>
+
+ 
+<body>  
+  <div id="navbarAdministrador">        
+      <div class="row">
+        
+   
+       <div class="col-1"> <a class="menu" href="/session/clientes"> CLIENTES</a></div>
+       <div class="col-3"> <a class="menu" href="/session/pendientes"> PEDIDOS PENDIENTES   </a></div>
+       <div class="col-3"><a class="menu" href="/session/realizados">PEDIDOS REALIZADOS </a></div>
+        <div class="col-2"><a class="menu:hover" href="/session/estadisticas">ESTADISTICAS</a></div>
+       <div class="col-2"><a class="menu" href="/session/finanzas">FINANZAS</a></div>
+       <div class="col-1">  <a class="menu" href="/contacto">PRODUCTOS</a></div>
+        
+      </div>
+    </div> 
+
+
+
+ <div id="contenedorEstadisticas"> 
+    <div id="infoEstadisticas">
+      
+      <div class="col-12 clase9"> HISTORÍCO </div>
+
+      <div id="catEstadisticas" class="row">
+        <div class="col-1 "> TOTAL CLIENTES</div>
+        <div class="col-2 ">  CLIENTES SIN PEDIDOS</div>
+        <div class="col-1 "> TOTAL PEDIDOS </div>
+        <div class="col-2 "> PROMEDIO PEDIDOS CLIENTE </div>
+        <div class="col-2 "> LITROS X PRODUCTO </div>
+        <div class="col-2 "> PRODUCTO + VENDIDO</div>      
+        <div class="col-2"> MES</div>
+       </div>
+
+            
+     <div id="datosEstadisticos" class="row">      
+        <div class="col-1">{{ contadorUser }}</div>
+        <div class="col-2">{{clientesSinPedidos.length}}</div>
+        <div  class="col-1"> {{ contadorPedido }}</div>
+        <div class="col-2">{{ promedioPedidoClientetotal }}</div>
+        <div class="col-2">
+          <ul style="list-style: none;">  
+            <li class="listaDown">TOTAL EN LITROS<text class="floatRight">{{sumarLitros}}</text></li>
+          <ul>
+  {% for producto in output %}
+    {% set partes = producto.split(' ') %}
+    <li class="listaDown">{{ partes[0] }} - <text class="floatRight">{{ partes[1] }}</text></li>
+  {% endfor %}
+</ul>
+            </ul>
+           
+          </div>
+        <div class="col-2 "> <ul style="list-style: none;">{% for item in output2 %}
+             <li class="listaDown">{{ item }}</li>
+              {% endfor %}
+            </ul></div>
+        <div class="col-2">   <form  action="estadisticasMes" method="POST">
+                   Desde: <input type="date" name="fechaInicio">
+                   Hasta: <input type="date" name="fechaFin">
+                  <button type="submit" class="sizeBtn">Buscar</button>
+                </form>  </div>
+  
+      </div>
+       
+        <div class="col-12 clase99">POR MES </div>
+   
+       
+        
+         <div id="catEstadisticasMes" class="row">
+        <div class="col-1">NUEVOS CLIENTES</div>
+   
+        <div class="col-2"> CLIENTES SIN PEDIDOS</div>
+        <div class="col-1 ">TOTAL PEDIDOS</div>
+        <div class="col-2">PROMEDIO PEDIDO CLIENTE </div>
+        <div class="col-2 ">PRODUCTOS X LITROS</div>
+        <div class="col-2 ">PRODUCTO + VENDIDO</div>      
+          <div class="col-2 mesBusqueda"> {{mesEntrada}} /  {{mesSalida}}</div>  
+       </div>
+
+
+
+        <div id="datosEstadisticosMes" class="row"> 
+           <div class="col-1 "> {{clientesRegistrados}} </div>
+          <div id="nombresNoEnArray2" class="col-2 class8">   
+                  {% for user in nombresNoEnArray2 %}
+            <li class="listaDown">{{ user.username }} -   
+              <a href="https://api.whatsapp.com/send?phone={{ user.telefono }}" class="floatRight">{{ user.telefono }}</a> 
+            </li>
+                  {% endfor %}
+          </div>
+      <div class="col-1 "> {{contadorPedidoXFecha}} </div>
+       <div class="col-2 ">  </div>
+         <div class="col-2 ">  </div>
+           <div class="col-2 ">  </div>
+             <div class="col-2 ">  </div>
+    </div>
+     </div> 
+    
+
+
+
+  </div>
+</div>  
+
+
+
+
+
+       
+ </body> 
+          
+{% endblock %}  
