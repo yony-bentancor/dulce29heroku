@@ -10,7 +10,7 @@ const DB_CONNECTION_STRING =
 const uri =
   "mongodb+srv://proyectodulce:dulce29@cluster0.bi9aze0.mongodb.net/?retryWrites=true&w=majority";
 
-const HOST = "https://dulce29.herokuapp.com/";
+const HOST = "https://git.heroku.com/dulce29.git";
 /* "http://localhost";
  */
 module.exports = {
