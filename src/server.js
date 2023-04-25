@@ -27,4 +27,6 @@ app.set("view engine", "njk");
 app.use("/static", express.static(__dirname + "/public"));
 /*app.use("/public", express.static("${__dirname}/public"));*/
 
-app.listen(PORT, () => console.log(`Servidor corriendo en el puerto ${PORT}!`));
+app.listen(PORT, () =>
+  console.log(`Servidor corriendo en el puerto de heroku ${PORT}!`)
+);
