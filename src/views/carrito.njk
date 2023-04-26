@@ -6,40 +6,33 @@
      
         
         <div id="carritoInfo"> 
-     <div id="UserSesion">
-      <div class="row">
-         <table class="table table-sm">
-         <tr>
-         
-         
-          <th>INICIO DE SESION</th>
-         </tr>
-      </table>
-      </div>
+        <div class="row">
+        <div class="col-2 "> <h3>INICIO DE SESION</h3>
+        </div>
      
-      <div class="row">
-        
+         <div class="col-3 "> 
             <div>{{userRes.username}}</div>
-          <div class="col-md">
+               </div>
+          
 
             <form class="" method="post" action="/session/admin", userController.loginSession>
-              <div class="mb-3">
+           <div class="col-2 "> 
                <label for="username" class="form-label">USERNAME</label>
                  <input type="text" name="username" value="{{username}}" class="form-control" required="true"/>
               </div>
      
      
-              <div class="mb-3">
+            <div class="col-2 "> 
                 <label for="password" class="form-label">Contraseña</label>
                   <input type="password" name="password" value="{{password}}"  class="form-control" required="true"/>
               </div>
-      
+      <div class="col-2 "> 
                 <button type="submit" name="button" class="btn btn-success">
                     Iniciar sesión
                 </button>
             </form>
           </div> 
-      </div>
+    
 </div></div>
 {# 
    <div id="registroUser">
