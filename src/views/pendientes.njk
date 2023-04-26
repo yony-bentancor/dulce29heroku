@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-     <link rel="stylesheet" href="http://localhost:3001/static/css/styleAdmin.css" />
+     <link rel="stylesheet" href="https://dulce29.herokuapp.com/static/css/styleAdmin.css" />
   <title>PEDIDOS PENDIENTES</title>
   <script>
 /* When the user clicks on the button, 
@@ -85,13 +85,13 @@ window.onclick = function(event) {
       <div class="col-1"> 
        <a
         href="javascript:window.open('/session/updatepedido{{ pedido.username }}','','width=200,height=200,left=756,top=290,toolbar=no');void 0">
-          <img src="http://localhost:3001/static/img/editar.png">
+          <img src="https://dulce29.herokuapp.com/static/img/editar.png">
        </a>
       </div>
 
       <div class="col-1">
         <form name="formulario" method="post" action="/session/deletepedido{{ pedido.username  }}", pedidoController.deletePedido>
-          <input type="image" id="image" alt="delete" src="http://localhost:3001/static/img/borrado1.png"> 
+          <input type="image" id="image" alt="delete" src="https://dulce29.herokuapp.com/static/img/borrado1.png"> 
         </form>
       </div>
         <div class="col-1 inactivo" > {{ pedido.Estado }}  </div>
