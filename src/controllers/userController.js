@@ -61,7 +61,7 @@ module.exports = {
     const user = req.body;
     const newUser = await User.findOne({ username: user.username });
     if (!newUser) {
-      return res.status(400).json({ error: "El usuario no existe" });
+      return res.status(400).json({ error: "El usuariooo no existe" });
     }
     const match = await bcrypt.compare(user.password, newUser.hash);
     if (!match) {
