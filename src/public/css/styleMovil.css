@@ -1,0 +1,506 @@
+
+/*--------------css movil-----------------------------------------------
+-----------------------------------------------------------------------------*/
+
+/*--------------loginAdministrador-------------------------------------------------------*/
+@media screen and (max-width : 600px) {
+  #logoAdmin {
+    height: 60px;
+    margin-left: 22px;
+    margin-top: 50px;
+    position: absolute;
+    width: 100px;
+   }
+  #login {
+    background-color: #ffffff;
+  margin-left: 30px;
+    height: 100px;
+    width: 200px;
+    font: 0.9rem sans-serif;
+    margin-top: 200px;
+    word-spacing: 0.8rem;
+    position: absolute;
+  
+  }
+
+  
+/*--------------Clientes----S---------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------*/
+
+  #logoAdministrador {
+    width: 100px;
+    margin-top: 15px;
+    margin-left: 56px;
+    height: 60px;
+    position: absolute;
+    display: inline-block;
+  }
+
+
+  #navbarAdministrador {
+    margin-top: 140px;
+    margin-left: 3px;
+    width: 300px;
+    height: 30px;
+    background-color: #ffffff;
+    font-size: 1rem;
+    font-weight: 800;
+    display: inline-block;
+  
+  }
+  #navbarAdministrador .menu-toggle {
+    display: block; /* Muestra el botón de desplegar/ocultar el menú */
+    text-align: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  #navbarAdministrador .menu {
+    display: none; /* Oculta la lista de navegación */
+   
+  }
+
+  #navbarAdministrador .menu-toggle:checked ~ .menu {
+    display: block; /* Muestra la lista de navegación cuando se hace clic en el botón */
+    bottom: 110%; /* Ubica la lista debajo del botón */
+    font-size: 0.9rem;
+    position: relative;
+    padding-top: 160px;
+    width: 320px;
+    margin-left: 10px; /* Alinea la lista a la izquierda */
+    background-color: #ffffff; /* Cambia el color de fondo de la lista */
+    padding: 0px; /* Añade espaciado interno a la lista */
+  }
+ 
+
+  #navbarAdministrador .menu-toggle-label {
+    display: block;
+    text-align: center;
+    cursor: pointer;
+  
+  }
+
+  #newUserMovil {
+    margin-top: 0px;
+    text-align: right;
+    width: 240px;
+    height: 200;
+    margin-left: 45px;
+    background-color: #ffffff;
+    position: absolute;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
+  #info-clientes{
+    margin-top:230px;
+     width: 240px;
+     height: 180px;
+     background-color: #ffffff;
+     position: absolute;
+     font-weight: 300;
+    font-size: 0.8rem;
+   }
+   
+   .rowmovil{
+display: none;
+  }
+  .rowmovilinvisible{
+
+    display: none;
+   
+  }  
+  .busquedaClienteMovil{
+    margin-top: 260px;
+    text-align: right;
+    width: 340px;
+    height: 200;
+    margin-left: -25px;
+    background-color: #ffffff;
+    position: absolute;
+    display: block;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
+  
+.formCliente{
+  font-size: 1rem;
+  width: 180px;
+  margin-top: 5px;
+  border: 1px;
+  background-color: #eceaea;
+  height: 20px;
+  border-radius: 2px;
+}
+
+  .btnCliente{
+    font-size: 0.9rem;
+    width: 70px;
+    background-color: #71a381;
+    height: 20px;
+    border-radius: 4px; 
+  }
+
+  .nuevo-clienteMovil{
+    display:block;
+    width: 280px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    margin-left: -20px;
+    background-color: #77aae08d;
+    font-size: 1rem;
+    text-align: left;
+    color: rgb(26, 28, 27);
+    padding: 6px;
+    }
+
+
+   
+    #busqueda-clienteMovil{
+      display:inline-block;
+      width: 315px;
+      margin-top: 290px;
+      position: relative;
+      border-radius: 4px;
+      margin-bottom: 5px;
+      margin-left: 30px;
+      font-size: 1rem;
+      text-align: left;
+      color: rgb(26, 28, 27);
+      padding: 6px;
+      }
+
+      .rowClienteMovil{
+        background-color: #afafaf3e;
+        padding-top: 2px;
+        font-size: 0.8rem;
+        margin-bottom: 2px;
+        text-align: center;
+        width: 280px;
+        height: 20px;
+        }
+
+
+
+ 
+/*--------------Pendientes------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------*/
+#info-pendientes{
+  background-color: aquamarine;
+width: 260px;
+  padding-left: 15px;
+margin-left: 15px;
+  
+  height: 400px;
+  position: relative;
+/*  display: inline-block; */
+  margin-top: 10px;
+  font-weight: 300;
+ font-size: 1rem;
+
+} 
+
+#newPedido {
+  margin-top: 240px;
+  text-align: right;
+  width: 240px;
+  height: 200;
+  margin-left: 70px;
+  background-color: #ffffff;
+  position: absolute;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+
+#contenedor-pedidosPendientes{
+  margin-left: 20%;
+  margin-top: 20px;
+  width: 440px;
+  height: auto;
+  background-color: #ffffff;
+  position: absolute;
+
+}
+
+#totalPedidosMovil{
+  display:inline-block;
+  width: 315px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  margin-left: -20px;
+  font-size: 1rem;
+  text-align: left;
+  color: rgb(26, 28, 27);
+  padding: 6px;
+  }
+  .rowpedidoPendienteMovil{
+    background-color: #afafaf3e;
+    padding-top: 2px;
+    font-size: 0.8rem;
+    margin-bottom: 2px;
+    text-align: center;
+    width: 315px;
+    height: 20px;
+    }
+
+
+    /*------------------------------------DELIVERY--------------------
+-----------------------------------------------------------------------
+------------------------------------------------------------------------*/
+#contenedor-pedidosRealizadosDelivery{
+/*   background-color:  rgba(248, 230, 151, 0.641); */
+ background-color: #fff;
+  width: 340px;
+  height: auto;
+  margin-left: -28px;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+#tableroPendienteTotal{
+  width: 330px;
+  margin-top: 50px;
+  margin-left: 15px;
+  height: auto;
+  position: relative;
+  background-color: #fff;
+  margin-bottom: 170px;
+}
+
+#boxPedido{
+  width: 340px;
+  font-size: 1.1rem;
+  margin-left: 0px;
+  margin-right: 2px;
+  display: inline-block;
+  margin-top: 10px;
+  padding-left: 20px;
+  padding-top: 8px;
+  border-radius: 4px;
+  background-color:  #f8e697a3;
+  height: auto;
+  position:relative;
+
+}
+#boxPedidoDelivery{
+  width: 340px;
+  font-size: 1.1rem;
+  margin-left: 0px;
+  margin-right: 2px;
+  display: inline-block;
+  margin-top: 10px;
+  padding-left: 20px;
+  padding-top: 0px;
+  border-radius: 4px;
+  background-color:  #f8e697a3;
+  height: auto;
+  position:relative;
+
+}
+#boxPedidoEntregado{
+  width: 340px;
+  font-size: 1.1rem;
+  margin-left: 0px;
+  margin-right: 2px;
+  display: inline-block;
+  margin-top: 10px;
+  padding-left: 20px;
+  padding-top: 8px;
+  border-radius: 4px;
+  background-color: #82a67a;
+  height: auto;
+  position:relative;
+
+}
+.subtituloEntregado{
+  background-color:  #98d2ab;
+
+  color: #5c5757;
+border-bottom: solid, 2px;
+width: 330px;
+padding-top: 3px;
+padding-bottom: 3px;
+}
+
+
+.subtitulo{
+  background-color: #f0e39b;
+  color: #5c5757;
+border-bottom: solid, 2px;
+width: 330px;
+padding-top: 3px;
+padding-bottom: 3px;
+}
+
+.subtitulo1{
+
+border-bottom: solid, 2px;
+width: 330px;
+padding-top: 3px;
+padding-bottom: 3px;
+}
+.espaciadoDelivery {
+  padding-left: 30px;
+}
+
+.oculto {
+  display: none;
+}
+
+.mostrar-info-btn {
+  margin-top: 10px;
+}
+#navbarDelivery .menu-toggle {
+  display: block; /* Muestra el botón de desplegar/ocultar el menú */
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#navbarDelivery .menu {
+  display: none; /* Oculta la lista de navegación */
+ 
+}
+
+#navbarDelivery .menu-toggle:checked ~ .menu {
+  display: block; /* Muestra la lista de navegación cuando se hace clic en el botón */
+  bottom: 10px; /* Ubica la lista debajo del botón */
+  font-size: 0.9rem;
+  position: relative;
+  padding-top: 20px;
+  padding-left: 8px;
+  margin-top: 10px;
+  height: auto;
+  width: 300px;
+  margin-left: 0px; /* Alinea la lista a la izquierda */
+  /* Cambia el color de fondo de la lista */
+  padding: 0px; /* Añade espaciado interno a la lista */
+}
+.linkmaps{
+  font-size: 0.9rem;
+
+}
+.btnPedido{
+  margin-left: -14px;
+}
+
+
+#navbarDelivery .menu-toggle-label {
+  display: block;
+  text-align: center;
+  cursor: pointer;
+
+}
+
+#navbarDelivery {
+  margin-top: 2px;
+  margin-left: 0px;
+  width: 230px;
+  height: 30px;
+  font-size: 1rem;
+
+  display: inline-block;
+
+}
+.rowpedidoRealizadosTotal{
+  background-color: #f9f9f7e8;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-left: 16px;
+  padding-left: 6px;
+  display: inline;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: left;
+  width: 260px;
+  height: 20px;
+  }
+ .rowpedidoRealizadosTotalDatosDelivery{
+  color: #000;
+  background-color:  rgba(248, 230, 151, 0.933);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-left: 20px;
+  padding-top: 4px;
+  padding-left: 4px;;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  display: inline;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+    }
+.rowpedidoRealizadosTotalDelivery{
+  background-color: #f9f9f7e8;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-left: 16px;
+  padding-left: 6px;
+  display: inline;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: left;
+  width: 260px;
+  height: 20px;
+  }
+ .rowpedidoRealizadosTotalDatos{
+  color: #000;
+  background-color:  rgba(248, 230, 151, 0.933);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-left: 20px;
+  padding-top: 4px;
+  padding-left: 4px;;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  display: inline;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+    }
+
+    .rowpedidoEntregadosTotalDatos{
+      color: #000;
+      background-color:  rgba(151, 248, 177, 0.933);
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-all;
+      margin-left: 20px;
+      padding-top: 4px;
+      padding-left: 4px;;
+      padding-right: 4px;
+      padding-bottom: 4px;
+      display: inline;
+      border-radius: 4px;
+      margin-bottom: 5px;
+      font-size: 1rem;
+      text-align: center;
+      width: 20px;
+      height: 20px;
+        }
+
+
+}

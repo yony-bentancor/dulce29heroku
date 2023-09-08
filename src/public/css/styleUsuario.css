@@ -38,26 +38,7 @@
   position: relative;
   display: inline-block;
 }
-@media screen and (max-width : 600px) {
-#logoNavbar {
-  width: 400px;
-  margin-top: 20px;
-  margin-left: 100px;
-  height: 70px;
-  position: relative;
-  display: inline-block;
-}
-#menuNavbar {
-  margin-top: 30px;
-  margin-left: 70px;
-  width: 400px;
-  height: 20px;
-  text-align: center;
-  background-color: #ffffff;
-  font-size: 1.3rem;
-  text-decoration: none;
-}
-}
+
 #menuNavbar {
   margin-top: 30px;
   margin-left: 590px;
@@ -127,13 +108,12 @@ a:hover {
 -----------------------------------------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------*/
 #contenedor-productos {
-  margin-top: 60px;
-  width: 1000px;
-  height: auto;
-  margin-left: 290px;
-  background-color: #e6eaee;
+  margin-left: 20%;
+  margin-top: 20px;
+  width: 1040px;
+  height: 420px;
+  background-color: #ffffff;
   position: absolute;
-  border-radius: 8px;
   
 }
 /* #productoIndex {height: 300px;  margin-top: 20px; margin-left: -30px; margin-right: 20px;  width: 500px;  margin-left: 450px;  background-color: #de5a5a; padding-left: 20px;  display: inline-block;  position: absolute;  border-radius: 8px;  margin-bottom: 20px;} */

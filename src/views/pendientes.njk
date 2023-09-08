@@ -4,249 +4,284 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-     <link rel="stylesheet" href="https://dulce29.herokuapp.com/static/css/styleAdmin.css" />
+
   <title>PEDIDOS PENDIENTES</title>
+
   <script>
-/* When the user clicks on the button, 
+
+    /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-{# 
-function myFunctionUser() {
-  document.getElementById("myDropdownUser").classList.toggle("show");
-}
- #}
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
+    function myFunction() {
+      document
+        .getElementById("myDropdown")
+        .classList
+        .toggle("show");
+    } {
+      # function myFunctionUser() {
+        document
+          .getElementById("myDropdownUser")
+          .classList
+          .toggle("show");
+      }
+      #
+    }
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function (event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown
+              .classList
+              .remove('show');
+          }
+        }
       }
     }
-  }
-}
+  </script>
 
-
-</script>
- 
-<body>  
-      <div id="navbarAdministrador">        
+  <body>
+    <div id="navbarAdministrador">
       <div class="row">
-        
-   
-       <div class="col-1"> <a class="menu" href="/session/clientes"> CLIENTES</a></div>
-       <div class="col-3"> <a class="menu:hover" href="/session/pendientes"> PEDIDOS PENDIENTES   </a></div>
-       <div class="col-3"><a class="menu" href="/session/realizados">PEDIDOS REALIZADOS </a></div>
-        <div class="col-2"><a class="menu" href="/session/estadisticas">ESTADISTICAS</a></div>
-       <div class="col-2"><a class="menu" href="/session/finanzas">FINANZAS</a></div>
-       <div class="col-1">  <a class="menu" href="/contacto">PRODUCTOS</a></div>
-        
-          
-         
-
-    
+        <div class="col-12">
+          <input type="checkbox" id="menu-toggle" class="menu-toggle">
+          <label for="menu-toggle" class="menu-toggle-label">&#9776;</label>
+          <ul class="menu">
+            <li>
+              <a href="/session/clientes">CLIENTES</a>
+            </li>
+            <li>
+              <a href="/session/pendientes">PEDIDOS PENDIENTES</a>
+            </li>
+            <li>
+              <a href="/session/realizados">PEDIDOS REALIZADOS</a>
+            </li>
+            <li>
+              <a href="/session/entregados">PEDIDOS ENTREGADOS</a>
+            </li>
+            <li>
+              <a href="/session/estadisticas">ESTADISTICAS</a>
+            </li>
+            <li>
+              <a href="/session/productosAdmin">PRODUCTOS</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div> 
+    </div>
 
- <div id="contenedor-pedidosPendientes"> 
+    <div id="contenedor-pedidosPendientes">
 
-  <div id="info-pendientes">
-  
-    <div class="row rowpedidoPendiente">
-       <div class="col-2"><strong>CLIENTE</strong></div>
-       <div class="col-1"><strong>NºPEDIDO </strong></div>
-       <div class="col-1"><strong>LICUADOS </strong></div>
-       <div class="col-1"><strong>LIMONADA </strong></div>
-        <div class="col-1"><strong>DETOX</strong></div>
-       <div class="col-1"><strong>KEFIR </strong></div>
-       <div class="col-1"><strong>SMOOTHIE </strong></div>
-       <div class="col-1"><strong>UPD</strong></div>
-       <div class="col-1"><strong>DEL</strong></div>
-       <div class="col-1"><strong>ESTADO</strong></div>
-       <div class="col-1"><strong>MES</strong></div>
-  
-     </div> 
-      
-        {% for pedido in pedidos %}
-    <div class="row pedidoPendiente">  
-      <div class="col-2"> {{ pedido.username }}</div>
-      <div class="col-1"> {{ pedido.Numero_pedido }}</div>
-      <div class="col-1"> {{ pedido.Licuados }}</div>
-      <div class="col-1"> {{ pedido.Limonada }}  </div>
-        <div class="col-1"> {{ pedido.Detox }}</div>
-      <div class="col-1"> {{ pedido.Kefir }}</div>
-      <div class="col-1"> {{ pedido.Smoothie }}  </div>
+      <div id="newPedido">
 
-      <div class="col-1"> 
-       <a
-        href="javascript:window.open('/session/updatepedido{{ pedido.username }}','','width=200,height=200,left=756,top=290,toolbar=no');void 0">
-          <img src="https://dulce29.herokuapp.com/static/img/editar.png">
-       </a>
-      </div>
+        <div class="nuevo-clienteMovil">
+          <div class="col-12">
+            <strong> PEDIDOS PENDIENTES</strong>
+          </div>
+        </div>
 
-      <div class="col-1">
-        <form name="formulario" method="post" action="/session/deletepedido{{ pedido.username  }}", pedidoController.deletePedido>
-          <input type="image" id="image" alt="delete" src="https://dulce29.herokuapp.com/static/img/borrado1.png"> 
-        </form>
-      </div>
-        <div class="col-1 inactivo" > {{ pedido.Estado }}  </div>
-          <div class="col-1" > {{ pedido.Mes }}  </div>
-    </div> 
-    {% endfor %}
+        <div class="row nuevoPedido">
+          <div class="col-12">
+            <strong>   NUEVO PEDIDO</strong>
+          </div>
+        </div>
 
-
-  <div class="row rowpedidoPendiente">
-       <div class="col-2"><strong>TOTAL</strong></div>
-       <div class="col-1"><strong> PEDIDOS</strong></div>
-       <div class="col-1"><strong>LICUADOS </strong></div>
-       <div class="col-1"><strong>LIMONADA </strong></div>
-        <div class="col-1"><strong>DETOX</strong></div>
-       <div class="col-1"><strong>KEFIR </strong></div>
-       <div class="col-1"><strong>SMOOTHIE </strong></div>
-       <div class="col-1"><strong></strong></div>
-       <div class="col-1"><strong></strong></div>
-         <div class="col-1 "></div>
-         <div class="col-1" > {{ pedido.Mes }}  </div>
-   </div>      
- <div class="row rowpedidoPendiente">
-            <div class="col-2"><strong></strong></div>
-       <div class="col-1"><strong> {{ contador }}</strong></div>
-       <div class="col-1"><strong>{{sumarLicuados}} </strong></div>
-       <div class="col-1"><strong>{{sumarLimonadas}} </strong></div>
-        <div class="col-1"><strong>{{sumarDetox}}</strong></div>
-       <div class="col-1"><strong>{{sumarKefir}} </strong></div>
-       <div class="col-1"><strong>{{sumarSmoothie}} </strong></div>
-       <div class="col-1"><strong></strong></div>
-       <div class="col-1"><strong></strong></div>
-         <div class="col-1 "></div>
-         <div class="col-1" > {{ pedido.Mes }}  </div>
-</div>
-     </div>
-
-
-   {# 
-     {% for pedido  in pedidos %}
-     
-    <div class="row rowpedidototal">  
- <div class="col-12"> {{pedido.Detox}}</div>  
-  
-    </div> 
-    {% endfor %} #}
- </div>
-
-
-   </div>  
-
-
- <div id="newPedido">
-        
-      
-    <div class="row nuevo-pedido">
-       <div class="col-12"><strong>   NUEVO PEDIDO</strong></div>
- 
-     
-     </div> 
-     
         <div class="row">
-         <div class="col-md">
-            
-                    <form name="formulario"  method="post" action="/session/newpedido", pedidoController.pageNewPedido> 
-                      <!-- Datos del formulario -->
-                   
-                     
-                     
-                      <div class="mb-3">
-                       {#  <label for="username" class="formClientetxt">   Cliente</label>
-                        <ul>{% for user in users %}
-                         <li>{{ user.username }}</li>
+          <div class="col-md-3">
+            <label for="browser" class="listadoProductos">CLIENTE</label>
+          </div>
+
+          <div class="col-md-3">
+            <form action="/session/newpedido" method="POST">
+              <input class="formClienteCantidad" list="browsers" name="browser" id="browser">
+              <datalist id="browsers">
+                {% for user in users %}
+                  <option type="text" name="username" id="username" value="{{user.username}}">
+
+                    <!-- Campo oculto para el teléfono -->
+                  {% endfor %}
+                </datalist>
+
+              </div>
+              <div class="col-md-6"></div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-10">
+                <label for="Pago" class="listadoProductos">PAGO</label>
+              </div>
+
+              <div class="col-md-2">
+
+                <input type="text" id="Pago" name="Pago" list="opcionesPago"  class="formClienteCantidad">
+                <datalist id="opcionesPago">
+                  <option value="Efectivo">
+                    <option value="Transferencia"></datalist>
+                  </div>
+                </div>
+
+                <div class="row" >
+                  <fieldset>
+
+                    {% for producto in productos %}
+                      <div class="col-md-10">
+                        <label class="listadoProductos">
+                          <input type="checkbox" name="productos[]" value="{{ producto.name }}">
+                          {{ producto.name }}
+                          <input type="hidden" name="precios[{{ loop.index0 }}]" value="{{ producto.precioVenta }}">
+
+                        </label>
+
+                      </div>
+                      <div class="col-md-2">
+                        <input type="number" class="boxCantidad" name="cantidades[]" value="0">
+                      </div>
+                    {% endfor %}
+                  </fieldset>
+
+                </div>
+
+                <button type="submit" class="btn-primary btnCliente">AGREGAR</button>
+              </form>
+
+            </div>
+
+            <div id="boxPedido">
+              {% for pedido in pedidos %}
+                <div id="info-pendientesBox">
+                  <div id="pendientesBox">
+                    <div id="box3">
+                      <div class="row">
+
+                        <div class="col-6  boxTxt ">
+                                  Nº    
+                              {{pedido.Mes}}-{{ pedido.Numero_pedido }}
+                        </div>
+                        <div class="col-6  boxTxtEstado ">
+                          <form name="formularioCambio" method="get" action="/session/cambioEstadoRealizado/{{ pedido.Numero_pedido }}">
+                            <input type="submit" value="{{ pedido.Estado }}" class="{{ pedido.Estado }}" onclick="return confirm('¿Estás por cambiar el pedido de Pendiente a Realizado?')">
+                          </form>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div id="box4">
+                      <div class="row boxTxtCliente">
+                        <div class="col-12">
+                          {{ pedido.username }} || {{pedido.fechaFormateada }}
+
+                        </div>
+                      </div>
+                    </div>
+                    <div id="box5">
+                      <div class="row boxTxtCliente">
+                        <div class="col-6">
+                          <form method="post" action="/session/updatepedido">
+                            <input type="hidden" name="Numero_pedido" value="{{ pedido.Numero_pedido }}" >
+
+                            <button type="submit">UPD</button>
+                          </form>
+                        </div>
+
+                        <div class="col-6 boxTxtCliente">
+                          <form name="formulario" method="post" action="/session/deletepedido{{ pedido.Numero_pedido}}", pedidoController.deletePedido>
+                            <input type="image" id="image" alt="delete" src="http://localhost:3001/static/img/borrado1.png" onclick="return confirm('¿Estás por eliminar un pedido?')">
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div id="boxunodos">
+                      <div id="box1">
+                        <div class="row">
+
+                          {% for producto in pedido.productos %}
+
+                            <div class="col-12">
+                              {{ producto.nombre }}
+
+                            </div>
                           {% endfor %}
-                        </ul> #}
+                        </div>
+                      </div>
 
+                      <div id="box2">
+                        <div class="row">
+                          {% for producto in pedido.productos %}
 
-                 {#          <button onclick="myFunctionUser()" class="dropbtn">Cliente</button>
-                          <div id="myDropdownUser" class="dropdown-contentPedido">
-                          <ul>{% for user in users %}
-                         <li>{{ user.username }}</li>
+                            <div class="col-12">
+
+                              {{ producto.cantidad }}
+
+                            </div>
                           {% endfor %}
-                        </ul>
-
-  </div> #}
-{#                           <input type="text"  name="username" id="username" value="{{ user.username }}"  class="formCliente" required="true"/>
- #}                      </div>
-
-                   
-  <label for="browser" class="formClientetxt">Cliente</label>
-  <input list="browsers" name="browser" id="browser">
-  <datalist id="browsers">{% for user in users  %}
-    <option type="text" name="username" id="username" value="{{user.username}}">  {% endfor %}
-  </datalist>
-  
-                       <div class="mb-3">
-                        <label for="telefono" class="formClientetxt">   Licuados </label>
-                          <input type="number" name="Licuados" id="Licuados" value="{{Licuados}}"   class="formCliente" required="true"/>
+                        </div>
                       </div>
+                    </div>
+                    <div id="box6" class="{{ pedido.Estado }}">
+                      <div class="row">
+                        <div class="col-12">
+                          {{ pedido.Pago }} || {{pedido.Monto_total }}
 
-
-                        <div class="mb-3">
-                        <label for="direccion" class="formClientetxt">   Limonadas </label>
-                          <input type="number" name="Limonada" id="Limonada" value="{{Limonada}}"   class="formCliente" required="true"/>
+                        </div>
                       </div>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
 
-                        <div class="mb-3">
-                        <label for="email" class="formClientetxt">  Detox </label>
-                          <input type="number" name="Detox" id="Detox" value="{{Detox}}" class="formCliente" required="true"/>
-                      </div>
+            <div id="tableroPendienteTotalWeb">
 
-                          <div class="mb-3">
-                        <label for="email" class="formClientetxt">  Kefir </label>
-                          <input type="number" name="Kefir" id="Kefir" value="{{kefir}}" class="formCliente" required="true"/>
-                      </div>
-                         <div class="mb-3">
-                        <label for="email" class="formClientetxt">  Smoothie </label>
-                          <input type="number" name="Smoothie" id="Smoothie" value="{{Smoothie}}" class="formCliente" required="true"/>
-                      </div>
+              <div class="row">
+                <div class="col-9">
+                  <!-- Columna para el nombre del producto -->
+                  <ul >
 
-                         <div class="mb-3">
+                    <li class="pedidoPendientesTotal">TOTAL PEDIDOS</li>
 
+                  </ul>
+                </div>
 
-                          
-                        <label for="email" class="formClientetxt">  Mes </label>
-                        <select id="Mes" name="Mes" value="{{Mes}}">
-  <option value="Enero">Enero</option>
-  <option value="Febrero">Febrero</option>
-  <option value="Marzo">Marzo</option>
-  <option value="Abril">Abril</option>
+                <div class="col-3">
+                  <label class="pedidoPendientesTotalDatos">
+                    {{ contador }}</label>
+                </div>
+              </div>
 
-</select>{# 
-                          <input type="" name="Mes" id="Mes" value="{{Mes}}" class="formCliente" required="true"/> #}
-                      </div>
+              <div class="row">
+                <div class="col-9">
+                  <!-- Columna para el nombre del producto -->
+                  <ul >
+                    {% for mensaje in mensajes %}
+                      <li class="pedidoPendientesTotal">{{ mensaje.nombre }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+                <div class="col-3">
+                  <!-- Columna para la cantidad -->
+                  <ul>
+                    {% for mensaje in mensajes %}
+                      <li class="pedidoPendientesTotalDatos">{{ mensaje.cantidad }}</li>
+                    {% endfor %}
+                  </ul>
+                </div>
+                {#   {% for producto, cantidad in pedidos %}
+                  <div class="col-10">
+                    <label class="infoPendientesBoxNombre">{{ pedido.producto }}</label>
+                  </div>
+                  <div class="col-2">
+                    <label class="infoPendientesBox">{{ pedido.cantidad }}</label>
+                  </div>
+                {% endfor %} #}
+              </div>
 
-             
-                     {#    <label for="password" class="form-label"> Contraseña</label>
-                          <input type="password" name="password" id="password" value="{{password}}"  class="formCliente"required="true"/>
-                      #}
-                      <!-- Botón de envío de formulario -->
-                      <button type="submit" name="button" class="btn-primary  btnCliente">
-                        Registro
-                      </button>
-                    </form>
-   
-        </div>          {#     <div id="buscadorClientesPedidos">
-        <form action="../../form-result.php" method="post" target="_blank">
-          <p class="formClientetxt" CLIENTES:> <input type="search" name="busquedamusica" placeholder="CLIENTE..." class="formCliente">
-            <input type="submit" value="Buscar" class="btn-primary btnCliente">
-            </p>
-            </form>
-      </div> #}
-      </div>  
-    </div> 
- </div> 
-       
- </body> 
-          
-{% endblock %}  
+            </div>
+
+          </div>
+
+        </body>
+
+      {% endblock %}

@@ -12,7 +12,7 @@ router.get("/productos", productoController.showProductos);
 router.get("/contacto", pageController.showcontacto);
 
 router.get("/administrador", pageController.showadmin);
-router.get("/carrito", carritoController.showCarrito);
+router.get("/carritoCompra", carritoController.showCarrito);
 router.post("/send-email", pageController.envioform);
 router.get("/pedidoingreso", productoController.showProductosmaspedido);
 

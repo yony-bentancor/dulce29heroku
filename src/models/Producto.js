@@ -2,17 +2,19 @@ const { Schema, model } = require("mongoose");
 const { PORT, DB_CONNECTION_STRING, HOST } = require("../config");
 appConfig = {
   PORT: 3001,
-  DB_CONNECTION_STRING:
-    "mongodb+srv://proyectodulce:dulce29@cluster0.bi9aze0.mongodb.net/?retryWrites=true&w=majority",
-  HOST: "https://dulce29.herokuapp.com",
+  DB_CONNECTION_STRING: "mongodb://localhost/proyecto",
+  HOST: "http://localhost",
 };
 
 const productoSquema = new Schema(
   {
+    numeroProducto: { type: Number },
     name: { type: String, required: true },
     desc: { type: String, required: true },
     img: { type: String },
     img_min: { type: String },
+    precioVenta: { type: Number },
+    costoProduccion: { type: Number },
   },
 
   {

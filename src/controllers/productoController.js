@@ -61,13 +61,34 @@ module.exports = {
 
   newProducto: async (req, res) => {
     try {
-      const { name, desc } = req.body;
+      const { name, desc, costoProduccion, precioVenta } = req.body;
+
+      const productos = await Producto.find({}, "numeroProducto").lean();
+
+      let highestProductNumber = null;
+
+      for (let i = 0; i < productos.length; i++) {
+        const numeroProducto = productos[i].numeroProducto;
+        if (
+          numeroProducto &&
+          (highestProductNumber === null ||
+            numeroProducto > highestProductNumber)
+        ) {
+          highestProductNumber = numeroProducto;
+        }
+      }
+
+      console.log(highestProductNumber);
+      loopContadorProducto = ++highestProductNumber;
 
       const product = Producto({
         name,
         desc,
+        costoProduccion,
+        precioVenta,
+        numeroProducto: loopContadorProducto,
       });
-      console.log(req.file);
+
       if (req.file) {
         const { filename } = req.file;
         product.setimg(filename);
@@ -75,7 +96,7 @@ module.exports = {
       const addproductos = await Producto.create(product);
       //res.status(201).json(addteams);
 
-      res.render("Gracias");
+      res.redirect("/session/productosAdmin");
     } catch (error) {
       res.status(400).json({ error: error.message });
     }
@@ -83,13 +104,13 @@ module.exports = {
   updateProducto: async (req, res) => {
     try {
       const datos = req.body;
-      console.log(datos);
+      console.log(datos.numeroProducto);
       const producto = await Producto.findOneAndUpdate(
-        { desc: datos.desc },
+        { numeroProducto: datos.numeroProducto },
         datos,
         {
-          new: true,
-          runValidators: true,
+          new: true, // Devolver el documento actualizado en lugar del original
+          runValidators: true, // Ejecutar validaciones de esquema al actualizar
         }
       );
 
@@ -99,7 +120,7 @@ module.exports = {
         });
       }
 
-      res.json(producto);
+      res.redirect("/session/productosAdmin");
     } catch (error) {
       res.status(404).json({ error: error.message });
     }
@@ -142,7 +163,7 @@ module.exports = {
       }
       //res.json(teamDelete);
       const productos = await Producto.find();
-      res.render("delete");
+      res.redirect("/session/productosAdmin");
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
