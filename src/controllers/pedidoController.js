@@ -81,8 +81,7 @@ module.exports = {
         .select("Numero_pedido");
 
       // Incrementar el número de pedido
-      const Numero_pedidos = ultimoPedido ? ultimoPedido.Numero_pedido + 1 : 1;
-      const Numero_pedido = parseInt(Numero_pedidos);
+      const Numero_pedido = ultimoPedido ? ultimoPedido.Numero_pedido + 1 : 1;
       const fechaActual = moment();
       const mesInicial = fechaActual.month() + 1;
       const dia = fechaActual.date();
