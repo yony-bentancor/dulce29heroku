@@ -106,7 +106,7 @@ module.exports = {
       for (let i = 0; i < seleccionados.length; i++) {
         const nombreProducto = seleccionados[i];
         const cantidadProducto = parseInt(cantidades[i]);
-        const precioProducto = parseInt(precios[i]);
+        const precioProducto = precios[i];
 
         // Agregar el producto y su cantidad al pedido
         nuevoPedido.productos.push({
