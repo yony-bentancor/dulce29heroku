@@ -70,7 +70,7 @@
  
 /*--------------administrador movil--------------*/
 @media screen and (max-width : 600px) {
-  #logoAdmin {
+  /* #logoAdmin {
    
     height: 60px;
     width: 100px;
@@ -79,7 +79,7 @@
     padding-left: 55px;
     position: relative;
  
-  }
+  } */
   #logoAdminMovil {
    
     height: 60px;
