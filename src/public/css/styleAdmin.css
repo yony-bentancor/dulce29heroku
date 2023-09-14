@@ -284,8 +284,9 @@ margin-left: -8px;
 }
 .btnClienteBuscador{
   font-size: 0.9rem;
-  width: 110px;
-  margin-right: 20px;
+  width: 118px;
+  margin-right: 5px;
+  float: right;
   margin-top: 8px;
   background-color: #71a381;
   height: 20px;
@@ -319,11 +320,11 @@ margin-left: -8px;
 }
 
  #newUserMovil {
-  margin-top: 20px;
+  margin-top: 0px;
   text-align: right;
   width: 240px;
   height: 200;
-  margin-left: 960px;
+  margin-left: 760px;
   background-color: #ffffff;
   position: absolute;
   border-radius: 8px;
@@ -461,9 +462,10 @@ height: 22px;
 .boxCantidad{
   background-color: #e7d6ae;
   border-radius: 4px;
+  margin-top: 5px;
   width: 40px;
   padding-left: 3px;
-  margin-right: 15px;
+  margin-right: 5px;
   border: none;
 }
 .rowpedidoPendiente{
@@ -628,6 +630,7 @@ height: 28px;
 #info-pendientesBox{
 
   width: 220px;
+
   height: 200px;
   background-color: #fff; 
   border-radius: 4px;
@@ -635,7 +638,7 @@ height: 28px;
   display: inline-block;
   font-size: 0.9rem;
   margin-left: 15px;
-  margin:8px;
+  margin-bottom:38px;
 } 
 #pendientesBox{
 
@@ -643,7 +646,7 @@ height: 28px;
   padding-left: 10px;
   padding-top: 6px;
   height: auto;
-
+  margin-bottom: 30px;
 
   margin-left:3px;
 } 
@@ -711,9 +714,13 @@ margin-left: 10%;
 
   width: 170px;
   text-align: center;
+  background-color: #717068;
 margin-top: 130px;
 margin-left: 5%;
-  height: auto;
+color: #fff;
+font-size: 1rem;
+  height: 20px;
+  padding-top: 4px;
 
 } 
 #info-pendientes{
@@ -773,13 +780,25 @@ margin-left: 5%;
       font-weight: bold;
       
       }
+      .alineadoFormCliente{
+        text-align: left;
+        padding-left: 26px;
+      }
     
 
  .formClientetxt{
-  font-size: 1rem;
-  text-align: right;
+/*   
+ 
   margin-top: 8px;
   padding-top: 2px;
+  padding-left: 0px; */
+  font-size: 0.9rem;
+  height: 20px;
+  width: auto;
+  background-color: #fff;
+  text-align: left;
+  margin-top: 8px;
+  padding-top: 2.5px;
   padding-left: 0px;
 }
 #nombreCantidad{
@@ -977,6 +996,31 @@ display: inline;
   background-color: #fff;
   position: relative;
 
+}
+
+.formClienteRealizado{
+  font-size: 0.9rem;
+  display: inline;
+  margin-top: 8px;
+  margin-left: 68px;
+  border: 1px;
+  background-color: #eceaea;
+  height: 20px;
+  border-radius: 2px;
+}
+
+#tableroRealizadoTotalWeb{
+  width: 390px;
+  top: 0;
+  left: 0;
+  margin-left: 58px;
+  padding-bottom: 20px;
+  margin-top: 30px;
+  padding-left: 10px;
+  padding-top: 10px;
+  display: inline-block;
+  height: auto;
+  background-color: #fff;
 }
 .boxTxtEstadoRealizado{
   text-align: center;
@@ -1642,6 +1686,7 @@ margin-top: -90px;
 
 #slide-productoAdmin {
   position: absolute;
+  display: inline-block;
   text-align: center;
   width: 690px;
   height: auto;
@@ -2069,6 +2114,17 @@ border: none;
   margin-bottom: 10px;
 }
 
+.btnClienteNuevo{
+  font-size: 0.9rem;
+  margin-top: 8px;
+  float: left;
+  width: 126px;
+  margin-left: 148px;
+  background-color: #71a381;
+  height: 20px;
+  border-radius: 4px; 
+}
+
 
 
 /*--------------pedidos pendientes--------------------------------------------------------------------------------------------------
@@ -2115,14 +2171,56 @@ border: none;
   border-radius: 8px;
 }
 
-#productoInfoAdmin {
+.formProduct{
+  margin-right: 40px;
+  width: 360px;
+  text-align: left;
+  float: left;
+  background-color: #fff;
+
+}
+
+.btnProduct{
+  font-size: 0.9rem;
+  margin-top: 8px;
+  float: right;
+  width: 98px;
+  margin-right: -10px;
+  background-color: #71a381;
+  height: 20px;
+  border-radius: 4px; 
+}
+
+.boxProductoform1{
+/*   background-color: #d4d4d3;
+  border-radius: 4px;
+  margin-top: 5px;
+  height: 18px;
+  width: 80px;
+  padding-left: 3px;
+  margin-right: 120px;
+  position: relative;
+  float: right;
+  display:block; */
+  font-size: 0.9rem;
+  width: 98px;
+  float: left;
+  display: inline;
+  margin-top: 8px;
+  margin-left: -110px;
+  border: 1px;
+  background-color: #eceaea;
+  height: 20px;
+  border-radius: 2px;
+}
+
+.productoInfoAdmin {
   margin-left: 10px;
   padding-top: 20px;
   padding-bottom: 6px;
   margin-top: 10px;
   padding-right: 10px;
-  height: 200px;
-  
+  height: 340px;
   font-size: 0.95rem;
   width: 140px;
   padding-left: 10px;
@@ -2257,217 +2355,6 @@ padding-bottom: 3px;
 
 
 
-
-/*------------------------------------clientes movil--------------------
------------------------------------------------------------------------
-------------------------------------------------------------------------*/
-
-@media screen and (max-width : 600px) {
-  #contenedor-clientes{
-
-     width: 300px;
-     margin-top: 60px;
-     margin-left: 20px;
-     height: 420px;
-     overflow-x: hidden;
-     overflow-y: auto;
-   
-     background-color: #ffffff;
-     position: absolute;
-    
-   
-   }
-
-   
-    #buscadorClientes{
-   
-   margin: 0px;
-      width: 280px;
-      height: 20px;
-      margin-left: -20px;
-      padding-bottom: 20px;
-      font-weight: 600;
-     font-size: 1rem;
-   
-    
-    }
-
-
-}
-
-
- 
-/*--------------administrador movil--------------*/
-@media screen and (max-width : 600px) {
-  #logoAdmin {
-   
-    height: 60px;
-    width: 100px;
-    margin: 0px;
-    margin-top: 70px;
-    padding-left: 55px;
-    position: relative;
- 
-  }
-  #logoAdminMovil {
-   
-    height: 60px;
-    width: 100px;
-    margin: 0px;
-    margin-top: -100px;
-    padding-left: 62px;
-    position: relative;
- 
-  }
-  #menu {
-    height: 400px;
-    width: 40px;
-    margin-left: 20px;
- 
-    position: absolute;
-  
-  }
-
-  .linkMenu{
-    color: rgb(20, 44, 64);
-    
-    
-  }
- 
-  .btninicio{
-    font-size: 1.4rem;
-    width: 110px;
-    margin-top: 20px;
-    margin-right: 10px;
-    height: 28px;
-    background-color: #9bc19d;
-    border: none;
-  }
- 
-
- 
-
-}
-
-@media screen and (max-width : 740px ) and (min-width: 600px){
-  #logoAdmin {
-   
-    height: 60px;
-    width: 100px;
-    margin: 0px;
-    margin-top: 30px;
-    padding-left: 55px;
-    position: relative;
- 
-  }
-  
-  #menu {
-    height: 400px;
-    width: 40px;
-    margin-left: -86px;
- 
-    position: absolute;
-  
-  }
-  /* .btninicio{
-    font-size: 1.4rem;
-    width: 110px;
-    margin-top: 20px;
-    margin-right: 18px;
-    height: 28px;
-    background-color: #9bc19d;
-    border: none;
-  } */
- 
-  #login {
-    background-color: #ffffff;
-    height: 100px;
-    width: 200px;
-    margin: 0px;
-    font: 0.9rem sans-serif;
-    margin-top: 70px;
-    word-spacing: 0.8rem;
-    position: relative;
-  
-  
-  }
-  #contenedor-movil{
-    margin-top: 10px;
-   margin-left: 220px;
-    width: auto;
-    height: 420px;
-    background-color: #ffffff;
-    position: absolute;
- 
-  }
-
-}
-
-
-
-/*--------------index-movil--------------*/
-
-@media only screen and (max-width : 600px) {
- 
-  #menu {
-    margin-top: 60px;
-    padding-left: 20px;
-    margin-left: 90px;
-    width: 140px;
-    text-align: center;
-  }
-  #slideMovil {
-    
-    width: 140px;
-    height: 500px;
-  }
- 
-  #contenedor-index {
-    margin-top: 90px;
-    width: 260px;
-    height: auto;
-    margin-left: 20px;
-    background-color: #719ecb;
-    position: absolute;
-    border-radius: 8px;
-  }
-  #logoIndex {
-    width: 400px;
-    margin-top: 20px;
-    margin-left: 60px;
-    height: 60px;
-    position: relative;
-    display: inline-block;
-  }
-  
-  #slide-index {
-    font-size: 1rem;
-    margin-top: 20px;
-    margin-left: 6px;
-    width: 260px;
-    height: 200px;
-    border-radius: 8px;
-  }
-  .imgslide{
-
-    width: 260px;
-    height: 200px;
-    border-radius: 8px;
-  }
-
-  .info-pendientes {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
-  
-  .mas-info-btn {
-    margin-top: 10px;
-  }
-
-
-  
-  }
 
 
 

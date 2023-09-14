@@ -29,6 +29,221 @@
 ---------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------clientes movil--------------------
+-----------------------------------------------------------------------
+------------------------------------------------------------------------*/
+
+@media screen and (max-width : 600px) {
+  #contenedor-clientes{
+
+     width: 300px;
+     margin-top: 10px;
+     margin-left: -16px;
+     height: 420px;
+     overflow-x: hidden;
+     overflow-y: auto;
+   
+     background-color: #fff;
+     position: absolute;
+    
+   
+   }
+
+   
+    #buscadorClientes{
+   
+   margin: 0px;
+      width: 280px;
+      height: 20px;
+      margin-left: -20px;
+      padding-bottom: 20px;
+      font-weight: 600;
+     font-size: 1rem;
+   
+    
+    }
+
+
+}
+
+
+ 
+/*--------------administrador movil--------------*/
+@media screen and (max-width : 600px) {
+  #logoAdmin {
+   
+    height: 60px;
+    width: 100px;
+    margin: 0px;
+    margin-top: 70px;
+    padding-left: 55px;
+    position: relative;
+ 
+  }
+  #logoAdminMovil {
+   
+    height: 60px;
+    width: 100px;
+    margin: 0px;
+    margin-top: -100px;
+    padding-left: 62px;
+    position: relative;
+ 
+  }
+  #menu {
+    height: 400px;
+    width: 40px;
+    margin-left: 20px;
+ 
+    position: absolute;
+  
+  }
+
+  .linkMenu{
+    color: rgb(20, 44, 64);
+    
+    
+  }
+ 
+  .btninicio{
+    font-size: 1.4rem;
+    width: 110px;
+    margin-top: 20px;
+    margin-right: 10px;
+    height: 28px;
+    background-color: #9bc19d;
+    border: none;
+  }
+ 
+
+ 
+
+}
+
+@media screen and (max-width : 740px ) and (min-width: 600px){
+  #logoAdmin {
+   
+    height: 60px;
+    width: 100px;
+    margin: 0px;
+    margin-top: 30px;
+    padding-left: 55px;
+    position: relative;
+ 
+  }
+  
+  #menu {
+    height: 400px;
+    width: 40px;
+    margin-left: -86px;
+ 
+    position: absolute;
+  
+  }
+  /* .btninicio{
+    font-size: 1.4rem;
+    width: 110px;
+    margin-top: 20px;
+    margin-right: 18px;
+    height: 28px;
+    background-color: #9bc19d;
+    border: none;
+  } */
+ 
+  #login {
+    background-color: #ffffff;
+    height: 100px;
+    width: 200px;
+    margin: 0px;
+    font: 0.9rem sans-serif;
+    margin-top: 70px;
+    word-spacing: 0.8rem;
+    position: relative;
+  
+  
+  }
+  #contenedor-movil{
+    margin-top: 10px;
+   margin-left: 220px;
+    width: auto;
+    height: 420px;
+    background-color: #ffffff;
+    position: absolute;
+ 
+  }
+
+}
+
+
+
+/*--------------index-movil--------------*/
+
+@media only screen and (max-width : 600px) {
+ 
+  #menu {
+    margin-top: 60px;
+    padding-left: 20px;
+    margin-left: 90px;
+    width: 140px;
+    text-align: center;
+  }
+  #slideMovil {
+    
+    width: 140px;
+    height: 500px;
+  }
+ 
+  #contenedor-index {
+    margin-top: 90px;
+    width: 260px;
+    height: auto;
+    margin-left: 20px;
+    background-color: #719ecb;
+    position: absolute;
+    border-radius: 8px;
+  }
+  #logoIndex {
+    width: 400px;
+    margin-top: 20px;
+    margin-left: 60px;
+    height: 60px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  #slide-index {
+    font-size: 1rem;
+    margin-top: 20px;
+    margin-left: 6px;
+    width: 260px;
+    height: 200px;
+    border-radius: 8px;
+  }
+  .imgslide{
+
+    width: 260px;
+    height: 200px;
+    border-radius: 8px;
+  }
+
+  .info-pendientes {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  
+  .mas-info-btn {
+    margin-top: 10px;
+  }
+
+
+  
+  }
+
+
+
+
+
 
   #logoAdministrador {
     width: 100px;
@@ -84,24 +299,46 @@
     cursor: pointer;
   
   }
+  .formClientetxt{
+    font-size: 0.9rem;
+    text-align: left;
+    margin-top: 8px;
+    padding-top: 2px;
+    padding-left: 2px;
+  }
+  .nuevoClientetxt{
+ 
+
+    background-color: #afafaf3e;
+    margin-bottom: 8px;
+  
+   text-align: center;
+    font-size: 1.1rem;
+    padding-top: 2px;
+    width: 295px;
+    font-weight: bold;
+    height: 22px;
+    }
 
   #newUserMovil {
-    margin-top: 0px;
-    text-align: right;
-    width: 240px;
-    height: 200;
-    margin-left: 45px;
-    background-color: #ffffff;
+    margin-top: 10px;
+    text-align: left;
+    padding-left: 8px;
+    width: 250px;
+    height: 240;
+    margin-left: 0px;
+    background-color: #fff;
     position: absolute;
     border-radius: 8px;
     margin-bottom: 10px;
   }
 
   #info-clientes{
-    margin-top:230px;
-     width: 240px;
-     height: 180px;
-     background-color: #ffffff;
+    margin-top:200px;
+     width: 270px;
+     height: auto;
+     margin-left:10px;
+     background-color: #94ae7e;
      position: absolute;
      font-weight: 300;
     font-size: 0.8rem;
@@ -109,29 +346,39 @@
    
    .rowmovil{
 display: none;
+position: relative;
+background-color: #719ecb;
+margin-top: 40px;
+height: auto;
+width: 240px;
   }
   .rowmovilinvisible{
 
     display: none;
+position: relative;
+height: 20px;
+width: 250px;
+background-color: rgb(119, 88, 47);
    
   }  
   .busquedaClienteMovil{
     margin-top: 260px;
-    text-align: right;
-    width: 340px;
-    height: 200;
-    margin-left: -25px;
-    background-color: #ffffff;
+ 
+    width: 270px;
+    height: 70px;
+    margin-left: 0px;
+    background-color: #b53737;
     position: absolute;
-    display: block;
+    display: none;
     border-radius: 8px;
     margin-bottom: 10px;
   }
 
   
 .formCliente{
-  font-size: 1rem;
-  width: 180px;
+  font-size: 0.9rem;
+margin-left: 46px;
+  width: 100px;
   margin-top: 5px;
   border: 1px;
   background-color: #eceaea;
@@ -141,14 +388,17 @@ display: none;
 
   .btnCliente{
     font-size: 0.9rem;
+    float: right;
     width: 70px;
+    margin-right: 20px;
     background-color: #71a381;
     height: 20px;
     border-radius: 4px; 
   }
 
+
   .nuevo-clienteMovil{
-    display:block;
+    display:none;
     width: 280px;
     border-radius: 4px;
     margin-bottom: 5px;
@@ -165,11 +415,11 @@ display: none;
     #busqueda-clienteMovil{
       display:inline-block;
       width: 315px;
-      margin-top: 290px;
-      position: relative;
+      margin-top: 390px;
+      position: absolute;
       border-radius: 4px;
       margin-bottom: 5px;
-      margin-left: 30px;
+      margin-left: 0px;
       font-size: 1rem;
       text-align: left;
       color: rgb(26, 28, 27);
@@ -187,13 +437,26 @@ display: none;
         }
 
 
+        .btnClienteNuevo{
+          font-size: 0.9rem;
+          margin-top: 8px;
+          float: right;
+         display: block;
+          width: 100px;
+          margin-right: -40px;
+          background-color: #71a381;
+          height: 20px;
+          border-radius: 4px; 
+        }
+
+
 
  
 /*--------------Pendientes------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------
-----------------------------------------------------------------------------------------------------------------------------*/
+----------------------------------------------------------------------------------------*/
 #info-pendientes{
   background-color: aquamarine;
 width: 260px;
@@ -208,26 +471,101 @@ margin-left: 15px;
  font-size: 1rem;
 
 } 
+.btnProduct{
+  font-size: 0.9rem;
+  float: left;
+  width: 98px;
+  margin-left: 160px;
+  background-color: #71a381;
+  height: 20px;
+  border-radius: 4px; 
+}
+.espaciado{
+ 
+  height: 10px;
 
-#newPedido {
-  margin-top: 240px;
-  text-align: right;
-  width: 240px;
-  height: 200;
-  margin-left: 70px;
-  background-color: #ffffff;
-  position: absolute;
-  border-radius: 8px;
-  margin-bottom: 10px;
 }
 
+.listadoProductos{
+  font-size: 0.9rem;
+  margin-right: 60px;
+  height: 20px;
+  width: 190px;
+  background-color: #fff;
+  text-align: left;
+  float: left;
+  margin-top: 8px;
+  padding-top: 2.5px;
+  padding-left: 0px;
+position: relative;
+}
+.listadoClientes{
+  font-size: 0.9rem;
+  height: 20px;
+  width: auto;
+  background-color: #fff;
+  text-align: right;
+  margin-top: 3px;
+  padding-top: 2.5px;
+  padding-left: 0px;
+}
+.formClienteCantidad{
+  font-size: 0.9rem;
+  width: 40px;
+  margin-top: 0px;
+  padding-top: 2.5px;
+  margin-right: 20px;
+  float: right;
+  border: 1px;
+  background-color: #eceaea;
+  height: 20px;
+  border-radius: 2px;
+}
+.boxCantidad{
+  background-color: #e7d6ae;
+  border-radius: 4px;
+  margin-top: -26px;
+  width: 25px;
+  padding-left: 3px;
+  margin-right: 20px;
+  position: relative;
+  float: right;
+  display:block;
+}
+.boxProductoform{
+  background-color: #e7d6ae;
+  border-radius: 4px;
+  margin-top: -26px;
+  width: 85px;
+  padding-left: 3px;
+  margin-right: 20px;
+  position: relative;
+  float: right;
+  display:block;
+}
+.boxProductoform1{
+
+  border-radius: 4px;
+  margin-top: -26px;
+  height: 18px;
+  width: 98px;
+  padding-left: 3px;
+  margin-left: 160px;
+  border: 1px;
+  background-color: #eceaea;
+  height: 20px;
+  border-radius: 2px;
+  position: relative;
+  float: left;
+  display:block;
+}
 
 #contenedor-pedidosPendientes{
-  margin-left: 20%;
-  margin-top: 20px;
-  width: 440px;
+  margin-left: 0px;
+  margin-top: 0px;
+  width: 290px;
   height: auto;
-  background-color: #ffffff;
+  background-color: #fff;
   position: absolute;
 
 }
@@ -254,6 +592,122 @@ margin-left: 15px;
     }
 
 
+
+    /*--------------Realizados------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------*/
+#contenedor-pedidosRealizados{
+  margin-left: 0px;
+  margin-top: 0px;
+  width: 290px;
+  height: auto;
+  background-color: #fff;
+  position: absolute;
+
+}
+#tableroRealizadoTotalWeb{
+  display: block;
+  width: auto;
+  margin-left: -10px;
+  margin-right: auto;
+  padding: 8px; /* Ajusta el espaciado según sea necesario */
+  border-radius: 4px;
+}
+
+.btnClienteBuscador{
+  font-size: 0.9rem;
+  width: 118px;
+  margin-left: 102px;
+  margin-top: 8px;
+  background-color: #71a381;
+  height: 20px;
+  border-radius: 4px; 
+}
+.listadobuscadorCliente{
+  font-size: 0.9rem;
+  float: left;
+  height: 20px;
+  width: auto;
+  background-color: #fff;
+  text-align: left;
+  margin-top: 8px;
+  padding-top: 2.5px;
+  padding-left: 0px;
+}
+.formClienteRealizado{
+  font-size: 0.9rem;
+  display: inline;
+  margin-top: 8px;
+  margin-left: 68px;
+  border: 1px;
+  background-color: #eceaea;
+  height: 20px;
+  border-radius: 2px;
+}
+
+    /*------------------------------------PRODUCTOS--------------------
+-----------------------------------------------------------------------
+------------------------------------------------------------------------*/
+
+#contenedor-productosAdmin {
+  margin-left: 0px;
+  margin-top: 0px;
+  width: 290px;
+  height: auto;
+  background-color: #fff;
+  position: absolute;
+  
+}
+
+#formNuevoProducto {
+  display: block;
+  margin-top: -10px;
+  width: 260px;
+  background-color: #fff;
+  height: 250px;
+  margin-left: 8px;
+  margin-right: auto;
+  padding: 8px; /* Ajusta el espaciado según sea necesario */
+  border-radius: 4px;
+}
+.marginProducto{
+  margin-top: 10px;
+text-align: left;
+  background-color: #719ecb;
+}
+.productoInfoAdmin {
+  margin-left: 10px;
+  padding-top: 20px;
+  padding-bottom: 6px;
+  padding-right: 10px;
+  height: 360px;
+  font-size: 0.95rem;
+  width: 260px;
+  padding-left: 10px;
+  display: block;
+  background-color: #ffffff;
+  position: relative;
+  border-radius: 8px;
+  margin-top: 10px; /* Agrega un margen en la parte superior */
+}
+
+.botones-container {
+  display: flex;
+  margin-left: 100px;
+ 
+ 
+  background-color: #fff; /* Alinea verticalmente los elementos */
+}
+#slide-productoAdmin {
+  position: absolute;
+  text-align: center;
+  margin-top: 240px;
+  width: 290px;
+  height: auto;
+  background-color: #fff;
+}
     /*------------------------------------DELIVERY--------------------
 -----------------------------------------------------------------------
 ------------------------------------------------------------------------*/
@@ -275,21 +729,69 @@ margin-left: 15px;
   background-color: #fff;
   margin-bottom: 170px;
 }
+/* #tableroPendienteTotalWeb{
+  width: 260px;
+  position: absolute;
+  margin-left: 8px;
+  padding-bottom: 20px;
+  margin-top: auto;
+  padding-left: 8px;
+  padding-top: 10px;
+  display: block;
+  height: auto;
+  background-color: #fff;
+}
+
+#newPedido {
+  margin-top: 0px;
+  width: 260px;
+  height: auto;
+  margin-left: 0px;
+  display: block;
+  background-color: #a6dd94;
+  position: relative;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
 
 #boxPedido{
-  width: 340px;
+  width: 260px;
   font-size: 1.1rem;
   margin-left: 0px;
   margin-right: 2px;
-  display: inline-block;
-  margin-top: 10px;
+  display: block;
+  margin-top: 0px;
   padding-left: 20px;
-  padding-top: 8px;
+  padding-top: 0px;
   border-radius: 4px;
   background-color:  #f8e697a3;
   height: auto;
-  position:relative;
+  position:absolute;
 
+} */
+
+
+
+#tableroPendienteTotalWeb,
+#newPedido,
+#boxPedido {
+  display: block;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 8px; /* Ajusta el espaciado según sea necesario */
+  border-radius: 4px;
+}
+
+#boxPedido{
+  
+margin-left: 16px;
+}
+#tableroPendienteTotalWeb
+{
+  
+margin-left: -10px;
+margin-bottom: 120px;
 }
 #boxPedidoDelivery{
   width: 340px;
