@@ -6,7 +6,7 @@
 @media screen and (max-width : 600px) {
   #logoAdmin {
     height: 60px;
-    margin-left: 32px;
+    margin-left: 52px;
     margin-top: 50px;
     position: absolute;
     width: 100px;
@@ -86,7 +86,7 @@
     width: 100px;
     margin: 0px;
     margin-top: -100px;
-    padding-left: 62px;
+    padding-left: 82px;
     position: relative;
  
   }
