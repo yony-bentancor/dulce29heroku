@@ -42,7 +42,7 @@
                 var username = "{{ userRes.username }}"; // Obtén el valor de username desde tu aplicación
 
                 deliveryLink.addEventListener("click", function () {
-                  var url = "/session/deliveryentregado/" + encodeURIComponent(username);
+                  var url = "https://dulce29.herokuapp.com/session/deliveryentregado/" + encodeURIComponent(username);
                   window.location.href = url;
                 });
               </script>

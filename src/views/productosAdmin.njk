@@ -25,9 +25,9 @@
             <li>
               <a href="/session/entregados">PEDIDOS ENTREGADOS</a>
             </li>
-            <li>
+            {#    <li>
               <a href="/session/estadisticas">ESTADISTICAS</a>
-            </li>
+            </li> #}
             <li>
               <a href="/session/productosAdmin">PRODUCTOS</a>
             </li>
@@ -63,7 +63,7 @@
                 <div class="botones-container">
 
                   <form name="formulario" method="get" action="/producto/deleteproducto{{ producto.name}}", productoController.deleteProducto>
-                    <input type="image" id="image" alt="delete" src="http://localhost:3001/static/img/borrado1.png" onclick="return confirm('¿Estás por eliminar un producto?')">
+                    <input type="image" id="image" alt="delete" src="https://dulce29.herokuapp.com/static/img/borrado1.png" onclick="return confirm('¿Estás por eliminar un producto?')">
                   </form>
 
                   <br>

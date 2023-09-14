@@ -25,9 +25,9 @@
             <li>
               <a href="/session/entregados">PEDIDOS ENTREGADOS</a>
             </li>
-            <li>
+            {#    <li>
               <a href="/session/estadisticas">ESTADISTICAS</a>
-            </li>
+            </li> #}
             <li>
               <a href="/session/productosAdmin">PRODUCTOS</a>
             </li>
@@ -92,58 +92,59 @@
         {% endfor %}
 
       </div>
-    </div>
 
-    <div id="newUserMovil">
-      <form name="formulario"  method="post" action="/session/newuser", userController.login>
-        <div class="row">
-          <div class="col-12 nuevoClientetxt">
-            <label for="username" >NUEVO CLIENTE</label>
+      <div id="newUserMovil">
+        <form name="formulario"  method="post" action="/session/newuser", userController.login>
+          <div class="row">
+            <div class="col-12 nuevoClientetxt">
+              <label for="username" >NUEVO CLIENTE</label>
+            </div>
+
           </div>
 
-        </div>
+          <div class="row alineadoFormCliente">
+            <div class="col-6">
+              <label for="username" class="formClientetxt">NOMBRE</label>
+            </div>
+            <div class="col-6">
+              <input type="text" name="username" id="username" value="{{username}}" class="formCliente" required="true"/>
+            </div>
+          </div>
 
-        <div class="row">
-          <div class="col-6">
-            <label for="username" class="formClientetxt">NOMBRE</label>
+          <div class="row alineadoFormCliente">
+            <div class="col-6">
+              <label for="telefono" class="formClientetxt">TELEFONO</label>
+            </div>
+            <div class="col-6">
+              <input type="text" name="telefono" id="telefono" value="{{telefono}}" class="formCliente" required="true"/>
+            </div>
           </div>
-          <div class="col-6">
-            <input type="text" name="username" id="username" value="{{username}}" class="formCliente" required="true"/>
-          </div>
-        </div>
 
-        <div class="row">
-          <div class="col-6">
-            <label for="telefono" class="formClientetxt">TELEFONO</label>
+          <div class="row alineadoFormCliente">
+            <div class="col-6">
+              <label for="direccion" class="formClientetxt">DIRECCION</label>
+            </div>
+            <div class="col-6">
+              <input type="text" name="direccion" id="direccion" value="{{direccion}}" class="formCliente" required="true"/>
+            </div>
           </div>
-          <div class="col-6">
-            <input type="text" name="telefono" id="telefono" value="{{telefono}}" class="formCliente" required="true"/>
-          </div>
-        </div>
 
-        <div class="row">
-          <div class="col-6">
-            <label for="direccion" class="formClientetxt">DIRECCION</label>
+          <div class="row alineadoFormCliente">
+            <div class="col-6">
+              <label for="email" class="formClientetxt">EMAIL</label>
+            </div>
+            <div class="col-6">
+              <input type="text" name="email" id="email" value="{{email}}" class="formCliente" required="true"/>
+            </div>
           </div>
-          <div class="col-6">
-            <input type="text" name="direccion" id="direccion" value="{{direccion}}" class="formCliente" required="true"/>
-          </div>
-        </div>
 
-        <div class="row">
-          <div class="col-6">
-            <label for="email" class="formClientetxt">EMAIL</label>
-          </div>
-          <div class="col-6">
-            <input type="text" name="email" id="email" value="{{email}}" class="formCliente" required="true"/>
-          </div>
-        </div>
+          <div class="row ">
 
-        <div class="row">
-          <div class="col-12">
-            <button type="submit" name="button" class="btn-primary btnCliente">REGISTRAR</button>
+            <div class="col-12">
+              <button type="submit" name="button" class="btn-primary btnClienteNuevo">REGISTRAR</button>
+            </div>
           </div>
-        </div>
+        </form>
       </div>
     </div>
 
@@ -170,44 +171,39 @@
 
           </div>
           <div class="col-1"></div>
+
+        </div>
+
+        <div id="busqueda-clienteMovil">
+          <div class="row">
+            <div class="col-4">
+              <strong>NOMBRE</strong>
+            </div>
+            <div class="col-2">
+              <strong>TELEFONO </strong>
+            </div>
+            <div class="col-2">
+              <strong>DIRECCION </strong>
+            </div>
+            <div class="col-4">
+              <strong>EMAIL </strong>
+            </div>
+
+          </div>
+          <div class="row rowClienteMovil">
+            <div class="col-4">
+              {{ usuariosBusqueda.username }}</div>
+            <div class="col-2">
+              {{ usuariosBusqueda.telefono }}</div>
+            <div class="col-2">
+              {{ usuariosBusqueda.direccion }}</div>
+            <div class="col-4">
+              {{ usuariosBusqueda.email }}
+            </div>
+          </div>
+
         </div>
       </div>
+    </body>
 
-      <div id="busqueda-clienteMovil">
-        <div class="row rowClienteMovil">
-          <div class="col-4">
-            <strong>NOMBRE</strong>
-          </div>
-          <div class="col-2">
-            <strong>TELEFONO </strong>
-          </div>
-          <div class="col-2">
-            <strong>DIRECCION </strong>
-          </div>
-          <div class="col-4">
-            <strong>EMAIL </strong>
-          </div>
-
-        </div>
-        <div class="row rowClienteMovil">
-          <div class="col-4">
-            {{ usuariosBusqueda.username }}</div>
-          <div class="col-2">
-            {{ usuariosBusqueda.telefono }}</div>
-          <div class="col-2">
-            {{ usuariosBusqueda.direccion }}</div>
-          <div class="col-4">
-            {{ usuariosBusqueda.email }}
-          </div>
-        </div>
-        {#   <div class="col-12">
-          <strong>
-            {{usuariosBusqueda.username }}
-            <a href="https://wa.me/ {{ usuariosBusqueda.telefono }}">whatsapp</a>
-          </strong>
-        </div> #}
-      </div>
-    </div>
-  </body>
-
-{% endblock %}
+  {% endblock %}
