@@ -79,7 +79,7 @@ toggle between hiding and showing the dropdown content */
             </div>
 
             <div class="col-5">
-              <input class="formCliente" list="browsers" name="browser" id="browser">
+              <input class="formClienteRealizado" list="browsers" name="browser" id="browser">
               <datalist id="browsers">
                 {% for pedido in pedidossinrepetir %}
                   <option value="{{ pedido.username }}"></option>
@@ -137,7 +137,7 @@ toggle between hiding and showing the dropdown content */
 
                   <div class="col-6 boxTxtCliente">
                     <form name="formulario" method="post" action="/session/deletepedido{{ pedido.Numero_pedido}}", pedidoController.deletePedido>
-                      <input type="image" id="image" alt="delete" src="https://dulce29.herokuapp.com/static/img/borrado1.png" onclick="return confirm('¿Estás por eliminar un pedido?')">
+                      <input type="image" id="image" alt="delete" src="http://localhost:3001/static/img/borrado1.png" onclick="return confirm('¿Estás por eliminar un pedido?')">
                     </form>
                   </div>
                 </div>
@@ -167,6 +167,15 @@ toggle between hiding and showing the dropdown content */
 
                       </div>
                     {% endfor %}
+                  </div>
+                </div>
+
+              </div>
+              <div id="box6" class="{{ pedido.Estado }}">
+                <div class="row">
+                  <div class="col-12">
+                    {{ pedido.Pago }} || {{pedido.Monto_total }}
+
                   </div>
                 </div>
               </div>
@@ -235,7 +244,7 @@ toggle between hiding and showing the dropdown content */
       {% endfor %} #}
       </div>
 
-      <div id="tableroPendienteTotalWeb">
+      <div id="tableroRealizadoTotalWeb">
 
         <div class="row">
           <div class="col-9">
