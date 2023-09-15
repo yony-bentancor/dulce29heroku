@@ -498,11 +498,12 @@ height: 20px;
   top: 0;
   left: 0;
   margin-left: 58px;
+  position: absolute;
   padding-bottom: 20px;
-  margin-top: 30px;
+  margin-top: 530px;
   padding-left: 10px;
   padding-top: 10px;
-  display: inline-block;
+
   height: auto;
   background-color: #fff;
 }
@@ -540,6 +541,7 @@ height: 20px;
     word-break: break-all;
     margin-left: 20px;
     padding-left: 20px;
+    padding-top: 3px;
     display: block;
     margin-bottom: 5px;
     border-radius: 4px;
@@ -618,6 +620,20 @@ height: 28px;
    display: flex;
   flex-wrap: wrap;
   align-items: flex-start; 
+
+}
+#boxPedidoRealizado{
+  width: 720px;
+  margin-left: 30px;
+  margin-top: 10px;
+  background-color: #fff;
+  height: auto;
+  z-index: 1;
+  padding-left: 0px;
+   display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start; 
+
 }
 #espaciadoBottom{
   width: auto;
@@ -730,7 +746,7 @@ font-size: 1rem;
    background-color: #777373; 
    position: relative;
    display: block;
-   font-size: 0.9rem;
+   font-size: 1.1rem;
    margin-left: 15px;
  } 
 
@@ -871,15 +887,16 @@ text-align: left;
 }
 
 #newPedido {
-  margin-top: 8px;
+  margin-top: -470px;
   padding-left: 10px;
  text-align: left;
+ position: relative;
  float: right;
   width: 290px;
   height: auto;
   margin-right: 10px;
   background-color: #fff;
-display: inline;
+
   border-radius: 4px;
   margin-bottom: 10px;
 }
@@ -894,6 +911,17 @@ display: inline;
   font-weight: bold;
   height: 22px;
   }
+  .nuevoPedidoPendiente{
+    background-color: #afafaf3e;
+    margin-bottom: 8px;
+  
+   text-align: center;
+    font-size: 1.1rem;
+    padding-top: 2px;
+    width: 295px;
+    font-weight: bold;
+    height: 22px;
+    }
   .nuevoClientetxt{
     background-color: #afafaf3e;
     margin-bottom: 8px;
@@ -997,6 +1025,22 @@ display: inline;
   position: relative;
 
 }
+.pedidoRealizadosTotal{
+  background-color: #f9f9f7e8;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-left: 20px;
+  padding-left: 20px;
+  padding-top: 3px;
+  display: block;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: left;
+  width: 260px;
+  height: 20px;
+  }
 
 .formClienteRealizado{
   font-size: 0.9rem;
@@ -1011,16 +1055,16 @@ display: inline;
 
 #tableroRealizadoTotalWeb{
   width: 390px;
-  top: 0;
-  left: 0;
-  margin-left: 58px;
+
+  margin-left: 724px;
+  position: absolute;
   padding-bottom: 20px;
-  margin-top: 30px;
+  float: right;
   padding-left: 10px;
-  padding-top: 10px;
-  display: inline-block;
+  margin-top: 120px;
   height: auto;
   background-color: #fff;
+
 }
 .boxTxtEstadoRealizado{
   text-align: center;
@@ -1030,17 +1074,18 @@ display: inline;
   }
 
 #buscadorRealizados {
-  margin-top: 8px;
+  margin-top: -466px;
   padding-left: 10px;
  text-align: left;
+ position: relative;
  float: right;
   width: 290px;
   height: auto;
   margin-right: 10px;
   background-color: #fff;
-display: inline;
   border-radius: 4px;
   margin-bottom: 10px;
+  
 }
 
 .inputClienteBusqueda{
@@ -1229,6 +1274,21 @@ height: 38px;
   text-align: left;
 
   height: 40px;
+  }
+
+  #tableroEntregadoTotalWeb{
+    width: 390px;
+    top: 0;
+    left: 0;
+    margin-left: 735px;
+    position: absolute;
+    padding-bottom: 20px;
+    margin-top: 100px;
+    padding-left: 10px;
+    padding-top: 10px;
+    float: right;
+    height: auto;
+    background-color: #fff;
   }
 #tableroEntregadoTotal{
   margin-top: 30px;

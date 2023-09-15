@@ -256,40 +256,57 @@
   }
 
 
-  #navbarAdministrador {
-    margin-top: 140px;
-    margin-left: 3px;
-    width: 300px;
-    height: 30px;
-    background-color: #ffffff;
-    font-size: 1rem;
-    font-weight: 800;
-    display: inline-block;
+
   
+
+  #navbarAdministrador {
+    margin-top: 160px;
+    margin-left: 0px;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    font-size: 2.2rem;
+    font-weight: 800;
+    display:block;
+  
+  }
+  ul.menu {
+    /* Estilos para la lista desordenada con la clase 'menu' */
+    list-style: none; /* Elimina los marcadores predeterminados de la lista */
+    padding: 0; /* Elimina el relleno predeterminado de la lista */
+    margin: 0;
+  /* Elimina el margen predeterminado de la lista */
+    /* Otros estilos personalizados que desees agregar */
   }
   #navbarAdministrador .menu-toggle {
     display: block; /* Muestra el botón de desplegar/ocultar el menú */
-    text-align: center;
+    text-align: left;
+    margin-left: 128px;
+    width: 30px;
+    height: 20px;
     background-color: #333;
     color: #fff;
     padding: 10px;
     cursor: pointer;
+    margin-top: -20px;
   }
 
   #navbarAdministrador .menu {
     display: none; /* Oculta la lista de navegación */
+
    
   }
 
   #navbarAdministrador .menu-toggle:checked ~ .menu {
     display: block; /* Muestra la lista de navegación cuando se hace clic en el botón */
-    bottom: 110%; /* Ubica la lista debajo del botón */
-    font-size: 0.9rem;
-    position: relative;
-    padding-top: 160px;
-    width: 320px;
+    bottom: 100%; /* Ubica la lista debajo del botón */
+    font-size: 1.1rem;
+    float: left;
+    margin-top: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 280px;
     margin-left: 10px; /* Alinea la lista a la izquierda */
-    background-color: #ffffff; /* Cambia el color de fondo de la lista */
+    background-color: #fff; /* Cambia el color de fondo de la lista */
     padding: 0px; /* Añade espaciado interno a la lista */
   }
  
@@ -298,6 +315,7 @@
     display: block;
     text-align: center;
     cursor: pointer;
+    background-color: #719ecb;
   
   }
   .formClientetxt{
@@ -608,13 +626,63 @@ position: relative;
   position: absolute;
 
 }
-#tableroRealizadoTotalWeb{
+
+
+
+#tableroRealizadoTotalWeb {
   display: block;
+  position: absolute;
+  width: 270px;
+  height: 300px; /* Altura fija de 200px */
+  margin-top: 10px;
+  margin-left: 0px;
+  padding: 8px; /* Ajusta el espaciado según sea necesario */
+  border-radius: 4px;
+  background-color: #fff;
+  overflow-y: auto; /* Agrega scroll vertical si el contenido excede la altura */
+}
+.pedidoRealizadosTotal{
+  background-color: #f9f9f7e8;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-left: 20px;
+  padding-left: 20px;
+  padding-top: 3px;
+  display: block;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: left;
+  width: 200px;
+  height: 20px;
+  }
+
+#boxPedidoRealizado {
+  display: block;
+  position: relative;
   width: auto;
-  margin-left: -10px;
+  height: auto;
+  margin-left: auto;
   margin-right: auto;
   padding: 8px; /* Ajusta el espaciado según sea necesario */
   border-radius: 4px;
+  margin-top: 300px;
+}
+#buscadorRealizados {
+  margin-top: 8px;
+  padding-left: 10px;
+ text-align: left;
+ float: right;
+  width: 290px;
+  height: 60px;
+  position: absolute;
+  margin-right: 10px;
+  background-color: #fff;
+display: block;
+
+  border-radius: 4px;
+  padding-bottom: 170px;
 }
 
 .btnClienteBuscador{
@@ -664,7 +732,7 @@ position: relative;
 
 #formNuevoProducto {
   display: block;
-  margin-top: -10px;
+  margin-top: 0px;
   width: 260px;
   background-color: #fff;
   height: 250px;
@@ -709,6 +777,35 @@ text-align: left;
   height: auto;
   background-color: #fff;
 }
+
+
+   /*------------------------------------Realizados --------------------
+-----------------------------------------------------------------------
+------------------------------------------------------------------------*/
+
+
+
+
+  /*------------------------------------ENTREGADOS--------------------
+-----------------------------------------------------------------------
+------------------------------------------------------------------------*/
+
+
+#tableroEntregadoTotalWeb{
+  width: 280px;
+  display: block;
+
+ 
+position: relative;
+  padding-bottom: 20px;
+  margin-right: 20px;
+  margin-top: 0px;
+  padding-left: 10px;
+  padding-top: 10px;
+  height: auto;
+  background-color: #fff;
+}
+
     /*------------------------------------DELIVERY--------------------
 -----------------------------------------------------------------------
 ------------------------------------------------------------------------*/
@@ -784,16 +881,140 @@ text-align: left;
   border-radius: 4px;
 }
 
+#info-pendientesBox{
+
+  width: 220px;
+
+  height: 200px;
+  background-color: #fff; 
+  border-radius: 4px;
+  position: relative;
+  display: inline-block;
+  font-size: 0.9rem;
+  margin-left: 15px;
+  margin-bottom:38px;
+} 
+
 #boxPedido{
   
-margin-left: 16px;
+margin-left: 0px;
+font-size: 1.1rem;
+width: 270px;
+background-color: #fff;
 }
-#tableroPendienteTotalWeb
-{
-  
+#box6{
+
+  width: 220px;
+  text-align: center;
+  background-color: #717068;
+margin-top: 130px;
 margin-left: -10px;
-margin-bottom: 120px;
+color: #fff;
+font-size: 1rem;
+  height: 20px;
+  padding-top: 4px;
+
+} 
+#box3{
+
+  width: 195px;
+margin-top: 0px;
+float: left;
+margin-left: 5px;
+  height: auto;
+  background-color: #c2c5b3; 
+
+} 
+#box5 {
+  width: 195px;
+  margin-top: 5px;
+  margin-left: 10%;
+    height: auto;
+    background-color: #c5c0b3; 
 }
+#box4{
+
+  width: 195px;
+margin-top: 5px;
+margin-left: 5px;
+  height: auto;
+  background-color: #c5c0b3; 
+
+} 
+#newPedido{
+  margin-top: auto;
+  position: relative;
+  padding-bottom: 160px;
+}
+.boxTxtCliente{
+  text-align: center;
+  align-items: center;
+  background-color: #fff;
+  height: 20px;
+  font-size: 1.1rem;
+
+  
+  }
+  #box2 {
+    width: 10px;
+    height: auto;
+    padding-left: 28px;
+   font-size: 1rem;
+   font-weight: 700;
+    margin-top: 5px;
+    display: inline-block;
+    vertical-align: top; /* Alinea en la parte superior */
+  }
+
+  #boxunodos {
+    width: 210px;
+    font-size: 0.99rem;
+   margin-left: 0px;
+    margin-top: 5px;
+    padding-left: 0px;
+    position: absolute;
+    max-height: 120px;
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    background-color: #fff;
+    display: inline-block;
+  }
+
+.boxTxt{
+  text-align: center;
+  font-size: 1.1rem;
+  background-color: #c2cfe2;
+  padding-top: 3px;
+ 
+ 
+  }
+
+
+#tableroPendienteTotalWeb{
+  width: 280px;
+  top: 0;
+  left: 0;
+  margin-left: -10px;
+  position: relative;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  padding-left: 10px;
+  padding-top: 10px;
+  height: auto;
+  background-color: #fff;
+}
+
+.nuevoPedidoPendiente{
+  background-color: #afafaf3e;
+  margin-bottom: 8px;
+
+ text-align: center;
+  font-size: 1.1rem;
+  padding-top: 2px;
+  width: 270px;
+  font-weight: bold;
+  height: 22px;
+  }
 #boxPedidoDelivery{
   width: 340px;
   font-size: 1.1rem;
@@ -976,11 +1197,11 @@ padding-bottom: 3px;
   padding-left: 4px;;
   padding-right: 4px;
   padding-bottom: 4px;
-  display: inline;
+  display: block;
   border-radius: 4px;
   margin-bottom: 5px;
   font-size: 1rem;
-  text-align: center;
+  text-align: left;
   width: 20px;
   height: 20px;
     }
@@ -996,7 +1217,7 @@ padding-bottom: 3px;
       padding-left: 4px;;
       padding-right: 4px;
       padding-bottom: 4px;
-      display: inline;
+      display: block;
       border-radius: 4px;
       margin-bottom: 5px;
       font-size: 1rem;

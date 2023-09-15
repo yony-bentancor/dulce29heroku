@@ -38,7 +38,7 @@ toggle between hiding and showing the dropdown content */
       <div class="row">
         <div class="col-12">
           <input type="checkbox" id="menu-toggle" class="menu-toggle">
-          <label for="menu-toggle" class="menu-toggle-label">&#9776;</label>
+          {#      <label for="menu-toggle" class="menu-toggle-label">&#9776;</label> #}
           <ul class="menu" >
             <li>
               <a href="/session/clientes">CLIENTES</a>
@@ -54,7 +54,7 @@ toggle between hiding and showing the dropdown content */
            PEDIDOS ENTREGADOS
               </a>
             </li>
-            {#      <li>
+            {#   <li>
               <a href="/session/estadisticas">ESTADISTICAS</a>
             </li> #}
             <li>
@@ -89,6 +89,55 @@ toggle between hiding and showing the dropdown content */
           <div class="col-4">{{contadorEfectivo}}</div>
           <div class="col-4"></div>
 
+        </div>
+
+      </div>
+
+      <div id="tableroEntregadoTotalWeb">
+
+        <div class="row">
+          <div class="col-9">
+            <!-- Columna para el nombre del producto -->
+            <ul >
+
+              <li class="pedidoPendientesTotal">
+                <strong>TOTAL PEDIDOS ENTREGADOS</strong>
+              </li>
+
+            </ul>
+          </div>
+
+          <div class="col-3">
+            <label class="rowpedidoEntregadosTotalDatos">
+              {{ contadorEntregados }}</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-9">
+            <!-- Columna para el nombre del producto -->
+            <ul >
+              {% for mensaje in mensajes %}
+                <li class="pedidoPendientesTotal">{{ mensaje.nombre }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="col-3">
+            <!-- Columna para la cantidad -->
+            <ul>
+              {% for mensaje in mensajes %}
+                <li class="rowpedidoEntregadosTotalDatos">{{ mensaje.cantidad }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {#   {% for producto, cantidad in pedidos %}
+                  <div class="col-10">
+                    <label class="infoPendientesBoxNombre">{{ pedido.producto }}</label>
+                  </div>
+                  <div class="col-2">
+                    <label class="infoPendientesBox">{{ pedido.cantidad }}</label>
+                  </div>
+                {% endfor %} #}
         </div>
 
       </div>
@@ -238,53 +287,6 @@ toggle between hiding and showing the dropdown content */
 
           </div> #}
         {% endfor %}
-      </div>
-
-      <div id="tableroPendienteTotalWeb">
-
-        <div class="row">
-          <div class="col-9">
-            <!-- Columna para el nombre del producto -->
-            <ul >
-
-              <li class="pedidoPendientesTotal">TOTAL PEDIDOS</li>
-
-            </ul>
-          </div>
-
-          <div class="col-3">
-            <label class="rowpedidoEntregadosTotalDatos">
-              {{ contadorEntregados }}</label>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-9">
-            <!-- Columna para el nombre del producto -->
-            <ul >
-              {% for mensaje in mensajes %}
-                <li class="pedidoPendientesTotal">{{ mensaje.nombre }}</li>
-              {% endfor %}
-            </ul>
-          </div>
-          <div class="col-3">
-            <!-- Columna para la cantidad -->
-            <ul>
-              {% for mensaje in mensajes %}
-                <li class="rowpedidoEntregadosTotalDatos">{{ mensaje.cantidad }}</li>
-              {% endfor %}
-            </ul>
-          </div>
-          {#   {% for producto, cantidad in pedidos %}
-                  <div class="col-10">
-                    <label class="infoPendientesBoxNombre">{{ pedido.producto }}</label>
-                  </div>
-                  <div class="col-2">
-                    <label class="infoPendientesBox">{{ pedido.cantidad }}</label>
-                  </div>
-                {% endfor %} #}
-        </div>
-
       </div>
 
     </div>
