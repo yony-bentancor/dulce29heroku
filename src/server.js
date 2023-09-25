@@ -14,7 +14,7 @@ const userRoutes = require("./routes/user.routes");
 const nodemailer = require("nodemailer");
 const AWS = require("aws-sdk");
 
-AWS.config.update({ region: "us-east-1" });
+AWS.config.update({ region: "us-east-2" });
 
 // Ahora puedes utilizar el SDK de AWS para interactuar con los servicios de AWS
 const s3 = new AWS.S3();
