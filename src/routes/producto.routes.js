@@ -7,7 +7,7 @@ const upload = require("../middleware/storage");
 
 router.post(
   "/newproducto",
-  upload.single("image"),
+  upload.single("img"),
   productoController.newProducto
 );
 router.get("/newproducto", productoController.pageNewProducto);

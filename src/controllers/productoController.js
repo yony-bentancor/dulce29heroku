@@ -3,7 +3,7 @@ const { CLAVE_SECRETA } = require("../config");
 const Producto = require("../models/Producto");
 const Pedido = require("../models/Pedido");
 const multer = require("multer");
-const upload = multer({ dest: "./archivos" });
+const upload = multer({ dest: "./uploads" });
 const fs = require("fs");
 
 module.exports = {
