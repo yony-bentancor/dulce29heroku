@@ -40,7 +40,7 @@ app.use("/posteo", posteoRoutes);
 app.use("/session", userRoutes);
 app.use(express.static("/"));
 app.set("view engine", "njk");
-/* app.use("/static", express.static(__dirname + "/public")); */
+app.use("/static", express.static(__dirname + "/public"));
 app.use(express.static(path.join(__dirname, "public")));
 
 // Configura Multer para manejar la carga de archivos
