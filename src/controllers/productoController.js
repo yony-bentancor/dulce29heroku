@@ -91,7 +91,7 @@ module.exports = {
       });
       // Configuración del objeto a subir a S3
       const params = {
-        Bucket: "NOMBRE_DE_TU_BUCKET",
+        Bucket: "dulce29proyecto",
         Key: fileName,
         Body: req.file.buffer,
       };
@@ -103,12 +103,10 @@ module.exports = {
           res.status(500).json({ error: "Error al subir el archivo a S3" });
         } else {
           console.log("Archivo subido a S3:", data.Location);
-          res
-            .status(200)
-            .json({
-              message: "Archivo subido correctamente",
-              url: data.Location,
-            });
+          res.status(200).json({
+            message: "Archivo subido correctamente",
+            url: data.Location,
+          });
         }
       });
 
