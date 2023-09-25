@@ -63,6 +63,7 @@ module.exports = {
     try {
       const { name, desc, costoProduccion, precioVenta } = req.body;
       const fileName = req.file.originalname;
+      console.log(fileName);
 
       const productos = await Producto.find({}, "numeroProducto").lean();
 
