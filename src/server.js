@@ -41,17 +41,6 @@ app.use("/session", userRoutes);
 app.use(express.static("/"));
 app.set("view engine", "njk");
 app.use("/static", express.static(__dirname + "/public"));
-app.use(express.static(path.join(__dirname, "public")));
-
-// Configura Multer para manejar la carga de archivos
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, "uploads/"); // Directorio donde se guardarán los archivos
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + "-" + file.originalname);
-  },
-});
-const upload = multer({ storage: storage });
+/* app.use(express.static(path.join(__dirname, "public"))); */
 
 app.listen(PORT, () => console.log(`Servidor corriendo en el puerto ${PORT}!`));
