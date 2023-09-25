@@ -1,5 +1,6 @@
 const { Schema, model } = require("mongoose");
 const { PORT, DB_CONNECTION_STRING, HOST } = require("../config");
+const appConfig = require("../config");
 appConfig = {
   PORT: 80,
   DB_CONNECTION_STRING:
