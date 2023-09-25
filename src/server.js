@@ -12,19 +12,6 @@ const pageRoutes = require("./routes/page.routes");
 const posteoRoutes = require("./routes/posteo.routers");
 const userRoutes = require("./routes/user.routes");
 const nodemailer = require("nodemailer");
-
-const storage = multer.memoryStorage();
-const upload = multer({ storage: storage });
-
-// Configura AWS SDK con tus credenciales
-AWS.config.update({
-  accessKeyId: "yony",
-  secretAccessKey: "0kALTJI&",
-});
-
-// Crea un nuevo objeto de servicio S3
-const s3 = new AWS.S3();
-
 nunjucks.configure("./src/views", {
   autoescape: true,
   express: app,

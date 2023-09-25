@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const multer = require("multer");
+const AWS = require("aws-sdk");
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {

@@ -89,7 +89,17 @@ module.exports = {
         precioVenta,
         numeroProducto: loopContadorProducto,
       });
+
+      // Configura AWS SDK con tus credenciales
+      AWS.config.update({
+        accessKeyId: "yony",
+        secretAccessKey: "0kALTJI&",
+      });
+
+      // Crea un nuevo objeto de servicio S3
+      const s3 = new AWS.S3();
       // Configuración del objeto a subir a S3
+
       const params = {
         Bucket: "dulce29proyecto",
         Key: fileName,
