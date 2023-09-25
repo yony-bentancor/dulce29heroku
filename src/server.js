@@ -5,28 +5,25 @@ const nunjucks = require("nunjucks");
 const db = require("./db");
 var fs = require("fs");
 const multer = require("multer");
+const AWS = require("aws-sdk");
 const path = require("path");
-
 const productoRoutes = require("./routes/producto.routes");
 const pageRoutes = require("./routes/page.routes");
 const posteoRoutes = require("./routes/posteo.routers");
 const userRoutes = require("./routes/user.routes");
 const nodemailer = require("nodemailer");
-const AWS = require("aws-sdk");
 
-AWS.config.update({ region: "us-east-2" });
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
-// Ahora puedes utilizar el SDK de AWS para interactuar con los servicios de AWS
-const s3 = new AWS.S3();
-
-// Ejemplo: listar los buckets de Amazon S3
-s3.listBuckets((err, data) => {
-  if (err) {
-    console.error("Error:", err);
-  } else {
-    console.log("Buckets:", data.Buckets);
-  }
+// Configura AWS SDK con tus credenciales
+AWS.config.update({
+  accessKeyId: "yony",
+  secretAccessKey: "0kALTJI&",
 });
+
+// Crea un nuevo objeto de servicio S3
+const s3 = new AWS.S3();
 
 nunjucks.configure("./src/views", {
   autoescape: true,

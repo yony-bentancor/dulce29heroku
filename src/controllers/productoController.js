@@ -62,6 +62,7 @@ module.exports = {
   newProducto: async (req, res) => {
     try {
       const { name, desc, costoProduccion, precioVenta } = req.body;
+      const fileName = req.file.originalname;
 
       const productos = await Producto.find({}, "numeroProducto").lean();
 
@@ -88,11 +89,33 @@ module.exports = {
         precioVenta,
         numeroProducto: loopContadorProducto,
       });
+      // Configuración del objeto a subir a S3
+      const params = {
+        Bucket: "NOMBRE_DE_TU_BUCKET",
+        Key: fileName,
+        Body: req.file.buffer,
+      };
 
-      if (req.file) {
+      // Sube el archivo a S3
+      s3.upload(params, (err, data) => {
+        if (err) {
+          console.error("Error al subir el archivo a S3:", err);
+          res.status(500).json({ error: "Error al subir el archivo a S3" });
+        } else {
+          console.log("Archivo subido a S3:", data.Location);
+          res
+            .status(200)
+            .json({
+              message: "Archivo subido correctamente",
+              url: data.Location,
+            });
+        }
+      });
+
+      /* if (req.file) {
         const { filename } = req.file;
         product.img = filename;
-      }
+      } */
       const addproductos = await Producto.create(product);
       //res.status(201).json(addteams);
 
