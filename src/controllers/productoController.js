@@ -91,7 +91,7 @@ module.exports = {
 
       if (req.file) {
         const { filename } = req.file;
-        product.setimg(filename);
+        product.img(filename);
       }
       const addproductos = await Producto.create(product);
       //res.status(201).json(addteams);
