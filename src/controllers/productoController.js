@@ -65,7 +65,7 @@ module.exports = {
       /*  const s3ImageURL = req.file;
       console.log(s3ImageURL); */
 
-      const archivoUrl = req.file.location;
+      const archivoUrl = req.file;
       res.json({ mensaje: "Archivo subido correctamente", url: archivoUrl });
 
       console.log(archivoUrl);
