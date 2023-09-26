@@ -62,8 +62,7 @@ module.exports = {
   newProducto: async (req, res) => {
     try {
       const { name, desc, costoProduccion, precioVenta } = req.body;
-      const fileName = req.file.originalname;
-      console.log(fileName);
+      const s3ImageURL = req.file.location;
 
       const productos = await Producto.find({}, "numeroProducto").lean();
 
@@ -89,6 +88,7 @@ module.exports = {
         costoProduccion,
         precioVenta,
         numeroProducto: loopContadorProducto,
+        image: s3ImageURL,
       });
 
       /* if (req.file) {
