@@ -17,20 +17,6 @@ nunjucks.configure("./src/views", {
   autoescape: true,
   express: app,
 });
-
-// Configura multer para gestionar la carga de archivos
-/* const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "public/uploads/productos"); // Directorio donde se guardarán las imágenes
-  },
-  filename: (req, file, cb) => {
-    const timestamp = Date.now();
-    const filename = `${timestamp}-${file.originalname}`;
-    cb(null, filename);
-  },
-});
-
-const upload = multer({ storage }); */
 db();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
