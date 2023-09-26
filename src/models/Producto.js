@@ -11,7 +11,7 @@ const productoSquema = new Schema(
     numeroProducto: { type: Number },
     name: { type: String, required: true },
     desc: { type: String, required: true },
-    img: { type: String },
+    image: { type: String },
     img_min: { type: String },
     precioVenta: { type: Number },
     costoProduccion: { type: Number },

@@ -62,8 +62,7 @@ module.exports = {
   newProducto: async (req, res) => {
     try {
       const { name, desc, costoProduccion, precioVenta } = req.body;
-      const fileName = req.file.originalname;
-      console.log(fileName);
+      const s3ImageURL = req.file.location;
 
       const productos = await Producto.find({}, "numeroProducto").lean();
 
@@ -89,36 +88,7 @@ module.exports = {
         costoProduccion,
         precioVenta,
         numeroProducto: loopContadorProducto,
-      });
-
-      // Configura AWS SDK con tus credenciales
-      AWS.config.update({
-        accessKeyId: "yony",
-        secretAccessKey: "0kALTJI&",
-      });
-
-      // Crea un nuevo objeto de servicio S3
-      const s3 = new AWS.S3();
-      // Configuración del objeto a subir a S3
-
-      const params = {
-        Bucket: "dulce29proyecto",
-        Key: fileName,
-        Body: req.file.buffer,
-      };
-
-      // Sube el archivo a S3
-      s3.upload(params, (err, data) => {
-        if (err) {
-          console.error("Error al subir el archivo a S3:", err);
-          res.status(500).json({ error: "Error al subir el archivo a S3" });
-        } else {
-          console.log("Archivo subido a S3:", data.Location);
-          res.status(200).json({
-            message: "Archivo subido correctamente",
-            url: data.Location,
-          });
-        }
+        image: s3ImageURL,
       });
 
       /* if (req.file) {
