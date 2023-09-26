@@ -4,9 +4,6 @@ const { PORT } = require("./config");
 const nunjucks = require("nunjucks");
 const db = require("./db");
 var fs = require("fs");
-const multer = require("multer");
-const path = require("path");
-
 const productoRoutes = require("./routes/producto.routes");
 const pageRoutes = require("./routes/page.routes");
 const posteoRoutes = require("./routes/posteo.routers");
@@ -28,6 +25,8 @@ app.use("/session", userRoutes);
 app.use(express.static("/"));
 app.set("view engine", "njk");
 app.use("/static", express.static(__dirname + "/public"));
-/* app.use(express.static(path.join(__dirname, "public"))); */
+/*app.use("/public", express.static("${__dirname}/public"));*/
 
-app.listen(PORT, () => console.log(`Servidor corriendo en el puerto ${PORT}!`));
+app.listen(PORT, () =>
+  console.log(`Servidor corriendo en el puerto de heroku ${PORT}!`)
+);
