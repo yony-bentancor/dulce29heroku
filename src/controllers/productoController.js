@@ -65,11 +65,6 @@ module.exports = {
       /*  const s3ImageURL = req.file;
       console.log(s3ImageURL); */
 
-      const archivoUrl = req.file;
-      res.json({ mensaje: "Archivo subido correctamente", url: archivoUrl });
-
-      console.log(archivoUrl);
-
       const productos = await Producto.find({}, "numeroProducto").lean();
 
       let highestProductNumber = null;
@@ -94,13 +89,11 @@ module.exports = {
         costoProduccion,
         precioVenta,
         numeroProducto: loopContadorProducto,
-        imagen: s3ImageURL,
       });
-
-      /* if (req.file) {
-        const { filename } = req.file;
-        product.img = filename;
-      } */
+      // Si se subió una imagen y el middleware multer ya la procesó, la URL estará en req.file
+      if (req.file) {
+        product.imagen = req.file.location; // Asigna la URL de la imagen a la propiedad "img" del producto
+      }
       const addproductos = await Producto.create(product);
       //res.status(201).json(addteams);
 
