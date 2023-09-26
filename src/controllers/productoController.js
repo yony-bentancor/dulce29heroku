@@ -62,7 +62,18 @@ module.exports = {
   newProducto: async (req, res) => {
     try {
       const { name, desc, costoProduccion, precioVenta } = req.body;
-      const s3ImageURL = req.file.location;
+      const s3ImageURL = req.file;
+      console.log(s3ImageURL);
+
+      const file = req.file;
+      if (!file) {
+        return res
+          .status(400)
+          .json({ error: "No se ha cargado ningún archivo." });
+      }
+
+      // Ahora puedes acceder a la información del archivo, como su buffer de datos
+      const buffer = file.buffer;
 
       const productos = await Producto.find({}, "numeroProducto").lean();
 
@@ -88,7 +99,7 @@ module.exports = {
         costoProduccion,
         precioVenta,
         numeroProducto: loopContadorProducto,
-        image: s3ImageURL,
+        imagen: s3ImageURL,
       });
 
       /* if (req.file) {

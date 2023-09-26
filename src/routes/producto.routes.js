@@ -7,7 +7,7 @@ const upload = require("../multer-config"); // Importa la configuración de Mult
 
 router.post(
   "/newproducto",
-  upload.single("image"),
+  upload.single("imagen"),
   productoController.newProducto
 );
 router.get("/newproducto", productoController.pageNewProducto);
