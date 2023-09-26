@@ -72,6 +72,7 @@ module.exports = {
 
       // Ahora puedes acceder a la información del archivo, como su buffer de datos
       const buffer = file.buffer;
+      console.log(buffer);
 
       const productos = await Producto.find({}, "numeroProducto").lean();
 
