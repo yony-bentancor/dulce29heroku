@@ -65,14 +65,10 @@ module.exports = {
       /*  const s3ImageURL = req.file;
       console.log(s3ImageURL); */
 
-      const file = req.file;
-      if (file) {
-        return res.status(400).json({ error: "se ha cargado ún archivo." });
-      }
+      const archivoUrl = req.file.location;
+      res.json({ mensaje: "Archivo subido correctamente", url: archivoUrl });
 
-      // Ahora puedes acceder a la información del archivo, como su buffer de datos
-      const buffer = file.buffer;
-      console.log(buffer);
+      console.log(archivoUrl);
 
       const productos = await Producto.find({}, "numeroProducto").lean();
 
