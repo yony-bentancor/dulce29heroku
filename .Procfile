@@ -5,6 +5,7 @@ web: node server.js
 export MONGODB_URI="mongodb+srv://proyectodulce:dulce29@cluster0.bi9aze0.mongodb.net/?retryWrites=true&w=majority"
 export MONGODB_DB_NAME=proyecto
 
+
 # Instala las dependencias de la aplicación
 npm install
 

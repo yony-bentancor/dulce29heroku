@@ -11,6 +11,9 @@ const uri =
   "mongodb+srv://proyectodulce:dulce29@cluster0.bi9aze0.mongodb.net/?retryWrites=true&w=majority";
 
 const HOST = "https://dulce29.herokuapp.com/";
+
+const accessKeyId = "AKIAY6K62BUG4GBUYHWG";
+const secretAccessKey = "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";
 /* "http://localhost";
  */
 module.exports = {
@@ -19,4 +22,6 @@ module.exports = {
   DB_CONNECTION_STRING,
   HOST,
   uri,
+  accessKeyId,
+  secretAccessKey,
 };
