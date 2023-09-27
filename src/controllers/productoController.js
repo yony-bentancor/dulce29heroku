@@ -2,9 +2,9 @@ const checkJWT = require("express-jwt");
 const { CLAVE_SECRETA } = require("../config");
 const Producto = require("../models/Producto");
 const Pedido = require("../models/Pedido");
-const multer = require("multer");
-const upload = multer({ dest: "./uploads" });
+const multer = require("../multer-config");
 const fs = require("fs");
+const AWS = require("../aws-sdk");
 
 module.exports = {
   pageNewProducto: async (req, res) => {
@@ -63,7 +63,7 @@ module.exports = {
     try {
       const { name, desc, costoProduccion, precioVenta } = req.body;
       const params = {
-        Bucket: "dulce29",
+        Bucket: "proyectodulce29",
         Key: req.file.originalname,
         Body: req.file.buffer,
       };

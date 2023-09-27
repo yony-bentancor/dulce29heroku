@@ -8,4 +8,4 @@ AWS.config.update({
 
 const s3 = new AWC.S3();
 
-/* module.exports = AWS; */
+module.exports = AWS;
