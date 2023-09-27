@@ -12,5 +12,5 @@ npm install
 # Ejecuta las migraciones de la base de datos
 npm run migrate
 
-# Ejecuta la aplicación
+# Ejecuta la aplicaciónes
 npm start
