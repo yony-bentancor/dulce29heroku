@@ -1,0 +1,206 @@
+{% extends "masterAdministrador.njk" %}
+{% block main %}
+  <meta charset="utf-8">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <title>DELIVERY PENDIENTE ENTREGA </title>
+  <script>
+    $(document).ready(function () {
+      $('#mostrarInfoBtn').click(function () {
+        $('#infoPendientes').toggleClass('oculto');
+        $(this).text(function (i, text) {
+          return text === 'Mostrar información'
+            ? 'Ocultar información'
+            : 'Mostrar información';
+        });
+      });
+    });
+  </script>
+
+  <body>
+    <div id="navbarAdministrador">
+
+      <div class="row">
+        <div class="col-12">
+          <input type="checkbox" id="menu-toggle" class="menu-toggle">
+          <label for="menu-toggle" class="menu-toggle-label botonMenu">&#9776;</label>
+          <ul class="menu">
+
+            <li>
+              {#     <a href="/session/deliveryentregado">PEDIDOS ENTREGADOS</a> #}
+              <a href="https://dulce29.herokuapp.com/session/administrador/:" id="deliveryLink">PEDIDOS PENDIENTES</a>
+
+              <script>
+                var deliveryLink = document.getElementById("deliveryLink");
+                var username = "{{ userRes.username }}"; // Obtén el valor de username desde tu aplicación
+
+                deliveryLink.addEventListener("click", function () {
+                  var url = "https://dulce29.herokuapp.com/session/administrador/:" + encodeURIComponent(username);
+                  window.location.href = url;
+                });
+              </script>
+
+            </li>
+            <li>
+            PEDIDOS ENTREGADOS
+             {#   <a href="#" id="deliveryLink">PEDIDOS ENTREGADOS</a>
+
+              <script>
+                var deliveryLink = document.getElementById("deliveryLink");
+                var username = "{{ username }}"; // Obtén el valor de username desde tu aplicación
+
+                deliveryLink.addEventListener("click", function () {
+                  var url = "/session/administrador/" + encodeURIComponent(username);
+                  window.location.href = url;
+                });
+              </script> #}</li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="contenedor-pedidosRealizadosDelivery">
+      <div class="row">
+        <div class="col-12">
+          {% for pedido in pedidos %}
+            <div id="boxPedidoEntregado">
+
+              <div class="row subtituloEntregado">
+                <div class="col-4">
+                   Nº PEDIDO
+                </div>
+
+                <div class="col-3">
+                 USUARIO
+
+                </div>
+                <div class="col-3 ">
+                 FECHA
+
+                </div>
+
+                <div class="col-2 ">
+              ESTADO
+                </div>
+              </div>
+
+              <div class="row subtitulo1">
+                <div class="col-4">
+                  {{ pedido.Numero_pedido }}
+                </div>
+
+                <div class="col-3 ">
+                  {{ pedido.username }}
+
+                </div>
+                <div class="col-3 ">
+                  {{pedido.fechaFormateada }}
+
+                </div>
+
+                <div class="col-2 btnPedido">
+                  <form name="formularioCambio" method="get" action="/session/cambioEstadoEntregado/{{ pedido.Numero_pedido }}">
+                    <input type="submit" value="{% if pedido.Estado === 'Realizado' %}Pendiente{% else %}{{ pedido.Estado }}{% endif %}" class="{{ pedido.Estado }}" onclick="return confirm('¿Estás por cambiar el pedido de Realizado a Entregado ?')">
+                  </form>
+                </div>
+              </div>
+
+              {#  <div class="row">
+                <div id="infoPendientes" class="info-pendientes oculto">
+                  {% for nombre, valor in pedido.productos %}
+                    {% if valor is not none %}
+                      <div class="col-10">
+                        <label>{{ nombre }}</label>
+                      </div>
+                      <div class="col-2">
+                        <label>{{ valor }}</label>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              </div>
+              <button id="mostrarInfoBtn" class="mostrar-info-btn">Mostrar información</button> #}
+              <div id="navbarDelivery">
+                <div class="row subtituloEntregado">
+
+                  <div class="col-4">
+                PRODUCTOS
+                  </div>
+
+                  <div class="col-3 ">
+                  TELEFONO
+                  </div>
+                  <div class="col-3 ">PAGO</div>
+                  <div class="col-2 ">TOTAL</div>
+                </div>
+
+                <div class="row subtitulo1">
+
+                  <div class="col-4">
+                    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                    {#  <label for="menu-toggle" class="menu-toggle-label">&#9776;</label> #}
+                    <ul class="menu">
+                      {% for nombre, valor in pedido.productos %}
+                        {% if valor is not none %}
+
+                          <li>
+                            <label>{{ nombre }}</label>
+
+                            <label>{{ valor }}</label>
+                          </li>
+                        {% endif %}
+                      {% endfor %}
+                    </ul>
+                  </div>
+
+                  <div class="col-3 linkmaps">
+                    <a href="https://api.whatsapp.com/send?phone={{ pedido.telefono }}">
+                      {{ pedido.telefono }}</a>
+                  </div>
+                  <div class="col-2 linkmaps">{{pedido.Pago}}</div>
+                  <div class="col-3 linkmaps"></div>
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+
+        </div>
+      </div>
+
+      <div id="tableroPendienteTotal">
+
+        <div class="row">
+          <div class="col-8 rowpedidoRealizadosTotal">
+            <strong>TOTAL PEDIDOS</strong>
+          </div>
+          <div class="col-4 rowpedidoEntregadosTotalDatos">
+            <label class="rowpedidoPendienteLabel">
+              {{ contador }}</label>
+          </div>
+
+          {% for key, value in sumaProductos %}
+            {% if value %}
+              <div class="col-8 rowpedidoRealizadosTotal">
+                <label class="rowpedidoPendienteLabel">{{ key }}</label>
+                {#     <label class="rowpedidoPendienteLabel">{{ value }}</label> #}
+              </div>
+              <div class="col-4 rowpedidoEntregadosTotalDatos">
+
+                <label class="rowpedidoPendienteLabel">{{ value }}</label>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+      </div>
+
+    </div>
+
+  </body>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+
+{% block main %}
+    <div id="contenedor-pendientes">  
+      
+      <div id="slide-producto">
+       
+        {% for producto in productos %}
+       
+          <div id="productoInfo"> 
+         
+            <div class="row">
+              <div class="col-12">{{ producto.name }}</div>   
+              
+              <div class="col-12 "><img class="radius" src="{{producto.img}}"/>
+              
+              </div>
+            
+              <div class="col-12"> <br>DESCRIPCION: {{ producto.desc }}</div>
+
+              
+         
+           </div>
+  
+          </div> 
+        {% endfor %}  
+     
+      </div>
+    </div>
+{% endblock %}

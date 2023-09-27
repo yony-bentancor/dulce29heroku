@@ -1,0 +1,208 @@
+{% extends "masterAdministrador.njk" %}
+{% block main %}
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <title>PRODUCTOS</title>
+  <body>
+
+    <div id="navbarAdministrador">
+      <div class="row">
+        <div class="col-12">
+          <input type="checkbox" id="menu-toggle" class="menu-toggle">
+          {# 
+          <label for="menu-toggle" class="menu-toggle-label">&#9776;</label> #}
+          <ul class="menu">
+            <li>
+              <a href="/session/clientes">CLIENTES</a>
+            </li>
+            <li>
+              <a href="/session/pendientes">PEDIDOS PENDIENTES</a>
+            </li>
+            <li>
+              <a href="/session/realizados">PEDIDOS REALIZADOS</a>
+            </li>
+            <li>
+              <a href="/session/entregados">PEDIDOS ENTREGADOS</a>
+            </li>
+            {#      <li>
+              <a href="/session/estadisticas">ESTADISTICAS</a>
+            </li> #}
+            <li>
+              <a href="/session/productosAdmin">PRODUCTOS</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="contenedor-productosAdmin">
+
+      <div id="slide-productoAdmin">
+
+        {% for producto in productos %}
+
+          <div class="productoInfoAdmin">
+
+            <div class="row">
+              <div class="col-12">{{ producto.name }}</div>
+              <div class="col-12 contenedor-imagen"><img  src="{{producto.imagen}}"/></div>
+              <div class="col-12">
+                <br>
+                <strong class="descripcionProducto">DESCRIPCION: </strong>{{ producto.desc }}</div>
+              <div class="col-12">
+                <br>
+                <strong class="descripcionProducto">PRECIO DE VENTA:</strong>
+                {{ producto.precioVenta }} ||
+                <strong class="descripcionProducto">COSTO PRODUCCION:</strong>
+                {{ producto.costoProduccion }}</div>
+
+              <div class="col-12" style="display: none;">{{ producto.numeroProducto }}</div>
+
+              <div class="col-12">
+                <div class="botones-container">
+
+                  <form name="formulario" method="get" action="/producto/deleteproducto{{ producto.name}}", productoController.deleteProducto>
+                    <input type="image" id="image" alt="delete" src="https://dulce29.herokuapp.com/static/img/borrado1.png" onclick="return confirm('¿Estás por eliminar un producto?')">
+                  </form>
+
+                  <br>
+
+                  <form name="formulario" method="get" action="/producto/update{{ producto.id }}">
+                    <input type="hidden" name="id" value="{{ producto.id }}">
+
+                    <button type="submit">UPD</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        {% endfor %}
+
+      </div>
+
+      <div id="formNuevoProducto">
+
+        <div class="row nuevoProducto">
+          <div class="col-12">
+            <strong>  NUEVO PRODUCTO</strong>
+          </div>
+
+        </div>
+
+        <div class="row espaciado">
+          <div class="col-12"></div>
+
+        </div>
+        <div class="formProduct">
+          <form name="formulario" method="post" action="/producto/newproducto" enctype="multipart/form-data">
+
+            <div class="row">
+
+              <div class="col-md-9">
+                <label class="listadoProductos">NOMBRE</label>
+
+              </div>
+              <div class="col-md-3">
+                <input type ="text" name="name" id="name" class="boxProductoform1" value="{{name}}">
+              </div>
+
+            </div>
+
+            <div class="row">
+
+              <div class="col-md-9">
+                <label class="listadoProductos">DESCRIPCION</label>
+
+              </div>
+              <div class="col-md-3">
+                <input type ="text" name="desc" id="desc" class="boxProductoform1" value="{{desc}}">
+              </div>
+
+            </div>
+
+            <div class="row">
+
+              <div class="col-md-9">
+                <label class="listadoProductos">IMAGEN</label>
+
+              </div>
+              {#    <div class="col-md-3">
+                <input type="file"  id="image" class="boxProductoform1"  name="image" value="{{img}}" >
+              </div> #}
+              <div class="col-md-3">
+                <input type="file" id="imagen" class="boxProductoform1" name="imagen">
+              </div>
+
+            </div>
+
+            <div class="row">
+
+              <div class="col-md-9">
+                <label class="listadoProductos">COSTO PRODUCCION </label>
+
+              </div>
+              <div class="col-md-3">
+                <input type="text" name="costoProduccion" id="costoProduccion" value="{{costoProduccion}}" class="boxProductoform1" required="true"/>
+
+              </div>
+
+            </div>
+
+            <div class="row">
+
+              <div class="col-md-9">
+                <label class="listadoProductos">PRECIO VENTA</label>
+
+              </div>
+              <div class="col-md-3">
+                <input type="text" name="precioVenta" id="precioVenta" value="{{precioVenta}}"  class="boxProductoform1" required="true"/>
+              </div>
+
+            </div>
+          </div>
+          {# <div class="row marginProducto" >
+            <div class="col-md">
+
+                <!-- Datos del formulario -->
+
+                <div class="mb-2">
+                  <label for="name" class="listadoProductos">   NOMBRE </label>
+
+                  <input type ="text" name="name" id="name" class="boxCantidad" value="{{name}}">
+                </div>
+
+                <div class="mb-2">
+                  <label for="desc" class="listadoProductos">   DESCRIPCION </label>
+                  <input type ="text" name="desc" id="desc" class="formCliente" value="{{desc}}">
+                </div>
+
+                <div class="mb-2">
+                  <label for="image" class="listadoProductos">   IMAGEN </label>
+                  <input type="file"  id="image" name="image" value="{{img}}" >
+                </div>
+
+                <div class="mb-2">
+                  <label for="costoProduccion" class="listadoProductos">  COSTO PRODUCCION </label>
+                  <input type="text" name="costoProduccion" id="costoProduccion" value="{{costoProduccion}}" class="formCliente" required="true"/>
+                </div>
+
+                <div class="mb-2">
+                  <label for="precioVenta" class="listadoProductos"> PRECIO VENTA</label>
+                  <input type="text" name="precioVenta" id="precioVenta" value="{{precioVenta}}"  class="formCliente" required="true"/>
+
+                </div> #}
+          <!-- Botón de envío de formulario -->
+          <input type="submit"  class="btn-primary  btnProduct" value="GUARDAR"/>
+        </form>
+        {# 
+            </div>
+          </div> #}
+      </div>
+
+    </div>
+  </div>
+</body>
+{% endblock %}

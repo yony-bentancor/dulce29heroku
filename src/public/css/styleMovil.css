@@ -1,0 +1,1230 @@
+
+/*--------------css movil-----------------------------------------------
+-----------------------------------------------------------------------------*/
+
+/*--------------loginAdministrador-------------------------------------------------------*/
+@media screen and (max-width : 600px) {
+  #logoAdmin {
+    height: 60px;
+    margin-left: 52px;
+    margin-top: 50px;
+    position: absolute;
+    width: 100px;
+   }
+  #login {
+    background-color: #ffffff;
+  margin-left: 40px;
+    height: 100px;
+    width: 200px;
+    font: 0.9rem sans-serif;
+    margin-top: 200px;
+    word-spacing: 0.8rem;
+    position: absolute;
+  
+  }
+
+  
+/*--------------Clientes----S---------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------*/
+/*------------------------------------clientes movil--------------------
+-----------------------------------------------------------------------
+------------------------------------------------------------------------*/
+
+@media screen and (max-width : 600px) {
+  #contenedor-clientes{
+
+     width: 300px;
+     margin-top: 10px;
+     margin-left: -16px;
+     height: 420px;
+     overflow-x: hidden;
+     overflow-y: auto;
+   
+     background-color: #fff;
+     position: absolute;
+    
+   
+   }
+
+   
+    #buscadorClientes{
+   
+   margin: 0px;
+      width: 280px;
+      height: 20px;
+      margin-left: -20px;
+      padding-bottom: 20px;
+      font-weight: 600;
+     font-size: 1rem;
+   
+    
+    }
+
+
+}
+
+
+ 
+/*--------------administrador movil--------------*/
+@media screen and (max-width : 600px) {
+  /* #logoAdmin {
+   
+    height: 60px;
+    width: 100px;
+    margin: 0px;
+    margin-top: 70px;
+    padding-left: 55px;
+    position: relative;
+ 
+  } */
+  #logoAdminMovil {
+   
+    height: 60px;
+    width: 100px;
+    margin: 0px;
+    margin-top: -100px;
+    padding-left: 82px;
+    position: relative;
+ 
+  }
+  #menu {
+    height: 400px;
+    width: 40px;
+    margin-left: 20px;
+ 
+    position: absolute;
+  
+  }
+
+  .linkMenu{
+    color: rgb(20, 44, 64);
+    
+    
+  }
+ 
+  .btninicio{
+    font-size: 1.4rem;
+    width: 110px;
+    margin-top: 20px;
+    margin-right: 10px;
+    height: 28px;
+    background-color: #9bc19d;
+    border: none;
+  }
+ 
+
+ 
+
+}
+
+@media screen and (max-width : 740px ) and (min-width: 600px){
+  #logoAdmin {
+   
+    height: 60px;
+    width: 100px;
+    margin: 0px;
+    margin-top: 30px;
+    margin-left: 30px;
+    padding-left: 55px;
+    position: relative;
+ 
+  }
+  
+  #menu {
+    height: 400px;
+    width: 40px;
+    margin-left: -86px;
+ 
+    position: absolute;
+  
+  }
+  /* .btninicio{
+    font-size: 1.4rem;
+    width: 110px;
+    margin-top: 20px;
+    margin-right: 18px;
+    height: 28px;
+    background-color: #9bc19d;
+    border: none;
+  } */
+ 
+  #login {
+    background-color: #ffffff;
+    height: 100px;
+    width: 200px;
+    margin: 0px;
+    font: 0.9rem sans-serif;
+    margin-top: 70px;
+    word-spacing: 0.8rem;
+    position: relative;
+  
+  
+  }
+  #contenedor-movil{
+    margin-top: 10px;
+   margin-left: 220px;
+    width: auto;
+    height: 420px;
+    background-color: #ffffff;
+    position: absolute;
+ 
+  }
+
+}
+
+
+
+/*--------------index-movil--------------*/
+
+@media only screen and (max-width : 600px) {
+ 
+  #menu {
+    margin-top: 60px;
+    padding-left: 20px;
+    margin-left: 90px;
+    width: 140px;
+    text-align: center;
+  }
+  #slideMovil {
+    
+    width: 140px;
+    height: 500px;
+  }
+ 
+  #contenedor-index {
+    margin-top: 90px;
+    width: 260px;
+    height: auto;
+    margin-left: 20px;
+    background-color: #719ecb;
+    position: absolute;
+    border-radius: 8px;
+  }
+  #logoIndex {
+    width: 400px;
+    margin-top: 20px;
+    margin-left: 60px;
+    height: 60px;
+    position: relative;
+    display: inline-block;
+  }
+  
+  #slide-index {
+    font-size: 1rem;
+    margin-top: 20px;
+    margin-left: 6px;
+    width: 260px;
+    height: 200px;
+    border-radius: 8px;
+  }
+  .imgslide{
+
+    width: 260px;
+    height: 200px;
+    border-radius: 8px;
+  }
+
+  .info-pendientes {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  
+  .mas-info-btn {
+    margin-top: 10px;
+  }
+
+
+  
+  }
+
+
+
+
+
+
+  #logoAdministrador {
+    width: 100px;
+    margin-top: 15px;
+    margin-left: 56px;
+    height: 60px;
+    position: absolute;
+    display: inline-block;
+  }
+
+
+
+  
+
+  #navbarAdministrador {
+    margin-top: 160px;
+    margin-left: 0px;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    font-size: 2.2rem;
+    font-weight: 800;
+    display:block;
+  
+  }
+  ul.menu {
+    /* Estilos para la lista desordenada con la clase 'menu' */
+    list-style: none; /* Elimina los marcadores predeterminados de la lista */
+    padding: 0; /* Elimina el relleno predeterminado de la lista */
+    margin: 0;
+  /* Elimina el margen predeterminado de la lista */
+    /* Otros estilos personalizados que desees agregar */
+  }
+  #navbarAdministrador .menu-toggle {
+    display: block; /* Muestra el botón de desplegar/ocultar el menú */
+    text-align: left;
+    margin-left: 128px;
+    width: 30px;
+    height: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: -20px;
+  }
+
+  #navbarAdministrador .menu {
+    display: none; /* Oculta la lista de navegación */
+
+   
+  }
+
+  #navbarAdministrador .menu-toggle:checked ~ .menu {
+    display: block; /* Muestra la lista de navegación cuando se hace clic en el botón */
+    bottom: 100%; /* Ubica la lista debajo del botón */
+    font-size: 1.1rem;
+    float: left;
+    margin-top: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 280px;
+    margin-left: 10px; /* Alinea la lista a la izquierda */
+    background-color: #fff; /* Cambia el color de fondo de la lista */
+    padding: 0px; /* Añade espaciado interno a la lista */
+  }
+ 
+
+  #navbarAdministrador .menu-toggle-label {
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    background-color: #719ecb;
+  
+  }
+  .formClientetxt{
+    font-size: 0.9rem;
+    text-align: left;
+    margin-top: 8px;
+    padding-top: 2px;
+    padding-left: 2px;
+  }
+  .nuevoClientetxt{
+ 
+
+    background-color: #afafaf3e;
+    margin-bottom: 8px;
+  
+   text-align: center;
+    font-size: 1.1rem;
+    padding-top: 2px;
+    width: 295px;
+    font-weight: bold;
+    height: 22px;
+    }
+
+  #newUserMovil {
+    margin-top: 10px;
+    text-align: left;
+    padding-left: 8px;
+    width: 250px;
+    height: 240;
+    margin-left: 0px;
+    background-color: #fff;
+    position: absolute;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
+  #info-clientes{
+    margin-top:200px;
+     width: 270px;
+     height: auto;
+     margin-left:10px;
+     background-color: #94ae7e;
+     position: absolute;
+     font-weight: 300;
+    font-size: 0.8rem;
+   }
+   
+   .rowmovil{
+display: none;
+position: relative;
+background-color: #719ecb;
+margin-top: 40px;
+height: auto;
+width: 240px;
+  }
+  .rowmovilinvisible{
+
+    display: none;
+position: relative;
+height: 20px;
+width: 250px;
+background-color: rgb(119, 88, 47);
+   
+  }  
+  .busquedaClienteMovil{
+    margin-top: 260px;
+ 
+    width: 270px;
+    height: 70px;
+    margin-left: 0px;
+    background-color: #b53737;
+    position: absolute;
+    display: none;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+
+  
+.formCliente{
+  font-size: 0.9rem;
+margin-left: 46px;
+  width: 100px;
+  margin-top: 5px;
+  border: 1px;
+  background-color: #eceaea;
+  height: 20px;
+  border-radius: 2px;
+}
+
+  .btnCliente{
+    font-size: 0.9rem;
+    float: right;
+    width: 70px;
+    margin-right: 20px;
+    background-color: #71a381;
+    height: 20px;
+    border-radius: 4px; 
+  }
+
+
+  .nuevo-clienteMovil{
+    display:none;
+    width: 280px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    margin-left: -20px;
+    background-color: #77aae08d;
+    font-size: 1rem;
+    text-align: left;
+    color: rgb(26, 28, 27);
+    padding: 6px;
+    }
+
+
+   
+    #busqueda-clienteMovil{
+      display:inline-block;
+      width: 315px;
+      margin-top: 390px;
+      position: absolute;
+      border-radius: 4px;
+      margin-bottom: 5px;
+      margin-left: 0px;
+      font-size: 1rem;
+      text-align: left;
+      color: rgb(26, 28, 27);
+      padding: 6px;
+      }
+
+      .rowClienteMovil{
+        background-color: #afafaf3e;
+        padding-top: 2px;
+        font-size: 0.8rem;
+        margin-bottom: 2px;
+        text-align: center;
+        width: 280px;
+        height: 20px;
+        }
+
+
+        .btnClienteNuevo{
+          font-size: 0.9rem;
+          margin-top: 8px;
+          float: right;
+         display: block;
+          width: 100px;
+          margin-right: -40px;
+          background-color: #71a381;
+          height: 20px;
+          border-radius: 4px; 
+        }
+
+
+
+ 
+/*--------------Pendientes------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------*/
+#info-pendientes{
+  background-color: aquamarine;
+width: 260px;
+  padding-left: 15px;
+margin-left: 15px;
+  
+  height: 400px;
+  position: relative;
+/*  display: inline-block; */
+  margin-top: 10px;
+  font-weight: 300;
+ font-size: 1rem;
+
+} 
+.btnProduct{
+  font-size: 0.9rem;
+  float: left;
+  width: 98px;
+  margin-left: 160px;
+  background-color: #71a381;
+  height: 20px;
+  border-radius: 4px; 
+}
+.espaciado{
+ 
+  height: 10px;
+
+}
+
+.listadoProductos{
+  font-size: 0.9rem;
+  margin-right: 60px;
+  height: 20px;
+  width: 190px;
+  background-color: #fff;
+  text-align: left;
+  float: left;
+  margin-top: 8px;
+  padding-top: 2.5px;
+  padding-left: 0px;
+position: relative;
+}
+.listadoClientes{
+  font-size: 0.9rem;
+  height: 20px;
+  width: auto;
+  background-color: #fff;
+  text-align: right;
+  margin-top: 3px;
+  padding-top: 2.5px;
+  padding-left: 0px;
+}
+.formClienteCantidad{
+  font-size: 0.9rem;
+  width: 40px;
+  margin-top: 0px;
+  padding-top: 2.5px;
+  margin-right: 20px;
+  float: right;
+  border: 1px;
+  background-color: #eceaea;
+  height: 20px;
+  border-radius: 2px;
+}
+.boxCantidad{
+  background-color: #e7d6ae;
+  border-radius: 4px;
+  margin-top: -26px;
+  width: 25px;
+  padding-left: 3px;
+  margin-right: 20px;
+  position: relative;
+  float: right;
+  display:block;
+}
+.boxProductoform{
+  background-color: #e7d6ae;
+  border-radius: 4px;
+  margin-top: -26px;
+  width: 85px;
+  padding-left: 3px;
+  margin-right: 20px;
+  position: relative;
+  float: right;
+  display:block;
+}
+.boxProductoform1{
+
+  border-radius: 4px;
+  margin-top: -26px;
+  height: 18px;
+  width: 98px;
+  padding-left: 3px;
+  margin-left: 160px;
+  border: 1px;
+  background-color: #eceaea;
+  height: 20px;
+  border-radius: 2px;
+  position: relative;
+  float: left;
+  display:block;
+}
+
+#contenedor-pedidosPendientes{
+  margin-left: 0px;
+  margin-top: 0px;
+  width: 290px;
+  height: auto;
+  background-color: #fff;
+  position: absolute;
+
+}
+
+#totalPedidosMovil{
+  display:inline-block;
+  width: 315px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  margin-left: -20px;
+  font-size: 1rem;
+  text-align: left;
+  color: rgb(26, 28, 27);
+  padding: 6px;
+  }
+  .rowpedidoPendienteMovil{
+    background-color: #afafaf3e;
+    padding-top: 2px;
+    font-size: 0.8rem;
+    margin-bottom: 2px;
+    text-align: center;
+    width: 315px;
+    height: 20px;
+    }
+
+
+
+    /*--------------Realizados------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------*/
+#contenedor-pedidosRealizados{
+  margin-left: 0px;
+  margin-top: 0px;
+  width: 290px;
+  height: auto;
+  background-color: #fff;
+  position: absolute;
+
+}
+
+
+
+#tableroRealizadoTotalWeb {
+  display: block;
+  position: absolute;
+  width: 270px;
+  height: 300px; /* Altura fija de 200px */
+  margin-top: 10px;
+  margin-left: 0px;
+  padding: 8px; /* Ajusta el espaciado según sea necesario */
+  border-radius: 4px;
+  background-color: #fff;
+  overflow-y: auto; /* Agrega scroll vertical si el contenido excede la altura */
+}
+.pedidoRealizadosTotal{
+  background-color: #f9f9f7e8;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-left: 20px;
+  padding-left: 20px;
+  padding-top: 3px;
+  display: block;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: left;
+  width: 200px;
+  height: 20px;
+  }
+
+#boxPedidoRealizado {
+  display: block;
+  position: relative;
+  width: auto;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 8px; /* Ajusta el espaciado según sea necesario */
+  border-radius: 4px;
+  margin-top: 300px;
+}
+#buscadorRealizados {
+  margin-top: 8px;
+  padding-left: 10px;
+ text-align: left;
+ float: right;
+  width: 290px;
+  height: 60px;
+  position: absolute;
+  margin-right: 10px;
+  background-color: #fff;
+display: block;
+
+  border-radius: 4px;
+  padding-bottom: 170px;
+}
+
+.btnClienteBuscador{
+  font-size: 0.9rem;
+  width: 118px;
+  margin-left: 102px;
+  margin-top: 8px;
+  background-color: #71a381;
+  height: 20px;
+  border-radius: 4px; 
+}
+.listadobuscadorCliente{
+  font-size: 0.9rem;
+  float: left;
+  height: 20px;
+  width: auto;
+  background-color: #fff;
+  text-align: left;
+  margin-top: 8px;
+  padding-top: 2.5px;
+  padding-left: 0px;
+}
+.formClienteRealizado{
+  font-size: 0.9rem;
+  display: inline;
+  margin-top: 8px;
+  margin-left: 68px;
+  border: 1px;
+  background-color: #eceaea;
+  height: 20px;
+  border-radius: 2px;
+}
+
+    /*------------------------------------PRODUCTOS--------------------
+-----------------------------------------------------------------------
+------------------------------------------------------------------------*/
+
+#contenedor-productosAdmin {
+  margin-left: 0px;
+  margin-top: 0px;
+  width: 290px;
+  height: auto;
+  background-color: #fff;
+  position: absolute;
+  
+}
+
+#formNuevoProducto {
+  display: block;
+  margin-top: 0px;
+  width: 260px;
+  background-color: #fff;
+  height: 250px;
+  margin-left: 8px;
+  margin-right: auto;
+  padding: 8px; /* Ajusta el espaciado según sea necesario */
+  border-radius: 4px;
+}
+.marginProducto{
+  margin-top: 10px;
+text-align: left;
+  background-color: #719ecb;
+}
+.productoInfoAdmin {
+  margin-left: 10px;
+  padding-top: 20px;
+  padding-bottom: 6px;
+  padding-right: 10px;
+  height: 360px;
+  font-size: 0.95rem;
+  width: 260px;
+  padding-left: 10px;
+  display: block;
+  background-color: #ffffff;
+  position: relative;
+  border-radius: 8px;
+  margin-top: 10px; /* Agrega un margen en la parte superior */
+}
+
+.botones-container {
+  display: flex;
+  margin-left: 100px;
+ 
+ 
+  background-color: #fff; /* Alinea verticalmente los elementos */
+}
+#slide-productoAdmin {
+  position: absolute;
+  text-align: center;
+  margin-top: 240px;
+  width: 290px;
+  height: auto;
+  background-color: #fff;
+}
+
+
+   /*------------------------------------Realizados --------------------
+-----------------------------------------------------------------------
+------------------------------------------------------------------------*/
+
+
+
+
+  /*------------------------------------ENTREGADOS--------------------
+-----------------------------------------------------------------------
+------------------------------------------------------------------------*/
+
+
+#tableroEntregadoTotalWeb{
+  width: 280px;
+  display: block;
+
+ 
+position: relative;
+  padding-bottom: 20px;
+  margin-right: 20px;
+  margin-top: 0px;
+  padding-left: 10px;
+  padding-top: 10px;
+  height: auto;
+  background-color: #fff;
+}
+
+    /*------------------------------------DELIVERY--------------------
+-----------------------------------------------------------------------
+------------------------------------------------------------------------*/
+#contenedor-pedidosRealizadosDelivery{
+/*   background-color:  rgba(248, 230, 151, 0.641); */
+ background-color: #fff;
+  width: 340px;
+  height: auto;
+  margin-left: -28px;
+  margin-top: -10px;
+  margin-bottom: 20px;
+}
+#tableroPendienteTotal{
+  width: 330px;
+  margin-top: 50px;
+  margin-left: 15px;
+  height: auto;
+  position: relative;
+  background-color: #fff;
+  margin-bottom: 170px;
+}
+/* #tableroPendienteTotalWeb{
+  width: 260px;
+  position: absolute;
+  margin-left: 8px;
+  padding-bottom: 20px;
+  margin-top: auto;
+  padding-left: 8px;
+  padding-top: 10px;
+  display: block;
+  height: auto;
+  background-color: #fff;
+}
+
+#newPedido {
+  margin-top: 0px;
+  width: 260px;
+  height: auto;
+  margin-left: 0px;
+  display: block;
+  background-color: #a6dd94;
+  position: relative;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+#boxPedido{
+  width: 260px;
+  font-size: 1.1rem;
+  margin-left: 0px;
+  margin-right: 2px;
+  display: block;
+  margin-top: 0px;
+  padding-left: 20px;
+  padding-top: 0px;
+  border-radius: 4px;
+  background-color:  #f8e697a3;
+  height: auto;
+  position:absolute;
+
+} */
+
+
+
+#tableroPendienteTotalWeb,
+#newPedido,
+#boxPedido {
+  display: block;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 8px; /* Ajusta el espaciado según sea necesario */
+  border-radius: 4px;
+}
+
+#info-pendientesBox{
+
+  width: 220px;
+
+  height: 200px;
+  background-color: #fff; 
+  border-radius: 4px;
+  position: relative;
+  display: inline-block;
+  font-size: 0.9rem;
+  margin-left: 15px;
+  margin-bottom:38px;
+} 
+
+#boxPedido{
+  
+margin-left: 0px;
+font-size: 1.1rem;
+width: 270px;
+background-color: #fff;
+}
+#box6{
+
+  width: 220px;
+  text-align: center;
+  background-color: #717068;
+margin-top: 130px;
+margin-left: -10px;
+color: #fff;
+font-size: 1rem;
+  height: 20px;
+  padding-top: 4px;
+
+} 
+#box3{
+
+  width: 195px;
+margin-top: 0px;
+float: left;
+margin-left: 5px;
+  height: auto;
+  background-color: #c2c5b3; 
+
+} 
+#box5 {
+  width: 195px;
+  margin-top: 5px;
+  margin-left: 10%;
+    height: auto;
+    background-color: #c5c0b3; 
+}
+#box4{
+
+  width: 195px;
+margin-top: 5px;
+margin-left: 5px;
+  height: auto;
+  background-color: #c5c0b3; 
+
+} 
+#newPedido{
+  margin-top: auto;
+  position: relative;
+  padding-bottom: 160px;
+}
+.boxTxtCliente{
+  text-align: center;
+  align-items: center;
+  background-color: #fff;
+  height: 20px;
+  font-size: 1.1rem;
+
+  
+  }
+  #box2 {
+    width: 10px;
+    height: auto;
+    padding-left: 28px;
+   font-size: 1rem;
+   font-weight: 700;
+    margin-top: 5px;
+    display: inline-block;
+    vertical-align: top; /* Alinea en la parte superior */
+  }
+
+  #boxunodos {
+    width: 210px;
+    font-size: 0.99rem;
+   margin-left: 0px;
+    margin-top: 5px;
+    padding-left: 0px;
+    position: absolute;
+    max-height: 120px;
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    background-color: #fff;
+    display: inline-block;
+  }
+
+.boxTxt{
+  text-align: center;
+  font-size: 1.1rem;
+  background-color: #c2cfe2;
+  padding-top: 3px;
+ 
+ 
+  }
+
+
+#tableroPendienteTotalWeb{
+  width: 280px;
+  top: 0;
+  left: 0;
+  margin-left: -10px;
+  position: relative;
+  padding-bottom: 20px;
+  margin-top: 20px;
+  padding-left: 10px;
+  padding-top: 10px;
+  height: auto;
+  background-color: #fff;
+}
+
+.nuevoPedidoPendiente{
+  background-color: #afafaf3e;
+  margin-bottom: 8px;
+
+ text-align: center;
+  font-size: 1.1rem;
+  padding-top: 2px;
+  width: 270px;
+  font-weight: bold;
+  height: 22px;
+  }
+#boxPedidoDelivery{
+  width: 340px;
+  font-size: 1.1rem;
+  margin-left: 0px;
+  margin-right: 2px;
+  display: inline-block;
+  margin-top: 10px;
+  padding-left: 20px;
+  padding-top: 0px;
+  border-radius: 4px;
+  background-color:  #f8e697a3;
+  height: auto;
+  position:relative;
+
+}
+#boxPedidoEntregado{
+  width: 340px;
+  font-size: 1.1rem;
+  margin-left: 0px;
+  margin-right: 2px;
+  display: inline-block;
+  margin-top: 10px;
+  padding-left: 20px;
+  padding-top: 8px;
+  border-radius: 4px;
+  background-color: #82a67a;
+  height: auto;
+  position:relative;
+
+}
+.subtituloEntregado{
+  background-color:  #98d2ab;
+
+  color: #5c5757;
+border-bottom: solid, 2px;
+width: 330px;
+padding-top: 3px;
+padding-bottom: 3px;
+}
+
+
+.subtitulo{
+  background-color: #f0e39b;
+  color: #5c5757;
+border-bottom: solid, 2px;
+width: 330px;
+padding-top: 3px;
+padding-bottom: 3px;
+}
+
+.subtitulo1{
+
+border-bottom: solid, 2px;
+width: 330px;
+padding-top: 3px;
+padding-bottom: 3px;
+}
+.espaciadoDelivery {
+  padding-left: 30px;
+}
+
+.oculto {
+  display: none;
+}
+
+.mostrar-info-btn {
+  margin-top: 10px;
+}
+#navbarDelivery .menu-toggle {
+  display: block; /* Muestra el botón de desplegar/ocultar el menú */
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#navbarDelivery .menu {
+  display: none; /* Oculta la lista de navegación */
+ 
+}
+
+#navbarDelivery .menu-toggle:checked ~ .menu {
+  display: block; /* Muestra la lista de navegación cuando se hace clic en el botón */
+  bottom: 10px; /* Ubica la lista debajo del botón */
+  font-size: 0.9rem;
+  position: relative;
+  padding-top: 20px;
+  padding-left: 8px;
+  margin-top: 10px;
+  height: auto;
+  width: 300px;
+  margin-left: 0px; /* Alinea la lista a la izquierda */
+  /* Cambia el color de fondo de la lista */
+  padding: 0px; /* Añade espaciado interno a la lista */
+}
+.linkmaps{
+  font-size: 0.9rem;
+
+}
+.btnPedido{
+  margin-left: -14px;
+}
+
+
+#navbarDelivery .menu-toggle-label {
+  display: block;
+  text-align: center;
+  cursor: pointer;
+
+}
+
+#navbarDelivery {
+  margin-top: 2px;
+  margin-left: 0px;
+  width: 230px;
+  height: 30px;
+  font-size: 1rem;
+
+  display: inline-block;
+
+}
+.rowpedidoRealizadosTotal{
+  background-color: #f9f9f7e8;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-left: 16px;
+  padding-left: 6px;
+  display: inline;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: left;
+  width: 260px;
+  height: 20px;
+  }
+ .rowpedidoRealizadosTotalDatosDelivery{
+  color: #000;
+  background-color:  rgba(248, 230, 151, 0.933);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-left: 20px;
+  padding-top: 4px;
+  padding-left: 4px;;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  display: inline;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+    }
+.rowpedidoRealizadosTotalDelivery{
+  background-color: #f9f9f7e8;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-left: 16px;
+  padding-left: 6px;
+  display: inline;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: left;
+  width: 260px;
+  height: 20px;
+  }
+ .rowpedidoRealizadosTotalDatos{
+  color: #000;
+  background-color:  rgba(248, 230, 151, 0.933);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-left: 20px;
+  padding-top: 4px;
+  padding-left: 4px;;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  display: block;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  text-align: left;
+  width: 20px;
+  height: 20px;
+    }
+
+    .rowpedidoEntregadosTotalDatos{
+      color: #000;
+      background-color:  rgba(151, 248, 177, 0.933);
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-all;
+      margin-left: 20px;
+      padding-top: 4px;
+      padding-left: 4px;;
+      padding-right: 4px;
+      padding-bottom: 4px;
+      display: block;
+      border-radius: 4px;
+      margin-bottom: 5px;
+      font-size: 1rem;
+      text-align: center;
+      width: 20px;
+      height: 20px;
+        }
+
+
+}

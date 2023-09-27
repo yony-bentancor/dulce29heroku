@@ -5,7 +5,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-  <title>PEDIDOS REALIZADOS</title>
+  <title>PEDIDOS ENTREGADOS</title>
   <script>
     /* When the user clicks on the button,
 toggle between hiding and showing the dropdown content */
@@ -38,9 +38,8 @@ toggle between hiding and showing the dropdown content */
       <div class="row">
         <div class="col-12">
           <input type="checkbox" id="menu-toggle" class="menu-toggle">
-          {# 
-          <label for="menu-toggle" class="menu-toggle-label">&#9776;</label> #}
-          <ul class="menu">
+          {#      <label for="menu-toggle" class="menu-toggle-label">&#9776;</label> #}
+          <ul class="menu" >
             <li>
               <a href="/session/clientes">CLIENTES</a>
             </li>
@@ -51,7 +50,9 @@ toggle between hiding and showing the dropdown content */
               <a href="/session/realizados">PEDIDOS REALIZADOS</a>
             </li>
             <li>
-              <a href="/session/entregados">PEDIDOS ENTREGADOS</a>
+              <a href="/session/entregados">
+           PEDIDOS ENTREGADOS
+              </a>
             </li>
             {#   <li>
               <a href="/session/estadisticas">ESTADISTICAS</a>
@@ -65,22 +66,50 @@ toggle between hiding and showing the dropdown content */
     </div>
 
     <div id="contenedor-pedidosRealizados">
+      <div id="buscadorEntregados">
+        <div class="row rowEntregados">
 
-      <div id="tableroRealizadoTotalWeb">
+          <div class="col-4">
+            <strong>PEDIDOS ENTREGADOS</strong>
+          </div>
+
+          <div class="col-4">
+            <strong>PEDIDOS EN EFECTIVO</strong>
+          </div>
+          <div class="col-4">
+            <strong>RECAUDACION EFECTIVO</strong>
+          </div>
+
+        </div>
+
+        <div class="row rowEntregadosDatos">
+
+          <div class="col-4">{{contadorEntregados}}</div>
+
+          <div class="col-4">{{contadorEfectivo}}</div>
+          <div class="col-4"></div>
+
+        </div>
+
+      </div>
+
+      <div id="tableroEntregadoTotalWeb">
 
         <div class="row">
           <div class="col-9">
             <!-- Columna para el nombre del producto -->
             <ul >
 
-              <li class="pedidoRealizadosTotal">TOTAL PEDIDOS REALIZADOS</li>
+              <li class="pedidoPendientesTotal">
+                <strong>TOTAL PEDIDOS ENTREGADOS</strong>
+              </li>
 
             </ul>
           </div>
 
           <div class="col-3">
-            <label class="rowpedidoRealizadosTotalDatos">
-              {{ contador }}</label>
+            <label class="rowpedidoEntregadosTotalDatos">
+              {{ contadorEntregados }}</label>
           </div>
         </div>
 
@@ -89,7 +118,7 @@ toggle between hiding and showing the dropdown content */
             <!-- Columna para el nombre del producto -->
             <ul >
               {% for mensaje in mensajes %}
-                <li class="pedidoRealizadosTotal">{{ mensaje.nombre }}</li>
+                <li class="pedidoPendientesTotal">{{ mensaje.nombre }}</li>
               {% endfor %}
             </ul>
           </div>
@@ -97,7 +126,7 @@ toggle between hiding and showing the dropdown content */
             <!-- Columna para la cantidad -->
             <ul>
               {% for mensaje in mensajes %}
-                <li class="rowpedidoRealizadosTotalDatos">{{ mensaje.cantidad }}</li>
+                <li class="rowpedidoEntregadosTotalDatos">{{ mensaje.cantidad }}</li>
               {% endfor %}
             </ul>
           </div>
@@ -113,7 +142,7 @@ toggle between hiding and showing the dropdown content */
 
       </div>
 
-      <div id="boxPedidoRealizado">
+      <div id="boxPedido">
         {% for pedido in pedidos %}
           <div id="info-pendientesBox">
             <div id="pendientesBox">
@@ -124,9 +153,9 @@ toggle between hiding and showing the dropdown content */
                                   Nº    
                               {{pedido.Mes}}-{{ pedido.Numero_pedido }}
                   </div>
-                  <div class="col-6 boxTxtEstadoRealizado">
-                    <form name="formularioCambio" method="get" action="/session/cambioEstadoEntregado/{{ pedido.Numero_pedido }}">
-                      <input type="submit" value="{{ pedido.Estado }}" class="{{ pedido.Estado }}" onclick="return confirm('¿Estás por cambiar el pedido de Realizado a Entregado ?')">
+                  <div class="col-6 boxTxtEstadoEntregados">
+                    <form name="formularioCambio" method="get" action="/session/cambioEstadoCobrado/{{ pedido.Numero_pedido }}">
+                      <input type="submit" value="{{ pedido.Estado }}" class="{{ pedido.Estado }}" onclick="return confirm('¿Estás por cambiar eL pedido de Entregado a Cobrado ?')">
                     </form>
 
                   </div>
@@ -184,8 +213,8 @@ toggle between hiding and showing the dropdown content */
                     {% endfor %}
                   </div>
                 </div>
-
               </div>
+
               <div id="box6" class="{{ pedido.Estado }}">
                 <div class="row">
                   <div class="col-12">
@@ -194,105 +223,163 @@ toggle between hiding and showing the dropdown content */
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
-        {% endfor %}
-        {#  {% for pedido in pedidos %}
 
-        <div id="info-pendientes">
+          {# <div id="info-pendientes">
 
-          <div class="row">
+            <div class="row">
 
-            <div class="col-6 boxTxt">
-          Nº    
+              <div class="col-6 boxTxt">
+            Nº    
               {{ pedido.Numero_pedido }}
-            </div>
-            <div class="col-6 boxTxtEstadoRealizado">
-              <form name="formularioCambio" method="get" action="/session/cambioEstadoEntregado/{{ pedido.Numero_pedido }}">
-                <input type="submit" value="{{ pedido.Estado }}" class="{{ pedido.Estado }}" onclick="return confirm('¿Estás por cambiar el pedido de Realizado a Entregado ?')">
-              </form>
-
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 boxTxtCliente">
-              {{ pedido.username }} || {{pedido.fechaFormateada }}
-
-            </div>
-          </div>
-
-          <div class="row">
-            {% for i in range(pedido.productos | length) %}
-              <div class="col-10">
-
-                <label class="infoPendientesBoxNombre">{{ pedido.productos[i] }}</label>
+              </div>
+              <div class="col-6 boxTxtEstadoEntregados">
+                <form name="formularioCambio" method="get" action="/session/cambioEstadoCobrado/{{ pedido.Numero_pedido }}">
+                  <input type="submit" value="{{ pedido.Estado }}" class="{{ pedido.Estado }}" onclick="return confirm('¿Estás por cambiar eL pedido de Entregado a Cobrado ?')">
+                </form>
 
               </div>
-              <div class="col-2">
-                <label class="infoPendientesBox">{{ pedido.cantidades[i] }}</label>
+            </div>
+            <div class="row">
+              <div class="col-12 boxTxtCliente">
+                {{ pedido.username }} || {{pedido.fechaFormateada }}
+
+              </div>
+              <div class="col-12 boxTxtClientePago">
+                {{ pedido.Pago }} || {{pedido.fechaFormateada }}
+
+              </div>
+            </div>
+
+            <div class="row scrolling" >
+              {% for i in range(pedido.productos | length) %}
+                <div class="col-10">
+
+                  <label class="infoPendientesBoxNombre">{{ pedido.productos[i] }}</label>
+
+                </div>
+                <div class="col-2">
+                  <label class="infoPendientesBox">{{ pedido.cantidad[i] }}</label>
+                </div>
+
+              {% endfor %}
+
+            </div>
+
+            <div class="row boxTxtCliente">
+
+              <div class="col-6">
+                <form method="post" action="/session/updatepedido">
+                  <input type="hidden" name="Numero_pedido" value="{{ pedido.Numero_pedido }}" >
+
+                  <button type="submit">UPD</button>
+                </form>
               </div>
 
-            {% endfor %}
+              <div class="col-6">
+                <form name="formulario" method="get" action="/session/deletepedidoR{{ pedido.Numero_pedido}}", pedidoController.deletePedidoR>
+                  <input type="image" id="image" alt="delete" src="http://localhost:3001/static/img/borrado1.png" onclick="return confirm('¿Estás por eliminar un pedido?')">
+                </form>
+              </div>
 
-          </div>
-
-          <div class="row boxTxtCliente">
-
-            <div class="col-6">
-              <form method="post" action="/session/updatepedido">
-                <input type="hidden" name="Numero_pedido" value="{{ pedido.Numero_pedido }}" >
-
-                <button type="submit">UPD</button>
-              </form>
             </div>
 
-            <div class="col-6">
-              <form name="formulario" method="get" action="/session/deletepedidoR{{ pedido.Numero_pedido}}", pedidoController.deletePedidoR>
-                <input type="image" id="image" alt="delete" src="http://localhost:3001/static/img/borrado1.png" onclick="return confirm('¿Estás por eliminar un pedido?')">
-              </form>
-            </div>
-
-          </div>
-
-        </div>
-      {% endfor %} #}
-      </div>
-
-      <div id="buscadorRealizados">
-        <div class="row nuevoPedido">
-          <div class="col-12">
-            <strong>   PEDIDOS X CLIENTE</strong>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-4">
-            <form name="formulario" method="post" action="/session/realizadosBusqueda">
-              <label for="browser" class="listadobuscadorCliente">CLIENTE</label>
-            </div>
-
-            <div class="col-5">
-              <input class="formClienteRealizado" list="browsers" name="browser" id="browser">
-              <datalist id="browsers">
-                {% for pedido in pedidossinrepetir %}
-                  <option value="{{ pedido.username }}"></option>
-                {% endfor %}
-              </datalist>
-            </div>
-
-            <div class="col-3"></div>
-
-            <!-- Botón de envío de formulario -->
-            <div class="col-12">
-              <button type="submit" class="btn-primary btnClienteBuscador">BUSCAR PEDIDO</button>
-            </form>
-          </div>
-        </div>
-
+          </div> #}
+        {% endfor %}
       </div>
 
     </div>
+
+    {#   <div id="buscadorEntregados">
+      <div class="row rowEntregados">
+
+        <div class="col-4">
+          <strong>PRECIO VENTA</strong>
+        </div>
+
+        <div class="col-4">
+          <strong>COSTOS X LITRO</strong>
+        </div>
+        <div class="col-4">
+          <strong>GANANCIA X LITRO</strong>
+        </div>
+
+      </div> 
+    {# 
+      {% set resultados = [] %}
+      {% for producto in productos %}
+        <div class="row rowEntregadosDatos">
+
+          <div class="col-4">
+            {{ producto.precioVenta }}</div>
+
+          <div class="col-4">
+            {{ producto.costoProduccion }}</div>
+          <div class="col-4">
+            {% set resultado = producto.precioVenta - producto.costoProduccion %}
+            {{ resultado }}
+            {% set _ = resultados.push(resultado) %}
+
+          </div>
+
+        </div>
+      {% endfor %}
+
+    </div> #}
+
+    {#   <div id="tableroEntregadoTotal">
+
+      <div class="row rowEntregados">
+        <div class="col-8 ">
+          <strong>PRODUCTOS</strong>
+        </div>
+        <div class="col-2 ">
+
+          <strong>TOTAL LITROS </strong>
+        </div>
+        <div class="col-2 ">
+
+          <strong>GANANCIAS TOTALES</strong>
+        </div>
+
+      </div>
+      {% set total = 0 %}
+      {% for key, value in sumaProductos %}
+        {% if value%}
+          <div class="row rowEntregadosDatos">
+            <div class="col-8">
+              {{ key }}
+            </div>
+            <div class="col-2 ">
+
+              {{ value }}
+            </div>
+            <div class="col-2 ">
+              {% set subtotal = resultados[loop.index0] * value %}
+              {{ subtotal }}
+              {% set total = total + subtotal %}
+
+            </div>
+
+          </div>
+        {% endif %}
+      {% endfor %}
+      <div class="row rowEntregados">
+        <div class="col-8 ">
+          <strong>TOTAL VENTAS POR COBRAR</strong>
+        </div>
+        <div class="col-2 ">
+
+          <strong></strong>
+        </div>
+        <div class="col-2 ">
+         $  {{total}}
+        </div>
+
+      </div>
+
+    </div> #}
 
   </body>
 

@@ -2,9 +2,9 @@ const checkJWT = require("express-jwt");
 const { CLAVE_SECRETA } = require("../config");
 const Producto = require("../models/Producto");
 const Pedido = require("../models/Pedido");
-const multer = require("multer");
-const upload = multer({ dest: "./archivos" });
+const multer = require("../multer-config");
 const fs = require("fs");
+const AWS = require("../aws-sdk");
 
 module.exports = {
   pageNewProducto: async (req, res) => {
@@ -61,21 +61,54 @@ module.exports = {
 
   newProducto: async (req, res) => {
     try {
-      const { name, desc } = req.body;
+      const { name, desc, costoProduccion, precioVenta } = req.body;
+      const params = {
+        Bucket: "proyectodulce29",
+        Key: req.file.originalname,
+        Body: req.file.buffer,
+      };
+
+      S3.upload(params, (err, data) => {
+        if (err) {
+          console.error(err);
+          return res.status(500).send("eeror al subir archivo");
+        }
+        res.send("se subio archivo");
+      });
+      // Obtener la URL de la imagen de req.file.location (esto depende de cómo esté configurado multer-s3)
+      /*   const imageUrl = req.file.location; */
+
+      const productos = await Producto.find({}, "numeroProducto").lean();
+
+      let highestProductNumber = null;
+
+      for (let i = 0; i < productos.length; i++) {
+        const numeroProducto = productos[i].numeroProducto;
+        if (
+          numeroProducto &&
+          (highestProductNumber === null ||
+            numeroProducto > highestProductNumber)
+        ) {
+          highestProductNumber = numeroProducto;
+        }
+      }
+
+      console.log(highestProductNumber);
+      loopContadorProducto = ++highestProductNumber;
 
       const product = Producto({
         name,
         desc,
+        costoProduccion,
+        precioVenta,
+        numeroProducto: loopContadorProducto,
+        /*   imagenUrl: imageUrl, */
       });
-      console.log(req.file);
-      if (req.file) {
-        const { filename } = req.file;
-        product.setimg(filename);
-      }
+
       const addproductos = await Producto.create(product);
       //res.status(201).json(addteams);
 
-      res.render("Gracias");
+      res.redirect("/session/productosAdmin");
     } catch (error) {
       res.status(400).json({ error: error.message });
     }
@@ -83,13 +116,13 @@ module.exports = {
   updateProducto: async (req, res) => {
     try {
       const datos = req.body;
-      console.log(datos);
+      console.log(datos.numeroProducto);
       const producto = await Producto.findOneAndUpdate(
-        { desc: datos.desc },
+        { numeroProducto: datos.numeroProducto },
         datos,
         {
-          new: true,
-          runValidators: true,
+          new: true, // Devolver el documento actualizado en lugar del original
+          runValidators: true, // Ejecutar validaciones de esquema al actualizar
         }
       );
 
@@ -99,7 +132,7 @@ module.exports = {
         });
       }
 
-      res.json(producto);
+      res.redirect("/session/productosAdmin");
     } catch (error) {
       res.status(404).json({ error: error.message });
     }
@@ -142,7 +175,7 @@ module.exports = {
       }
       //res.json(teamDelete);
       const productos = await Producto.find();
-      res.render("delete");
+      res.redirect("/session/productosAdmin");
     } catch (error) {
       res.status(500).json({ error: error.message });
     }

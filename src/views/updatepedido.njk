@@ -1,39 +1,103 @@
+{% extends "masterAdministrador.njk" %}
+{% block main %}
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <title>ACTUALIZAR PEDIDO</title>
 
-{% extends "mastermin.njk" %}
-  
-     {% block main %}<div>
-  <div class="row">
-      <div class="col-md">ACTUALIZAR PEDIDO</div></br></br>
-  </div>
+  <body>
 
-   <div class="row">
-      <form name="formulario" method="post" action="refreshpedido">   
-        <div class="col-md-12">NOMBRE</div>
-        <div class="col-md-12"></br></div>
-        <div class="col-md-12"><input type ="text" name="username" id="username" value="{{username}}" ></div>
-        <div class="col-md-12"></br></div>
-        <div class="col-md-12">LICUADOS</div>
-        <div class="col-md-12"><input type ="text" name="Licuados" id="Licuados" value="{{Licuados}}"></div>
-        <div class="col-md-12"></br></div>
-         <div class="col-md-12">LIMONADA</div>
-        <div class="col-md-12"><input type ="text" name="Limonada" id="Limonada" value="{{Limonada}}"></div>
-        <div class="col-md-12"></br></div>
-          <div class="col-md-12">KEFIR</div>
-        <div class="col-md-12"><input type ="text" name="Kefir" id="Kefir" value="{{Kefir}}"></div>
-        <div class="col-md-12"></br></div>
-          <div class="col-md-12">SMOOTHIE</div>
-        <div class="col-md-12"><input type ="text" name="Smoothie" id="Smoothie" value="{{Smoothie}}"></div>
-        <div class="col-md-12"></br></div>
-
-         <div class="col-md-12">DETOX</div>
-        <div class="col-md-12"><input type ="text" name="Detox" id="Detox" value="{{Detox}}"></div>
-        <div class="col-md-12"></br></div>
-        <div class="col-md-8"></br></div> 
-         <div class="col-md-12"><input type="submit"  class="btn btn-success btn-sm" value="Ingresar Registro" /></div> 
-      </form>
+    <div id="navbarAdministrador">
+      <div class="row">
+        <div class="col-12">
+          <input type="checkbox" id="menu-toggle" class="menu-toggle">
+          <label for="menu-toggle" class="menu-toggle-label">&#9776;</label>
+          <ul class="menu">
+            <li>
+              <a href="/session/clientes">CLIENTES</a>
+            </li>
+            <li>
+              <a href="/session/pendientes">PEDIDOS PENDIENTES</a>
+            </li>
+            <li>
+              <a href="/session/realizados">PEDIDOS REALIZADOS</a>
+            </li>
+            <li>
+              <a href="/session/entregados">PEDIDOS ENTREGADOS</a>
+            </li>
+            {#  <li>
+              <a href="/session/estadisticas">ESTADISTICAS</a>
+            </li> #}
+            <li>
+              <a href="/session/productosAdmin">PRODUCTOS</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-     
-</div>  
 
-      
- {% endblock %}
+    {#  admin- usuario          #}
+    <div id="contenedor-clientes">
+      <div id="info-pedidosUpdate">
+
+        <div class="row rowmovilinvisible">
+          <div class="col-6">
+            <strong>NOMBRE</strong>
+          </div>
+
+          <div class="col-6">
+            <strong>NUMERO PEDIDO</strong>
+          </div>
+
+        </div>
+
+        <div class="row rowmovilUpdate">
+          <!-- updatepedido.njk -->
+          <!-- updatepedido.njk -->
+          <form name="formulario" method="post" action="refreshPedido" class="row">
+            <div class="col-sm-6">
+              <label  class="form-control">{{ pedido.username }}</label>
+              {#    <input type="text" id="username" name="username" value="{{ pedido.username }}" class="form-control"> #}
+            </div>
+
+            <div class="col-sm-6">
+              {#    <label  class="form-control">{{ pedido.Numero_pedido }}</label> #}
+
+              <input type="text" name="Numero_pedido" value="{{ pedido.Numero_pedido }}" class="form-control">
+            </div>
+
+            <div class="col-sm-12"></div>
+
+            <div class="col-sm-12">
+              <h5>Productos:</h5>
+            </div>
+            {% for key, value in pedido.productos %}
+              {% if pedido
+                .productos
+                .hasOwnProperty(key) %}
+                <div class="col-sm-6">
+
+                  <div class="form-group">
+                    <label for="{{ key }}">{{ key }}:</label>
+                    <input type="number" id="{{ key }}" name="productos[{{ key }}]" value="{{ value }}" class="form-control">
+                  </div>
+
+                </div>
+              {% endif %}
+            {% endfor %}
+            <div class="col-sm-2">
+              <input type="submit" class="btnUpdate" value="GUARDAR"/>
+            </div>
+            <div class="col-sm-2">
+              <a href="/session/clientes" class="alink">
+                <input   type="submit" class="btnUpdate" value="CANCELAR"/></a>
+            </div>
+          </form>
+        </div>
+        <div id="espaciadoBottom"></div>
+      </div>
+
+    </body>
+
+  {% endblock %}

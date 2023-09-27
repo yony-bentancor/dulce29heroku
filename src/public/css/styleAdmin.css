@@ -1,35 +1,35 @@
 
-/*--------------------------- Master Administrador------------------------------------------------
-------------------------------------------------------------------------------------------------*/
-#contenedorMasterAdministrador{
-  margin-top: 10px;
- margin-left: 25px;
-  width: auto;
-  height: 420px;
+/*--------------------------- Master Administrador------------------------------------------------*/
+#contenedorMasterAdministrador {
   background-color: #ffffff;
+  height: 420px;
+  margin-left: 50px;
+  margin-top: 10px;
   position: absolute;
-
+  width: auto;
 }
+
 #logoAdministrador {
-  width: 400px;
-  margin-top: 80px;
-  margin-left: 660px;
-  height: 60px;
-  position: relative;
   display: inline-block;
+  height: 60px;
+  margin-left: 660px;
+  margin-top: 80px;
+  position: relative;
+  width: 400px;
 }
 
 #navbarAdministrador {
-  margin-top: 80px;
-  margin-left: 360px;
-  width: 800px;
-  height: 30px;
-  text-align: center;
   background-color: #ffffff;
   font-size: 1.2rem;
   font-weight: 800;
-
+  height: 30px;
+  margin-bottom: 20px;
+  margin-left: 346px;
+  margin-top: 60px;
+  text-align: center;
+  width: 800px;
 }
+
 /* unvisited link */
 a.menu:link {
   color: rgba(204, 207, 204, 0.523);
@@ -38,18 +38,17 @@ a.menu:link {
 
 /* visited link */
 a.menu:visited {
-  color: rgb(34, 34, 34);
   background-color: #416651;
+  color: rgb(34, 34, 34);
   text-decoration: none;
-
 }
 
 /* mouse over link */
 a.menu:hover {
- padding: 8px;
- border-radius: 4px;
   background-color: #a6cc958d;
-color: #000000;
+  border-radius: 4px;
+  color: #000000;
+  padding: 8px;
 }
 
 /* selected link */
@@ -109,6 +108,35 @@ a.menu:active {
     background-color: #9bc19d;
     border: none;
   }
+  .alink{
+    color: #000;
+  }
+  .alink:hover{
+    color: #000;
+  }
+  .btnUpdate{
+    font-size: 0.9rem;
+    margin-top: 5px;
+    width: 90px;
+    height: 18px;
+    margin-left: 30px;
+    background-color: #9bc19d;
+    border: none;
+    outline: none;
+    
+  }
+  input[type="text"] {
+    /* Estilos para el input de tipo texto */
+    /* Por ejemplo: */
+    border: none;
+    padding: 5px;
+  }
+
+  input[type="text"]:focus {
+    outline: none; /* Cambia "blue" por el color que desees */
+  }
+   
+  
 
 /*----------------------------index administrador----------------------------------------------------------------------
 -----------------------------------------------------------------------------------------------------------------
@@ -208,7 +236,7 @@ margin-left: -8px;
 }
 
 #info-clientes{
-  margin-left: 20px;
+  margin-left: 70px;
    width: 640px;
    height: 320px;
    background-color: #ffffff;
@@ -218,22 +246,62 @@ margin-left: -8px;
   padding-left: 20px;
  }
 
-
-
- .formClientetxt{
+ #popup{
+  background-color: #116fad;
+ }
+ #info-clientesUpdate{
+  margin-left: 145px;
+   width: 740px;
+   height: 320px;
+   background-color: #ffffff;
+   position: absolute;
+   font-weight: 300;
   font-size: 1rem;
-}
+  padding-left: 20px;
+ 
+ }
+ #info-ProductoUpdate{
+  margin-left: 80px;
+   width: 840px;
+   height: auto;
+   background-color: #ffffff;
+   position: absolute;
+   font-weight: 300;
+  font-size: 1rem;
+  padding-left: 20px;
+ 
+ }
+
 
 .btnCliente{
   font-size: 0.9rem;
-  width: 60px;
+  width: 110px;
+  margin-left: 50px;
+  margin-top: 8px;
   background-color: #71a381;
-  height: 34px;
+  height: 20px;
   border-radius: 4px; 
+}
+.btnClienteBuscador{
+  font-size: 0.9rem;
+  width: 118px;
+  margin-right: 5px;
+  float: right;
+  margin-top: 8px;
+  background-color: #71a381;
+  height: 20px;
+  border-radius: 4px; 
+}
+.tituloRealizado{
+  font-size: 1rem;
+  margin-top: 8px;
+  margin-right: 40px;
+  margin-bottom: 10px;
 }
  .rowmovilinvisible{
   background-color: #afafaf3e;
   padding: 4px;
+
  }
 
  .rowmovil{
@@ -241,13 +309,22 @@ margin-left: -8px;
   margin-top: 4px;
   height: 20px;
 }
+.rowmovilUpdate{
+  background-color: #ffffff;
+
+  margin-top: 4px;
+  width: 600px;
+  height: auto;
+  text-decoration: none;
+  border: none;
+}
 
  #newUserMovil {
-  margin-top: 20px;
+  margin-top: 0px;
   text-align: right;
   width: 240px;
   height: 200;
-  margin-left: 1000px;
+  margin-left: 760px;
   background-color: #ffffff;
   position: absolute;
   border-radius: 8px;
@@ -256,26 +333,115 @@ margin-left: -8px;
 
 .nuevo-cliente{
 background-color: #afafaf3e;
+width: 220px;
 font-size: 1.1rem;
 padding-top: 2px;
 font-weight: bold;
+text-align: center;
 height: 22px;
 }
+.nuevoProducto{
+  background-color: #afafaf3e;
+  font-size: 1rem;
+  padding: 4px;
+  font-weight: bold;
+  text-align: center;
+  height: 22px;
+  }
+
+  .marginProducto{
+    margin-top: 20px;
+    width: 310px;
+  }
 
 .formCliente{
-  font-size: 1rem;
-  width: 180px;
-  margin-top: 5px;
+  font-size: 0.9rem;
+  display: inline;
+  margin-top: 8px;
+  margin-left: 0px;
   border: 1px;
   background-color: #eceaea;
   height: 20px;
   border-radius: 2px;
 }
+.formClientePendiente{
+  font-size: 0.9rem;
+  width: 40px;
+  display: inline;
+  margin-top: 8px;
+  margin-left: 0px;
+  border: 1px;
+  background-color: #eceaea;
+  height: 20px;
+  border-radius: 2px;
+}
+.listadoProductos{
+  font-size: 0.9rem;
+  height: 20px;
+  width: auto;
+  background-color: #fff;
+  text-align: right;
+  margin-top: 3px;
+  padding-top: 2.5px;
+  padding-left: 0px;
+}
+.listadobuscadorCliente{
+  font-size: 0.9rem;
+  height: 20px;
+  width: auto;
+  background-color: #fff;
+  text-align: right;
+  margin-top: 8px;
+  padding-top: 2.5px;
+  padding-left: 0px;
+}
+.formClienteCantidad{
+  font-size: 0.9rem;
+  width: 40px;
+  margin-top: 3px;
+  padding-top: 2.5px;
+  margin-right: 20px;
+  float: right;
+  border: 1px;
+  background-color: #eceaea;
+  height: 20px;
+  border-radius: 2px;
+}
+#navbarAdministrador .menu-toggle {
+  display: none;
+
+}
+
+#navbarAdministrador .menu {
+  list-style: none;
+  padding: 6px;
+  padding-left: 3px;
+  margin: 0;
+}
+
+#navbarAdministrador .menu li {
+  display: inline-block;
+  margin-left: 8px;
+}
+
+#navbarAdministrador .menu a:hover {
+  color: rgb(37, 76, 108); /* Cambia el color del enlace visitado a rojo */
+  text-decoration: none;
+}
+
+
+.nuevo-clienteMovil{
+  display: none;
+}
 
 
 
-
-
+.busquedaClienteMovil{
+  display: none;
+}
+#busqueda-clienteMovil{
+  display: none;
+}
 
 
 
@@ -285,23 +451,155 @@ height: 22px;
 ------------------------------------------------------------------------*/
 
 #contenedor-pedidosPendientes{
-  margin-left: 20%;
-  margin-top: 20px;
-  width: 1040px;
-  height: 420px;
-  background-color: #ffffff;
-  position: absolute;
+  margin-left: 16%;
+  margin-top: 30px;
+  width: 1080px;
+  height: auto;
+  background-color: #fff;
+  position: relative;
 
+}
+.boxCantidad{
+  background-color: #e7d6ae;
+  border-radius: 4px;
+  margin-top: 5px;
+  width: 40px;
+  padding-left: 3px;
+  margin-right: 5px;
+  border: none;
 }
 .rowpedidoPendiente{
 background-color: #afafaf3e;
+margin-left: 60px;
 padding-top: 6px;
+padding-left: 4px;;
+padding-bottom: 6px;
+display: inline-block;
+margin-bottom: 5px;
 font-size: 1rem;
-margin-bottom: 2px;
-text-align: center;
-width: 720px;
+text-align: left;
+width: 980px;
 height: 20px;
 }
+.rowpedidoPendienteLabel{
+  margin-left: 0px;
+  height: auto;
+}
+#tableroPendienteTotal{
+  width: 640px;
+  margin-top: 50px;
+  margin-left: 15px;
+  height: auto;
+  position: relative;
+  background-color: #fff;
+}
+#tableroPendienteTotalWeb{
+  width: 390px;
+  top: 0;
+  left: 0;
+  margin-left: 58px;
+  position: absolute;
+  padding-bottom: 20px;
+  margin-top: 530px;
+  padding-left: 10px;
+  padding-top: 10px;
+
+  height: auto;
+  background-color: #fff;
+}
+/* #infoPendientes{
+  margin-left: 10px;
+   width: 1040px;
+   height: auto;
+   background-color: #fff;
+   position: absolute;
+   font-weight: 300;
+  font-size: 1rem;
+  padding-left: 10px;
+ } */
+
+ .rowpedidoPendientesTotal{
+  background-color: #f9f9f7e8;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-left: 20px;
+  padding-left: 20px;
+  display: inline;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: left;
+  width: 260px;
+  height: 20px;
+  }
+
+  .pedidoPendientesTotal{
+    background-color: #f9f9f7e8;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    margin-left: 20px;
+    padding-left: 20px;
+    padding-top: 3px;
+    display: block;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    text-align: left;
+    width: 260px;
+    height: 20px;
+    }
+    .col-3 ul {
+      list-style: none; /* Elimina los puntos de lista */
+      padding: 0; /* Elimina el relleno predeterminado de la lista */
+    }
+    .col-9 ul {
+      list-style: none; /* Elimina los puntos de lista */
+      padding: 0; /* Elimina el relleno predeterminado de la lista */
+    }
+
+    .pedidoPendientesTotalDatos{
+      color: #fff;
+      background-color:  #b36767;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-all;
+      margin-left: 20px;
+      padding-top: 4px;
+      padding-left: 4px;;
+      padding-right: 4px;
+      padding-bottom: 4px;
+      display: block;
+      border-radius: 4px;
+      margin-bottom: 5px;
+      font-size: 1rem;
+      text-align: center;
+      width: 20px;
+      height: 20px;
+        }
+    
+ .rowpedidoPendientesTotalDatos{
+  color: #fff;
+  background-color:  #b36767;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-left: 20px;
+  padding-top: 4px;
+  padding-left: 4px;;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  display: inline;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  text-align: center;
+  width: 30px;
+  height: 20px;
+    }
+
+
 .pedidoPendiente{
 background-color: #ffffff;
 padding-top: 6px;
@@ -311,17 +609,272 @@ text-align: center;
 width: 720px;
 height: 28px;
 }
+#boxPedido{
+  width: 720px;
+  margin-left: 30px;
+  margin-top: 10px;
+  background-color: #fff;
+  height: auto;
+  z-index: 1;
+  padding-left: 0px;
+   display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start; 
 
+}
+#boxPedidoRealizado{
+  width: 720px;
+  margin-left: 30px;
+  margin-top: 10px;
+  background-color: #fff;
+  height: auto;
+  z-index: 1;
+  padding-left: 0px;
+   display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start; 
+
+}
+#espaciadoBottom{
+  width: auto;
+  height: 20px;
+}
+
+.alturaBox{
+  height: 10px;
+}
+#info-pendientesBox{
+
+  width: 220px;
+
+  height: 200px;
+  background-color: #fff; 
+  border-radius: 4px;
+  position: relative;
+  display: inline-block;
+  font-size: 0.9rem;
+  margin-left: 15px;
+  margin-bottom:38px;
+} 
+#pendientesBox{
+
+  width: 220px;
+  padding-left: 10px;
+  padding-top: 6px;
+  height: auto;
+  margin-bottom: 30px;
+
+  margin-left:3px;
+} 
+
+#box5 {
+  width: 150px;
+  margin-top: 5px;
+  margin-left: 10%;
+    height: auto;
+    background-color: #c5c0b3; 
+}
+
+#boxunodos {
+  width: 210px;
+  margin-top: 5px;
+  padding-left: 8px;
+  position: absolute;
+  max-height: 120px;
+  overflow-y: auto; 
+  overflow-x: hidden; 
+  background-color: #fff;
+  display: inline-block;
+}
+
+#box1 {
+  width: 170px;
+  height: auto;
+  padding-left: 8px;
+
+  margin-top: 5px;
+  display: inline-block;
+  vertical-align: top; /* Alinea en la parte superior */
+}
+
+#box2 {
+  width: 10px;
+  height: auto;
+  padding-left: 8px;
+ 
+  margin-top: 5px;
+  display: inline-block;
+  vertical-align: top; /* Alinea en la parte superior */
+}
+
+
+#box3{
+
+  width: 150px;
+margin-top: 0px;
+margin-left: 10%;
+  height: auto;
+  background-color: #c2c5b3; 
+
+} 
+#box4{
+
+  width: 150px;
+margin-top: 5px;
+margin-left: 10%;
+  height: auto;
+  background-color: #c5c0b3; 
+
+} 
+#box6{
+
+  width: 170px;
+  text-align: center;
+  background-color: #717068;
+margin-top: 130px;
+margin-left: 5%;
+color: #fff;
+font-size: 1rem;
+  height: 20px;
+  padding-top: 4px;
+
+} 
 #info-pendientes{
-  margin-left: 20px;
-   width: 640px;
-   height: 320px;
-   background-color: #ffffff;
-   position: absolute;
-   font-weight: 300;
-  font-size: 1rem;
-  padding-left: 20px;
+
+   width: 230px;
+   height: 300px;
+   background-color: #777373; 
+   position: relative;
+   display: block;
+   font-size: 1.1rem;
+   margin-left: 15px;
+ } 
+
+
+
+ .row1{
+  background-color: #55ac7a;
+  width: 720px;
  }
+ .boxTxt{
+ text-align: center;
+
+ background-color: #c2cfe2;
+
+
+ }
+
+.boxFecha{
+  text-align: center;
+  font-size: 1rem;
+
+  background-color: #c2cfe2;
+}
+
+ .boxTxtEstado{
+  text-align: center;
+  padding-top: 3px;
+  font-size: 1rem;
+  background-color: #b14949;
+  }
+
+  .boxTxtCliente{
+    text-align: center;
+    align-items: center;
+    background-color: #fff;
+    height: 20px;
+ 
+  
+    
+    }
+    .boxTxtClientePago{
+      text-align: center;
+      padding-top: 4px;
+      font-size: 1rem;
+      background-color: #fff;
+      color: #d39259;
+      font-weight: bold;
+      
+      }
+      .alineadoFormCliente{
+        text-align: left;
+        padding-left: 26px;
+      }
+    
+
+ .formClientetxt{
+/*   
+ 
+  margin-top: 8px;
+  padding-top: 2px;
+  padding-left: 0px; */
+  font-size: 0.9rem;
+  height: 20px;
+  width: auto;
+  background-color: #fff;
+  text-align: left;
+  margin-top: 8px;
+  padding-top: 2.5px;
+  padding-left: 0px;
+}
+#nombreCantidad{
+  background-color: #50ba73;
+  width: 150px;
+}
+.nombreCantidad{
+  background-color: #546c5c;
+    font-size: 0.9rem;
+}
+
+.nuevoPedidoTxt{
+  font-size: 1rem;
+  margin-top: 6px;
+  padding-top: 2px;
+  padding-left: 0px;
+}
+#infoPendientesBox{
+  margin: 8px;
+  background-color: #116fad;
+  padding-left: 5px;
+  margin-right: 12px;
+  width: 210px;
+  height: auto;
+  position: relative;
+  display: block;
+  font-size: 0.9rem;
+ 
+}
+.pendienteNombreCantidad{
+ background-color: #91595997;
+ font-size: 0.9rem;
+ padding-top: 6px;
+ width: 220px;
+ height: auto;
+ position: relative;
+
+}
+.infoPendientesBoxNombre{
+  font-size: 0.8rem;
+  text-align: left;
+  margin-top: 8px;
+  padding-top: 2px;
+  padding-left:0px;
+}
+
+.formClienteTxt{
+  font-size: 1rem;
+  margin-top: 8px;
+  padding-top: 2px;
+  padding-left: 0px;
+ 
+}
+.productoTxt{
+background-color: #50ba73;
+margin-right: 10px;
+position: relative;
+text-align: left;
+
+}
 
  #buscadorClientesPedidos{
   width: 340px;
@@ -334,24 +887,72 @@ height: 28px;
 }
 
 #newPedido {
-  margin-top: 290px;
-  text-align: right;
-  width: 240px;
-  height: 200;
-  margin-left: 1060px;
-  background-color: #ffffff;
-  position: absolute;
-  border-radius: 8px;
+  margin-top: -240px;
+  padding-left: 10px;
+ text-align: left;
+ position: relative;
+ float: right;
+  width: 290px;
+  height: auto;
+  margin-right: 10px;
+  background-color: #fff;
+
+  border-radius: 4px;
   margin-bottom: 10px;
 }
-
-.nuevo-pedido{
+.nuevoPedido{
   background-color: #afafaf3e;
+  margin-bottom: 8px;
+
+ text-align: center;
   font-size: 1.1rem;
   padding-top: 2px;
+  width: 295px;
   font-weight: bold;
   height: 22px;
   }
+  .nuevoPedidoPendiente{
+    background-color: #afafaf3e;
+    margin-bottom: 8px;
+  
+   text-align: center;
+    font-size: 1.1rem;
+    padding-top: 2px;
+    width: 295px;
+    font-weight: bold;
+    height: 22px;
+    }
+  .nuevoClientetxt{
+    background-color: #afafaf3e;
+    margin-bottom: 8px;
+  margin-left: 30px;
+   text-align: center;
+    font-size: 1.1rem;
+    padding-top: 2px;
+    width: 250px;
+    font-weight: bold;
+    height: 22px;
+    }
+
+.nuevo-pedido{
+  background-color: #afafaf3e;
+  margin-bottom: 8px;
+ text-align: center;
+  font-size: 1.1rem;
+  padding-top: 2px;
+  width: 200px;
+  font-weight: bold;
+  height: 22px;
+  }
+  .nuevo-pedidoForm{
+    background-color: #e69595cf;
+    width: 180px;
+    display: inline-block;
+    font-size: 1rem;
+    padding-top: 6px;
+    font-weight: bold;
+    height: auto;
+    }
 
 
 
@@ -368,6 +969,8 @@ height: 28px;
     z-index: 1;
   }
 
+  
+
 #estado{
   font-size: 10;
     
@@ -376,8 +979,9 @@ height: 28px;
    }
   
   
-   .activo { color:green; }
-  .inactivo { color:red; }
+   .Realizado { background-color:rgb(255, 209, 7); font-weight: 700; color: #000; border: none;  }
+   .Entregado { background-color:rgb(67, 143, 82); font-weight: 700; color: #fff; border: none; }
+  .Pendiente { background-color:#b14949;  font-weight: 700; color: #fff; border: none;}
   
   
   .rowpedidototal{
@@ -390,23 +994,108 @@ height: 28px;
     width: 140px;
     height: 50px;
   }
+
+  #totalPedidosMovil{
+    display:none;
+   
+    }
+
+    #info-pedidosUpdate{
+      margin-left: 145px;
+      width: 740px;
+      height: 320px;
+      background-color: #ffffff;
+      position: absolute;
+      font-weight: 300;
+     font-size: 1rem;
+     padding-left: 20px;
+     
+     }
   
   
 /*------------------------------------pedidos Realizados--------------------
 -----------------------------------------------------------------------
 ------------------------------------------------------------------------*/
 #contenedor-pedidosRealizados{
-  margin-left: 20%;
-  margin-top: 20px;
-  width: 1040px;
-  height: 420px;
-  background-color: #ffffff;
-  position: absolute;
+  margin-left: 16%;
+  margin-top: 30px;
+  width: 1080px;
+  height: auto;
+  background-color: #fff;
+  position: relative;
 
 }
+.pedidoRealizadosTotal{
+  background-color: #f9f9f7e8;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-left: 20px;
+  padding-left: 20px;
+  padding-top: 3px;
+  display: block;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: left;
+  width: 260px;
+  height: 20px;
+  }
+
+.formClienteRealizado{
+  font-size: 0.9rem;
+  display: inline;
+  margin-top: 8px;
+  margin-left: 68px;
+  border: 1px;
+  background-color: #eceaea;
+  height: 20px;
+  border-radius: 2px;
+}
+
+#tableroRealizadoTotalWeb{
+  width: 390px;
+
+  margin-left: 724px;
+  position: absolute;
+  padding-bottom: 20px;
+  float: right;
+  padding-left: 10px;
+  margin-top: 120px;
+  height: auto;
+  background-color: #fff;
+
+}
+.boxTxtEstadoRealizado{
+  text-align: center;
+  padding-top: 3px;
+  font-size: 1rem;
+  background-color:rgb(255, 209, 7);
+  }
 
 #buscadorRealizados {
-  margin-top: 0px;
+  margin-top: -220px;
+  padding-left: 10px;
+ text-align: left;
+ position: relative;
+ float: right;
+  width: 290px;
+  height: auto;
+  margin-right: 10px;
+  background-color: #fff;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  
+}
+
+.inputClienteBusqueda{
+  width: 80px;
+  margin-right: 60px;
+  font-size: 1rem;
+  background-color: #878585a0;
+}
+#cambioEstado {
+  margin-top: 130px;
 
   text-align: right;
   width: 240px;
@@ -425,20 +1114,89 @@ margin-bottom: 2px;
 text-align: center;
 width: 720px;
 height: 20px;
-}
+}.rowpedidoRealizadosTotalDelivery{ 
+  background-color: #f9f9f7e8;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-left: 0px;
+  padding-left: 0px;
+  display: inline;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: left;
+  width: 590px;
+  height: 20px;
+  }
+ .rowpedidoRealizadosTotalDatosDelivery{
+  color: #000;
+  background-color:  rgba(248, 230, 151, 0.933);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-left: 20px;
+  padding-top: 4px;
+  padding-left: 4px;;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  display: inline;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+    }
+
+.rowpedidoRealizadosTotal{ 
+  background-color: #f9f9f7e8;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-left: 20px;
+  padding-left: 20px;
+  display: inline;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: left;
+  width: 260px;
+  height: 20px;
+  }
+ .rowpedidoRealizadosTotalDatos{
+  color: #000;
+  background-color:  rgba(248, 230, 151, 0.933);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-left: 20px;
+  padding-top: 4px;
+  padding-left: 4px;;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  display: block;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+    }
 .pedidoRealizados{
 background-color: #ffffff;
 padding-top: 6px;
 font-size: 1rem;
 margin-bottom: 2px;
+font-size: 1.3rem;
 text-align: center;
-width: 720px;
-height: 28px;
+width: 30px;
+height: 38px;
 }
 
 #infoRealizados{
   margin-left: 20px;
-   width: 640px;
+   width: 1100px;
    height: 320px;
    background-color: #ffffff;
    position: absolute;
@@ -453,6 +1211,200 @@ height: 28px;
   display: inline-block;
 }
   
+
+/*------------------------------------delivery--------------------
+-----------------------------------------------------------------------
+------------------------------------------------------------------------*/
+#boxPedidoDelivery{
+  width: 670px;
+  font-size: 1.1rem;
+
+  margin-right: 2px;
+  display: inline-block;
+  margin-top: 10px;
+  padding-left: 20px;
+  padding-top: 8px;
+  border-radius: 4px;
+  background-color:  #f8e697a3;
+  height: auto;
+  position:relative;
+
+}
+
+.botonMenu{
+  display: none;
+}
+
+#contenedor-pedidosRealizadosDelivery{
+  width: 640px;
+  margin-left: 38%;
+  height: auto;
+  margin-top: 60px;
+  background-color: #ffffff;
+  padding-bottom: 20px;
+
+}
+
+/*------------------------------------pedidos entregados--------------------
+-----------------------------------------------------------------------
+------------------------------------------------------------------------*/
+
+#contenedor-pedidosentregados{
+  margin-left: 20%;
+  margin-top: 20px;
+  width: 1080px;
+  height: auto;
+  background-color: #fff;
+  position: absolute;
+
+}
+.rowpedidoEntregadosTotal{
+  background-color: #afafaf8e;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-left: 16px;
+  padding-top: 4px;
+  padding-left: 4px;;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  display: inline;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  text-align: left;
+
+  height: 40px;
+  }
+
+  #tableroEntregadoTotalWeb{
+    width: 390px;
+    top: 0;
+    left: 0;
+    margin-left: 735px;
+    position: absolute;
+    padding-bottom: 20px;
+    margin-top: 100px;
+    padding-left: 10px;
+    padding-top: 10px;
+    float: right;
+    height: auto;
+    background-color: #fff;
+  }
+#tableroEntregadoTotal{
+  margin-top: 30px;
+
+  text-align: left;
+  width: 290px;
+  height: 300;
+  margin-left: 1070px;
+  background-color: #FFF;
+
+  position: absolute;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+#buscadorEntregados {
+  margin-top: 8px;
+  padding-left: 10px;
+ text-align: left;
+ float: right;
+  width: 290px;
+  height: auto;
+  margin-right: 10px;
+  background-color: #fff;
+display: inline;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+.scrolling{
+  height: auto;
+  max-height: 160px;
+  overflow-y: auto; 
+}
+#boxPedidoEntregado{
+  width: 670px;
+  font-size: 1.1rem;
+  margin-left: 0px;
+  margin-right: 2px;
+  display: inline-block;
+  margin-top: 10px;
+  padding-left: 20px;
+  padding-top: 8px;
+  border-radius: 4px;
+  background-color: #82a67a;
+  height: auto;
+  position:relative;
+}
+
+.col-6 ul {
+  list-style: none; /* Elimina los puntos de lista */
+  padding: 0; /* Elimina el relleno predeterminado de la lista */
+}
+.boxTxtEstadoEntregados{
+  text-align: center;
+  padding-top: 3px;
+  font-size: 1rem;
+  background-color:rgb(67, 143, 82); 
+  }
+  .rowpedidoEntregadosTotalDatos{
+    color: #fff;
+    background-color:rgb(67, 143, 82); 
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    margin-left: 20px;
+    padding-top: 4px;
+    padding-left: 4px;;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    display: block;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    text-align: center;
+    width: 20px;
+    height: 20px;
+      }
+.rowpedidoentregados{
+background-color: #afafaf3e;
+margin-left: 60px;
+padding-top: 6px;
+padding-left: 4px;;
+padding-bottom: 6px;
+display: inline-block;
+margin-bottom: 5px;
+font-size: 1rem;
+text-align: left;
+width: 980px;
+height: 20px;
+}
+
+  
+.rowEntregados{
+  background-color: #afafaf3e;
+  padding-top: 6px;
+  font-size: 0.9rem;
+  margin-bottom: 2px;
+  text-align: left;
+  padding-right: 16px;
+
+  height: 40px;
+  }
+  .rowEntregadosDatos{
+    background-color: #ecdddd3e;
+    padding-top: 6px;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+    text-align: left;
+
+    }
+
+
+.rowalt{
+  height: 30px;
+  background-color: #ffffff;
+}
+
   /*-----------------------------------------------Estadisticas-----------------------------------------
 --------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------*/
@@ -460,21 +1412,21 @@ height: 28px;
   margin-left: 20%;
   margin-top: 20px;
   width: 1040px;
-  height: 420px;
-  background-color: #ffffff;
+  height: auto;
+  background-color: #ac94d2;
   position: absolute;
 
 }
 
 #infoEstadisticas{
   margin-left: 20px;
-   width: 1040px;
+   width: 840px;
    height: auto;
    background-color: #ffffff;
    position: absolute;
    font-weight: 300;
-  font-size: 1rem;
-  padding-left: 20px;
+  font-size: 0.9rem;
+  padding-left: 5px;
  
 
  }
@@ -486,26 +1438,24 @@ margin-bottom: 2px;
 width: 1040px;
 
 }
-#catEstadisticas{
+.catEstadisticas{
   background-color: #b5d3ef;
   font-size: 0.95rem;
-  width: 968px;
-  height: 40px;
+
   margin-left: 0px;
   text-align: center;
   padding: 5px;
   padding-top: 10px;
   color: #000000;
 }
-#catEstadisticasMes{
+.catEstadisticasMes{
   background-color: #efedb5;
-  font-size: 0.95rem;
-  width: 968px;
-  height: 40px;
+  font-size: 0.9rem;
+
   margin-left: 0px;
   text-align: justify;
   padding: 5px;
-  padding-top: 10px;
+  padding-top: 0px;
   color: #000000;
 }
 
@@ -514,13 +1464,13 @@ width: 1040px;
   color: #ffffff;
 }
 
-#datosEstadisticos{
+.datosEstadisticos{
   background-color: #ffffff;
-  width: 968px;
+font-size: 1rem;
   margin-top: 8px;
   margin-left: 0px;
   padding-left: 0px;
-  height: 150px;
+
   text-align: center;
   list-style: none;
 }
@@ -533,16 +1483,72 @@ width: 1040px;
   width: 1040px;
  
   }
-  #datosEstadisticosMes{  background-color: #ffffff;
-    width: 968px;
-    margin-top: 8px;
+  .datosEstadisticosMes{  
+    background-color: #ffffff;
+     margin-top: 8px;
     margin-left: 0px;
     padding-left: 0px;
-    height: 170px;
+  
     text-align: center;
     list-style: none;
   }
- 
+ .pedidoCategoria{
+  padding-right: 39px;
+  text-align: left;
+ }
+ .pedidoCategoriaValor{
+
+  text-align: left;
+  padding-left: 60px;
+ }
+ .registro {
+  /* Estilos generales */
+  background-color: gray;
+  color: white;
+  /* Otros estilos que desees aplicar */
+}
+
+.registro.pendiente {
+  background-color: rgb(239, 119, 119);
+  width: 60px;
+  padding: 3px;
+  padding-left: 4px;
+  margin-bottom: 3px;
+  padding-right: 4px;
+}
+
+.registro.realizado {
+  background-color:rgb(255, 209, 7);
+  width: 60px;
+  padding: 3px;
+  padding-right: 4px;
+  padding-left: 4px;
+  margin-bottom: 3px;
+
+}
+
+.registro.entregado {
+  background-color: rgb(117, 202, 154);
+  width: 60px;
+  padding: 3px;
+  padding-left: 4px;
+  padding-right: 4px;
+  color: #000;
+  margin-bottom: 3px;
+
+}
+
+
+.registro.cobrado {
+  background-color: rgb(107, 107, 105);
+  padding-right: 4px;
+  padding-left: 4px;
+  color: #fff;
+  width: 60px;
+  padding: 3px;
+  margin-bottom: 3px;
+
+}
  
   #formularioFechas {
     position: absolute;
@@ -666,12 +1672,12 @@ width: 1040px;
     background-color: #6286b0;
     color: #fff;
     padding: 5px;
-    width: 968PX;
+   
     margin-left: 0PX;
     margin-top: 0px;
     margin-bottom: 5PX;
-    text-align: justify;
-    height: 24px;
+    text-align: left;
+
     
   }
   .clase99{
@@ -709,23 +1715,7 @@ margin-top: -90px;
 
 
   
-  /*--------------cabezal---logeo--------------*/
   
-  
-  #logoAdminMovil {
-    width: 400px;
-    margin-top: 80px;
-    margin-left: 660px;
-    height: 60px;
-    position: relative;
-    display: inline-block;
-  }
-
-
-  .rowalt{
-    height: 30px;
-    background-color: #ffffff;
-  }
 /*-----------------------------------------------administrador-----------------------------------------
 --------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------*/
@@ -754,6 +1744,32 @@ margin-top: -90px;
   margin-top: 5px;
 }
 
+#slide-productoAdmin {
+  position: absolute;
+  display: inline-block;
+  text-align: center;
+  width: 690px;
+  height: auto;
+  background-color: #ffffff;
+}
+.descripcionProducto{
+  color: #2c5637;
+}
+
+#formNuevoProducto {
+  margin-top: 20px;
+  padding-top: 10px;
+
+  text-align: right;
+  width: 280px;
+  height: 400px;
+  margin-left: 700px;
+  padding-right: 10px;
+  padding-top: 10px;
+  background-color: #ffffff;
+  position: absolute;
+  margin-bottom: 10px;
+}
 #adminUser {
   margin-top: 5px;
   background-color: rgb(233, 236, 232);
@@ -853,7 +1869,7 @@ margin-top: -90px;
   padding-left: 20px;
   display: inline-block;
   background-color: #ffffff;
-  position: absolute;
+  position: relative;
   border-radius: 8px;
   margin-bottom: 15px;
   padding-bottom: 15px;
@@ -1158,6 +2174,17 @@ border: none;
   margin-bottom: 10px;
 }
 
+.btnClienteNuevo{
+  font-size: 0.9rem;
+  margin-top: 8px;
+  float: left;
+  width: 126px;
+  margin-left: 148px;
+  background-color: #71a381;
+  height: 20px;
+  border-radius: 4px; 
+}
+
 
 
 /*--------------pedidos pendientes--------------------------------------------------------------------------------------------------
@@ -1204,266 +2231,190 @@ border: none;
   border-radius: 8px;
 }
 
+.formProduct{
+  margin-right: 40px;
+  width: 360px;
+  text-align: left;
+  float: left;
+  background-color: #fff;
+
+}
+
+.btnProduct{
+  font-size: 0.9rem;
+  margin-top: 8px;
+  float: right;
+  width: 98px;
+  margin-right: -10px;
+  background-color: #71a381;
+  height: 20px;
+  border-radius: 4px; 
+}
+
+.boxProductoform1{
+/*   background-color: #d4d4d3;
+  border-radius: 4px;
+  margin-top: 5px;
+  height: 18px;
+  width: 80px;
+  padding-left: 3px;
+  margin-right: 120px;
+  position: relative;
+  float: right;
+  display:block; */
+  font-size: 0.9rem;
+  width: 98px;
+  float: left;
+  display: inline;
+  margin-top: 8px;
+  margin-left: -110px;
+  border: 1px;
+  background-color: #eceaea;
+  height: 20px;
+  border-radius: 2px;
+}
+
+.productoInfoAdmin {
+  margin-left: 10px;
+  padding-top: 20px;
+  padding-bottom: 6px;
+  margin-top: 10px;
+  padding-right: 10px;
+  height: 340px;
+  font-size: 0.95rem;
+  width: 140px;
+  padding-left: 10px;
+  display: inline-block;
+  background-color: #ffffff;
+  position: relative;
+  border-radius: 8px;
+}
+
+.btnNuevoProducto{
+  background-color: #245a90;
+  margin-left: 10px;
+ float: right;
+ font-size: 0.9;
+ color: #245a90;
+}
+
+
+#contenedor-productosAdmin {
+  margin-left: 24%;
+  margin-top: 0px;
+  width: 1040px;
+  height: 420px;
+  background-color: #ffffff;
+  position: absolute;
+  
+}
+.contenedor-imagen {
+  max-width: 500px; /* Tamaño máximo deseado para la imagen */
+  /* Otros estilos para el contenedor */
+}
+.contenedor-imagen img {
+  max-width: 100%;
+  height: auto;
+}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*------------------------------------clientes movil--------------------
+/*------------------------------------delivery--------------------
 -----------------------------------------------------------------------
 ------------------------------------------------------------------------*/
 
-@media screen and (max-width : 600px) {
-  #contenedor-clientes{
+.subtituloEntregado{
+  background-color:  #98d2ab;
 
-     width: 300px;
-     margin-top: 60px;
-     margin-left: 20px;
-     height: 420px;
-     overflow-x: hidden;
-     overflow-y: auto;
-   
-     background-color: #ffffff;
-     position: absolute;
-    
-   
-   }
-   .rowmovil{
+  color: #5c5757;
+border-bottom: solid, 2px;
+width: 660px;
+padding-top: 3px;
+padding-bottom: 3px;
+}
+.subtitulo{
+  background-color: #f0e39b;
+  color: #5c5757;
+border-bottom: solid, 2px;
+width: 660px;
+padding-top: 3px;
+padding-bottom: 3px;
+}
+.subtitulo1{
 
-    
-    background-color: #d7e5d5;
-    font-weight: normal;
-    font: 1.3em sans-serif;
-    width: 220px;
-    height: auto;
+  border-bottom: solid, 2px;
+  width: 660px;
+  padding-top: 3px;
+  padding-bottom: 3px;
   }
-  .rowmovilinvisible{
 
-    display: none;
-  
+
+#navbarDelivery .menu-toggle {
+  display: block; /* Muestra el botón de desplegar/ocultar el menú */
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#navbarDelivery .menu {
+  display: none; /* Oculta la lista de navegación */
  
-   
-  
-  }
-   #info-clientes{
-   
-  
-     margin-top:40px;
-      width: 240px;
-      height: 320px;
-      background-color: #ffffff;
-      position: absolute;
-      font-weight: 300;
-     font-size: 0.8rem;
-    
-    
-    }
-    #buscadorClientes{
-   
-   margin: 0px;
-      width: 280px;
-      height: 20px;
-      margin-left: -20px;
-      padding-bottom: 20px;
-      font-weight: 600;
-     font-size: 1rem;
-   
-    
-    }
+}
 
+#navbarDelivery .menu-toggle:checked ~ .menu {
+  display: block; /* Muestra la lista de navegación cuando se hace clic en el botón */
+  bottom: 10px; /* Ubica la lista debajo del botón */
+  font-size: 0.9rem;
+  position: relative;
+  padding-top: 20px;
+  padding-left: 8px;
+  margin-top: 10px;
+  height: auto;
+  width: 300px;
+  margin-left: 0px; /* Alinea la lista a la izquierda */
+  /* Cambia el color de fondo de la lista */
+  padding: 0px; /* Añade espaciado interno a la lista */
+}
+.linkmaps{
+  font-size: 0.9rem;
 
+}
+.btnPedido{
+  margin-left: -14px;
 }
 
 
- 
-/*--------------administrador movil--------------*/
-@media screen and (max-width : 600px) {
-  #logoAdmin {
-   
-    height: 60px;
-    width: 100px;
-    margin: 0px;
-    margin-top: 70px;
-    padding-left: 55px;
-    position: relative;
- 
-  }
-  #logoAdminMovil {
-   
-    height: 60px;
-    width: 100px;
-    margin: 0px;
-    margin-top: -100px;
-    padding-left: 62px;
-    position: relative;
- 
-  }
-  #menu {
-    height: 400px;
-    width: 40px;
-    margin-left: 20px;
- 
-    position: absolute;
-  
-  }
- 
-  .btninicio{
-    font-size: 1.4rem;
-    width: 110px;
-    margin-top: 20px;
-    margin-right: 18px;
-    height: 28px;
-    background-color: #9bc19d;
-    border: none;
-  }
- 
-  #login {
-    background-color: #ffffff;
-    height: 100px;
-    width: 200px;
-    margin: 0px;
-    font: 0.9rem sans-serif;
-    margin-top: 70px;
-    word-spacing: 0.8rem;
-    position: relative;
-  
-  
-  }
- 
+#navbarDelivery .menu-toggle-label {
+  display: block;
+  text-align: center;
+  cursor: pointer;
 
 }
 
-@media screen and (max-width : 740px ) and (min-width: 600px){
-  #logoAdmin {
-   
-    height: 60px;
-    width: 100px;
-    margin: 0px;
-    margin-top: 30px;
-    padding-left: 55px;
-    position: relative;
- 
-  }
-  #logoAdminMovil {
-    height: 60px;
-    width: 100px;
-    margin: 0px;
-    margin-top: 30px;
-    padding-left: 55px;
-    position: relative;
- 
-  }
-  #menu {
-    height: 400px;
-    width: 40px;
-    margin-left: -86px;
- 
-    position: absolute;
-  
-  }
-  .btninicio{
-    font-size: 1.4rem;
-    width: 110px;
-    margin-top: 20px;
-    margin-right: 18px;
-    height: 28px;
-    background-color: #9bc19d;
-    border: none;
-  }
- 
-  #login {
-    background-color: #ffffff;
-    height: 100px;
-    width: 200px;
-    margin: 0px;
-    font: 0.9rem sans-serif;
-    margin-top: 70px;
-    word-spacing: 0.8rem;
-    position: relative;
-  
-  
-  }
-  #contenedor-movil{
-    margin-top: 10px;
-   margin-left: 220px;
-    width: auto;
-    height: 420px;
-    background-color: #ffffff;
-    position: absolute;
- 
-  }
+#navbarDelivery {
+  margin-top: 2px;
+  margin-left: 0px;
+  width: 640px;
+  height: 30px;
+  font-size: 1rem;
+
+  display: inline-block;
 
 }
 
 
 
-/*--------------index-movil--------------*/
 
-@media only screen and (max-width : 600px) {
- 
-  #menu {
-    margin-top: 60px;
-    margin-left: 90px;
-    width: 140px;
-    text-align: center;
-  }
-  #slideMovil {
-    
-    width: 140px;
-    height: 500px;
-  }
- 
-  #contenedor-index {
-    margin-top: 90px;
-    width: 260px;
-    height: auto;
-    margin-left: 20px;
-    background-color: #719ecb;
-    position: absolute;
-    border-radius: 8px;
-  }
-  #logoIndex {
-    width: 400px;
-    margin-top: 20px;
-    margin-left: 60px;
-    height: 60px;
-    position: relative;
-    display: inline-block;
-  }
-  
-  #slide-index {
-    font-size: 1rem;
-    margin-top: 20px;
-    margin-left: 6px;
-    width: 260px;
-    height: 200px;
-    border-radius: 8px;
-  }
-  .imgslide{
 
-    width: 260px;
-    height: 200px;
-    border-radius: 8px;
-  }
-  }
+
+
+
+
+
+
+
 
 
 

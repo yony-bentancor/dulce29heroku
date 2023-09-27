@@ -1,10 +1,9 @@
 const { Schema, model } = require("mongoose");
 const { PORT, DB_CONNECTION_STRING, HOST } = require("../config");
 appConfig = {
-  PORT: 80,
-  DB_CONNECTION_STRING:
-    "mongodb+srv://proyectodulce:dulce29@cluster0.bi9aze0.mongodb.net/?retryWrites=true&w=majority",
-  HOST: "https://dulce29.herokuapp.com/",
+  PORT: 3001,
+  DB_CONNECTION_STRING: "mongodb://localhost/proyecto",
+  HOST: "http://localhost",
 };
 
 const userSquema = new Schema(

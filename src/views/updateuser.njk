@@ -1,33 +1,92 @@
+{% extends "masterAdministrador.njk" %}
+{% block main %}
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <title>ACTUALIZAR CLIENTE</title>
+  <body>
 
-{% extends "mastermin.njk" %}
-  
-     {% block main %}<div>
-  <div class="row">
-      <div class="col-md">ACTUALIZAR USUARIO {{ user._id }}</div></br></br>
-  </div>
-
-   <div class="row">
-      <form name="formulario" method="post" action="refresh">   
-        <div class="col-md-12">NOMBRE</div>
-        <div class="col-md-12"></br></div>
-        <div class="col-md-12"><input type ="text" name="username" id="username" value="{{username}}" ></div>
-        <div class="col-md-12"></br></div>
-        <div class="col-md-12">TELEFONO</div>
-        <div class="col-md-12"><input type ="text" name="telefono" id="telefono" value="{{telefono}}"></div>
-        <div class="col-md-12"></br></div>
-         <div class="col-md-12">DIRECCION</div>
-        <div class="col-md-12"><input type ="text" name="direccion" id="direccion" value="{{direccion}}"></div>
-        <div class="col-md-12"></br></div>
-
-         <div class="col-md-12">EMAIL</div>
-        <div class="col-md-12"><input type ="text" name="email" id="email" value="{{email}}"></div>
-        <div class="col-md-12"></br></div>
-        <div class="col-md-8"></br></div> 
-         <div class="col-md-12"><input type="submit"  class="btn btn-success btn-sm" value="Ingresar Registro" /></div> 
-      </form>
+    <div id="navbarAdministrador">
+      <div class="row">
+        <div class="col-12">
+          <input type="checkbox" id="menu-toggle" class="menu-toggle">
+          <label for="menu-toggle" class="menu-toggle-label">&#9776;</label>
+          <ul class="menu">
+            <li>
+              <a href="/session/clientes">CLIENTES</a>
+            </li>
+            <li>
+              <a href="/session/pendientes">PEDIDOS PENDIENTES</a>
+            </li>
+            <li>
+              <a href="/session/realizados">PEDIDOS REALIZADOS</a>
+            </li>
+            <li>
+              <a href="/session/entregados">PEDIDOS ENTREGADOS</a>
+            </li>
+            {#   <li>
+              <a href="/session/estadisticas">ESTADISTICAS</a>
+            </li> #}
+            <li>
+              <a href="/session/productosAdmin">PRODUCTOS</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-     
-</div>  
 
-      
- {% endblock %}
+    {#  admin- usuario          #}
+    <div id="contenedor-clientes">
+      <div id="info-clientesUpdate">
+
+        <div class="row rowmovilinvisible">
+          <div class="col-2">
+            <strong>NOMBRE</strong>
+          </div>
+          <div class="col-2">
+            <strong>TELEFONO </strong>
+          </div>
+          <div class="col-2">
+            <strong>DIRECCION </strong>
+          </div>
+          <div class="col-2">
+            <strong>EMAIL </strong>
+          </div>
+          <div class="col-2"></div>
+          <div class="col-2"></div>
+        </div>
+
+        <div class="row">
+          <form name="formulario" method="post" action="refresh" class="row">
+
+            <input type="hidden" name="userid" id="userid" value="{{ userid }}">
+
+            <div class="col-sm-2">
+              <input class="rowmovilUpdate" type="text" name="usernameSalida" id="usernameSalida" value="{{ usernameSalida }}">
+            </div>
+            <div class="col-sm-2">
+              <input class="rowmovilUpdate"  type="text" name="telefonoSalida" id="telefonoSalida" value="{{ telefonoSalida }}">
+            </div>
+            <div class="col-sm-2">
+              <input class="rowmovilUpdate"  type="text" name="direccionSalida" id="direccionSalida" value="{{ direccionSalida }}">
+            </div>
+            <div class="col-sm-2">
+              <input class="rowmovilUpdate"  type="text" name="emailSalida" id="emailSalida" value="{{ emailSalida }}">
+            </div>
+            <div class="col-sm-2">
+              <input type="submit" class="btnUpdate" value="GUARDAR"/>
+            </div>
+            <div class="col-sm-2">
+              <a href="/session/clientes" class="alink">
+                <input   type="submit" class="btnUpdate" value="CANCELAR"/></a>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </div>
+
+  </body>
+
+{% endblock %}

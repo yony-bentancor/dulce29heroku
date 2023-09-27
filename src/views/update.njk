@@ -1,27 +1,124 @@
+{% extends "masterAdministrador.njk" %}
+{% block main %}
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <title>ACTUALIZAR CLIENTE</title>
+  <body>
 
-{% extends "mastermin.njk" %}
-  
-     {% block main %}<div id="productoNuevo">
-  <div class="row">
-      <div class="col-md">ACTUALIZAR PRODUCTO</div></br></br>
-  </div>
-
-   <div class="row">
-      <form name="formulario" method="post" action="refresh">   
-        <div class="col-md-12">PRODUCTO</div>
-        <div class="col-md-12"></br></div>
-        <div class="col-md-12"><input type ="text" name="name" id="name" value="{{name}}" ></div>
-        <div class="col-md-12"></br></div>
-        <div class="col-md-12">DESCRIPCION</div>
-        <div class="col-md-12"><input type ="text" name="desc" id="desc" value="{{desc}}"></div>
-        <div class="col-md-12"></br></div>
-        <div class="col-md-4"><input type="file"  id="image" name="image" value="{{img}}}" ></div>
-        <div class="col-md-8"></br></div> 
-         <div class="col-md-12"><input type="submit"  class="btn btn-success btn-sm" value="Ingresar Registro" /></div> 
-      </form>
+    <div id="navbarAdministrador">
+      <div class="row">
+        <div class="col-12">
+          <input type="checkbox" id="menu-toggle" class="menu-toggle">
+          <label for="menu-toggle" class="menu-toggle-label">&#9776;</label>
+          <ul class="menu">
+            <li>
+              <a href="/session/clientes">CLIENTES</a>
+            </li>
+            <li>
+              <a href="/session/pendientes">PEDIDOS PENDIENTES</a>
+            </li>
+            <li>
+              <a href="/session/realizados">PEDIDOS REALIZADOS</a>
+            </li>
+            <li>
+              <a href="/session/entregados">PEDIDOS ENTREGADOS</a>
+            </li>
+            <li>
+              <a href="/session/estadisticas">ESTADISTICAS</a>
+            </li>
+            <li>
+              <a href="/session/productosAdmin">PRODUCTOS</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
-     
-</div>  
 
-      
- {% endblock %}
+    <div id="contenedor-clientes">
+      <div id="info-ProductoUpdate">
+
+        <div class="row rowmovilinvisible">
+
+          <div class="col-1">
+            <strong>PRODUCTO</strong>
+          </div>
+          <div class="col-2">
+            <strong>DESCRIPCION</strong>
+          </div>
+          <div class="col-1">
+            <strong>IMAGEN</strong>
+          </div>
+          <div class="col-1">
+            <strong>NUMERO ID</strong>
+          </div>
+          <div class="col-1">
+            <strong>PRECIO VENTA</strong>
+          </div>
+          <div class="col-2">
+            <strong>COSTO PRODUCCION</strong>
+          </div>
+          <div class="col-2">
+            <strong></strong>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <form name="formulario" method="post" action="refreshpedido">
+
+            <div class="col-sm-1"><input type ="text" name="name" id="name" value="{{name}}" ></div>
+
+            <div class="col-sm-2"><input type ="text" name="desc" id="desc" value="{{desc}}"></div>
+
+            <div class="col-sm-1"><input type="file"  id="image" name="image" value="{{img}}}" ></div>
+            <div class="col-sm-1"><input type="text"  id="numeroProducto" name="numeroProducto" value="{{numeroProducto}}" ></div>
+
+            <div class="col-sm-1"><input type ="text" name="precioVenta" id="precioVenta" value="{{precioVenta}}"></div>
+
+            <div class="col-sm-2"><input type="text"  id="costoProduccion" name="costoProduccion" value="{{costoProduccion}}" ></div>
+
+            <div class="col-sm-2">
+              <input type="submit" class="btnUpdate" value="GUARDAR"/>
+            </div>
+            <div class="col-sm-2">
+              <a href="/session/clientes" class="alink">
+                <input   type="submit" class="btnUpdate" value="CANCELAR"/></a>
+            </div>
+          </form>
+        </div>
+
+        {# <div class="row">
+        <form name="formulario" method="post" action="refresh" class="row">
+
+          <input type="hidden" name="userid" id="userid" value="{{ userid }}">
+
+          <div class="col-sm-2">
+            <input class="rowmovilUpdate" type="text" name="usernameSalida" id="usernameSalida" value="{{ usernameSalida }}">
+          </div>
+          <div class="col-sm-2">
+            <input class="rowmovilUpdate"  type="text" name="telefonoSalida" id="telefonoSalida" value="{{ telefonoSalida }}">
+          </div>
+          <div class="col-sm-2">
+            <input class="rowmovilUpdate"  type="text" name="direccionSalida" id="direccionSalida" value="{{ direccionSalida }}">
+          </div>
+          <div class="col-sm-2">
+            <input class="rowmovilUpdate"  type="text" name="emailSalida" id="emailSalida" value="{{ emailSalida }}">
+          </div>
+          <div class="col-sm-2">
+            <input type="submit" class="btnUpdate" value="GUARDAR"/>
+          </div>
+          <div class="col-sm-2">
+            <a href="/session/clientes" class="alink">
+              <input   type="submit" class="btnUpdate" value="CANCELAR"/></a>
+          </div>
+        </form>
+      </div> #}
+
+      </div>
+    </div>
+
+  </body>
+
+{% endblock %}
