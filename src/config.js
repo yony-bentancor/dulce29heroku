@@ -20,6 +20,4 @@ module.exports = {
   DB_CONNECTION_STRING,
   HOST,
   uri,
-  accessKeyId,
-  secretAccessKey,
 };

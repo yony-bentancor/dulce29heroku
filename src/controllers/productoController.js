@@ -2,9 +2,6 @@ const checkJWT = require("express-jwt");
 const { CLAVE_SECRETA } = require("../config");
 const Producto = require("../models/Producto");
 const Pedido = require("../models/Pedido");
-const multer = require("../multer-config");
-const fs = require("fs");
-const AWS = require("../aws-sdk");
 
 module.exports = {
   pageNewProducto: async (req, res) => {

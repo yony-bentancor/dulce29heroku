@@ -3,11 +3,10 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const app = express();
 const productoController = require("../controllers/productoController");
-const upload = require("../multer-config"); // Importa la configuración de Multer
 
 router.post(
-  "/newproducto",
-  upload.single("imagen"),
+  "/newproducto" /* ,
+  upload.single("imagen"), */,
   productoController.newProducto
 );
 router.get("/newproducto", productoController.pageNewProducto);
