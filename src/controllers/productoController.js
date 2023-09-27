@@ -64,6 +64,8 @@ module.exports = {
       const { name, desc, costoProduccion, precioVenta } = req.body;
       /*  const s3ImageURL = req.file;
       console.log(s3ImageURL); */
+      // Obtener la URL de la imagen de req.file.location (esto depende de cómo esté configurado multer-s3)
+      const imageUrl = req.file.location;
 
       const productos = await Producto.find({}, "numeroProducto").lean();
 
@@ -89,11 +91,9 @@ module.exports = {
         costoProduccion,
         precioVenta,
         numeroProducto: loopContadorProducto,
+        imagenUrl: imageUrl,
       });
-      // Si se subió una imagen y el middleware multer ya la procesó, la URL estará en req.file
-      if (req.file) {
-        product.imagen = req.file.location; // Asigna la URL de la imagen a la propiedad "img" del producto
-      }
+
       const addproductos = await Producto.create(product);
       //res.status(201).json(addteams);
 
