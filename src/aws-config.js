@@ -6,4 +6,6 @@ AWS.config.update({
   region: "us-east-2", // Por ejemplo, 'us-east-1'
 });
 
-module.exports = AWS;
+const s3 = new AWC.S3();
+
+/* module.exports = AWS; */

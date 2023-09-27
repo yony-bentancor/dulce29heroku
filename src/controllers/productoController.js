@@ -62,10 +62,21 @@ module.exports = {
   newProducto: async (req, res) => {
     try {
       const { name, desc, costoProduccion, precioVenta } = req.body;
-      /*  const s3ImageURL = req.file;
-      console.log(s3ImageURL); */
+      const params = {
+        Bucket: "dulce29",
+        Key: req.file.originalname,
+        Body: req.file.buffer,
+      };
+
+      S3.upload(params, (err, data) => {
+        if (err) {
+          console.error(err);
+          return res.status(500).send("eeror al subir archivo");
+        }
+        res.send("se subio archivo");
+      });
       // Obtener la URL de la imagen de req.file.location (esto depende de cómo esté configurado multer-s3)
-      const imageUrl = req.file.location;
+      /*   const imageUrl = req.file.location; */
 
       const productos = await Producto.find({}, "numeroProducto").lean();
 
@@ -91,7 +102,7 @@ module.exports = {
         costoProduccion,
         precioVenta,
         numeroProducto: loopContadorProducto,
-        imagenUrl: imageUrl,
+        /*   imagenUrl: imageUrl, */
       });
 
       const addproductos = await Producto.create(product);
