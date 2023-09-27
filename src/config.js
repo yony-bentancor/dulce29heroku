@@ -12,8 +12,6 @@ const uri =
 
 const HOST = "https://dulce29.herokuapp.com/";
 
-const accessKeyId = "AKIAY6K62BUG4GBUYHWG";
-const secretAccessKey = "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";
 /* "http://localhost";
  */
 module.exports = {
