@@ -2,8 +2,6 @@ const checkJWT = require("express-jwt");
 const { CLAVE_SECRETA } = require("../config");
 const Producto = require("../models/Producto");
 const Pedido = require("../models/Pedido");
-const upload = require("../middleware/multerMiddleware");
-const { uploadToS3 } = require("../S3");
 
 module.exports = {
   pageNewProducto: async (req, res) => {
@@ -62,8 +60,8 @@ module.exports = {
     try {
       const { name, desc, costoProduccion, precioVenta } = req.body;
       const file = req.file; // Archivo subido mediante Multer
-      const key = "nombre.jpg"; // Cambia el nombre de la clave
-      const imageUrl = await uploadToS3(file, key);
+      console.log(file);
+
       // Obtener la URL de la imagen de req.file.location (esto depende de cómo esté configurado multer-s3)
       /*   const imageUrl = req.file.location; */
 
