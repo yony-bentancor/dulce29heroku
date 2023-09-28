@@ -17,8 +17,6 @@ const HOST = "https://dulce29.herokuapp.com/";
 module.exports = {
   CLAVE_SECRETA,
   PORT,
-  TU_SECRET_ACCESS_KEY,
-  TU_ACCESS_KEY_ID,
   DB_CONNECTION_STRING,
   HOST,
   uri,
