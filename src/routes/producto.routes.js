@@ -3,10 +3,11 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const app = express();
 const productoController = require("../controllers/productoController");
+const upload = require("../middlewares/multerMiddleware");
 
 router.post(
-  "/newproducto" /* ,
-  upload.single("imagen"), */,
+  "/newproducto",
+  upload.single("imagen"),
   productoController.newProducto
 );
 router.get("/newproducto", productoController.pageNewProducto);

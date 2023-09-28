@@ -5,6 +5,9 @@ web: node server.js
 export MONGODB_URI="mongodb+srv://proyectodulce:dulce29@cluster0.bi9aze0.mongodb.net/?retryWrites=true&w=majority"
 export MONGODB_DB_NAME=proyecto
 
+export TU_ACCESS_KEY_ID= "AKIAY6K62BUGQIZCBAGX"
+export TU_SECRET_ACCESS_KEY="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"
+
 
 # Instala las dependencias de la aplicación
 npm install
