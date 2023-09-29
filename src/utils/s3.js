@@ -8,7 +8,7 @@ const s3 = new aws.S3({
 
 const uploadToS3 = (file, key) => {
   const params = {
-    Bucket: process.env.AWS_BUCKET_NAME,
+    Bucket: process.env.AWS_S3_BUCKET,
     Key: key,
     Body: file.buffer,
     ACL: "public-read", // Establece los permisos adecuados en S3
