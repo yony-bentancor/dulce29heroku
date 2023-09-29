@@ -61,6 +61,7 @@ module.exports = {
   newProducto: async (req, res) => {
     try {
       const { name, desc, costoProduccion, precioVenta } = req.body;
+      console.log(name);
       const file = req.file; // Archivo subido mediante Multer
       const key = `products/${file.originalname}`; // Ruta en S3 donde se almacenará el archivo
       const imageUrl = await s3.uploadToS3(file, key);
