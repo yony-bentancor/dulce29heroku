@@ -1,4 +1,4 @@
-const awsConfig = require("../src/awsConfig"); // Importa la configuración de AWS
+const awsConfig = require("./awsConfig"); // Importa la configuración de AWS
 require("dotenv").config();
 // Función para subir un archivo a Amazon S3
 async function uploadToS3(file, key) {
