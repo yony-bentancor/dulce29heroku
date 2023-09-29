@@ -3,7 +3,7 @@ const { CLAVE_SECRETA } = require("../config");
 const Producto = require("../models/Producto");
 const Pedido = require("../models/Pedido");
 const upload = require("../middlewares/multerMiddleware");
-const { uploadToS3 } = require("../s3");
+const { uploadToS3 } = require("s3");
 
 module.exports = {
   pageNewProducto: async (req, res) => {

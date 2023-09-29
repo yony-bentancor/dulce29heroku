@@ -3,7 +3,7 @@ require("dotenv").config();
 // Función para subir un archivo a Amazon S3
 async function uploadToS3(file, key) {
   const params = {
-    Bucket: process.env.AWS_BUCKET_NAME, // Cambia a tu nombre de bucket
+    Bucket: process.env.TU_BUCKET_NAME, // Cambia a tu nombre de bucket
     Key: key,
     Body: file.buffer,
   };
