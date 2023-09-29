@@ -64,9 +64,9 @@ module.exports = {
       const { name, desc, costoProduccion, precioVenta } = req.body;
       console.log(name);
       const file = req.file; // Archivo subido mediante Multer
-      const Bucket = "dulce29";
+
       const key = `products/${file.originalname}`; // Ruta en S3 donde se almacenará el archivo
-      const imageUrl = await s3.uploadToS3(file, key, Bucket);
+      const imageUrl = await s3.uploadToS3(file, key);
 
       // Obtener la URL de la imagen de req.file.location (esto depende de cómo esté configurado multer-s3)
       /*   const imageUrl = req.file.location; */
