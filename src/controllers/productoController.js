@@ -2,7 +2,7 @@ const checkJWT = require("express-jwt");
 const { CLAVE_SECRETA } = require("../config");
 const Producto = require("../models/Producto");
 const Pedido = require("../models/Pedido");
-const upload = require("../middleware/multerMiddleware");
+const upload = require("../utils/multer");
 const s3 = require("../utils/s3");
 
 module.exports = {
