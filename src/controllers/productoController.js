@@ -95,7 +95,7 @@ module.exports = {
         costoProduccion,
         precioVenta,
         numeroProducto: loopContadorProducto,
-        imagen: imageUrl,
+        image: imageUrl,
       });
 
       const addproductos = await Producto.create(product);
