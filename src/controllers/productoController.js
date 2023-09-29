@@ -86,7 +86,6 @@ module.exports = {
         }
       }
 
-      console.log(highestProductNumber);
       loopContadorProducto = ++highestProductNumber;
 
       const product = Producto({
