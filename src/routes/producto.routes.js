@@ -7,7 +7,7 @@ const upload = require("../utils/multer");
 
 router.post(
   "/newproducto",
-  upload.single("imagen"),
+  upload.single("image"),
   productoController.newProducto
 );
 router.get("/newproducto", productoController.pageNewProducto);
