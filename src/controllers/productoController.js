@@ -4,7 +4,7 @@ const Producto = require("../models/Producto");
 const Pedido = require("../models/Pedido");
 const upload = require("../utils/multer");
 const s3 = require("../utils/s3");
-uploadToS3 = require("../utils/s3");
+/* uploadToS3 = require("../utils/s3"); */
 
 module.exports = {
   pageNewProducto: async (req, res) => {
