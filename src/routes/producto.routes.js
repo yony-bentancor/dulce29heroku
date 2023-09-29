@@ -3,6 +3,7 @@ const router = express.Router();
 const mongoose = require("mongoose");
 const app = express();
 const productoController = require("../controllers/productoController");
+const upload = require("../middleware/multerMiddleware");
 
 router.post(
   "/newproducto",

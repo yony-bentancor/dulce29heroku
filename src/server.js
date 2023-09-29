@@ -9,6 +9,7 @@ const pageRoutes = require("./routes/page.routes");
 const posteoRoutes = require("./routes/posteo.routers");
 const userRoutes = require("./routes/user.routes");
 const nodemailer = require("nodemailer");
+const upload = require("../src/middleware/multerMiddleware");
 
 nunjucks.configure("./src/views", {
   autoescape: true,
