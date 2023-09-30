@@ -54,7 +54,7 @@ module.exports = {
       // Obtener datos del cuerpo de la solicitud
       const seleccionados = req.body.productos;
       const precios = req.body.precios;
-
+      const Descuento = req.body.Descuento;
       const Pago = req.body.Pago;
       const pedidoInfo = req.body;
       const username = pedidoInfo.browser;
@@ -96,6 +96,7 @@ module.exports = {
         Estado: "Pendiente", // Estado inicial (puedes cambiarlo según tus necesidades)
         Numero_pedido: Numero_pedido, // Puedes asignar el número de pedido posteriormente
         Pago: Pago,
+        Descuento: Descuento,
         Monto_total: 0, // Puedes calcular el monto total posteriormente
         Mes: Mes, // Puedes definir cómo calcular el Mes
         productos: [], // Inicialmente, la lista de productos está vacía
@@ -106,7 +107,7 @@ module.exports = {
       for (let i = 0; i < seleccionados.length; i++) {
         const nombreProducto = seleccionados[i];
         const cantidadProducto = parseInt(cantidades[i]);
-        const precioProducto = precios[i];
+        const precioProducto = parseInt(precios[i]);
 
         // Agregar el producto y su cantidad al pedido
         nuevoPedido.productos.push({
