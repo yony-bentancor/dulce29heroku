@@ -97,7 +97,7 @@ module.exports = {
         Numero_pedido: Numero_pedido, // Puedes asignar el número de pedido posteriormente
         Pago: Pago,
         Descuento: Descuento,
-        Monto_total: "", // Puedes calcular el monto total posteriormente
+        Monto_total: 0, // Puedes calcular el monto total posteriormente
         Mes: Mes, // Puedes definir cómo calcular el Mes
         productos: [], // Inicialmente, la lista de productos está vacía
         createdAt: new Date(), // Fecha actual
