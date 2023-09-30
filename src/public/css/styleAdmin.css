@@ -455,7 +455,7 @@ height: 22px;
   margin-top: 30px;
   width: 1080px;
   height: auto;
-  background-color: #fff;
+  background-color: #97d88a;
   position: relative;
 
 }
@@ -493,20 +493,7 @@ height: 20px;
   position: relative;
   background-color: #fff;
 }
-#tableroPendienteTotalWeb{
-  width: 390px;
-  top: 0;
-  left: 0;
-  margin-left: 58px;
-  position: absolute;
-  padding-bottom: 20px;
-  margin-top: 530px;
-  padding-left: 10px;
-  padding-top: 10px;
 
-  height: auto;
-  background-color: #fff;
-}
 /* #infoPendientes{
   margin-left: 10px;
    width: 1040px;
@@ -533,6 +520,23 @@ height: 20px;
   width: 260px;
   height: 20px;
   }
+  .pedidoPendientesTotalInfo{
+    background-color: #f9f9f7e8;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    margin-left: 20px;
+    padding-left: 20px;
+    padding-bottom: 2px;
+    display: block;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    text-align: left;
+
+    width: 260px;
+    height: 20px;
+    }
 
   .pedidoPendientesTotal{
     background-color: #f9f9f7e8;
@@ -559,13 +563,34 @@ height: 20px;
       padding: 0; /* Elimina el relleno predeterminado de la lista */
     }
 
+    .pedidoPendientesTotalDatosCantidad{
+      color: #000;
+      background-color:  #cd9090;
+      border: none;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-all;
+      margin-left: 4px;
+      padding-top: 4px;
+      padding-left: 4px;;
+      padding-right: 4px;
+      padding-bottom: 4px;
+      display: block;
+      border-radius: 4px;
+      margin-bottom: 5px;
+      font-size: 1rem;
+      text-align: center;
+      width: 38px;
+      height: 20px;
+        }
+
     .pedidoPendientesTotalDatos{
       color: #fff;
       background-color:  #b36767;
       overflow-wrap: break-word;
       word-wrap: break-word;
       word-break: break-all;
-      margin-left: 20px;
+      margin-left: 0px;
       padding-top: 4px;
       padding-left: 4px;;
       padding-right: 4px;
@@ -609,30 +634,20 @@ text-align: center;
 width: 720px;
 height: 28px;
 }
-#boxPedido{
-  width: 720px;
-  margin-left: 30px;
-  margin-top: 10px;
-  background-color: #fff;
-  height: auto;
-  z-index: 1;
-  padding-left: 0px;
-   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start; 
-
-}
 #boxPedidoRealizado{
-  width: 720px;
-  margin-left: 30px;
+  width: 740px;
+  font-size: 1.1rem;
+  margin-left: 10px;
+  margin-right: 2px;
+position: absolute;
+  float: left;
   margin-top: 10px;
-  background-color: #fff;
-  height: auto;
-  z-index: 1;
   padding-left: 0px;
-   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start; 
+  padding-top: 8px;
+  border-radius: 4px;
+  background-color: #fff;
+
+  height: auto;
 
 }
 #espaciadoBottom{
@@ -735,7 +750,7 @@ margin-top: 130px;
 margin-left: 5%;
 color: #fff;
 font-size: 1rem;
-  height: 20px;
+  height: 40px;
   padding-top: 4px;
 
 } 
@@ -876,6 +891,7 @@ text-align: left;
 
 }
 
+
  #buscadorClientesPedidos{
   width: 340px;
   height: 20px;
@@ -886,19 +902,66 @@ text-align: left;
  font-size: 1.3rem; 
 }
 
-#newPedido {
-  margin-top: -240px;
-  padding-left: 10px;
- text-align: left;
- position: relative;
- float: right;
-  width: 290px;
-  height: auto;
-  margin-right: 10px;
-  background-color: #fff;
 
+#contenedorPedidosNuevos {
+  display: flex;
+  background-color: #116fad;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px; /* Espacio vertical entre los divs */
+}
+#contenedorlateral {
+  background-color: #fff;
+  float: left;
+  display: flex;
+  flex-direction: column; /* Alinea los divs verticalmente */
+  align-items: flex-start; /* Alinea los divs a la izquierda horizontalmente */
+  width: 1100px;
+  height: auto;
+}
+
+#tableroPendienteTotalWeb {
+  width: 340px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-top: 10px;
+  margin-left: 760px;
+  display: block;
+  height: auto;
+  background-color: #fff;
+}
+
+#newPedido {
+  margin-top: 10px; /* Añade espacio entre los dos divs */
+  padding-left: 0px;
+
+  text-align: left;
+  width: 340px;
+  height: auto;
+  background-color: #fff;
   border-radius: 4px;
   margin-bottom: 10px;
+  margin-left: 760px;
+}
+
+
+#boxPedido{
+  width: 740px;
+  font-size: 1.1rem;
+  margin-left: 10px;
+  margin-right: 2px;
+position: absolute;
+  float: left;
+  margin-top: 10px;
+  padding-left: 0px;
+  padding-top: 8px;
+  border-radius: 4px;
+  background-color: #fff;
+
+  height: auto;
+ 
+
+
 }
 .nuevoPedido{
   background-color: #afafaf3e;
@@ -912,13 +975,15 @@ text-align: left;
   height: 22px;
   }
   .nuevoPedidoPendiente{
-    background-color: #afafaf3e;
+    background-color: #fff;
     margin-bottom: 8px;
+    margin-left: 50px;
   
    text-align: center;
+  
     font-size: 1.1rem;
     padding-top: 2px;
-    width: 295px;
+    width: 300px;
     font-weight: bold;
     height: 22px;
     }
@@ -1021,7 +1086,7 @@ text-align: left;
   margin-top: 30px;
   width: 1080px;
   height: auto;
-  background-color: #fff;
+  background-color: #c4e3be;
   position: relative;
 
 }
@@ -1054,14 +1119,12 @@ text-align: left;
 }
 
 #tableroRealizadoTotalWeb{
-  width: 390px;
-
-  margin-left: 724px;
-  position: absolute;
+  width: 340px;
   padding-bottom: 20px;
-  float: right;
   padding-left: 10px;
-  margin-top: 120px;
+  padding-top: 10px;
+  margin-left: 760px;
+  display: block;
   height: auto;
   background-color: #fff;
 
@@ -1074,17 +1137,16 @@ text-align: left;
   }
 
 #buscadorRealizados {
-  margin-top: -220px;
-  padding-left: 10px;
- text-align: left;
- position: relative;
- float: right;
-  width: 290px;
+  margin-top: 10px; /* Añade espacio entre los dos divs */
+  padding-left: 30px;
+  padding-right: 0px;
+  text-align: left;
+  width: 310px;
   height: auto;
-  margin-right: 10px;
   background-color: #fff;
   border-radius: 4px;
   margin-bottom: 10px;
+  margin-left: 780px;
   
 }
 
@@ -1167,10 +1229,11 @@ height: 20px;
  .rowpedidoRealizadosTotalDatos{
   color: #000;
   background-color:  rgba(248, 230, 151, 0.933);
+  border: none;
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-all;
-  margin-left: 20px;
+  margin-left: 4px;
   padding-top: 4px;
   padding-left: 4px;;
   padding-right: 4px;
@@ -1180,7 +1243,7 @@ height: 20px;
   margin-bottom: 5px;
   font-size: 1rem;
   text-align: center;
-  width: 20px;
+  width: 38px;
   height: 20px;
     }
 .pedidoRealizados{
@@ -1305,6 +1368,7 @@ height: 38px;
 }
 #buscadorEntregados {
   margin-top: 8px;
+  margin-left: 780px;
   padding-left: 10px;
  text-align: left;
  float: right;
@@ -1349,22 +1413,43 @@ display: inline;
   .rowpedidoEntregadosTotalDatos{
     color: #fff;
     background-color:rgb(67, 143, 82); 
-    overflow-wrap: break-word;
-    word-wrap: break-word;
-    word-break: break-all;
-    margin-left: 20px;
-    padding-top: 4px;
-    padding-left: 4px;;
-    padding-right: 4px;
-    padding-bottom: 4px;
-    display: block;
-    border-radius: 4px;
-    margin-bottom: 5px;
-    font-size: 1rem;
-    text-align: center;
-    width: 20px;
-    height: 20px;
+    border: none;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-left: 4px;
+  padding-top: 4px;
+  padding-left: 4px;;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  display: block;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  text-align: center;
+  width: 38px;
+  height: 20px;
       }
+      .rowpedidoEntregadosTotalDatosColor{
+        color: #fff;
+        background-color:  #cd9090;
+        border: none;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-all;
+      margin-left: 4px;
+      padding-top: 4px;
+      padding-left: 4px;;
+      padding-right: 4px;
+      padding-bottom: 4px;
+      display: block;
+      border-radius: 4px;
+      margin-bottom: 5px;
+      font-size: 1rem;
+      text-align: center;
+      width: 38px;
+      height: 20px;
+          }
 .rowpedidoentregados{
 background-color: #afafaf3e;
 margin-left: 60px;
@@ -1393,7 +1478,8 @@ height: 20px;
   .rowEntregadosDatos{
     background-color: #ecdddd3e;
     padding-top: 6px;
-    font-size: 0.9rem;
+    font-size: 1.3rem;
+    font-weight: bold;
     margin-bottom: 4px;
     text-align: left;
 
@@ -2317,6 +2403,19 @@ border: none;
   height: auto;
 }
 
+/*------------------------------------update user--------------------
+-----------------------------------------------------------------------
+------------------------------------------------------------------------*/
+
+#box1UpdUser {
+  width: 370px;
+  height: auto;
+  padding-left: 8px;
+background-color: #245a90;
+  margin-top: 5px;
+  display: block;
+ /* Alinea en la parte superior */
+}
 
 
 /*------------------------------------delivery--------------------

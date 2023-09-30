@@ -505,6 +505,61 @@ margin-left: 15px;
 
 }
 
+
+.pedidoPendientesTotal {
+  background-color: #f9f9f7e8;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-top: 8px;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-align: left;
+  width: 210px;
+  height: 30px;
+}
+.pedidoPendientesTotalDatos{
+  color: #fff;
+  background-color:  #b36767;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-left: 0px;
+  padding-top: 4px;
+  padding-left: 4px;;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  display: block;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  font-size: 1rem;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+    }
+
+.pedidoPendientesTotalDatosCantidad {
+  color: #000;
+  background-color: #f9f9f7e8;
+ overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all; 
+
+  padding-top: 4px;
+  padding-left: 2px;
+  padding-right: 6px;
+  padding-bottom: 4px;
+  border-radius: 4px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 40px;
+  height: 30px;
+}
+
 .listadoProductos{
   font-size: 0.9rem;
   margin-right: 60px;
@@ -586,6 +641,7 @@ position: relative;
   height: auto;
   background-color: #fff;
   position: absolute;
+  display: block;
 
 }
 
@@ -630,59 +686,61 @@ position: relative;
 
 
 #tableroRealizadoTotalWeb {
+  width: 320px;
   display: block;
-  position: absolute;
-  width: 270px;
-  height: 300px; /* Altura fija de 200px */
+position: relative;
+  padding-bottom: 20px;
+  margin-right: 10px;
   margin-top: 10px;
-  margin-left: 0px;
-  padding: 8px; /* Ajusta el espaciado según sea necesario */
+  margin-left: 30px;
+  padding-left: 10px;
+  padding-top: 10px;
   border-radius: 4px;
-  background-color: #fff;
-  overflow-y: auto; /* Agrega scroll vertical si el contenido excede la altura */
+  height: auto;
+  background-color:  rgba(248, 230, 151, 0.933);
 }
 .pedidoRealizadosTotal{
+
   background-color: #f9f9f7e8;
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-all;
-  margin-left: 20px;
-  padding-left: 20px;
-  padding-top: 3px;
-  display: block;
-  margin-bottom: 5px;
+  margin-left: 10px;
+  padding-left: 10px;
+  padding-top: 8px;
   border-radius: 4px;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-weight: bold;
   text-align: left;
-  width: 200px;
-  height: 20px;
+  width: 210px;
+  height: 30px;
   }
 
 #boxPedidoRealizado {
+  margin-left: 70px;
+  order: 1;
+  margin-top: auto;
+  padding-bottom: 250px;
+  height: auto;
+  font-size: 1.1rem;
+  width: 270px;
   display: block;
   position: relative;
-  width: auto;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 8px; /* Ajusta el espaciado según sea necesario */
-  border-radius: 4px;
-  margin-top: 300px;
+  background-color: #fff;
 }
 #buscadorRealizados {
-  margin-top: 8px;
-  padding-left: 10px;
- text-align: left;
- float: right;
-  width: 290px;
-  height: 60px;
-  position: absolute;
-  margin-right: 10px;
+  width: 320px;
+  display: block;
+position: relative;
+  padding-bottom: 20px;
+  margin-right: 0px;
+  margin-top: 10px;
+  margin-left: 30px;
+  padding-left: 30px;
+  padding-right: 8px;
+  padding-top: 10px;
+  height: auto;
   background-color: #fff;
-display: block;
-
-  border-radius: 4px;
-  padding-bottom: 170px;
 }
 
 .btnClienteBuscador{
@@ -792,18 +850,18 @@ text-align: left;
 
 
 #tableroEntregadoTotalWeb{
-  width: 280px;
+  width: 320px;
   display: block;
-
- 
 position: relative;
   padding-bottom: 20px;
-  margin-right: 20px;
-  margin-top: 0px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-left: 30px;
   padding-left: 10px;
   padding-top: 10px;
+  border-radius: 4px;
   height: auto;
-  background-color: #fff;
+  background-color: #a1dbaf;
 }
 
     /*------------------------------------DELIVERY--------------------
@@ -867,26 +925,25 @@ position: relative;
   position:absolute;
 
 } */
+#pendientesBox{
+
+  width: 220px;
+  padding-left: 10px;
+  padding-top: 6px;
+  height: auto;
+  margin-bottom: 30px;
+
+  margin-left:3px;
+} 
 
 
-
-#tableroPendienteTotalWeb,
-#newPedido,
-#boxPedido {
-  display: block;
-  width: auto;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 8px; /* Ajusta el espaciado según sea necesario */
-  border-radius: 4px;
-}
 
 #info-pendientesBox{
 
   width: 220px;
 
-  height: 200px;
-  background-color: #fff; 
+  height: 200px;/* 
+  background-color: #fff;  */
   border-radius: 4px;
   position: relative;
   display: inline-block;
@@ -894,13 +951,59 @@ position: relative;
   margin-left: 15px;
   margin-bottom:38px;
 } 
+#contenedorlateral{
+  background-color: #fff;
+  float: right;
+  display: flex;
+  flex-direction: column; /* Alinea los divs verticalmente */
+  align-items: flex-start; /* Alinea los divs a la izquierda horizontalmente */
+  width: 340px;
+  height: auto;
+}
+#tableroPendienteTotalWeb{
+  width: 320px;
+  display: block;
+position: relative;
+  padding-bottom: 20px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-left: 30px;
+  padding-left: 10px;
+  padding-top: 10px;
+  border-radius: 4px;
+  height: auto;
+ /*  background-color: #dcc5b0; */
+  background-color: #dcb0b0;
+}
+
+#newPedido{
+  width: 320px;
+  display: block;
+position: relative;
+  padding-bottom: 20px;
+  margin-right: 0px;
+  margin-top: 10px;
+  margin-left: 30px;
+  padding-left: 10px;
+  padding-top: 10px;
+  height: auto;
+  background-color: #fff;
+}
 
 #boxPedido{
   
-margin-left: 0px;
+margin-left: 70px;
+order: 1;
+margin-top: auto;
+padding-bottom: 250px;
+height: auto;
 font-size: 1.1rem;
 width: 270px;
 background-color: #fff;
+display: block;
+position: relative;
+
+
 }
 #box6{
 
@@ -911,7 +1014,7 @@ margin-top: 130px;
 margin-left: -10px;
 color: #fff;
 font-size: 1rem;
-  height: 20px;
+  height: 40px;
   padding-top: 4px;
 
 } 
@@ -941,11 +1044,7 @@ margin-left: 5px;
   background-color: #c5c0b3; 
 
 } 
-#newPedido{
-  margin-top: auto;
-  position: relative;
-  padding-bottom: 160px;
-}
+
 .boxTxtCliente{
   text-align: center;
   align-items: center;
@@ -990,30 +1089,20 @@ margin-left: 5px;
   }
 
 
-#tableroPendienteTotalWeb{
-  width: 280px;
-  top: 0;
-  left: 0;
-  margin-left: -10px;
-  position: relative;
-  padding-bottom: 20px;
-  margin-top: 20px;
-  padding-left: 10px;
-  padding-top: 10px;
-  height: auto;
-  background-color: #fff;
-}
+
 
 .nuevoPedidoPendiente{
-  background-color: #afafaf3e;
+  background-color: #787272c8;
   margin-bottom: 8px;
-
+  display: block;
+margin-right: 6px;
  text-align: center;
-  font-size: 1.1rem;
-  padding-top: 2px;
-  width: 270px;
+color: #fff;
+ font-size: 1.3rem;
+  padding-top: 5px;
+  width: 332px;
   font-weight: bold;
-  height: 22px;
+  height: 32px;
   }
 #boxPedidoDelivery{
   width: 340px;
@@ -1188,43 +1277,71 @@ padding-bottom: 3px;
   }
  .rowpedidoRealizadosTotalDatos{
   color: #000;
-  background-color:  rgba(248, 230, 151, 0.933);
+  background-color:  #f9f9f7e8;
   overflow-wrap: break-word;
   word-wrap: break-word;
-  word-break: break-all;
-  margin-left: 20px;
+  word-break: break-all; 
+
   padding-top: 4px;
-  padding-left: 4px;;
-  padding-right: 4px;
+  padding-left: 2px;
+  padding-right: 6px;
   padding-bottom: 4px;
-  display: block;
   border-radius: 4px;
-  margin-bottom: 5px;
-  font-size: 1rem;
-  text-align: left;
-  width: 20px;
-  height: 20px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 40px;
+  height: 30px;
+    }
+
+    #buscadorEntregados {
+      width: 320px;
+      display: block;
+    position: relative;
+      padding-bottom: 20px;
+      margin-right: 0px;
+      margin-top: 10px;
+      margin-left: 30px;
+      padding-left: 10px;
+      padding-top: 10px;
+      height: auto;
     }
 
     .rowpedidoEntregadosTotalDatos{
       color: #000;
-      background-color:  rgba(151, 248, 177, 0.933);
+      background-color:  #f9f9f7e8;
       overflow-wrap: break-word;
-      word-wrap: break-word;
-      word-break: break-all;
-      margin-left: 20px;
-      padding-top: 4px;
-      padding-left: 4px;;
-      padding-right: 4px;
-      padding-bottom: 4px;
-      display: block;
-      border-radius: 4px;
-      margin-bottom: 5px;
-      font-size: 1rem;
-      text-align: center;
-      width: 20px;
-      height: 20px;
-        }
+  word-wrap: break-word;
+  word-break: break-all; 
 
+  padding-top: 4px;
+  padding-left: 2px;
+  padding-right: 6px;
+  padding-bottom: 4px;
+  border-radius: 4px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: right;
+  width: 40px;
+  height: 30px;
+        }
+        .rowpedidoEntregadosTotalDatosColor{
+          color: #000;
+          background-color:#e69595cf;
+          overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-all; 
+    
+      padding-top: 4px;
+      padding-left: 2px;
+      padding-right: 6px;
+      padding-bottom: 4px;
+      border-radius: 4px;
+      font-size: 1.6rem;
+      font-weight: bold;
+      text-align: right;
+      width: 40px;
+      height: 30px;
+            }
 
 }

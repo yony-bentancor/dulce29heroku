@@ -1,10 +1,10 @@
 const { Schema, model } = require("mongoose");
-const { PORT, DB_CONNECTION_STRING, HOST } = require("../config");
+/* const { PORT, DB_CONNECTION_STRING, HOST } = require("../config");
 appConfig = {
   PORT: 3001,
   DB_CONNECTION_STRING: "mongodb://localhost/proyecto",
   HOST: "http://localhost",
-};
+}; */
 
 const productoSquema = new Schema(
   {
