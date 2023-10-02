@@ -53,16 +53,16 @@ module.exports = {
   pageNewPedido: async (req, res) => {
     try {
       // Obtener datos del cuerpo de la solicitud
-      const seleccionados = req.body.productos || []; // Verifica si está definido o usa un array vacío
+      const seleccionados = req.body.productos || [];
       const precios = req.body.precios || [];
-      const Descuento = parseInt(req.body.Descuento); // Convierte el descuento a número
+      const Descuento = parseInt(req.body.Descuento) || 0;
       const Pago = req.body.Pago;
       const pedidoInfo = req.body;
       const username = pedidoInfo.browser;
-      const cantidadesNumeros = req.body.cantidades.map((cantidad) =>
+      const cantidadesNumeros = (req.body.cantidades || []).map((cantidad) =>
         parseInt(cantidad)
-      ); // Convierte todas las cantidades a números
-      const cantidades = cantidadesNumeros.filter((cantidad) => cantidad > 0); // Filtra solo las cantidades mayores que cero
+      );
+      const cantidades = cantidadesNumeros.filter((cantidad) => cantidad > 0);
 
       console.log(cantidades);
       console.log(precios);
@@ -76,9 +76,18 @@ module.exports = {
       const telefono = user.telefono;
       const direccion = user.direccion;
 
-      // Calcular el Monto_total sumando el precio total de cada producto
-      let Monto_total = 0;
+      // Crear un nuevo objeto pedido con los datos
+      const nuevoPedido = new Pedido({
+        username: username,
+        direccion: direccion,
+        telefono: telefono,
+        Estado: "Pendiente",
+        Monto_total: 0, // Inicializa Monto_total en 0
+        productos: [], // Inicializa la lista de productos como un array vacío
+        createdAt: new Date(),
+      });
 
+      // Ahora, agregamos los productos al pedido
       for (let i = 0; i < seleccionados.length; i++) {
         const nombreProducto = seleccionados[i];
         const cantidadProducto = cantidades[i];
@@ -95,7 +104,7 @@ module.exports = {
 
         // Calcular el precio total del producto y sumarlo al Monto_total
         const precioTotalProducto = cantidadProducto * precioProducto;
-        Monto_total += precioTotalProducto;
+        nuevoPedido.Monto_total += precioTotalProducto;
       }
 
       // Obtener el último número de pedido
@@ -112,20 +121,9 @@ module.exports = {
       const anio = fechaActual.format("YY");
       const Mes = `${anio}${mesInicial}${dia}`;
 
-      // Crear un nuevo objeto pedido con los datos
-      const nuevoPedido = new Pedido({
-        username: username,
-        direccion: direccion,
-        telefono: telefono,
-        Estado: "Pendiente",
-        Numero_pedido: Numero_pedido,
-        Pago: Pago,
-        Descuento: Descuento,
-        Monto_total: Monto_total, // Asignar el Monto_total calculado
-        Mes: Mes,
-        productos: nuevoPedido.productos, // Asignar la lista de productos
-        createdAt: new Date(),
-      });
+      // Asignar el número de pedido y el Mes al nuevoPedido
+      nuevoPedido.Numero_pedido = Numero_pedido;
+      nuevoPedido.Mes = Mes;
 
       // Guardar el nuevo pedido en la base de datos
       await nuevoPedido.save();
