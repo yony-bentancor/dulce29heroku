@@ -53,8 +53,8 @@ module.exports = {
   pageNewPedido: async (req, res) => {
     try {
       // Obtener datos del cuerpo de la solicitud
-      const seleccionados = req.body.productos;
-      const precios = req.body.precios;
+      const seleccionados = req.body.productos || []; // Verifica si está definido o usa un array vacío
+      const precios = req.body.precios || [];
       const Descuento = parseInt(req.body.Descuento); // Convierte el descuento a número
       const Pago = req.body.Pago;
       const pedidoInfo = req.body;
