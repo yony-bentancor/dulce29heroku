@@ -551,7 +551,7 @@ module.exports = {
         precioTotalPorPedido[pedido.Numero_pedido] = precioTotalPedido;
 
         // Actualiza el campo Monto_total en el objeto pedido
-        pedido.Monto_total = precioTotalPedido;
+        /*   pedido.Monto_total = precioTotalPedido; */
 
         // Guarda el pedido actualizado en la base de datos
         await pedido.save();
