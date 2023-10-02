@@ -616,7 +616,7 @@ module.exports = {
         productos,
         productosCantidad: productosCantidad,
         precioTotalPorPedido: precioTotalPorPedido,
-        precioVenta,
+        precioUnitario: precioVenta,
         mensajes,
         /*    Monto_total, */
         pedidosPendientes,
