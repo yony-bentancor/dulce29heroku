@@ -546,7 +546,7 @@ module.exports = {
         for (const producto of productos) {
           const nombreProducto = producto.nombre;
           const cantidad = producto.cantidad;
-          const precioUnitario = producto.precioVenta;
+          const precioUnitarioProducto = producto.precioVenta;
 
           // Calcula el precio total por producto considerando la cantidad
           const precioTotalProducto = cantidad * precioUnitario;
@@ -571,7 +571,7 @@ module.exports = {
 
         for (const producto of productosPedido) {
           const cantidad = producto.cantidad;
-          const precioUnitario = producto.precioVenta;
+          const precioUnitario = producto.precio;
 
           // Calcula el precio total por producto considerando la cantidad
           const precioTotalProducto = cantidad * precioUnitario;
@@ -616,7 +616,7 @@ module.exports = {
         productos,
         productosCantidad: productosCantidad,
         precioTotalPorPedido: precioTotalPorPedido,
-
+        precioUnitarioProducto,
         mensajes,
         /*    Monto_total, */
         pedidosPendientes,
