@@ -616,7 +616,7 @@ module.exports = {
         productos,
         productosCantidad: productosCantidad,
         precioTotalPorPedido: precioTotalPorPedido,
-        /*  sumaProductos, */
+        precioVenta,
         mensajes,
         pedidosPendientes,
       });
