@@ -49,7 +49,93 @@ module.exports = {
       res.status(500).json({ error: error.message });
     }
   },
+
   pageNewPedido: async (req, res) => {
+    try {
+      // Obtener datos del cuerpo de la solicitud
+      const seleccionados = req.body.productos;
+      const precios = req.body.precios;
+      const Descuento = parseInt(req.body.Descuento); // Convierte el descuento a número
+      const Pago = req.body.Pago;
+      const pedidoInfo = req.body;
+      const username = pedidoInfo.browser;
+      const cantidadesNumeros = req.body.cantidades.map((cantidad) =>
+        parseInt(cantidad)
+      ); // Convierte todas las cantidades a números
+      const cantidades = cantidadesNumeros.filter((cantidad) => cantidad > 0); // Filtra solo las cantidades mayores que cero
+
+      console.log(cantidades);
+      console.log(precios);
+
+      const user = await User.findOne({ username });
+      if (!user) {
+        return res.status(404).json({ message: "Usuario no encontrado" });
+      }
+
+      // Si el usuario se encuentra, puedes acceder a sus datos
+      const telefono = user.telefono;
+      const direccion = user.direccion;
+
+      // Calcular el Monto_total sumando el precio total de cada producto
+      let Monto_total = 0;
+
+      for (let i = 0; i < seleccionados.length; i++) {
+        const nombreProducto = seleccionados[i];
+        const cantidadProducto = cantidades[i];
+        const precioProducto = precios[i];
+
+        // Agregar el producto y su cantidad al pedido
+        const producto = {
+          nombre: nombreProducto,
+          cantidad: cantidadProducto,
+          precio: precioProducto,
+        };
+
+        nuevoPedido.productos.push(producto);
+
+        // Calcular el precio total del producto y sumarlo al Monto_total
+        const precioTotalProducto = cantidadProducto * precioProducto;
+        Monto_total += precioTotalProducto;
+      }
+
+      // Obtener el último número de pedido
+      const ultimoPedido = await Pedido.findOne()
+        .sort({ Numero_pedido: -1 })
+        .select("Numero_pedido");
+
+      // Incrementar el número de pedido
+      const Numero_pedido = ultimoPedido ? ultimoPedido.Numero_pedido + 1 : 1;
+
+      const fechaActual = moment();
+      const mesInicial = fechaActual.month() + 1;
+      const dia = fechaActual.date();
+      const anio = fechaActual.format("YY");
+      const Mes = `${anio}${mesInicial}${dia}`;
+
+      // Crear un nuevo objeto pedido con los datos
+      const nuevoPedido = new Pedido({
+        username: username,
+        direccion: direccion,
+        telefono: telefono,
+        Estado: "Pendiente",
+        Numero_pedido: Numero_pedido,
+        Pago: Pago,
+        Descuento: Descuento,
+        Monto_total: Monto_total, // Asignar el Monto_total calculado
+        Mes: Mes,
+        productos: nuevoPedido.productos, // Asignar la lista de productos
+        createdAt: new Date(),
+      });
+
+      // Guardar el nuevo pedido en la base de datos
+      await nuevoPedido.save();
+
+      res.redirect("/session/pendientes");
+    } catch (error) {
+      res.status(400).json({ error: error.message });
+    }
+  },
+  pageNewPedido1: async (req, res) => {
     try {
       // Obtener datos del cuerpo de la solicitud
       const seleccionados = req.body.productos;
