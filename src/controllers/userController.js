@@ -476,7 +476,90 @@ module.exports = {
       res.status(500).json({ error: error.message });
     }
   },
+
   pendientesAdmin: async (req, res) => {
+    try {
+      const pedidos = await Pedido.find({
+        Estado: { $nin: ["Realizado", "Entregado", "Cobrado"] },
+      }).sort({
+        createdAt: 1,
+      });
+
+      const opciones = {
+        month: "long",
+        day: "numeric",
+      };
+
+      const pedidosFormateados = pedidos.map((pedido) => {
+        const fechaFormateada = pedido.createdAt.toLocaleString(
+          "es-ES",
+          opciones
+        );
+        return { ...pedido.toObject(), fechaFormateada };
+      });
+
+      // Objeto para almacenar los productos y sus cantidades
+      const productosCantidad = {};
+
+      // Objeto para almacenar el precio total por pedido
+      const precioTotalPorPedido = {};
+
+      // Calcular el precio total por pedido y agregarlo al objeto
+      for (const pedido of pedidos) {
+        const productosPedido = pedido.productos;
+
+        let precioTotalPedido = 0;
+
+        for (const producto of productosPedido) {
+          const cantidad = producto.cantidad;
+          const precioUnitario = producto.precioVenta; // Usar precioVenta del producto actual
+
+          // Verificar que los valores sean numéricos y no NaN
+          if (!isNaN(cantidad) && !isNaN(precioUnitario)) {
+            // Calcula el precio total por producto considerando la cantidad
+            const precioTotalProducto = cantidad * precioUnitario;
+
+            precioTotalPedido += precioTotalProducto;
+
+            // Actualiza el objeto productosCantidad (opcional, depende de tu necesidad)
+            const nombreProducto = producto.nombre;
+            if (!productosCantidad[nombreProducto]) {
+              productosCantidad[nombreProducto] = 0;
+            }
+            productosCantidad[nombreProducto] += precioTotalProducto;
+          }
+        }
+
+        // Almacena el precio total por pedido en el objeto
+        precioTotalPorPedido[pedido.Numero_pedido] = precioTotalPedido;
+
+        // Actualiza el campo Monto_total en el objeto pedido
+        pedido.Monto_total = precioTotalPedido;
+
+        // Guarda el pedido actualizado en la base de datos
+        await pedido.save();
+      }
+
+      const users = await User.find().sort({
+        username: 1,
+      });
+
+      const productos = await Producto.find().sort({ Numero_pedido: 1 });
+
+      res.render("pendientes", {
+        pedidos: pedidosFormateados,
+        contador: pedidos.length,
+        users,
+        productos,
+        productosCantidad: productosCantidad,
+        precioTotalPorPedido: precioTotalPorPedido,
+      });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  },
+
+  pendientesAdmin1: async (req, res) => {
     try {
       const pedidos = await Pedido.find({
         Estado: { $nin: ["Realizado", "Entregado", "Cobrado"] },
@@ -539,7 +622,7 @@ module.exports = {
 
         for (const producto of productosPedido) {
           const cantidad = producto.cantidad;
-          const precioUnitario = producto.precioVenta; // Usar precioVenta del producto actual
+          const precioUnitario = producto.precioVenta; // Usar precioVenta del producto
 
           // Calcula el precio total por producto considerando la cantidad
           const precioTotalProducto = cantidad * precioUnitario;
