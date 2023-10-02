@@ -511,45 +511,13 @@ module.exports = {
       for (let i = 0; i < pedidosPendientes.length; i++) {
         const productos = pedidosPendientes[i].productos;
 
-        for (const [key, value] of Object.entries(productos)) {
-          const nombreProducto = value.nombre; // Suponemos que el nombre del producto está en la propiedad "nombre"
-          const cantidad = value.cantidad;
-
-          if (!productosCantidad[nombreProducto]) {
-            productosCantidad[nombreProducto] = cantidad;
-          } else {
-            productosCantidad[nombreProducto] += cantidad;
-          }
-        }
-      }
-
-      // Crear un array para almacenar los mensajes a mostrar en la plantilla
-      const mensajesNombre = [];
-      const mensajes = [];
-
-      // Agregar mensajes al array
-      for (const nombreProducto in productosCantidad) {
-        const cantidadProducto = productosCantidad[nombreProducto];
-        mensajes.push({ nombre: nombreProducto, cantidad: cantidadProducto });
-      }
-
-      /*   const pedidosPendientes = await Pedido.find({
-        Estado: { $nin: ["Realizado", "Entregado", "Cobrado"] },
-      }); */
-
-      // Objeto para almacenar los productos y sus cantidades
-      /*    const productosCantidad = {}; */
-
-      for (let i = 0; i < pedidosPendientes.length; i++) {
-        const productos = pedidosPendientes[i].productos;
-
         for (const producto of productos) {
           const nombreProducto = producto.nombre;
           const cantidad = producto.cantidad;
           const precioUnitarioProducto = producto.precioVenta;
 
           // Calcula el precio total por producto considerando la cantidad
-          const precioTotalProducto = cantidad * precioUnitario;
+          const precioTotalProducto = cantidad * precioUnitarioProducto;
 
           // Agrega el precio total al objeto, si no existe, inicializa en 0
           if (!productosCantidad[nombreProducto]) {
@@ -571,7 +539,7 @@ module.exports = {
 
         for (const producto of productosPedido) {
           const cantidad = producto.cantidad;
-          const precioUnitario = producto.precio;
+          const precioUnitario = producto.precioVenta; // Usar precioVenta del producto
 
           // Calcula el precio total por producto considerando la cantidad
           const precioTotalProducto = cantidad * precioUnitario;
@@ -579,24 +547,11 @@ module.exports = {
           precioTotalPedido += precioTotalProducto;
         }
 
+        // Almacena el precio total por pedido en el objeto
         precioTotalPorPedido[pedido.Numero_pedido] = precioTotalPedido;
-      }
-      console.log(precioTotalPorPedido);
 
-      // Recorre todos los pedidos
-      for (const pedido of pedidos) {
-        // Obtén el precio total del pedido desde precioTotalPorPedido
-        const precioTotalPedido = precioTotalPorPedido[pedido.Numero_pedido];
-
-        // Calcula el descuento en términos de porcentaje desde pedido.Descuento
-        const descuento = pedido.Descuento;
-
-        // Calcula el monto total con descuento
-        const montoTotalConDescuento =
-          precioTotalPedido - precioTotalPedido * (descuento / 100);
-
-        // Actualiza el valor de Monto_final en el objeto del pedido
-        /*   pedido.Monto_total = montoTotalConDescuento; */
+        // Actualiza el campo Monto_total en el objeto pedido
+        pedido.Monto_total = precioTotalPedido;
 
         // Guarda el pedido actualizado en la base de datos
         await pedido.save();
@@ -616,10 +571,6 @@ module.exports = {
         productos,
         productosCantidad: productosCantidad,
         precioTotalPorPedido: precioTotalPorPedido,
-        precioUnitarioProducto,
-        mensajes,
-        /*    Monto_total, */
-        pedidosPendientes,
       });
     } catch (error) {
       res.status(500).json({ error: error.message });
