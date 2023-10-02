@@ -596,7 +596,7 @@ module.exports = {
           precioTotalPedido - precioTotalPedido * (descuento / 100);
 
         // Actualiza el valor de Monto_final en el objeto del pedido
-        pedido.Monto_total = montoTotalConDescuento;
+        /*   pedido.Monto_total = montoTotalConDescuento; */
 
         // Guarda el pedido actualizado en la base de datos
         await pedido.save();
@@ -618,7 +618,7 @@ module.exports = {
         precioTotalPorPedido: precioTotalPorPedido,
         precioUnitario,
         mensajes,
-        Monto_total,
+        /*    Monto_total, */
         pedidosPendientes,
       });
     } catch (error) {
