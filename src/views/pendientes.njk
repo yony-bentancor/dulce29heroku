@@ -258,7 +258,7 @@ toggle between hiding and showing the dropdown content */
                                         {% for producto in pedido.productos %}
 
                                           <div class="col-12">
-                                            {{ producto.precio }}
+                                            {{ producto.precioVenta }}
                                             {{ producto.nombre }}
 
                                           </div>
@@ -282,7 +282,7 @@ toggle between hiding and showing the dropdown content */
                                   <div id="box6" class="{{ pedido.Estado }}">
                                     <div class="row">
                                       <div class="col-12">
-                                        {{ producto.PrecioVenta }} || {{ precioTotalPorPedido[pedido.Numero_pedido] }} SUBTOTAL
+                                        {{ pedido.Pago }} || {{ precioTotalPorPedido[pedido.Numero_pedido] }} SUBTOTAL
 
                                       </div>
                                       <div class="col-12">
