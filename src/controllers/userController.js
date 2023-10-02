@@ -539,7 +539,7 @@ module.exports = {
 
         for (const producto of productosPedido) {
           const cantidad = producto.cantidad;
-          const precioUnitario = producto.precioVenta; // Usar precioVenta del producto
+          const precioUnitario = producto.precioVenta; // Usar precioVenta del producto actual
 
           // Calcula el precio total por producto considerando la cantidad
           const precioTotalProducto = cantidad * precioUnitario;
@@ -551,7 +551,7 @@ module.exports = {
         precioTotalPorPedido[pedido.Numero_pedido] = precioTotalPedido;
 
         // Actualiza el campo Monto_total en el objeto pedido
-        /*   pedido.Monto_total = precioTotalPedido; */
+        pedido.Monto_total = precioTotalPedido;
 
         // Guarda el pedido actualizado en la base de datos
         await pedido.save();
