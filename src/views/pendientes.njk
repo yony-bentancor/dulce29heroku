@@ -183,44 +183,21 @@ toggle between hiding and showing the dropdown content */
                                 {% for producto in productos %}
                                   <div class="col-9">
                                     <ul >
-                                      {#        <label class="pedidoPendientesTotal">
-                                        <input type="checkbox" name="productos[]" value="{{ producto.name }}">
+                                      <label class="pedidoPendientesTotal">
+                                        {#    <input type="checkbox" name="productos[]" value="{{ producto.name }}">
                                         {{ producto.name }}
                                         <input type="hidden" name="precios[{{ loop.index0 }}]" value="{{ producto.precioVenta }}">
+ #}
+                                        {% for producto in productos %}
+                                          <div>
+                                            <input type="hidden" name="productos[]" value="{{ producto.name }}">
+                                            {{ producto.name }} - Precio: {{ producto.precioVenta }}
+                                            <label>Cantidad:
+        <input type="number" name="cantidades[]" value="0" min="0">
+                                            </label>
+                                          </div>
 
-                                      </label> #}
-
-                                      {% for producto in productos %}
-                                        <label class="pedidoPendientesTotal">
-                                          <input type="checkbox" name="productos[]" value="{{ producto.name }}" onchange="actualizarPrecio(this)">
-                                          {{ producto.name }}
-                                          <input type="hidden" name="precios[]" value="{{ producto.precioVenta }}">
                                         </label>
-
-                                        <script>
-                                          function actualizarPrecio(checkbox) {
-                                            const preciosInput = document.getElementsByName("precios[]");
-                                            const checkboxes = document.getElementsByName("productos[]");
-
-                                            checkboxes.forEach((cb, index) => {
-                                              if (cb !== checkbox) {
-                                                // Desmarcar otros checkboxes si se selecciona uno nuevo
-                                                cb.checked = false;
-                                              }
-                                            });
-
-                                            // Actualizar el precio oculto correspondiente
-                                            const precioInput = preciosInput[checkboxes.indexOf(checkbox)];
-                                            if (checkbox.checked) {
-                                              // Marcar el producto seleccionado
-                                              precioInput.disabled = false;
-                                            } else {
-                                              // Desactivar el precio si se desmarca el producto
-                                              precioInput.disabled = true;
-                                            }
-                                          }
-                                        </script>
-
                                       </ul>
 
                                     </div>
