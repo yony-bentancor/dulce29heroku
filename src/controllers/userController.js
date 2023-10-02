@@ -618,6 +618,7 @@ module.exports = {
         precioTotalPorPedido: precioTotalPorPedido,
         precioUnitario,
         mensajes,
+        Monto_total,
         pedidosPendientes,
       });
     } catch (error) {
