@@ -13,6 +13,10 @@ router.post(
 router.get("/newproducto", productoController.pageNewProducto);
 router.get("/deleteproducto:name", productoController.deleteProducto);
 router.get("/update:id", productoController.productoUpdate);
-router.post("/refreshproducto", productoController.updateProducto);
+router.post(
+  "/refreshproducto",
+  upload.single("image"),
+  productoController.updateProducto
+);
 
 module.exports = router;

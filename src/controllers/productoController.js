@@ -108,10 +108,25 @@ module.exports = {
   updateProducto: async (req, res) => {
     try {
       const datos = req.body;
-      console.log(datos.numeroProducto);
+      const file = req.file; // Archivo subido mediante Multer
+
+      if (!file) {
+        return res.status(400).json({ error: "Debes subir una imagen" });
+      }
+
+      const key = `products/${file.originalname}`; // Ruta en S3 donde se almacenará el archivo
+      const imageUrl = await s3.uploadToS3(file, key);
+
+      // Crear un objeto que contenga los datos del producto, incluyendo la URL de la imagen
+      const productoData = {
+        ...datos,
+        imagenUrl: imageUrl, // Agregar la URL de la imagen al objeto de datos
+      };
+
+      // Buscar y actualizar el producto
       const producto = await Producto.findOneAndUpdate(
         { numeroProducto: datos.numeroProducto },
-        datos,
+        productoData, // Usar el objeto de datos actualizado
         {
           new: true, // Devolver el documento actualizado en lugar del original
           runValidators: true, // Ejecutar validaciones de esquema al actualizar
