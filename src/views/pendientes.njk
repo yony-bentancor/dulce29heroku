@@ -271,25 +271,25 @@ toggle between hiding and showing the dropdown content */
                                       <div class="row">
 
                                         {% for producto in pedido.productos %}
-
-                                          <div class="col-12">
-                                            {{ producto.precio }}
-                                            {{ producto.nombre }}
-
-                                          </div>
+                                          {% if producto.cantidad != 0 %}
+                                            <div class="col-12">
+                                              {{ producto.precio }}
+                                              {{ producto.nombre }}
+                                            </div>
+                                          {% endif %}
                                         {% endfor %}
+
                                       </div>
                                     </div>
 
                                     <div id="box2">
                                       <div cl{#  #}ass="row">
                                         {% for producto in pedido.productos %}
-
-                                          <div class="col-12">
-
-                                            {{ producto.cantidad }}
-
-                                          </div>
+                                          {% if producto.cantidad != 0 %}
+                                            <div class="col-12">
+                                              {{ producto.cantidad }}
+                                            </div>
+                                          {% endif %}
                                         {% endfor %}
                                       </div>
                                     </div>
