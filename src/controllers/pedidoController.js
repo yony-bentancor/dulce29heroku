@@ -82,6 +82,8 @@ module.exports = {
         direccion: direccion,
         telefono: telefono,
         Estado: "Pendiente",
+        Pago: Pago,
+        Descuento: Descuento,
         Monto_total: 0, // Inicializa Monto_total en 0
         productos: [], // Inicializa la lista de productos como un array vacío
         createdAt: new Date(),
