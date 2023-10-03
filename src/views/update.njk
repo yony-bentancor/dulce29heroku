@@ -38,7 +38,7 @@
 
     <div id="contenedor-clientes">
       <div id="info-ProductoUpdate">
-        <form name="formulario" method="post" action="refreshproducto">
+        <form name="formulario" method="post" action="refreshproducto" enctype="multipart/form-data">
           <div class="row">
 
             <div class="col-4 inputUpdProtxt">
@@ -63,7 +63,7 @@
             <div class="col-4 inputUpdProtxt">
             IMAGEN
             </div>
-            <div class="col-8 inputUpdPro"><input type="file" class="inputUpdProbox"   id="image" name="image" value="{{img}}}" ></div>
+            <div class="col-8 inputUpdPro"><input type="file" class="inputUpdProbox"   id="image" name="image" value="{{img}}}" required></div>
           </div>
           <div class="row">
             <div class="col-4 inputUpdProtxt">
