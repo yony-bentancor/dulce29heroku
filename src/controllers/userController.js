@@ -553,7 +553,9 @@ module.exports = {
         username: 1,
       });
 
-      const productos = await Producto.find().sort({ Numero_pedido: 1 });
+      const productos = await Producto.find({ cantidad: { $gt: 0 } }).sort({
+        Numero_pedido: 1,
+      });
 
       res.render("pendientes", {
         pedidos,
