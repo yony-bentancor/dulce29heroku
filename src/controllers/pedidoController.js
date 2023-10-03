@@ -76,7 +76,6 @@ module.exports = {
       const telefono = user.telefono;
       const direccion = user.direccion;
 
-      // Crear un nuevo objeto pedido con los datos
       const nuevoPedido = new Pedido({
         username: username,
         direccion: direccion,
@@ -95,14 +94,17 @@ module.exports = {
         const cantidadProducto = cantidades[i];
         const precioProducto = precios[i];
 
-        // Agregar el producto y su cantidad al pedido
-        const producto = {
-          nombre: nombreProducto,
-          cantidad: cantidadProducto,
-          precio: precioProducto,
-        };
+        // Verificar si la cantidad es diferente de 0 antes de agregar el producto al pedido
+        if (cantidadProducto !== 0) {
+          // Agregar el producto y su cantidad al pedido
+          const producto = {
+            nombre: nombreProducto,
+            cantidad: cantidadProducto,
+            precio: precioProducto,
+          };
 
-        nuevoPedido.productos.push(producto);
+          nuevoPedido.productos.push(producto);
+        }
 
         // Calcular el precio total del producto y sumarlo al Monto_total
         const precioTotalProducto = cantidadProducto * precioProducto;
