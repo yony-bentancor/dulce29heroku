@@ -62,7 +62,7 @@ module.exports = {
       const cantidadesNumeros = (req.body.cantidades || []).map((cantidad) =>
         parseInt(cantidad)
       );
-      const cantidades = cantidadesNumeros.filter((cantidad) => cantidad > 0);
+      const cantidades = cantidadesNumeros.filter((cantidad) => cantidad >= 0);
 
       console.log(cantidades);
       console.log(precios);
