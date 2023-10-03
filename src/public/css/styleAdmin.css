@@ -1863,12 +1863,19 @@ margin-top: -90px;
 }
 
 #slide-productoAdmin {
-  position: absolute;
-  display: inline-block;
-  text-align: center;
-  width: 690px;
+  width: 740px;
+  font-size: 1.1rem;
+  margin-left: 10px;
+  margin-right: 2px;
+position: absolute;
+  float: left;
+  margin-top: 10px;
+  padding-left: 0px;
+  padding-top: 8px;
+  border-radius: 4px;
+  background-color: #fff;
+
   height: auto;
-  background-color: #ffffff;
 }
 .descripcionProducto{
   color: #2c5637;
