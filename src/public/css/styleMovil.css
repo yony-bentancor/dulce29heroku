@@ -697,7 +697,7 @@ position: relative;
   padding-top: 10px;
   border-radius: 4px;
   height: auto;
-  background-color:  rgba(151, 248, 172, 0.933);
+  background-color: #82a67a;
 }
 .pedidoRealizadosTotal{
 
@@ -1122,14 +1122,14 @@ color: #fff;
 #boxPedidoEntregado{
   width: 340px;
   font-size: 1.1rem;
-  margin-left: 0px;
+  margin-left: 40px;
   margin-right: 2px;
   display: inline-block;
   margin-top: 10px;
   padding-left: 20px;
   padding-top: 8px;
   border-radius: 4px;
-  background-color: #82a67a;
+  background-color: #fff;
   height: auto;
   position:relative;
 
