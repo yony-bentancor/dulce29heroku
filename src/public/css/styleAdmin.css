@@ -1367,18 +1367,16 @@ height: 38px;
   margin-bottom: 10px;
 }
 #buscadorEntregados {
-  margin-top: 8px;
-  margin-left: 780px;
-  padding-left: 10px;
- text-align: left;
- float: right;
-  width: 290px;
+  margin-top: 10px; /* Añade espacio entre los dos divs */
+  padding-left: 30px;
+  padding-right: 0px;
+  text-align: left;
+  width: 310px;
   height: auto;
-  margin-right: 10px;
   background-color: #fff;
-display: inline;
   border-radius: 4px;
   margin-bottom: 10px;
+  margin-left: 780px;
 }
 .scrolling{
   height: auto;
