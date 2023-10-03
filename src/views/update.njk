@@ -39,6 +39,47 @@
     <div id="contenedor-clientes">
       <div id="info-ProductoUpdate">
         <form name="formulario" method="post" action="refreshproducto" enctype="multipart/form-data">
+          <div class="form-section">
+            <label for="name" class="inputUpdProtxt">PRODUCTO</label>
+            <input type="text" name="name" id="name" class="inputUpdProbox" value="{{name}}">
+          </div>
+
+          <div class="form-section">
+            <label for="desc" class="inputUpdProtxt">DESCRIPCION</label>
+            <input type="text" class="inputUpdProbox" name="desc" id="desc" value="{{desc}}">
+          </div>
+
+          <div class="form-section">
+            <label for="image" class="inputUpdProtxt">IMAGEN</label>
+            <input type="file" id="image" class="inputUpdProbox" name="image">
+          </div>
+
+          <div class="form-section">
+            <label for="numeroProducto" class="inputUpdProtxt">NUMERO ID</label>
+            <input type="text" class="inputUpdProbox" id="numeroProducto" name="numeroProducto" value="{{numeroProducto}}">
+          </div>
+
+          <div class="form-section">
+            <label for="precioVenta" class="inputUpdProtxt">PRECIO VENTA</label>
+            <input type="text" class="inputUpdProbox" name="precioVenta" id="precioVenta" value="{{precioVenta}}">
+          </div>
+
+          <div class="form-section">
+            <label for="costoProduccion" class="inputUpdProtxt">COSTO PRODUCCION</label>
+            <input type="text" class="inputUpdProbox" id="costoProduccion" name="costoProduccion" value="{{costoProduccion}}">
+          </div>
+
+          <div class="form-actions">
+            <input type="submit" class="btnUpdate" value="GUARDAR">
+            <a href="/session/productosAdmin">
+              <input type="submit" class="btnUpdate" value="CANCELAR">
+            </a>
+          </div>
+        </form>
+      </div>
+
+      {#  <div id="info-ProductoUpdate">
+        <form name="formulario" method="post" action="refreshproducto" enctype="multipart/form-data">
           <div class="row">
 
             <div class="col-4 inputUpdProtxt">
@@ -100,34 +141,9 @@
           </form>
         </div>
 
-        {# <div class="row">
-        <form name="formulario" method="post" action="refresh" class="row">
+        
 
-          <input type="hidden" name="userid" id="userid" value="{{ userid }}">
-
-          <div class="col-sm-2">
-            <input class="rowmovilUpdate" type="text" name="usernameSalida" id="usernameSalida" value="{{ usernameSalida }}">
-          </div>
-          <div class="col-sm-2">
-            <input class="rowmovilUpdate"  type="text" name="telefonoSalida" id="telefonoSalida" value="{{ telefonoSalida }}">
-          </div>
-          <div class="col-sm-2">
-            <input class="rowmovilUpdate"  type="text" name="direccionSalida" id="direccionSalida" value="{{ direccionSalida }}">
-          </div>
-          <div class="col-sm-2">
-            <input class="rowmovilUpdate"  type="text" name="emailSalida" id="emailSalida" value="{{ emailSalida }}">
-          </div>
-          <div class="col-sm-2">
-            <input type="submit" class="btnUpdate" value="GUARDAR"/>
-          </div>
-          <div class="col-sm-2">
-            <a href="/session/clientes" class="alink">
-              <input   type="submit" class="btnUpdate" value="CANCELAR"/></a>
-          </div>
-        </form>
       </div> #}
-
-      </div>
     </div>
 
   </body>
