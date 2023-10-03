@@ -120,7 +120,7 @@ module.exports = {
       // Crear un objeto que contenga los datos del producto, incluyendo la URL de la imagen
       const productoData = {
         ...datos,
-        imagenUrl: imageUrl, // Agregar la URL de la imagen al objeto de datos
+        image: imageUrl, // Agregar la URL de la imagen al objeto de datos
       };
 
       // Buscar y actualizar el producto

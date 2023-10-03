@@ -2393,8 +2393,8 @@ border: none;
 }
 
 .botones-container {
-  display: flex;
-  margin-left: 100px;
+  display: inline;
+  margin-left: 10px;
  padding-bottom: 20px;
  
   background-color: #fff; /* Alinea verticalmente los elementos */
