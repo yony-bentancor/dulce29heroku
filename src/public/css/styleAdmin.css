@@ -116,11 +116,11 @@ a.menu:active {
   }
   .btnUpdate{
     font-size: 0.9rem;
-    margin-top: 5px;
+    margin-top: 14px;
     width: 90px;
     height: 18px;
     margin-left: 30px;
-    background-color: #9bc19d;
+    background-color: #9bafc1;
     border: none;
     outline: none;
     
@@ -261,15 +261,37 @@ margin-left: -8px;
  
  }
  #info-ProductoUpdate{
-  margin-left: 80px;
-   width: 840px;
+  margin-left: 300px;
+   width: 430px;
+
    height: auto;
-   background-color: #ffffff;
+   background-color: #dddada;
    position: absolute;
    font-weight: 300;
   font-size: 1rem;
   padding-left: 20px;
+  padding-top: 8px;
+  padding-bottom: 10px;
  
+ }
+
+ .inputUpdPro{
+  padding-top: 5px;
+  width: 300px;
+  margin-left: 10px;
+  background-color: #b2b5b7;
+ }
+ .inputUpdProtxt{
+  padding-top: 5px;
+  margin-left: 10px;
+  width: 90px;
+  background-color: #94a5b1;
+ }
+ .inputUpdProbox{
+  padding-top: 5px;
+  width: 250px;
+  height: 18px;
+  margin-left: 10px;
  }
 
 

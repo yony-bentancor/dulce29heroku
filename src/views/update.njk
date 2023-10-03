@@ -26,7 +26,7 @@
               <a href="/session/entregados">PEDIDOS ENTREGADOS</a>
             </li>
             <li>
-              <a href="/session/estadisticas">ESTADISTICAS</a>
+              <a href="/session/estadisticas">PEDIDOS COBRADOS</a>
             </li>
             <li>
               <a href="/session/productosAdmin">PRODUCTOS</a>
@@ -38,58 +38,68 @@
 
     <div id="contenedor-clientes">
       <div id="info-ProductoUpdate">
+        <form name="formulario" method="post" action="refreshproducto">
+          <div class="row">
 
-        <div class="row rowmovilinvisible">
+            <div class="col-4 inputUpdProtxt">
+              PRODUCTO
+            </div>
 
-          <div class="col-1">
-            <strong>PRODUCTO</strong>
-          </div>
-          <div class="col-2">
-            <strong>DESCRIPCION</strong>
-          </div>
-          <div class="col-1">
-            <strong>IMAGEN</strong>
-          </div>
-          <div class="col-1">
-            <strong>NUMERO ID</strong>
-          </div>
-          <div class="col-1">
-            <strong>PRECIO VENTA</strong>
-          </div>
-          <div class="col-2">
-            <strong>COSTO PRODUCCION</strong>
-          </div>
-          <div class="col-2">
-            <strong></strong>
+            <div class="col-8 inputUpdPro">
+              <input type ="text" name="name" id="name" class="inputUpdProbox"  value="{{name}}" >
+            </div>
+
           </div>
 
-        </div>
+          <div class="row">
+            <div class="col-4 inputUpdProtxt">
+              DESCRIPCION
+            </div>
+            <div class="col-8 inputUpdPro"><input type ="text" class="inputUpdProbox"  name="desc" id="desc" value="{{desc}}"></div>
 
-        <div class="row">
-          <form name="formulario" method="post" action="refreshpedido">
+          </div>
 
-            <div class="col-sm-1"><input type ="text" name="name" id="name" value="{{name}}" ></div>
+          <div class="row">
+            <div class="col-4 inputUpdProtxt">
+            IMAGEN
+            </div>
+            <div class="col-8 inputUpdPro"><input type="file" class="inputUpdProbox"   id="image" name="image" value="{{img}}}" ></div>
+          </div>
+          <div class="row">
+            <div class="col-4 inputUpdProtxt">
+          NUMERO ID
+            </div>
+            <div class="col-8 inputUpdPro"><input type="text" class="inputUpdProbox"   id="numeroProducto" name="numeroProducto" value="{{numeroProducto}}" ></div>
+          </div>
+          <div class="row">
+            <div class="col-4 inputUpdProtxt">
+          PRECIO VENTA
+            </div>
+            <div class="col-8 inputUpdPro"><input type ="text" class="inputUpdProbox" name="precioVenta" id="precioVenta" value="{{precioVenta}}"></div>
+          </div>
+          <div class="row">
+            <div class="col-4 inputUpdProtxt">
+          COSTO PRODUCCION
+            </div>
 
-            <div class="col-sm-2"><input type ="text" name="desc" id="desc" value="{{desc}}"></div>
+            <div class="col-8 inputUpdPro"><input type="text" class="inputUpdProbox"  id="costoProduccion" name="costoProduccion" value="{{costoProduccion}}" ></div>
+          </div>
+          <div class="row">
+            <div class="col-4"></div>
 
-            <div class="col-sm-1"><input type="file"  id="image" name="image" value="{{img}}}" ></div>
-            <div class="col-sm-1"><input type="text"  id="numeroProducto" name="numeroProducto" value="{{numeroProducto}}" ></div>
-
-            <div class="col-sm-1"><input type ="text" name="precioVenta" id="precioVenta" value="{{precioVenta}}"></div>
-
-            <div class="col-sm-2"><input type="text"  id="costoProduccion" name="costoProduccion" value="{{costoProduccion}}" ></div>
-
-            <div class="col-sm-2">
+            <div class="col-3">
               <input type="submit" class="btnUpdate" value="GUARDAR"/>
             </div>
-            <div class="col-sm-2">
-              <a href="/session/clientes" class="alink">
+            <div class="col-3">
+              <a href="/session/productosAdmin">
                 <input   type="submit" class="btnUpdate" value="CANCELAR"/></a>
             </div>
-          </form>
-        </div>
+            <div class="col-2"></div>
+          </div>
+        </form>
+      </div>
 
-        {# <div class="row">
+      {# <div class="row">
         <form name="formulario" method="post" action="refresh" class="row">
 
           <input type="hidden" name="userid" id="userid" value="{{ userid }}">
@@ -116,9 +126,9 @@
         </form>
       </div> #}
 
-      </div>
     </div>
+  </div>
 
-  </body>
+</body>
 
 {% endblock %}
