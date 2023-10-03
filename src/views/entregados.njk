@@ -68,7 +68,7 @@ toggle between hiding and showing the dropdown content */
     <div id="contenedor-pedidosRealizados">
       <div id="contenedorlateral">
 
-        {#   <div id="tableroRealizadoTotalWeb">
+        <div id="tableroRealizadoTotalWeb">
 
           <div class="row">
             <div class="col-9">
@@ -105,12 +105,12 @@ toggle between hiding and showing the dropdown content */
                 {% endfor %}
               </ul>
             </div>
-       
+
           </div>
 
-        </div> #}
+        </div>
 
-        {#     <div id="buscadorEntregados">
+        <div id="buscadorEntregados">
           <div class="row rowEntregados">
 
             <div class="col-4">
@@ -135,7 +135,7 @@ toggle between hiding and showing the dropdown content */
 
           </div>
 
-        </div> #}
+        </div>
 
         <div id="boxPedidoEntregado">
           {% for pedido in pedidos %}
@@ -187,12 +187,14 @@ toggle between hiding and showing the dropdown content */
                     <div class="row">
 
                       {% for producto in pedido.productos %}
-
-                        <div class="col-12">
-                          {{ producto.nombre }}
-
-                        </div>
+                        {% if producto.cantidad != 0 %}
+                          <div class="col-12">
+                            {{ producto.precio }}
+                            {{ producto.nombre }}
+                          </div>
+                        {% endif %}
                       {% endfor %}
+
                     </div>
                   </div>
 
