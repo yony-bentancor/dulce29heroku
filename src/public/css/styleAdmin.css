@@ -1395,18 +1395,19 @@ height: 38px;
   overflow-y: auto; 
 }
 #boxPedidoEntregado{
-  width: 670px;
+  width: 740px;
   font-size: 1.1rem;
-  margin-left: 0px;
+  margin-left: 10px;
   margin-right: 2px;
-  display: inline-block;
+position: absolute;
+  float: left;
   margin-top: 10px;
-  padding-left: 20px;
+  padding-left: 0px;
   padding-top: 8px;
   border-radius: 4px;
-  background-color: #82a67a;
+  background-color: #fff;
+
   height: auto;
-  position:relative;
 }
 
 .col-6 ul {
