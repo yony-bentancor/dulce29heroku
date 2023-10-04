@@ -932,8 +932,78 @@ module.exports = {
       }
     }
   },
-
   entregadosAdmin: async (req, res) => {
+    try {
+      const opciones = {
+        month: "long",
+        day: "numeric",
+      };
+
+      // Consulta para obtener pedidos entregados que no estén en estados específicos
+      const pedidosEntregados = await Pedido.find({
+        Estado: "Entregado",
+        Estado: { $nin: ["Realizado", "Cobrado", "Pendiente"] },
+      }).sort({ Numero_pedido: 1 });
+
+      const pedidosFormateados = pedidosEntregados.map((pedido) => ({
+        ...pedido.toObject(),
+        fechaFormateada: pedido.createdAt.toLocaleString("es-ES", opciones),
+      }));
+
+      // Consulta para obtener usuarios y productos
+      const [users, productos] = await Promise.all([
+        User.find().sort({ username: 1 }),
+        Producto.find().sort({ Numero_pedido: 1 }),
+      ]);
+
+      // Calcular el total de productos
+      const productosCantidad = {};
+
+      for (const pedido of pedidosEntregados) {
+        for (const producto of pedido.productos) {
+          const nombreProducto = producto.nombre;
+          const cantidad = producto.cantidad;
+
+          productosCantidad[nombreProducto] =
+            (productosCantidad[nombreProducto] || 0) + cantidad;
+        }
+      }
+
+      // Crear un array para almacenar los mensajes a mostrar en la plantilla
+      const mensajes = [];
+
+      // Agregar mensajes al array
+      for (const nombreProducto in productosCantidad) {
+        const cantidadProducto = productosCantidad[nombreProducto];
+        mensajes.push({ nombre: nombreProducto, cantidad: cantidadProducto });
+      }
+
+      // Calcular el precio final (ajusta esto según tus necesidades)
+      const precioFinal = pedidosEntregados.reduce(
+        (total, pedido) =>
+          total + pedido.Monto_total * (1 - pedido.Descuento / 100),
+        0
+      );
+
+      // Renderizar la vista "entregados" con los datos
+      res.render("entregados", {
+        pedidos: pedidosFormateados,
+        mensajes,
+        contadorEntregados: pedidosEntregados.length,
+        contadorEfectivo: pedidosFormateados.filter(
+          (pedido) => pedido.Pago === "Efectivo"
+        ).length,
+        productos,
+        precioFinal,
+      });
+    } catch (error) {
+      // Manejo de errores más detallado
+      console.error("Error al cargar datos:", error);
+      res.status(500).send(`Error interno del servidor: ${error.message}`);
+    }
+  },
+
+  entregadosAdmin1: async (req, res) => {
     try {
       const opciones = {
         month: "long",
