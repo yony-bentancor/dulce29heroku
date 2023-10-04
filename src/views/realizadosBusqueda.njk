@@ -64,8 +64,97 @@ toggle between hiding and showing the dropdown content */
     </div>
 
     <div id="contenedor-pedidosRealizados">
-
       <div id="boxPedido">
+        {% for pedido in pedidos %}
+          <div id="info-pendientesBox">
+            <div id="pendientesBox">
+              <div id="box3">
+                <div class="row">
+
+                  <div class="col-6  boxTxt ">
+                                  Nº    
+                              {{pedido.Mes}}-{{ pedido.Numero_pedido }}
+                  </div>
+                  <div class="col-6  boxTxtEstado ">
+                    <form name="formularioCambio" method="get" action="/session/cambioEstadoRealizado/{{ pedido.Numero_pedido }}">
+                      <input type="submit" value="{{ pedido.Estado }}" class="{{ pedido.Estado }}" onclick="return confirm('¿Estás por cambiar el pedido de Pendiente a Realizado?')">
+                    </form>
+
+                  </div>
+                </div>
+              </div>
+              <div id="box4">
+                <div class="row boxTxtCliente">
+                  <div class="col-12">
+                    {{ pedido.username }} || {{pedido.fechaFormateada }}
+
+                  </div>
+                </div>
+              </div>
+              <div id="box5">
+                <div class="row boxTxtCliente">
+                  <div class="col-6">
+                    <form method="post" action="/session/updatepedido">
+                      <input type="hidden" name="Numero_pedido" value="{{ pedido.Numero_pedido }}" >
+
+                      <button type="submit">UPD</button>
+                    </form>
+                  </div>
+
+                  <div class="col-6 boxTxtCliente">
+                    <form name="formulario" method="post" action="/session/deletepedido{{ pedido.Numero_pedido}}", pedidoController.deletePedido>
+                      <input type="image" id="image" alt="delete" src="https://dulce29.herokuapp.com/static/img/borrado1.png" onclick="return confirm('¿Estás por eliminar un pedido?')">
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+              <div id="boxunodos">
+                <div id="box1">
+                  <div class="row">
+
+                    {% for producto in pedido.productos %}
+
+                      <div class="col-12">
+                        {{ producto.precio }}
+                        {{ producto.nombre }}
+                      </div>
+
+                    {% endfor %}
+
+                  </div>
+                </div>
+
+                <div id="box2">
+                  <div cl{#  #}ass="row">
+                    {% for producto in pedido.productos %}
+                      {% if producto.cantidad != 0 %}
+                        <div class="col-12">
+                          {{ producto.cantidad }}
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
+              </div>
+              <div id="box6" class="{{ pedido.Estado }}">
+                <div class="row">
+                  <div class="col-12">
+                    {{ pedido.Pago }} || {{ pedido.Monto_total }} TOTAL 
+
+                                      </div>
+                  <div class="col-12">
+                    {{ pedido.Descuento }}% OFF || {{ pedido.Monto_total * (1 - pedido.Descuento / 100) }} PRECIO FINAL
+
+                                      </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      {#   <div id="boxPedido">
         {% for pedido in pedidos %}
           <div id="info-pendientesBox">
             <div id="pendientesBox">
@@ -141,7 +230,7 @@ toggle between hiding and showing the dropdown content */
             </div>
           </div>
         {% endfor %}
-      </div>
+      </div> #}
 
       <div id="tableroPendienteTotalWeb">
 
