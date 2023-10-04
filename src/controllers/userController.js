@@ -464,9 +464,16 @@ module.exports = {
   clientesAdmin: async (req, res) => {
     try {
       const users = await User.find().sort({ username: 1 });
+      const estados = ["Realizado", "Entregado", "Cobrado"];
+      const cantidadPedidosPorEstado = {};
+
+      for (const estado of estados) {
+        const pedidosEnEstado = await Pedido.find({ Estado: estado });
+        cantidadPedidosPorEstado[estado] = pedidosEnEstado.length;
+      }
 
       const contadorUser = users.length;
-      res.render("clientes", { users, contadorUser });
+      res.render("clientes", { users, contadorUser, cantidadPedidosPorEstado });
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
