@@ -147,28 +147,28 @@
             </div>
           </div>
         </form>
+
+        <div class="row">
+          <div class="col-6  formClientetxt">TOTAL USUARIOS</div>
+          <div class="col-6">{{ contadorUser }}</div>
+        </div>
+        <div class="row">
+          <div class="col-6  formClientetxt">TOTAL PEDIDOS PENDIENTES</div>
+          <div class="col-6 rojo">{{cantidadPendientes}}</div>
+        </div>
+        <div class="row">
+          <div class="col-6  formClientetxt">TOTAL PEDIDOS REALIZADOS</div>
+          <div class="col-6 amarillo">{{ cantidadRealizados }}</div>
+        </div>
+        <div class="row">
+          <div class="col-6  formClientetxt">TOTAL PEDIDOS ENTREGADOS</div>
+          <div class="col-6 verde">{{ cantidadEntregados }}</div>
+        </div>
+
       </div>
     </div>
 
-    <div id="totalClientes">
-
-      <div class="row">
-        <div class="col-6">TOTAL USUARIOS</div>
-        <div class="col-6">{{ contadorUser }}</div>
-      </div>
-      <div class="row">
-        <div class="col-6">TOTAL PEDIDOS PENDIENTES</div>
-        <div class="col-6 rojo">{{cantidadPendientes}}</div>
-      </div>
-      <div class="row">
-        <div class="col-6">TOTAL PEDIDOS REALIZADOS</div>
-        <div class="col-6 amarillo">{{ cantidadRealizados }}</div>
-      </div>
-      <div class="row">
-        <div class="col-6">TOTAL PEDIDOS ENTREGADOS</div>
-        <div class="col-6 verde">{{ cantidadEntregados }}</div>
-      </div>
-    </div>
+    <div id="totalClientes"></div>
 
     <div class="busquedaClienteMovil">
       <div class="row">
