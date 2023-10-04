@@ -464,7 +464,9 @@ module.exports = {
   clientesAdmin: async (req, res) => {
     try {
       const users = await User.find().sort({ username: 1 });
-      res.render("clientes", { users });
+
+      const contadorUser = users.length;
+      res.render("clientes", { users, contadorUser });
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
