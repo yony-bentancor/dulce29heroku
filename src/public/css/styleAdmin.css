@@ -468,10 +468,21 @@ height: 22px;
 
 #totalClientes{
 
-  background-color: #416651;
+  background-color: #e2ece6;
   width: 300px;
   height: 170px;
+  margin-top: 200px;
+  float: right;
 }
+.amarillo{
+  background-color: #f0ee9b;
+ }
+ .rojo{
+  background-color: #db7e7e;
+ }
+ .verde{
+  background-color: #74cb97;
+ }
 
 
 
