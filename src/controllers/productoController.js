@@ -110,6 +110,10 @@ module.exports = {
       const datos = req.body;
       const file = req.file; // Archivo subido mediante Multer
 
+      if (!file) {
+        return res.status(400).json({ error: "Debes subir una imagen" });
+      }
+
       const key = `products/${file.originalname}`; // Ruta en S3 donde se almacenará el archivo
       const imageUrl = await s3.uploadToS3(file, key);
 
