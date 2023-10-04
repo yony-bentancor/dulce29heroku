@@ -978,8 +978,11 @@ module.exports = {
         mensajes.push({ nombre: nombreProducto, cantidad: cantidadProducto });
       }
 
+      const pedidosEnEfectivo = pedidosEntregados.filter(
+        (pedido) => pedido.Pago === "Efectivo"
+      );
       // Calcular el precio final (ajusta esto según tus necesidades)
-      const precioFinal = pedidosEntregados.reduce(
+      const precioFinal = pedidosEnEfectivo.reduce(
         (total, pedido) =>
           total + pedido.Monto_total * (1 - pedido.Descuento / 100),
         0
