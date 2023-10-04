@@ -71,9 +71,15 @@
 
           <div class="form-actions">
             <input type="submit" class="btnUpdate" value="GUARDAR">
-            <a href="/session/productosAdmin">
-              <input type="submit" class="btnUpdate" value="CANCELAR">
-            </a>
+            <button type="button" class="btnUpdate" onclick="goBack()">CANCELAR</button>
+
+            <script>
+              function goBack() {
+                window
+                  .history
+                  .back();
+              }
+            </script>
           </div>
         </form>
       </div>
