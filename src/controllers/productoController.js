@@ -110,17 +110,19 @@ module.exports = {
       const datos = req.body;
       const file = req.file; // Archivo subido mediante Multer
 
-      if (!file) {
-        return res.status(400).json({ error: "Debes subir una imagen" });
+      let imageUrl; // Variable para almacenar la URL de la imagen
+
+      if (file) {
+        // Si se ha cargado un archivo, subirlo a S3 y obtener su URL
+        const key = `products/${file.originalname}`; // Ruta en S3 donde se almacenará el archivo
+        imageUrl = await s3.uploadToS3(file, key);
       }
 
-      const key = `products/${file.originalname}`; // Ruta en S3 donde se almacenará el archivo
-      const imageUrl = await s3.uploadToS3(file, key);
-
-      // Crear un objeto que contenga los datos del producto, incluyendo la URL de la imagen
+      // Crear un objeto que contenga los datos del producto, incluyendo la URL de la imagen si existe
       const productoData = {
         ...datos,
-        image: imageUrl, // Agregar la URL de la imagen al objeto de datos
+        // Verificar si imageUrl está definido antes de asignarlo
+        ...(imageUrl && { image: imageUrl }),
       };
 
       // Buscar y actualizar el producto
