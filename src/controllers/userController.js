@@ -990,6 +990,7 @@ module.exports = {
         const cantidadProducto = productosCantidad[nombreProducto];
         mensajes.push({ nombre: nombreProducto, cantidad: cantidadProducto });
       }
+      const precioFinal = pedido.Monto_total * (1 - pedido.Descuento / 100);
 
       // Renderizar la vista "entregados" con los datos
       res.render("entregados", {
@@ -1000,6 +1001,7 @@ module.exports = {
           (pedido) => pedido.Pago === "Efectivo"
         ).length,
         productos,
+        precioFinal,
       });
     } catch (error) {
       // Manejo de errores
