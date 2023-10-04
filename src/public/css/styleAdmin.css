@@ -468,11 +468,11 @@ height: 22px;
 
 #totalClientes{
 
-  background-color: #e2ece6;
-  width: 300px;
+  background-color: #f6f6f6;
+  width: 200px;
   height: 170px;
   display: block;
-  margin-top: 400px;
+  margin-top: 20px;
   float: right;
 }
 .amarillo{
