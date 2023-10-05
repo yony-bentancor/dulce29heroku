@@ -806,7 +806,7 @@ position: absolute;
 #info-pendientesBox{
 
   width: 220px;
-
+  margin-top: 20px;
   height: 200px;
   background-color: #fff; 
   border-radius: 4px;
