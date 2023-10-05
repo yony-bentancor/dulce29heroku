@@ -353,14 +353,7 @@
   }
 
   #info-clientes{
-    margin-top:200px;
-     width: 270px;
-     height: auto;
-     margin-left:10px;
-     background-color: #94ae7e;
-     position: absolute;
-     font-weight: 300;
-    font-size: 0.8rem;
+   display: none;
    }
    
    .rowmovil{
@@ -461,7 +454,7 @@ margin-left: 46px;
           margin-top: 8px;
           float: right;
          display: block;
-          width: 100px;
+          width: 80px;
           margin-right: 20px;
           background-color: #fff;
           height: 20px;

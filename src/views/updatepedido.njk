@@ -87,35 +87,7 @@
               <input type="text" name="Pago" value="{{ pedido.Pago }}" class="formcontrolUpdate">
             </div>
           </div>
-          {# 
-          {% for producto in pedido.productos %}
-            <div class="row rowmovilinvisible">
-              <div class="col-3">
-                <strong>NOMBRE</strong>
-              </div>
-              <div class="col-9">
-                <input type="text" name="producto_nombre" value="{{ producto.nombre }}" class="formcontrolUpdate">
-              </div>
-            </div>
 
-            <div class="row rowmovilinvisible">
-              <div class="col-3">
-                <strong>CANTIDAD</strong>
-              </div>
-              <div class="col-9">
-                <input type="text" name="producto_cantidad" value="{{ producto.cantidad }}" class="formcontrolUpdate">
-              </div>
-            </div>
-
-            <div class="row rowmovilinvisible">
-              <div class="col-3">
-                <strong>PRECIO</strong>
-              </div>
-              <div class="col-9">
-                <input type="text" name="producto_precio" value="{{ producto.precio }}" class="formcontrolUpdate">
-              </div>
-            </div>
-          {% endfor %} #}
           {% for producto in pedido.productos %}
             <div class="row rowmovilinvisible">
               <div class="col-3">
