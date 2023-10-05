@@ -94,138 +94,144 @@
         {% endfor %}
 
       </div>
+      <div id="contenedorlateralCliente">
+        <div id="newUserMovil">
+          <form name="formulario"  method="post" action="/session/newuser", userController.login>
+            <div class="row">
+              <div class="col-12 nuevoClientetxt">
+                <label for="username" >NUEVO CLIENTE</label>
+              </div>
 
-      <div id="newUserMovil">
-        <form name="formulario"  method="post" action="/session/newuser", userController.login>
+            </div>
+
+            <div class="row alineadoFormCliente">
+              <div class="col-6">
+                <label for="username" class="formClientetxt">NOMBRE</label>
+              </div>
+              <div class="col-6">
+                <input type="text" name="username" id="username" value="{{username}}" class="formClienteCliente" required="true"/>
+              </div>
+            </div>
+
+            <div class="row alineadoFormCliente">
+              <div class="col-6">
+                <label for="telefono" class="formClientetxt">TELEFONO</label>
+              </div>
+              <div class="col-6">
+                <input type="text" name="telefono" id="telefono" value="{{telefono}}" class="formClienteCliente" required="true"/>
+              </div>
+            </div>
+
+            <div class="row alineadoFormCliente">
+              <div class="col-6">
+                <label for="direccion" class="formClientetxt">DIRECCION</label>
+              </div>
+              <div class="col-6">
+                <input type="text" name="direccion" id="direccion" value="{{direccion}}" class="formClienteCliente" required="true"/>
+              </div>
+            </div>
+
+            <div class="row alineadoFormCliente">
+              <div class="col-6">
+                <label for="email" class="formClientetxt">EMAIL</label>
+              </div>
+              <div class="col-6">
+                <input type="text" name="email" id="email" value="{{email}}" class="formClienteCliente" required="true"/>
+              </div>
+            </div>
+
+            <div class="row ">
+
+              <div class="col-12">
+                <button type="submit" name="button" class="btn-primary btnClienteNuevo">REGISTRAR</button>
+              </div>
+            </div>
+          </form>
+
+        </div>
+
+        <div id="totalClientes">
           <div class="row">
-            <div class="col-12 nuevoClientetxt">
-              <label for="username" >NUEVO CLIENTE</label>
-            </div>
+
+            <div class="col-2 azul">{{ contadorUser }}</div>
+            <div class="col-10  formClientetxt"> USUARIOS</div>
 
           </div>
+          <div class="row">
+            <div class="col-2 rojo">{{cantidadPendientes}}</div>
+            <div class="col-10  formClientetxt"> PEDIDOS PENDIENTES</div>
 
-          <div class="row alineadoFormCliente">
-            <div class="col-6">
-              <label for="username" class="formClientetxt">NOMBRE</label>
-            </div>
-            <div class="col-6">
-              <input type="text" name="username" id="username" value="{{username}}" class="formCliente" required="true"/>
-            </div>
           </div>
+          <div class="row">
+            <div class="col-2 amarillo">{{ cantidadRealizados }}</div>
+            <div class="col-10  formClientetxt"> PEDIDOS REALIZADOS</div>
 
-          <div class="row alineadoFormCliente">
-            <div class="col-6">
-              <label for="telefono" class="formClientetxt">TELEFONO</label>
-            </div>
-            <div class="col-6">
-              <input type="text" name="telefono" id="telefono" value="{{telefono}}" class="formCliente" required="true"/>
-            </div>
           </div>
+          <div class="row">
+            <div class="col-2 verde">{{ cantidadEntregados }}</div>
+            <div class="col-10  formClientetxt"> PEDIDOS ENTREGADOS</div>
 
-          <div class="row alineadoFormCliente">
-            <div class="col-6">
-              <label for="direccion" class="formClientetxt">DIRECCION</label>
-            </div>
-            <div class="col-6">
-              <input type="text" name="direccion" id="direccion" value="{{direccion}}" class="formCliente" required="true"/>
-            </div>
           </div>
-
-          <div class="row alineadoFormCliente">
-            <div class="col-6">
-              <label for="email" class="formClientetxt">EMAIL</label>
-            </div>
-            <div class="col-6">
-              <input type="text" name="email" id="email" value="{{email}}" class="formCliente" required="true"/>
-            </div>
-          </div>
-
-          <div class="row ">
-
-            <div class="col-12">
-              <button type="submit" name="button" class="btn-primary btnClienteNuevo">REGISTRAR</button>
-            </div>
-          </div>
-        </form>
+        </div>
 
       </div>
 
-    </div>
-    <div id="totalClientes">
-      <div class="row">
-        <div class="col-6  formClientetxt">TOTAL USUARIOS</div>
-        <div class="col-6">{{ contadorUser }}</div>
-      </div>
-      <div class="row">
-        <div class="col-6  formClientetxt">TOTAL PEDIDOS PENDIENTES</div>
-        <div class="col-6 rojo">{{cantidadPendientes}}</div>
-      </div>
-      <div class="row">
-        <div class="col-6  formClientetxt">TOTAL PEDIDOS REALIZADOS</div>
-        <div class="col-6 amarillo">{{ cantidadRealizados }}</div>
-      </div>
-      <div class="row">
-        <div class="col-6  formClientetxt">TOTAL PEDIDOS ENTREGADOS</div>
-        <div class="col-6 verde">{{ cantidadEntregados }}</div>
-      </div>
-    </div>
+      {#   <div class="busquedaClienteMovil">
+        <div class="row">
 
-    <div class="busquedaClienteMovil">
-      <div class="row">
+          <form name="formulario"  method="post" action="/session/realizadosBusquedaCliente", userController.realizadosBusquedaCliente>
+            <!-- Datos del formulario -->
 
-        <form name="formulario"  method="post" action="/session/realizadosBusquedaCliente", userController.realizadosBusquedaCliente>
-          <!-- Datos del formulario -->
+            <div class="col-11">
+              <label for="browser" class="formClientetxt">Cliente</label>
+              <input list="browsers"  name="browser" id="browser" class="formCliente" style="width: 120px">
+              <datalist id="browsers">
+                {% for user in users %}
+                  <option  type="text" name="username" id="username" value="{{user.username}}">
+                  {% endfor %}
+                </datalist>
 
-          <div class="col-11">
-            <label for="browser" class="formClientetxt">Cliente</label>
-            <input list="browsers"  name="browser" id="browser" class="formCliente" style="width: 120px">
-            <datalist id="browsers">
-              {% for user in users %}
-                <option  type="text" name="username" id="username" value="{{user.username}}">
-                {% endfor %}
-              </datalist>
-
-              <!-- Botón de envío de formulario -->
-              <button type="submit" name="button" class="btn-primary  btnCliente">
+                <!-- Botón de envío de formulario -->
+                <button type="submit" name="button" class="btn-primary  btnCliente">
                         BUSCAR
                       </button>
-            </form>
+              </form>
 
+            </div>
+            <div class="col-1"></div>
+
+          </div> #}
+
+      {# <div id="busqueda-clienteMovil">
+        <div class="row">
+          <div class="col-4">
+            <strong>NOMBRE</strong>
           </div>
-          <div class="col-1"></div>
-
-        </div>
-
-        <div id="busqueda-clienteMovil">
-          <div class="row">
-            <div class="col-4">
-              <strong>NOMBRE</strong>
-            </div>
-            <div class="col-2">
-              <strong>TELEFONO </strong>
-            </div>
-            <div class="col-2">
-              <strong>DIRECCION </strong>
-            </div>
-            <div class="col-4">
-              <strong>EMAIL </strong>
-            </div>
-
+          <div class="col-2">
+            <strong>TELEFONO </strong>
           </div>
-          <div class="row rowClienteMovil">
-            <div class="col-4">
-              {{ usuariosBusqueda.username }}</div>
-            <div class="col-2">
-              {{ usuariosBusqueda.telefono }}</div>
-            <div class="col-2">
-              {{ usuariosBusqueda.direccion }}</div>
-            <div class="col-4">
-              {{ usuariosBusqueda.email }}
-            </div>
+          <div class="col-2">
+            <strong>DIRECCION </strong>
+          </div>
+          <div class="col-4">
+            <strong>EMAIL </strong>
           </div>
 
         </div>
-      </div>
-    </body>
+        <div class="row rowClienteMovil">
+          <div class="col-4">
+            {{ usuariosBusqueda.username }}</div>
+          <div class="col-2">
+            {{ usuariosBusqueda.telefono }}</div>
+          <div class="col-2">
+            {{ usuariosBusqueda.direccion }}</div>
+          <div class="col-4">
+            {{ usuariosBusqueda.email }}
+          </div>
+        </div>
 
-  {% endblock %}
+      </div> #}
+    </div>
+  </body>
+
+{% endblock %}

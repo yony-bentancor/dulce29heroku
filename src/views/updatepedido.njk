@@ -26,9 +26,9 @@
             <li>
               <a href="/session/entregados">PEDIDOS ENTREGADOS</a>
             </li>
-            {#  <li>
-              <a href="/session/estadisticas">ESTADISTICAS</a>
-            </li> #}
+            <li>
+              <a href="/session/estadisticas">PEDIDOS COBRADOS</a>
+            </li>
             <li>
               <a href="/session/productosAdmin">PRODUCTOS</a>
             </li>
@@ -38,66 +38,128 @@
     </div>
 
     {#  admin- usuario          #}
-    <div id="contenedor-clientes">
+    <div id="contenedorPedidoUpdate">
+
       <div id="info-pedidosUpdate">
+        <form name="formulario" method="post" action="refreshPedido" class="row">
+          <div class="row rowmovilinvisible">
 
-        <div class="row rowmovilinvisible">
-          <div class="col-6">
-            <strong>NOMBRE</strong>
+            <div class="col-3">
+              <strong>NOMBRE</strong>
+            </div>
+            <div class="col-9">
+              <input type="text" name="username" value="{{ pedido.username }}" class="formcontrolUpdate">
+            </div>
           </div>
 
-          <div class="col-6">
-            <strong>NUMERO PEDIDO</strong>
+          <div class="row rowmovilinvisible">
+            <div class="col-3">
+              <strong>NUMERO PEDIDO</strong>
+            </div>
+            <div class="col-9">
+              <input type="text" name="Numero_pedido" value="{{ pedido.Numero_pedido }}" class="formcontrolUpdate">
+            </div>
           </div>
 
-        </div>
+          <div class="row rowmovilinvisible">
+            <div class="col-3">
+              <strong>TELEFONO</strong>
+            </div>
+            <div class="col-9">
+              <input type="text" name="telefono" value="{{ pedido.telefono }}" class="formcontrolUpdate">
+            </div>
+          </div>
 
-        <div class="row rowmovilUpdate">
-          <!-- updatepedido.njk -->
-          <!-- updatepedido.njk -->
-          <form name="formulario" method="post" action="refreshPedido" class="row">
-            <div class="col-sm-6">
-              <label  class="form-control">{{ pedido.username }}</label>
-              {#    <input type="text" id="username" name="username" value="{{ pedido.username }}" class="form-control"> #}
+          <div class="row rowmovilinvisible">
+            <div class="col-3">
+              <strong>MONTO TOTAL</strong>
+            </div>
+            <div class="col-9">
+              <input type="text" name="Monto_total" value="{{ pedido.Monto_total }}" class="formcontrolUpdate">
+            </div>
+          </div>
+
+          <div class="row rowmovilinvisible">
+            <div class="col-3">
+              <strong>PAGO</strong>
+            </div>
+            <div class="col-9">
+              <input type="text" name="Pago" value="{{ pedido.Pago }}" class="formcontrolUpdate">
+            </div>
+          </div>
+          {# 
+          {% for producto in pedido.productos %}
+            <div class="row rowmovilinvisible">
+              <div class="col-3">
+                <strong>NOMBRE</strong>
+              </div>
+              <div class="col-9">
+                <input type="text" name="producto_nombre" value="{{ producto.nombre }}" class="formcontrolUpdate">
+              </div>
             </div>
 
-            <div class="col-sm-6">
-              {#    <label  class="form-control">{{ pedido.Numero_pedido }}</label> #}
-
-              <input type="text" name="Numero_pedido" value="{{ pedido.Numero_pedido }}" class="form-control">
+            <div class="row rowmovilinvisible">
+              <div class="col-3">
+                <strong>CANTIDAD</strong>
+              </div>
+              <div class="col-9">
+                <input type="text" name="producto_cantidad" value="{{ producto.cantidad }}" class="formcontrolUpdate">
+              </div>
             </div>
 
-            <div class="col-sm-12"></div>
-
-            <div class="col-sm-12">
-              <h5>Productos:</h5>
+            <div class="row rowmovilinvisible">
+              <div class="col-3">
+                <strong>PRECIO</strong>
+              </div>
+              <div class="col-9">
+                <input type="text" name="producto_precio" value="{{ producto.precio }}" class="formcontrolUpdate">
+              </div>
             </div>
-            {% for key, value in pedido.productos %}
-              {% if pedido
-                .productos
-                .hasOwnProperty(key) %}
-                <div class="col-sm-6">
+          {% endfor %} #}
+          {% for producto in pedido.productos %}
+            <div class="row rowmovilinvisible">
+              <div class="col-3">
+                <strong>NOMBRE</strong>
+              </div>
+              <div class="col-9">
+                <input type="text" name="producto_nombre_{{ loop.index }}" value="{{ producto.nombre }}" class="formcontrolUpdate">
+              </div>
+            </div>
 
-                  <div class="form-group">
-                    <label for="{{ key }}">{{ key }}:</label>
-                    <input type="number" id="{{ key }}" name="productos[{{ key }}]" value="{{ value }}" class="form-control">
-                  </div>
+            <div class="row rowmovilinvisible">
+              <div class="col-3">
+                <strong>CANTIDAD</strong>
+              </div>
+              <div class="col-9">
+                <input type="text" name="producto_cantidad_{{ loop.index }}" value="{{ producto.cantidad }}" class="formcontrolUpdate">
+              </div>
+            </div>
 
-                </div>
-              {% endif %}
-            {% endfor %}
+            <div class="row rowmovilinvisible">
+              <div class="col-3">
+                <strong>PRECIO</strong>
+              </div>
+              <div class="col-9">
+                <input type="text" name="producto_precio_{{ loop.index }}" value="{{ producto.precio }}" class="formcontrolUpdate">
+              </div>
+            </div>
+          {% endfor %}
+
+          <div class="row rowmovilinvisible">
             <div class="col-sm-2">
               <input type="submit" class="btnUpdate" value="GUARDAR"/>
             </div>
             <div class="col-sm-2">
               <a href="/session/clientes" class="alink">
-                <input   type="submit" class="btnUpdate" value="CANCELAR"/></a>
+                <input   type="submit" class="btnUpdate" value="CANCELAR"/>
+              </a>
             </div>
-          </form>
-        </div>
-        <div id="espaciadoBottom"></div>
+          </div>
+        </form>
       </div>
 
-    </body>
+    </div>
 
-  {% endblock %}
+  </body>
+
+{% endblock %}
