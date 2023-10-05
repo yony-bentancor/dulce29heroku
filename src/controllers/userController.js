@@ -139,8 +139,23 @@ module.exports = {
       };
       const token = jwt.sign(userRes, CLAVE_SECRETA);
       const productos = await Producto.find();
-      const users = await User.find();
-      res.render("clientes", { users });
+
+      const users = await User.find().sort({ username: 1 });
+      const cantidadPendientes = await Pedido.countDocuments({
+        Estado: "Pendiente",
+      });
+      const cantidadRealizados = await Pedido.countDocuments({
+        Estado: "Realizado",
+      });
+      const cantidadEntregados = await Pedido.countDocuments({
+        Estado: "Entregado",
+      });
+      res.render("clientes", {
+        users,
+        cantidadPendientes,
+        cantidadRealizados,
+        cantidadEntregados,
+      });
 
       /*res.status(201).json({ useer: userRes, token: token });*/
     } catch (error) {
