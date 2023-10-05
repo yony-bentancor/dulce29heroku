@@ -462,8 +462,8 @@ margin-left: 46px;
           float: right;
          display: block;
           width: 100px;
-          margin-right: -40px;
-          background-color: #71a381;
+          margin-right: 0px;
+          background-color: #fff;
           height: 20px;
           border-radius: 4px; 
         }
