@@ -139,6 +139,7 @@ module.exports = {
       };
       const token = jwt.sign(userRes, CLAVE_SECRETA);
       const productos = await Producto.find();
+      const usersTotal = await User.find();
 
       const users = await User.find().sort({ username: 1 });
       const cantidadPendientes = await Pedido.countDocuments({
@@ -151,7 +152,7 @@ module.exports = {
         Estado: "Entregado",
       });
       res.render("clientes", {
-        users,
+        usersTotal,
         cantidadPendientes,
         cantidadRealizados,
         cantidadEntregados,
