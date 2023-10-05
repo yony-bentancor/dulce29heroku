@@ -38,7 +38,7 @@
 
     {#  admin- usuario          #}
     <div id="contenedor-clientes">
-      <div id="info-clientesUpdate">
+      {#  <div id="info-clientesUpdate">
 
         <div class="row rowmovilinvisible">
           <div class="col-2">
@@ -84,6 +84,45 @@
           </form>
         </div>
 
+      </div> #}
+      <div id="info-ProductoUpdate">
+        <form name="formulario" method="post" action="refresh" class="row">
+          <div class="form-section">
+            <label for="name" class="inputUpdProtxt">NOMBRE</label>
+            <input type="text" name="usernameSalida" id="usernameSalida" class="inputUpdProbox" value="{{usernameSalida}}">
+          </div>
+
+          <div class="form-section">
+            <label for="desc" class="inputUpdProtxt">TELEFONO</label>
+            <input type="text" class="inputUpdProbox" name="telefonoSalida" id="telefonoSalida" value="{{telefonoSalida}}">
+          </div>
+
+          <div class="form-section">
+            <label for="image" class="inputUpdProtxt">DIRECCION</label>
+            <input type="text" id="direccionSalida" class="direccionSalida" name="direccionSalida">
+          </div>
+
+          <div class="form-section">
+            <label for="numeroProducto" class="inputUpdProtxt">EMAIL</label>
+            <input type="text" class="inputUpdProbox" id="emailSalida" name="emailSalida" value="{{emailSalida}}">
+          </div>
+
+          <div class="form-actions">
+            <input type="submit" class="btnUpdate" value="GUARDAR">
+
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btnUpdate" onclick="goBack()">CANCELAR</button>
+
+            <script>
+              function goBack() {
+                window
+                  .history
+                  .back();
+              }
+            </script>
+          </div>
+        </form>
       </div>
     </div>
 

@@ -383,7 +383,13 @@ module.exports = {
       }
 
       const users = await User.find().sort({ username: 1 });
-      res.redirect("/session/clientes");
+      res.render("updateuser", {
+        usernameSalida,
+        telefonoSalida,
+        direccionSalida,
+        emailSalida,
+        userid,
+      });
     } catch (error) {
       res.status(404).json({ error: error.message });
     }
