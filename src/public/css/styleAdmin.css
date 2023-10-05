@@ -529,9 +529,10 @@ height: 22px;
 }
 
 .azul{
-  font-size: 0.9rem;
-
+  font-size: 1.2rem;
+  color: #fff;
   width: 30px;
+  padding-right: 3px;
   margin-top: 8px;
   margin-right: 10px;
   border: 1px;
@@ -543,7 +544,10 @@ height: 22px;
  }
 .amarillo{
   background-color: #f0ee9b;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
+  color: #fff;
+  width: 30px;
+  padding-right: 3px;
     display: inline;
     width: 30px;
     margin-top: 8px;
@@ -556,7 +560,10 @@ height: 22px;
  }
  .rojo{
   background-color: #db7e7e;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
+  color: #fff;
+  width: 30px;
+  padding-right: 3px;
   display: inline;
   width: 30px;
   margin-top: 8px;
@@ -568,7 +575,10 @@ height: 22px;
  }
  .verde{
   background-color: #74cb97;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
+  color: #fff;
+  width: 30px;
+  padding-right: 3px;
     display: inline;
     width: 30px;
     margin-top: 8px;
