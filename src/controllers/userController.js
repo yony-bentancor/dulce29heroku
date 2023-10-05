@@ -433,7 +433,7 @@ module.exports = {
       await user.save(); // Guarda los cambios en la base de datos
 
       const users = await User.find().sort({ username: 1 });
-      res.redirect("clientes");
+      res.redirect("/session/clientes");
     } catch (error) {
       console.error(error);
       res.status(500).json({ message: "Error al actualizar el usuario" });
