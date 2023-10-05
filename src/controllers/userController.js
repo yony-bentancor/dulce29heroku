@@ -151,12 +151,7 @@ module.exports = {
       const cantidadEntregados = await Pedido.countDocuments({
         Estado: "Entregado",
       });
-      res.render("clientes", {
-        usersTotal,
-        cantidadPendientes,
-        cantidadRealizados,
-        cantidadEntregados,
-      });
+      res.redirect("/session/clientes");
 
       /*res.status(201).json({ useer: userRes, token: token });*/
     } catch (error) {
