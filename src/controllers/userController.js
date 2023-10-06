@@ -265,7 +265,7 @@ module.exports = {
       email: newUser.email,
       id: newUser.id,
     };
-    if (userRes.username == "Natalia") {
+    if (userRes.username == "Admin") {
       const token = jwt.sign(userRes, CLAVE_SECRETA);
       const users = await User.find().sort({ username: 1 });
       res.render("clientes", { users });
