@@ -63,140 +63,175 @@ toggle between hiding and showing the dropdown content */
       </div>
     </div>
 
-    <div id="contenedorEstadisticas">
-      <div id="infoEstadisticas">
-        <div class="row">
-          <div class="col-12 clase9"> HISTORÍCO </div>
-        </div>
+    <div id="contenedor-pedidosRealizados">
+      <div id="contenedorlateral">
 
-        <div  class="row catEstadisticas">
-          <div class="col-1 "> TOTAL CLIENTES</div>
-          <div class="col-1 ">  CLIENTES SIN PEDIDOS</div>
-          <div class="col-1 "> TOTAL PEDIDOS </div>
-          <div class="col-2 ">   PEDIDOS x CATEGORIA </div>
-          <div class="col-1 "> PROMEDIO PEDIDOS CLIENTE </div>
-          <div class="col-2 "> LITROS PRODUCIDOS </div>
-          <div class="col-2 "> PRODUCTO + VENDIDO</div>
-          <div class="col-2"> MES</div>
-        </div>
+        <div id="tableroEntregadoTotalWeb">
 
-        <div class="row datosEstadisticos">
-          <div class="col-1">{{ contadorUser }}</div>
-          <div class="col-1">{{clientesSinPedidos.length}}</div>
-          <div  class="col-1">
-            {{ contadorPedido }}</div>
-          <div  class="col-1 pedidoCategoria">
-            {% for resultado in resultados %}
-              <li class="registro {{ resultado._id|lower }}">{{ resultado._id }}</li>
-            {% endfor %}
-            {#    {% for resultado in resultados %}
-              {{ resultado._id }}
+          <div class="row">
+            <div class="col-9">
+              <!-- Columna para el nombre del producto -->
+              <ul >
 
-            {% endfor %} #}
-          </div>
-          <div  class="col-1 pedidoCategoriaValor">
-            {% for resultado in resultadosValor %}
+                <li class="pedidoPendientesTotal">
+                  <strong>TOTAL PEDIDOS ENTREGADOS</strong>
+                </li>
 
-              {{ resultado.cantidadTotal }}
-            {% endfor %}
+              </ul>
+            </div>
+
+            <div class="col-3">
+              <label class="rowpedidoEntregadosTotalDatos">
+                {{ contadorCobrados }}</label>
+            </div>
           </div>
 
-          <div class="col-1">{{ promedioPedidoClientetotal }}</div>
-          <div class="col-2">
-            <ul style="list-style: none;">
-              <li class="listaDown">
-                <text class="floatRight">{{sumarLitros}}</text>
-              </li>
-              <ul>
-                {% for producto in output %}
-                  {% set partes = producto.split(' ') %}
-                  <li class="listaDown">{{ partes[0] }} - <text class="floatRight">{{ partes[1] }}</text>
-                  </li>
+          <div class="row">
+            <div class="col-9">
+              <!-- Columna para el nombre del producto -->
+              <ul >
+                {% for mensaje in mensajes %}
+                  <li class="pedidoPendientesTotal">{{ mensaje.nombre }}</li>
                 {% endfor %}
               </ul>
-          </ul>
+            </div>
+            <div class="col-3">
+              <!-- Columna para la cantidad -->
+              <ul>
+                {% for mensaje in mensajes %}
+                  <li class="rowpedidoEntregadosTotalDatos">{{ mensaje.cantidad }}</li>
+                {% endfor %}
+              </ul>
+            </div>
+
+          </div>
 
         </div>
-        <div class="col-2 ">
-          <ul style="list-style: none;">
-            {% for item in output2 %}
-              <li class="listaDown">{{ item }}</li>
-            {% endfor %}
-          </ul>
+
+        <div id="buscadorEntregados">
+          <div class="row rowEntregados">
+
+            <div class="col-4">
+              <strong>PEDIDOS ENTREGADOS</strong>
+            </div>
+
+            <div class="col-4">
+              <strong>PEDIDOS EN EFECTIVO</strong>
+            </div>
+            <div class="col-4">
+              <strong>RECAUDACION EFECTIVO</strong>
+            </div>
+
+          </div>
+
+          <div class="row rowEntregadosDatos">
+
+            <div class="col-4">{{contadorCobrados}}</div>
+
+            <div class="col-4">{{contadorEfectivo}}</div>
+            <div class="col-4">{{ precioFinal }}</div>
+
+          </div>
+
         </div>
-        <div class="col-2">
-          <form  action="estadisticasMes" method="POST">
-                   Desde: <input type="date" name="fechaInicio">
-                   Hasta: <input type="date" name="fechaFin">
-            <button type="submit" class="sizeBtn">Buscar</button>
-          </form>
-        </div>
 
-      </div>
-      <div  class="row">
-        <div class="col-12 clase99">POR MES </div>
-      </div>
+        <div id="boxPedidoEntregado">
+          {% for pedido in pedidos %}
+            <div id="info-pendientesBox">
+              <div id="pendientesBox">
+                <div id="box3">
+                  <div class="row">
 
-      <div class="row catEstadisticasMes">
-        <div class="col-1">NUEVOS CLIENTES</div>
+                    <div class="col-6  boxTxt ">
+                                    Nº    
+                                {{pedido.Mes}}-{{ pedido.Numero_pedido }}
+                    </div>
+                    <div class="col-6 boxTxtEstadoEntregados">
+                      <form name="formularioCambio" method="get" action="/session/cambioEstadoCobrado/{{ pedido.Numero_pedido }}">
+                        <input type="submit" value="{{ pedido.Estado }}" class="{{ pedido.Estado }}" onclick="return confirm('¿Estás por cambiar eL pedido de Entregado a Cobrado ?')">
+                      </form>
 
-        <div class="col-2"> CLIENTES SIN PEDIDOS</div>
-        <div class="col-1"> CLIENTES CON PEDIDOS</div>
-        <div class="col-1">TOTAL PEDIDOS</div>
-        <div class="col-1">PROMEDIO PEDIDO CLIENTE </div>
-        <div class="col-2 ">PRODUCTOS X LITROS</div>
-        <div class="col-2 ">MAS VENDIDO</div>
-        <div class="col-2 mesBusqueda">
-          {{mesEntrada}} /  {{mesSalida}}</div>
-      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="box4">
+                  <div class="row boxTxtCliente">
+                    <div class="col-12">
+                      {{ pedido.username }} || {{pedido.fechaFormateada }}
 
-      <div class="row datosEstadisticosMes">
-        <div class="col-1 ">
-          {{clientesRegistrados}}
-        </div>
-        {# <div id="nombresNoEnArray2" class="col-2"> #}
-        <div class="col-2">
-          {% for user in nombresNoEnArray2 %}
-            <li class="listaDown">{{ user.username }} -   
-              <a href="https://api.whatsapp.com/send?phone={{ user.telefono }}" class="floatRight">{{ user.telefono }}</a>
-            </li>
+                    </div>
+                  </div>
+                </div>
+                <div id="box5">
+                  <div class="row boxTxtCliente">
+                    <div class="col-6">
+                      <form method="post" action="/session/updatepedido">
+                        <input type="hidden" name="Numero_pedido" value="{{ pedido.Numero_pedido }}" >
+
+                        <button type="submit">UPD</button>
+                      </form>
+                    </div>
+
+                    <div class="col-6 boxTxtCliente">
+                      <form name="formulario" method="post" action="/session/deletepedido{{ pedido.Numero_pedido}}", pedidoController.deletePedido>
+                        <input type="image" id="image" alt="delete" src="https://dulce29.herokuapp.com/static/img/borrado1.png" onclick="return confirm('¿Estás por eliminar un pedido?')">
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="boxunodos">
+                  <div id="box1">
+                    <div class="row">
+
+                      {% for producto in pedido.productos %}
+                        {% if producto.cantidad != 0 %}
+                          <div class="col-12">
+                            {{ producto.precio }}
+                            {{ producto.nombre }}
+                          </div>
+                        {% endif %}
+                      {% endfor %}
+
+                    </div>
+                  </div>
+
+                  <div id="box2">
+                    <div class="row">
+                      {% for producto in pedido.productos %}
+
+                        <div class="col-12">
+
+                          {{ producto.cantidad }}
+
+                        </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+
+                <div id="box6" class="{{ pedido.Estado }}">
+                  <div class="row">
+                    <div class="col-12">
+                      {{ pedido.Pago }} || {{ pedido.Monto_total }} TOTAL 
+
+                                    </div>
+                    <div class="col-12">
+                      {{ pedido.Descuento }}% OFF || {{  pedido.Monto_total * (1 - pedido.Descuento / 100) }} PRECIO FINAL
+
+                                      </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
           {% endfor %}
+
         </div>
-        <div class="col-1 ">
-          {{restaUser}} DE {{ contadorUser }}
-        </div>
-        <div class="col-1 ">
-          {{contadorPedidoXFecha}}
-        </div>
-        <div class="col-1 ">{{promedioPedidoClientexFechaT}}</div>
-        <div class="col-2">
-          <ul style="list-style: none;">
-            <li class="listaDown">TOTAL EN LITROS<text class="floatRight">{{sumarLitrosxFecha}}</text>
-            </li>
-            <ul>
-              {% for producto in outputxFecha %}
-                {% set partes = producto.split(' ') %}
-                <li class="listaDown">{{ partes[0] }} - <text class="floatRight">{{ partes[1] }}</text>
-                </li>
-              {% endfor %}
-            </ul>
-        </ul>
 
       </div>
-      <div class="col-2 ">
-        <ul style="list-style: none;">
-          {% for item in output2xFecha %}
-            <li class="listaDown">{{ item }}</li>
-          {% endfor %}
-        </ul>
-      </div>
-      <div class="col-2 "></div>
     </div>
-  </div>
 
-</div>
-</div>
-
-</body>
+  </body>
 
 {% endblock %}
