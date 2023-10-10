@@ -530,9 +530,10 @@ height: 22px;
 
 .azul{
   font-size: 1.2rem;
+  font-weight: 700;
   color: #fff;
   width: 30px;
-  padding-right: 3px;
+  padding-right: 10px;
   margin-top: 8px;
   margin-right: 10px;
   border: 1px;
