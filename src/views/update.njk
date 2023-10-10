@@ -39,7 +39,51 @@
     <div id="contenedor-clientes">
       <div id="info-ProductoUpdate">
         <form name="formulario" method="post" action="refreshproducto" enctype="multipart/form-data">
-          <div class="form-section">
+
+          <div class="col-3">
+            <strong>PRODUCTO</strong>
+          </div>
+          <div class="col-9">
+            <input type="text" name="name" value="{{ name }}" class="formcontrolUpdate">
+          </div>
+        </div>
+
+        <div class="row rowmovilinvisible">
+          <div class="col-3">
+            <strong>DESCRIPCION</strong>
+          </div>
+          <div class="col-9">
+            <input type="text" name="desc" value="{{ desc }}" class="formcontrolUpdate">
+          </div>
+        </div>
+
+        <div class="row rowmovilinvisible">
+          <div class="col-3">
+            <strong>IMAGEN</strong>
+          </div>
+          <div class="col-9">
+            <input type="file" name="image" value="{{ image }}" class="formcontrolUpdate">
+          </div>
+        </div>
+
+        <div class="row rowmovilinvisible">
+          <div class="col-3">
+            <strong>PRECIO VENTA</strong>
+          </div>
+          <div class="col-9">
+            <input type="text" name="precioVenta" value="{{ precioVenta }}" class="formcontrolUpdate">
+          </div>
+        </div>
+
+        <div class="row rowmovilinvisible">
+          <div class="col-3">
+            <strong>COSTO PRODUCCION</strong>
+          </div>
+          <div class="col-9">
+            <input type="text" name="costoProduccion" value="{{ costoProduccion }}" class="formcontrolUpdate">
+          </div>
+        </div>
+        {# <div class="form-section">
             <label for="name" class="inputUpdProtxt">PRODUCTO</label>
             <input type="text" name="name" id="name" class="inputUpdProbox" value="{{name}}">
           </div>
@@ -68,26 +112,21 @@
             <label for="costoProduccion" class="inputUpdProtxt">COSTO PRODUCCION</label>
             <input type="text" class="inputUpdProbox" id="costoProduccion" name="costoProduccion" value="{{costoProduccion}}">
           </div>
-
-          <div class="form-actions">
-            <input type="submit" class="btnUpdate" value="GUARDAR">
-
+ #}
+        <div class="row rowmovilinvisible">
+          <div class="col-sm-2">
+            <input type="submit" class="btnUpdate" value="GUARDAR"/>
           </div>
-          <div class="form-actions">
-            <button type="button" class="btnUpdate" onclick="goBack()">CANCELAR</button>
-
-            <script>
-              function goBack() {
-                window
-                  .history
-                  .back();
-              }
-            </script>
+          <div class="col-sm-2">
+            <a href="/session/productosAdmin" class="alink">
+              <input   type="submit" class="btnUpdate" value="CANCELAR"/>
+            </a>
           </div>
-        </form>
-      </div>
+        </div>
+      </form>
+    </div>
 
-      {#  <div id="info-ProductoUpdate">
+    {#  <div id="info-ProductoUpdate">
         <form name="formulario" method="post" action="refreshproducto" enctype="multipart/form-data">
           <div class="row">
 
@@ -153,8 +192,8 @@
         
 
       </div> #}
-    </div>
+  </div>
 
-  </body>
+</body>
 
 {% endblock %}
