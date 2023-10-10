@@ -546,9 +546,10 @@ height: 22px;
 .amarillo{
   background-color: #f0ee9b;
   font-size: 1.2rem;
+  font-weight: 700;
   color: #fff;
   width: 30px;
-  padding-right: 3px;
+  padding-right: 10px;
     display: inline;
     width: 30px;
     margin-top: 8px;
@@ -562,9 +563,10 @@ height: 22px;
  .rojo{
   background-color: #db7e7e;
   font-size: 1.2rem;
+  font-weight: 700;
   color: #fff;
   width: 30px;
-  padding-right: 3px;
+  padding-right: 10px;
   display: inline;
   width: 30px;
   margin-top: 8px;
@@ -577,9 +579,10 @@ height: 22px;
  .verde{
   background-color: #74cb97;
   font-size: 1.2rem;
+  font-weight: 700;
   color: #fff;
   width: 30px;
-  padding-right: 3px;
+  padding-right: 10px;
     display: inline;
     width: 30px;
     margin-top: 8px;
