@@ -577,7 +577,7 @@ module.exports = {
         const cantidadProducto = productosCantidad[nombreProducto];
         mensajes.push({ nombre: nombreProducto, cantidad: cantidadProducto });
       }
-
+      mensajes.sort((a, b) => b.cantidad - a.cantidad);
       const users = await User.find().sort({
         username: 1,
       });
