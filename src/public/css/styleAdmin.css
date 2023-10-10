@@ -961,7 +961,11 @@ font-size: 1rem;
         padding-left: 26px;
       }
     
-
+      .linkActivo{
+        color: #63a790;
+        font-size: 14px;
+        
+        }
  .formClientetxt{
 /*   
  
