@@ -1111,7 +1111,7 @@ module.exports = {
       res.status(500).send("Error interno del servidor");
     }
   },
-  estadisticasAdmin: async (req, res) => {
+  cobrados: async (req, res) => {
     try {
       const opciones = {
         month: "long",
@@ -1168,7 +1168,7 @@ module.exports = {
       );
 
       // Renderizar la vista "entregados" con los datos
-      res.render("entregados", {
+      res.render("cobrados", {
         pedidos: pedidosFormateados,
         mensajes,
         contadorCobrados: pedidosCobrados.length,
