@@ -655,6 +655,7 @@ module.exports = {
         const cantidadProducto = productosCantidad[nombreProducto];
         mensajes.push({ nombre: nombreProducto, cantidad: cantidadProducto });
       }
+      mensajes.sort((a, b) => b.cantidad - a.cantidad);
 
       const users = await User.find().sort({
         username: 1,
@@ -715,6 +716,7 @@ module.exports = {
         const cantidadProducto = productosCantidad[nombreProducto];
         mensajes.push({ nombre: nombreProducto, cantidad: cantidadProducto });
       }
+      mensajes.sort((a, b) => b.cantidad - a.cantidad);
 
       res.render("realizadosBusqueda", {
         pedidos,
@@ -1006,6 +1008,7 @@ module.exports = {
         const cantidadProducto = productosCantidad[nombreProducto];
         mensajes.push({ nombre: nombreProducto, cantidad: cantidadProducto });
       }
+      mensajes.sort((a, b) => b.cantidad - a.cantidad);
 
       const pedidosEnEfectivo = pedidosEntregados.filter(
         (pedido) => pedido.Pago === "Efectivo"
@@ -1092,6 +1095,7 @@ module.exports = {
         const cantidadProducto = productosCantidad[nombreProducto];
         mensajes.push({ nombre: nombreProducto, cantidad: cantidadProducto });
       }
+      mensajes.sort((a, b) => b.cantidad - a.cantidad);
       const precioFinal = pedido.Monto_total * (1 - pedido.Descuento / 100);
 
       // Renderizar la vista "entregados" con los datos
@@ -1156,6 +1160,7 @@ module.exports = {
         const cantidadProducto = productosCantidad[nombreProducto];
         mensajes.push({ nombre: nombreProducto, cantidad: cantidadProducto });
       }
+      mensajes.sort((a, b) => b.cantidad - a.cantidad);
 
       const pedidosEnEfectivo = pedidosCobrados.filter(
         (pedido) => pedido.Pago === "Efectivo"
