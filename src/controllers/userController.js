@@ -1122,10 +1122,15 @@ module.exports = {
         day: "numeric",
       };
 
-      // Consulta para obtener pedidos entregados que no estén en estados específicos
+      const fechaActual = new Date();
+
+      // Consulta para obtener pedidos entregados que no estén en estados específicos y que sean del mes en curso
       const pedidosCobrados = await Pedido.find({
         Estado: "Cobrado",
         Estado: { $nin: ["Realizado", "Entregado", "Pendiente"] },
+        $expr: {
+          $eq: [{ $month: "$createdAt" }, { $month: fechaActual }],
+        },
       }).sort({ Numero_pedido: 1 });
 
       const pedidosFormateados = pedidosCobrados.map((pedido) => ({
