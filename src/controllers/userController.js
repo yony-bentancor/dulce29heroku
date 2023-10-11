@@ -1328,253 +1328,75 @@ module.exports = {
 
   estadisticasAdminMes: async (req, res) => {
     try {
-      // Obtener todos los usuarios y pedidos
-      const usuariosTotal = await User.find(
-        {},
-        { _id: 0, username: 1, createdAt: 1, telefono: 1 }
-      );
-      const pedididosTotal = await Pedido.find(
-        {},
-        {
-          _id: 0,
-          username: 1,
-          createdAt: 1,
-          Detox: 1,
-          Kefir: 1,
-          Licuados: 1,
-          Limonada: 1,
-          Smoothie: 1,
-        }
-      );
-
-      userObjUser = usuariosTotal;
-      nombreObjPedido = pedididosTotal;
-
-      fechaInicio = new Date(req.body.fechaInicio);
-      fechaActual = new Date(req.body.fechaFin);
-
       const opciones = {
         month: "long",
         day: "numeric",
       };
 
-      const mesEntrada = fechaInicio.toLocaleString("es-ES", opciones);
-      const mesSalida = fechaActual.toLocaleString("es-ES", opciones);
-      /*  const fechaInicio = new Date("2023-01-1"); // Fecha de inicio del rango
+      // Consulta para obtener pedidos entregados que no estén en estados específicos
+      const pedidosCobrados = await Pedido.find({
+        Estado: "Cobrado",
+        Estado: { $nin: ["Realizado", "Entregado", "Pendiente"] },
+      }).sort({ Numero_pedido: 1 });
 
-      const fechaActual = new Date("2023-04-14"); */
+      const pedidosFormateados = pedidosCobrados.map((pedido) => ({
+        ...pedido.toObject(),
+        fechaFormateada: pedido.createdAt.toLocaleString("es-ES", opciones),
+      }));
 
-      let clientesRegistrados = 0;
+      // Consulta para obtener usuarios y productos
+      const [users, productos] = await Promise.all([
+        User.find().sort({ username: 1 }),
+        Producto.find().sort({ Numero_pedido: 1 }),
+      ]);
 
-      for (let i = 0; i < usuariosTotal.length; i++) {
-        let fechaRegistro = new Date(usuariosTotal[i].createdAt);
+      // Calcular el total de productos
+      const productosCantidad = {};
 
-        if (fechaRegistro >= fechaInicio && fechaRegistro <= fechaActual) {
-          clientesRegistrados++;
+      for (const pedido of pedidosCobrados) {
+        for (const producto of pedido.productos) {
+          const nombreProducto = producto.nombre;
+          const cantidad = producto.cantidad;
+
+          productosCantidad[nombreProducto] =
+            (productosCantidad[nombreProducto] || 0) + cantidad;
         }
       }
 
-      const nombresNoEnArray2 = userObjUser
-        .filter((item) => {
-          // Verificar si el usuario no tiene pedidos en el rango de fechas especificado
-          return !nombreObjPedido.some(
-            (item2) =>
-              item2.username === item.username &&
-              new Date(item2.createdAt) >= fechaInicio &&
-              new Date(item2.createdAt) <= fechaActual
-          );
-        })
-        .map((item) => {
-          // Modificar el objeto para incluir nombre de usuario y número de teléfono
-          return {
-            username: item.username,
-            telefono: item.telefono,
-          };
-        });
-      const cantidadUsuariosSinPedido = nombresNoEnArray2.length;
+      // Crear un array para almacenar los mensajes a mostrar en la plantilla
+      const mensajes = [];
 
-      console.log(nombresNoEnArray2);
+      // Agregar mensajes al array
+      for (const nombreProducto in productosCantidad) {
+        const cantidadProducto = productosCantidad[nombreProducto];
+        mensajes.push({ nombre: nombreProducto, cantidad: cantidadProducto });
+      }
+      mensajes.sort((a, b) => b.cantidad - a.cantidad);
 
-      const clientesSinPedidos = userObjUser
-        .filter((item) => {
-          // Verificar si el usuario no tiene pedidos en el rango de fechas especificado
-          return !nombreObjPedido.some(
-            (item2) => item2.username === item.username
-          );
-        })
-        .map((item) => {
-          // Devolver solo el nombre de usuario
-          return item.username;
-        });
-
-      // Obtener la cantidad de usuarios y pedidos totales
-      const contadorUser = usuariosTotal.length;
-      const contadorPedido = pedididosTotal.length;
-
-      // Obtener la cantidad total de litros vendidos de cada producto
-      const sumarDetox = pedididosTotal.reduce(
-        (total, pedido) => total + pedido.Detox,
-        0
+      const pedidosEnEfectivo = pedidosCobrados.filter(
+        (pedido) => pedido.Pago === "Efectivo"
       );
-      const sumarSmoothie = pedididosTotal.reduce(
-        (total, pedido) => total + pedido.Smoothie,
-        0
-      );
-      const sumarLimonadas = pedididosTotal.reduce(
-        (total, pedido) => total + pedido.Limonada,
-        0
-      );
-      const sumarLicuados = pedididosTotal.reduce(
-        (total, pedido) => total + pedido.Licuados,
-        0
-      );
-      const sumarKefir = pedididosTotal.reduce(
-        (total, pedido) => total + pedido.Kefir,
+      // Calcular el precio final (ajusta esto según tus necesidades)
+      const precioFinal = pedidosEnEfectivo.reduce(
+        (total, pedido) =>
+          total + pedido.Monto_total * (1 - pedido.Descuento / 100),
         0
       );
 
-      // Obtener la cantidad total de litros vendidos de todos los productos
-      const sumarLitros =
-        sumarDetox +
-        sumarSmoothie +
-        sumarLimonadas +
-        sumarLicuados +
-        sumarKefir;
-
-      // Obtener el promedio de pedidos por cliente
-      const promedioPedidoCliente = contadorPedido / contadorUser;
-      const promedioPedidoClientetotal = promedioPedidoCliente.toFixed(2);
-
-      // Obtener el producto más vendido
-      const productosArray = [
-        ["Detox", sumarDetox],
-        ["Smoothie", sumarSmoothie],
-        ["Limonadas", sumarLimonadas],
-        ["Licuados", sumarLicuados],
-        ["Kefir", sumarKefir],
-      ];
-      productosArray.sort((a, b) => b[1] - a[1]);
-      const productoMasVendido = productosArray[0][0];
-
-      // Crear una cadena de texto con la salida formateada de los productos y las ventas
-      /*    const output = productosArray.map(
-        ([producto, cantidad]) => `${producto} ${cantidad}`
-        
-      ); */
-
-      // Obtener el promedio de pedidos por cliente
-
-      const output = productosArray.map(([producto, cantidad]) => {
-        return `${producto} ${cantidad}`;
-      });
-      const output2 = productosArray.map(([producto]) => `${producto}`);
-
-      const pedidosFiltrados = pedididosTotal.filter((pedido) => {
-        const fechaPedido = new Date(pedido.createdAt);
-        return fechaPedido >= fechaInicio && fechaPedido <= fechaActual;
-      });
-      const contadorPedidoXFecha = pedidosFiltrados.length;
-
-      let restaUser = contadorUser - cantidadUsuariosSinPedido;
-      promedioPedidoClientexFecha = contadorPedidoXFecha / restaUser;
-      promedioPedidoClientexFechaT = promedioPedidoClientexFecha.toFixed(2);
-      // Crear una cadena de texto con la salida formateada de los productos y las ventas
-      /*    const output = productosArray.map(
-        ([producto, cantidad]) => `${producto} ${cantidad}`
-        
-      ); */
-
-      // Obtener el promedio de pedidos por cliente
-
-      const sumarDetoxxFecha = pedididosTotal.reduce((total, pedido) => {
-        const fechaPedido = new Date(pedido.createdAt); // Ajusta "pedido.fecha" a la propiedad correcta en tu objeto pedido
-
-        if (fechaPedido >= fechaInicio && fechaPedido <= fechaActual) {
-          return total + pedido.Detox;
-        }
-        return total;
-      }, 0);
-      const sumarSmoothiexFecha = pedididosTotal.reduce((total, pedido) => {
-        const fechaPedido = new Date(pedido.createdAt); // Ajusta "pedido.fecha" a la propiedad correcta en tu objeto pedido
-
-        if (fechaPedido >= fechaInicio && fechaPedido <= fechaActual) {
-          return total + pedido.Smoothie;
-        }
-        return total;
-      }, 0);
-      const sumarLimonadaxFecha = pedididosTotal.reduce((total, pedido) => {
-        const fechaPedido = new Date(pedido.createdAt); // Ajusta "pedido.fecha" a la propiedad correcta en tu objeto pedido
-
-        if (fechaPedido >= fechaInicio && fechaPedido <= fechaActual) {
-          return total + pedido.Limonada;
-        }
-        return total;
-      }, 0);
-      const sumarLicuadosxFecha = pedididosTotal.reduce((total, pedido) => {
-        const fechaPedido = new Date(pedido.createdAt); // Ajusta "pedido.fecha" a la propiedad correcta en tu objeto pedido
-
-        if (fechaPedido >= fechaInicio && fechaPedido <= fechaActual) {
-          return total + pedido.Licuados;
-        }
-        return total;
-      }, 0);
-      const sumarKefirxFecha = pedididosTotal.reduce((total, pedido) => {
-        const fechaPedido = new Date(pedido.createdAt); // Ajusta "pedido.fecha" a la propiedad correcta en tu objeto pedido
-
-        if (fechaPedido >= fechaInicio && fechaPedido <= fechaActual) {
-          return total + pedido.Kefir;
-        }
-        return total;
-      }, 0);
-
-      const sumarLitrosxFecha =
-        sumarDetoxxFecha +
-        sumarSmoothiexFecha +
-        sumarLimonadaxFecha +
-        sumarLicuadosxFecha +
-        sumarKefirxFecha;
-
-      const productosArrayxFecha = [
-        ["Detox", sumarDetoxxFecha],
-        ["Smoothie", sumarSmoothiexFecha],
-        ["Limonadas", sumarLimonadaxFecha],
-        ["Licuados", sumarLicuadosxFecha],
-        ["Kefir", sumarKefirxFecha],
-      ];
-      productosArrayxFecha.sort((a, b) => b[1] - a[1]);
-      const productoMasVendidoxFecha = productosArrayxFecha[0][0];
-
-      const outputxFecha = productosArrayxFecha.map(([producto, cantidad]) => {
-        return `${producto} ${cantidad}`;
-      });
-
-      const output2xFecha = productosArrayxFecha.map(
-        ([producto]) => `${producto}`
-      );
-
-      res.render("estadisticas", {
-        contadorUser,
-        contadorPedido,
-        promedioPedidoClientetotal,
-        nombresNoEnArray2,
-        sumarLitros,
-        clientesSinPedidos,
-        productoMasVendido,
-        output,
-        output2,
-        clientesRegistrados,
-        mesEntrada,
-        mesSalida,
-        contadorPedidoXFecha,
-        promedioPedidoClientexFechaT,
-        restaUser,
-        sumarLitrosxFecha,
-        productoMasVendidoxFecha,
-        outputxFecha,
-        output2xFecha,
+      res.render("cobrados", {
+        pedidos: pedidosFormateados,
+        mensajes,
+        contadorCobrados: pedidosCobrados.length,
+        contadorEfectivo: pedidosFormateados.filter(
+          (pedido) => pedido.Pago === "Efectivo"
+        ).length,
+        productos,
+        precioFinal,
       });
     } catch (error) {
-      res.status(500).json({ error: error.message });
+      // Manejo de errores más detallado
+      console.error("Error al cargar datos:", error);
+      res.status(500).send(`Error interno del servidor: ${error.message}`);
     }
   },
 
