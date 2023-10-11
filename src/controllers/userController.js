@@ -1132,6 +1132,23 @@ module.exports = {
         1
       );
 
+      const numeroMes = fechaActual.getMonth();
+      const nombresMeses = [
+        "Enero",
+        "Febrero",
+        "Marzo",
+        "Abril",
+        "Mayo",
+        "Junio",
+        "Julio",
+        "Agosto",
+        "Septiembre",
+        "Octubre",
+        "Noviembre",
+        "Diciembre",
+      ];
+
+      const nombreMes = nombresMeses[numeroMes];
       // Consulta para obtener pedidos entregados que no estén en estados específicos y que estén dentro del rango de fechas
       const pedidosCobrados = await Pedido.find({
         Estado: "Cobrado",
@@ -1182,7 +1199,6 @@ module.exports = {
           total + pedido.Monto_total * (1 - pedido.Descuento / 100),
         0
       );
-      const Mes = opciones.month;
 
       // Renderizar la vista "entregados" con los datos
       res.render("cobrados", {
@@ -1195,7 +1211,7 @@ module.exports = {
         productos,
         precioFinal,
         fechaActual,
-        Mes,
+        nombreMes,
       });
     } catch (error) {
       // Manejo de errores más detallado
