@@ -1117,19 +1117,26 @@ module.exports = {
   },
   cobrados: async (req, res) => {
     try {
-      const opciones = {
+      /*    const opciones = {
         month: "long",
         day: "numeric",
-      };
+      }; */
 
       const fechaActual = new Date();
+
+      // Obtener el mes y el año actual
+      const mesActual = fechaActual.getMonth() + 1; // Sumamos 1 porque en JavaScript los meses van de 0 a 11.
+      const añoActual = fechaActual.getFullYear();
 
       // Consulta para obtener pedidos entregados que no estén en estados específicos y que sean del mes en curso
       const pedidosCobrados = await Pedido.find({
         Estado: "Cobrado",
         Estado: { $nin: ["Realizado", "Entregado", "Pendiente"] },
         $expr: {
-          $eq: [{ $month: "$createdAt" }, { $month: fechaActual }],
+          $and: [
+            { $eq: [{ $month: "$createdAt" }, mesActual] },
+            { $eq: [{ $year: "$createdAt" }, añoActual] },
+          ],
         },
       }).sort({ Numero_pedido: 1 });
 
