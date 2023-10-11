@@ -116,26 +116,40 @@ toggle between hiding and showing the dropdown content */
               <strong>PEDIDOS COBRADOS</strong>
             </div>
 
-            <div class="col-2">
+            <div class="col-4">
               <strong>EFECTIVO</strong>
             </div>
-            <div class="col-2">
+            <div class="col-4">
               <strong>TRANSFERENCIA</strong>
             </div>
-            <div class="col-4">
-              <strong>RECAUDACION EFECTIVO</strong>
-            </div>
-
           </div>
 
           <div class="row rowEntregadosDatos">
 
             <div class="col-4">{{contadorCobrados}}</div>
-
             <div class="col-4">{{contadorEfectivo}}</div>
             <div class="col-4">{{contadorCobrados - contadorEfectivo}}</div>
-            <div class="col-4">{{ precioFinal }}</div>
+          </div>
 
+          <div class="row rowEntregados">
+
+            <div class="col-4">
+              <strong></strong>
+            </div>
+
+            <div class="col-4">
+              <strong>EFECTIVO</strong>
+            </div>
+            <div class="col-4">
+              <strong>TRANSFERENCIA</strong>
+            </div>
+          </div>
+
+          <div class="row rowEntregadosDatos">
+
+            <div class="col-4"></div>
+            <div class="col-4">{{contadorEfectivo}}</div>
+            <div class="col-4">{{contadorCobrados - contadorEfectivo}}</div>
           </div>
 
         </div>
