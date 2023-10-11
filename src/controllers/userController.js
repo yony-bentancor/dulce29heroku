@@ -1117,10 +1117,10 @@ module.exports = {
   },
   cobrados: async (req, res) => {
     try {
-      /*    const opciones = {
+      const opciones = {
         month: "long",
         day: "numeric",
-      }; */
+      };
 
       const fechaActual = new Date();
 
