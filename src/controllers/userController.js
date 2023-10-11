@@ -1204,6 +1204,7 @@ module.exports = {
         ).length,
         productos,
         precioFinal,
+        fechaActual,
       });
     } catch (error) {
       // Manejo de errores más detallado
