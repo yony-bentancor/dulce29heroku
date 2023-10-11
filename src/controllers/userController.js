@@ -1351,20 +1351,20 @@ module.exports = {
 
   estadisticasAdminMes: async (req, res) => {
     try {
-      fechaInicio = new Date(req.body.fechaInicio);
-      fechaActual = new Date(req.body.fechaFin);
+      // Parsear las fechas enviadas desde el cliente a objetos Date
+      const fechaInicio = new Date(req.body.fechaInicio);
+      const fechaFin = new Date(req.body.fechaFin);
 
       const opciones = {
         month: "long",
         day: "numeric",
       };
 
-      // Consulta para obtener pedidos entregados que no estén en estados específicos
+      // Consulta para obtener pedidos entregados que no estén en estados específicos y que estén dentro del rango de fechas
       const pedidosCobrados = await Pedido.find({
         Estado: "Cobrado",
         Estado: { $nin: ["Realizado", "Entregado", "Pendiente"] },
-        // Filtrar por rango de fechas
-        createdAt: { $gte: fechaInicio, $lte: fechaActual },
+        createdAt: { $gte: fechaInicio, $lte: fechaFin }, // Filtrar por rango de fechas
       }).sort({ Numero_pedido: 1 });
 
       const pedidosFormateados = pedidosCobrados.map((pedido) => ({
