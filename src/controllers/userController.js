@@ -1122,6 +1122,8 @@ module.exports = {
         day: "numeric",
       };
 
+      const fechaActual = new Date(); // Inicializa fechaActual con la fecha y hora actuales.
+
       // Obtener el mes y el año actual
       const mesActual = fechaActual.getUTCMonth() + 1; // Sumamos 1 porque en JavaScript los meses van de 0 a 11 en formato UTC.
       const añoActual = fechaActual.getUTCFullYear();
