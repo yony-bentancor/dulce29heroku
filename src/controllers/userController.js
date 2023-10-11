@@ -1328,6 +1328,9 @@ module.exports = {
 
   estadisticasAdminMes: async (req, res) => {
     try {
+      fechaInicio = new Date(req.body.fechaInicio);
+      fechaActual = new Date(req.body.fechaFin);
+
       const opciones = {
         month: "long",
         day: "numeric",
@@ -1337,6 +1340,8 @@ module.exports = {
       const pedidosCobrados = await Pedido.find({
         Estado: "Cobrado",
         Estado: { $nin: ["Realizado", "Entregado", "Pendiente"] },
+        // Filtrar por rango de fechas
+        createdAt: { $gte: fechaInicio, $lte: fechaActual },
       }).sort({ Numero_pedido: 1 });
 
       const pedidosFormateados = pedidosCobrados.map((pedido) => ({
