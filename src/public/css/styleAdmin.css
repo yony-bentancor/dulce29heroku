@@ -531,7 +531,7 @@ height: 22px;
 .azul{
   font-size: 1.2rem;
   font-weight: 700;
-  color: #fff;
+  color: #000;
   width: 30px;
   padding-right: 10px;
   margin-top: 8px;
@@ -539,15 +539,15 @@ height: 22px;
   border: 1px;
   height: 20px;
   border-radius: 2px;
-  background-color: #59738c;
+  background-color: #7da0c2;
 
   
  }
 .amarillo{
-  background-color: #f0ee9b;
+  background-color: #eae74b;
   font-size: 1.2rem;
   font-weight: 700;
-  color: #fff;
+  color: #000;
   width: 30px;
   padding-right: 10px;
     display: inline;
@@ -564,7 +564,7 @@ height: 22px;
   background-color: #db7e7e;
   font-size: 1.2rem;
   font-weight: 700;
-  color: #fff;
+  color: #000;
   width: 30px;
   padding-right: 10px;
   display: inline;
@@ -580,7 +580,7 @@ height: 22px;
   background-color: #74cb97;
   font-size: 1.2rem;
   font-weight: 700;
-  color: #fff;
+  color: #000;
   width: 30px;
   padding-right: 10px;
     display: inline;
@@ -1547,7 +1547,7 @@ height: 38px;
   padding-left: 30px;
   padding-right: 0px;
   text-align: left;
-  width: 280px;
+  width: 290px;
   height: auto;
   background-color: #fff;
   border-radius: 4px;
