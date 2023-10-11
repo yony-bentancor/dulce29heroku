@@ -1182,6 +1182,7 @@ module.exports = {
           total + pedido.Monto_total * (1 - pedido.Descuento / 100),
         0
       );
+      const Mes = opciones.month;
 
       // Renderizar la vista "entregados" con los datos
       res.render("cobrados", {
@@ -1194,6 +1195,7 @@ module.exports = {
         productos,
         precioFinal,
         fechaActual,
+        Mes,
       });
     } catch (error) {
       // Manejo de errores más detallado
