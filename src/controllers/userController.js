@@ -1122,32 +1122,21 @@ module.exports = {
         day: "numeric",
       };
 
-      const fechaActual = new Date(); // Inicializa fechaActual con la fecha y hora actuales.
+      // Obtener la fecha actual
+      const fechaActual = new Date();
 
-      // Obtener el mes y el año actual
-      const mesActual = fechaActual.getUTCMonth() + 1; // Sumamos 1 porque en JavaScript los meses van de 0 a 11 en formato UTC.
-      const añoActual = fechaActual.getUTCFullYear();
+      // Obtener el primer día del mes en curso
+      const primerDiaDelMes = new Date(
+        fechaActual.getFullYear(),
+        fechaActual.getMonth(),
+        1
+      );
 
-      // Consulta para obtener pedidos entregados que no estén en estados específicos y que sean del mes en curso
+      // Consulta para obtener pedidos entregados que no estén en estados específicos y que estén dentro del rango de fechas
       const pedidosCobrados = await Pedido.find({
         Estado: "Cobrado",
         Estado: { $nin: ["Realizado", "Entregado", "Pendiente"] },
-        $expr: {
-          $and: [
-            {
-              $eq: [
-                { $month: { date: "$createdAt", timezone: "UTC" } },
-                mesActual,
-              ],
-            },
-            {
-              $eq: [
-                { $year: { date: "$createdAt", timezone: "UTC" } },
-                añoActual,
-              ],
-            },
-          ],
-        },
+        createdAt: { $gte: primerDiaDelMes, $lte: fechaActual }, // Filtrar por rango de fechas
       }).sort({ Numero_pedido: 1 });
 
       const pedidosFormateados = pedidosCobrados.map((pedido) => ({
