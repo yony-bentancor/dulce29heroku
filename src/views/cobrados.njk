@@ -116,8 +116,11 @@ toggle between hiding and showing the dropdown content */
               <strong>PEDIDOS COBRADOS</strong>
             </div>
 
-            <div class="col-4">
-              <strong>PEDIDOS EN EFECTIVO</strong>
+            <div class="col-2">
+              <strong>EFECTIVO</strong>
+            </div>
+            <div class="col-2">
+              <strong>TRANSFERENCIA</strong>
             </div>
             <div class="col-4">
               <strong>RECAUDACION EFECTIVO</strong>
@@ -130,6 +133,7 @@ toggle between hiding and showing the dropdown content */
             <div class="col-4">{{contadorCobrados}}</div>
 
             <div class="col-4">{{contadorEfectivo}}</div>
+            <div class="col-4">{{contadorCobrados - contadorEfectivo}}</div>
             <div class="col-4">{{ precioFinal }}</div>
 
           </div>
