@@ -704,10 +704,8 @@ height: 20px;
     height: 20px;
     }
     .subtitulosCobrados{
-      background-color: #9197cbe8;
-      overflow-wrap: break-word;
-      word-wrap: break-word;
-      word-break: break-all;
+      background-color: #c4dceee8;
+    
       margin-left: 20px;
       padding-left: 20px;
       padding-top: 3px;
@@ -716,7 +714,7 @@ height: 20px;
       border-radius: 4px;
       font-size: 0.9rem;
       text-align: center;
-      width: 260px;
+      width: 280px;
       height: 20px;
       }
     .col-3 ul {
