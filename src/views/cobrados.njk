@@ -150,11 +150,9 @@ toggle between hiding and showing the dropdown content */
             <div class="col-12">
               <ul>
                 {% for item in resultado %}
-                  {% if item.Estado === "Cobrado" %}
-                    <li class="pedidoPendientesTotal">
-                      <strong>{{ item._id }}</strong> (Repetido {{ item.count }} veces)
-      </li>
-                  {% endif %}
+                  <li class="pedidoPendientesTotal">
+                    <strong>{{ item._id }}</strong> (Repetido {{ item.count }} veces)
+    </li>
                 {% endfor %}
               </ul>
             </div>
