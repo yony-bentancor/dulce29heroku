@@ -1200,6 +1200,23 @@ module.exports = {
         0
       );
 
+      const resultado = await Pedido.aggregate([
+        {
+          $group: {
+            _id: "$username", // Agrupa por el campo username
+            count: { $sum: 1 }, // Cuenta cuántas veces se repite cada username
+          },
+        },
+        {
+          $match: {
+            count: { $gt: 1 }, // Filtra solo los usernames que se repiten
+          },
+        },
+        {
+          $limit: 5, // Limita los resultados a los 5 primeros
+        },
+      ]);
+
       // Renderizar la vista "entregados" con los datos
       res.render("cobrados", {
         pedidos: pedidosFormateados,
@@ -1212,6 +1229,7 @@ module.exports = {
         precioFinal,
         fechaActual,
         nombreMes,
+        resultado,
       });
     } catch (error) {
       // Manejo de errores más detallado
