@@ -15,6 +15,7 @@ const pedidoSquema = new Schema(
     Estado: { type: String },
     Pago: { type: String },
     Monto_total: { type: Number },
+    Costo_total: { type: Number },
     Descuento: { type: Number },
     Mes: { type: String },
     productos: [
@@ -22,6 +23,7 @@ const pedidoSquema = new Schema(
         nombre: String,
         cantidad: Number,
         precio: Number,
+        costo: Number,
       },
     ],
     createdAt: { type: Date },

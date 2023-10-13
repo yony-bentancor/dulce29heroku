@@ -55,6 +55,7 @@ module.exports = {
       // Obtener datos del cuerpo de la solicitud
       const seleccionados = req.body.productos || [];
       const precios = req.body.precios || [];
+      const costos = req.body.precios || [];
       const Descuento = parseInt(req.body.Descuento) || 0;
       const Pago = req.body.Pago;
       const pedidoInfo = req.body;
@@ -91,6 +92,7 @@ module.exports = {
         Pago: Pago,
         Descuento: Descuento,
         Monto_total: 0, // Inicializa Monto_total en 0
+        Costo_total: 0,
         productos: [], // Inicializa la lista de productos como un array vacío
         createdAt: new Date(),
       });
@@ -100,6 +102,7 @@ module.exports = {
         const nombreProducto = seleccionados[i];
         const cantidadProducto = cantidades[i];
         const precioProducto = precios[i];
+        const costoProducto = costos[i];
 
         // Verificar si la cantidad es diferente de 0 antes de agregar el producto al pedido
         if (cantidadProducto !== 0) {
@@ -108,6 +111,7 @@ module.exports = {
             nombre: nombreProducto,
             cantidad: cantidadProducto,
             precio: precioProducto,
+            costo: costoProducto,
           };
 
           nuevoPedido.productos.push(producto);
@@ -116,6 +120,10 @@ module.exports = {
         // Calcular el precio total del producto y sumarlo al Monto_total
         const precioTotalProducto = cantidadProducto * precioProducto;
         nuevoPedido.Monto_total += precioTotalProducto;
+
+        // Calcular el costo total del producto y sumarlo al Costo_total
+        const costoTotalProducto = cantidadProducto * costoProducto;
+        nuevoPedido.Costo_total += costoTotalProducto;
       }
 
       // Obtener el último número de pedido
