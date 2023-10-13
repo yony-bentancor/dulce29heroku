@@ -1200,7 +1200,7 @@ module.exports = {
         0
       );
 
-      const resultado = await Pedido.aggregate([
+      const resultado = await pedidosCobrados.aggregate([
         {
           $match: {
             Estado: "Cobrado", // Filtrar por el estado "Cobrado"
