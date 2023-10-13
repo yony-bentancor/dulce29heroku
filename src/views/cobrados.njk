@@ -149,10 +149,11 @@ toggle between hiding and showing the dropdown content */
           <div class="row">
             <div class="col-12">
               <ul>
-                {% for item in resultado %}
+                {% for usernameInfo in cincoUsernamesRepetidos %}
                   <li class="pedidoPendientesTotal">
-                    <strong>{{ item._id }}</strong> (Repetido {{ item.count }} veces)
-    </li>
+      Username: {{ usernameInfo.username }}
+                    <br>: {{ usernameInfo.count }}
+                  </li>
                 {% endfor %}
               </ul>
             </div>
