@@ -298,6 +298,7 @@ toggle between hiding and showing the dropdown content */
                         {% if producto.cantidad != 0 %}
                           <div class="col-12">
                             {{ producto.precio }}
+                            {{ producto.costoProduccion }}
                             {{ producto.nombre }}
                           </div>
                         {% endif %}
@@ -311,7 +312,6 @@ toggle between hiding and showing the dropdown content */
                       {% for producto in pedido.productos %}
 
                         <div class="col-12">
-                          {{ producto.costoProduccion }}
 
                           {{ producto.cantidad }}
 
