@@ -1202,6 +1202,12 @@ module.exports = {
 
       const resultado = await Pedido.aggregate([
         {
+          $match: {
+            Estado: "Cobrado", // Filtrar por el estado "Cobrado"
+          },
+        },
+
+        {
           $group: {
             _id: "$username", // Agrupa por el campo username
             count: { $sum: 1 }, // Cuenta cuántas veces se repite cada username
