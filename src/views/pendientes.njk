@@ -210,7 +210,7 @@ toggle between hiding and showing the dropdown content */
                                 {% for producto in productos %}
                                   <div class="col-9">
                                     <label class="pedidoPendientesTotal">
-                                      {{ producto.name }}
+                                      {{ producto.name }}{{ producto.costoProduccion }}
                                     </label>
                                     <input type="hidden" name="productos[]" value="{{ producto.name }}">
                                     <input type="hidden" name="precios[]" value="{{ producto.precioVenta }}">
