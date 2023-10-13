@@ -152,7 +152,7 @@ module.exports = {
       res.status(400).json({ error: error.message });
     }
   },
-  pageNewPedido1: async (req, res) => {
+  /*   pageNewPedido1: async (req, res) => {
     try {
       // Obtener datos del cuerpo de la solicitud
       const seleccionados = req.body.productos;
@@ -227,7 +227,7 @@ module.exports = {
     } catch (error) {
       res.status(400).json({ error: error.message });
     }
-  },
+  }, */
 
   subirArchivo: async (req, res) => {},
 
