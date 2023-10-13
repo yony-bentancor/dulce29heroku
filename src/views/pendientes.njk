@@ -214,7 +214,6 @@ toggle between hiding and showing the dropdown content */
                                     </label>
                                     <input type="hidden" name="productos[]" value="{{ producto.name }}">
                                     <input type="hidden" name="precios[]" value="{{ producto.precioVenta }}">
-                                    <input type="hidden" name="costos[]" value="{{ (producto.costoProduccion && !isNaN(producto.costoProduccion)) ? producto.costoProduccion : 0 }}">
                                   </div>
 
                                   <div class="col-3">
