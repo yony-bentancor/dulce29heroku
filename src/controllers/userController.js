@@ -1200,13 +1200,12 @@ module.exports = {
         0
       );
 
-      const resultado = await pedidosCobrados.aggregate([
+      const resultado = await Pedido.aggregate([
         {
           $match: {
             Estado: "Cobrado", // Filtrar por el estado "Cobrado"
           },
         },
-
         {
           $group: {
             _id: "$username", // Agrupa por el campo username
