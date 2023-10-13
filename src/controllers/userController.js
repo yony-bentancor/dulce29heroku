@@ -1182,7 +1182,7 @@ module.exports = {
       usernamesRepetidos.sort((a, b) => b.count - a.count);
 
       // Obtener los 5 primeros usernames repetidos
-      const cincoUsernamesRepetidos = usernamesRepetidos.slice(0, 5);
+      const cincoUsernamesRepetidos = usernamesRepetidos.slice(0, 3);
 
       // Consulta para obtener usuarios y productos
       const [users, productos] = await Promise.all([

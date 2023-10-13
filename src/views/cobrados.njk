@@ -151,8 +151,7 @@ toggle between hiding and showing the dropdown content */
               <ul>
                 {% for usernameInfo in cincoUsernamesRepetidos %}
                   <li class="pedidoPendientesTotal">
-      Username: {{ usernameInfo.username }}
-                    <br>: {{ usernameInfo.count }}
+                    {{ usernameInfo.username }} || {{ usernameInfo.count }}
                   </li>
                 {% endfor %}
               </ul>
@@ -172,7 +171,13 @@ toggle between hiding and showing the dropdown content */
           </div>
           <div class="row">
             <div class="col-12">
-              <ul></ul>
+              <ul>
+
+                <li class="pedidoPendientesTotal">
+                  {{ contadorEfectivo }} || {{ precioFinal }}
+                </li>
+
+              </ul>
             </div>
 
           </div>
