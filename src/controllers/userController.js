@@ -1235,7 +1235,6 @@ module.exports = {
         precioFinal,
         fechaActual,
         nombreMes,
-        resultado,
         cincoUsernamesRepetidos,
       });
     } catch (error) {
