@@ -55,7 +55,7 @@ module.exports = {
       // Obtener datos del cuerpo de la solicitud
       const seleccionados = req.body.productos || [];
       const precios = req.body.precios || [];
-      const costos = req.body.precios || [];
+      const costos = req.body.costoProduccion || [];
       const Descuento = parseInt(req.body.Descuento) || 0;
       const Pago = req.body.Pago;
       const pedidoInfo = req.body;
