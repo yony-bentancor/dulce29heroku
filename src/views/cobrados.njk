@@ -139,7 +139,7 @@ toggle between hiding and showing the dropdown content */
           <div class="row">
             <div class="col-12">
               <ul >
-                <li class="pedidoPendientesTotal">
+                <li class="subtitulosCobrados">
                   <strong>CLIENTES CON MAS PEDIDOS</strong>
                 </li>
               </ul>
@@ -149,9 +149,11 @@ toggle between hiding and showing the dropdown content */
           <div class="row">
             <div class="col-12">
               <ul >
-                <li class="subtitulosCobrados">
-                  <strong>{{resultado}}</strong>
-                </li>
+                {% for item in resultado %}
+                  <li class="pedidoPendientesTotal">
+                    <strong>{{ item._id }}</strong> (Repetido {{ item.count }} veces)
+      </li>
+                {% endfor %}
               </ul>
             </div>
 
