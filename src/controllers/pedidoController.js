@@ -105,7 +105,7 @@ module.exports = {
         const costoProducto = costos[i];
 
         // Verificar si la cantidad es diferente de 0 antes de agregar el producto al pedido
-        if (cantidadProducto !== 0) {
+        if (cantidadProducto !== 0 && costoProducto !== 0) {
           // Agregar el producto y su cantidad al pedido
           const producto = {
             nombre: nombreProducto,
