@@ -115,7 +115,7 @@ module.exports = {
             cantidad: cantidadProducto,
             precio: precioProducto,
             costo: costoProducto,
-            costoTotal: costoTotalProducto, // Agregar el costo total del producto
+            costoTotal: costoTotalProducto, //Agregar el costo total del producto
           };
 
           nuevoPedido.productos.push(producto);
