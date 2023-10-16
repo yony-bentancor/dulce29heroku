@@ -104,34 +104,27 @@ module.exports = {
         const precioProducto = precios[i];
         const costoProducto = costos[i];
 
-        // Verificar si la cantidad es mayor que 0 antes de agregar el producto al pedido
-        if (cantidadProducto > 0) {
-          // Calcular el costo total del producto multiplicando el costo por la cantidad
-          const costoTotalProducto = cantidadProducto * costoProducto;
-
+        // Verificar si la cantidad es diferente de 0 antes de agregar el producto al pedido
+        if (cantidadProducto !== 0) {
           // Agregar el producto y su cantidad al pedido
           const producto = {
             nombre: nombreProducto,
             cantidad: cantidadProducto,
             precio: precioProducto,
             costo: costoProducto,
-            costoTotal: costoTotalProducto, //Agregar el costo total del producto
           };
 
           nuevoPedido.productos.push(producto);
-
-          // Sumar el costo total del producto al Costo_total del pedido
-          nuevoPedido.Costo_total += costoTotalProducto;
         }
+
+        // Calcular el precio total del producto y sumarlo al Monto_total
+        const precioTotalProducto = cantidadProducto * precioProducto;
+        nuevoPedido.Monto_total += precioTotalProducto;
+
+        // Calcular el costo total del producto y sumarlo al Costo_total
+        const costoTotalProducto = cantidadProducto * costoProducto;
+        nuevoPedido.Costo_total += costoTotalProducto;
       }
-
-      // Calcular el precio total del producto y sumarlo al Monto_total
-      const precioTotalProducto = cantidadProducto * precioProducto;
-      nuevoPedido.Monto_total += precioTotalProducto;
-
-      // Calcular el costo total del producto y sumarlo al Costo_total
-      /*     const costoTotalProducto = cantidadProducto * costoProducto;
-        nuevoPedido.Costo_total += costoTotalProducto; */
 
       // Obtener el último número de pedido
       const ultimoPedido = await Pedido.findOne()
