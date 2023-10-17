@@ -511,12 +511,12 @@ height: 22px;
 
 #totalClientes{
 
-  margin-top: 220px;
+  margin-top: 10px;
   text-align: right;
   display: inline-block;
-  width: 290px;
+  width: 690px;
   z-index: 0;
-  height: auto;
+  height: 30px;
   margin-left: 16px;
   background-color: #fff;
   position: absolute;
