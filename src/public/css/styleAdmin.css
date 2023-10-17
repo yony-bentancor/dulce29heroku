@@ -514,11 +514,11 @@ height: 22px;
 
   #totalClientes {
     display: flex;
-    background-color: #116fad;
-    width: 740px;
+    background-color: #fff;
+    width: 680px;
     height: 16px;
     font-size: 0.9rem;
-    margin-left: 30px;
+    margin-left: 130px;
 
  /* Establece la dirección de flexión a fila */
     justify-content: space-between; /* Distribuye uniformemente los elementos en la fila */
