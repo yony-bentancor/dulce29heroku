@@ -41,27 +41,22 @@
     {#  admin- usuario          #}
     <div id="contenedor-clientes">
 
-      <div id="totalClientes">
+      <div class="container" id="totalClientes">
         <div class="row">
-
           <div class="col-2 azul">{{ contadorUser }}</div>
-          <div class="col-10"> CLIENTES</div>
-
+          <div class="col-10">CLIENTES</div>
         </div>
         <div class="row">
-          <div class="col-2 rojo">{{cantidadPendientes}}</div>
-          <div class="col-10"> PEDIDOS PENDIENTES</div>
-
+          <div class="col-2 rojo">{{ cantidadPendientes }}</div>
+          <div class="col-10">PEDIDOS PENDIENTES</div>
         </div>
         <div class="row">
           <div class="col-2 amarillo">{{ cantidadRealizados }}</div>
-          <div class="col-10"> PEDIDOS REALIZADOS</div>
-
+          <div class="col-10">PEDIDOS REALIZADOS</div>
         </div>
         <div class="row">
           <div class="col-2 verde">{{ cantidadEntregados }}</div>
-          <div class="col-10"> PEDIDOS ENTREGADOS</div>
-
+          <div class="col-10">PEDIDOS ENTREGADOS</div>
         </div>
       </div>
       <div id="info-clientes">

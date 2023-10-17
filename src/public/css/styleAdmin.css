@@ -510,27 +510,21 @@ height: 22px;
 }
 
 
-#totalClientes{
 
-  margin-top: 0px;
-  width: 690px;
-  z-index: 0;
-  height: 30px;
-  margin-left: 16px;
-  background-color: #fff;
-  position: absolute;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
-  padding-left: 30px;
+
+  #totalClientes {
+    display: flex;
+    flex-direction: row; /* Establece la dirección de flexión a fila */
+    justify-content: space-between; /* Distribuye uniformemente los elementos en la fila */
+    align-items: center; /* Centra verticalmente los elementos en la fila */
+  }
+  
+  /* Opcional: Agrega un margen entre las filas si es necesario */
+  .row {
+    margin-right: 10px; /* Ajusta según sea necesario */
+  }
 
   
-}
-#totalClientes .row {
-  display: inline-block;
-  margin-left: 100px;
-  /* Agrega otros estilos según sea necesario para las filas */
-}
 
 .azul{
   font-size: 1.2rem;
