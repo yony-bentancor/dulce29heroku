@@ -2493,6 +2493,17 @@ border: none;
   border-radius: 4px; 
   
 }
+.btnClienteNuevoNBuscador{
+  font-size: 0.9rem;
+  margin-top: 8px;
+  float: left;
+  width: 90px;
+  margin-left: 123px;
+  background-color: #71a381;
+  height: 20px;
+  border-radius: 4px; 
+  
+}
 
 
 
