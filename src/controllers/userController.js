@@ -1232,6 +1232,24 @@ module.exports = {
           total + pedido.Monto_total * (1 - pedido.Descuento / 100),
         0
       );
+      const resultado = await Pedido.aggregate([
+        {
+          $match: {
+            Estado: "Cobrado",
+            Estado: { $nin: ["Realizado", "Entregado", "Pendiente"] },
+            createdAt: { $gte: primerDiaDelMes, $lte: fechaActual },
+          },
+        },
+        {
+          $group: {
+            _id: null,
+            totalCosto: { $sum: "$Costo_total" },
+          },
+        },
+      ]);
+
+      // El resultado contendrá la suma total de Costo_total de los pedidos que coinciden con los criterios de búsqueda
+      const sumaTotalCosto = resultado[0] ? resultado[0].totalCosto : 0;
 
       // Renderizar la vista "entregados" con los datos
       res.render("cobrados", {
@@ -1249,6 +1267,7 @@ module.exports = {
         precioFinalTransferencia,
         fechaActual,
         nombreMes,
+        sumaTotalCosto,
         cincoUsernamesRepetidos,
       });
     } catch (error) {
