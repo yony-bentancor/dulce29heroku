@@ -118,6 +118,7 @@
         {% endfor %}
 
       </div>
+
       <div id="contenedorlateralCliente">
         <div id="newUserMovil">
           <form name="formulario"  method="post" action="/session/newuser", userController.login>
@@ -197,7 +198,7 @@
             </div>
 
             <!-- Botón de envío de formulario -->
-            <div class="row ">
+            <div class="row">
               <div class="col-2"></div>
 
               <div class="col-10">
@@ -210,61 +211,6 @@
 
       </div>
 
-      {#   <div class="busquedaClienteMovil">
-        <div class="row">
-
-          <form name="formulario"  method="post" action="/session/realizadosBusquedaCliente", userController.realizadosBusquedaCliente>
-            <!-- Datos del formulario -->
-
-            <div class="col-11">
-              <label for="browser" class="formClientetxt">Cliente</label>
-              <input list="browsers"  name="browser" id="browser" class="formCliente" style="width: 120px">
-              <datalist id="browsers">
-                {% for user in users %}
-                  <option  type="text" name="username" id="username" value="{{user.username}}">
-                  {% endfor %}
-                </datalist>
-
-                <!-- Botón de envío de formulario -->
-                <button type="submit" name="button" class="btn-primary  btnCliente">
-                        BUSCAR
-                      </button>
-              </form>
-
-            </div>
-            <div class="col-1"></div>
-
-          </div> #}
-
-      {# <div id="busqueda-clienteMovil">
-        <div class="row">
-          <div class="col-4">
-            <strong>NOMBRE</strong>
-          </div>
-          <div class="col-2">
-            <strong>TELEFONO </strong>
-          </div>
-          <div class="col-2">
-            <strong>DIRECCION </strong>
-          </div>
-          <div class="col-4">
-            <strong>EMAIL </strong>
-          </div>
-
-        </div>
-        <div class="row rowClienteMovil">
-          <div class="col-4">
-            {{ usuariosBusqueda.username }}</div>
-          <div class="col-2">
-            {{ usuariosBusqueda.telefono }}</div>
-          <div class="col-2">
-            {{ usuariosBusqueda.direccion }}</div>
-          <div class="col-4">
-            {{ usuariosBusqueda.email }}
-          </div>
-        </div>
-
-      </div> #}
     </div>
   </body>
 
