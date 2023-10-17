@@ -149,6 +149,38 @@
           </form>
 
         </div>
+        <div id="buscadorRealizados">
+          <div class="row nuevoPedido">
+            <div class="col-12">
+              <strong>   PEDIDOS X CLIENTE</strong>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-4">
+              <form name="formulario" method="post" action="/session/realizadosBusqueda">
+                <label for="browser" class="listadobuscadorCliente">CLIENTE</label>
+              </div>
+
+              <div class="col-5">
+                <input class="formClienteRealizado" list="browsers" name="browser" id="browser">
+                <datalist id="browsers">
+                  {% for pedido in pedidossinrepetir %}
+                    <option value="{{ pedido.username }}"></option>
+                  {% endfor %}
+                </datalist>
+              </div>
+
+              <div class="col-3"></div>
+
+              <!-- Botón de envío de formulario -->
+              <div class="col-12">
+                <button type="submit" class="btn-primary btnClienteBuscador">BUSCAR PEDIDO</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
 
         <div id="totalClientes">
           <div class="row">
