@@ -515,8 +515,8 @@ height: 22px;
   #totalClientes {
     display: flex;
     width: 720px;
-    height: 20px;
-    flex-direction: row; /* Establece la dirección de flexión a fila */
+    height: 16px;
+ /* Establece la dirección de flexión a fila */
     justify-content: space-between; /* Distribuye uniformemente los elementos en la fila */
     align-items: center; /* Centra verticalmente los elementos en la fila */
   }
@@ -527,10 +527,10 @@ height: 22px;
   
 
 .azul{
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+
   color: #000;
-  padding-right: 10px;
+  padding-right: 5px;
   border: 1px;
   border-radius: 2px;
   background-color: #7da0c2;
@@ -539,29 +539,27 @@ height: 22px;
  }
 .amarillo{
   background-color: #eae74b;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+
   color: #000;
-  padding-right: 10px;
+  padding-right: 5px;
   border: 1px;
   border-radius: 2px;
   
  }
  .rojo{
   background-color: #db7e7e;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.9rem;
   color: #000;
-  padding-right: 10px;
+  padding-right: 5px;
   border: 1px;
   border-radius: 2px;
  }
  .verde{
   background-color: #74cb97;
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 0.9rem;
   color: #000;
-  padding-right: 10px;
+  padding-right: 5px;
   border: 1px;
   border-radius: 2px;
  }
