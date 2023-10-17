@@ -516,6 +516,8 @@ height: 22px;
     display: flex;
     width: 720px;
     height: 16px;
+    font-size: 0.9rem;
+
  /* Establece la dirección de flexión a fila */
     justify-content: space-between; /* Distribuye uniformemente los elementos en la fila */
     align-items: center; /* Centra verticalmente los elementos en la fila */
@@ -527,10 +529,10 @@ height: 22px;
   
 
 .azul{
-  font-size: 0.9rem;
-
+  font-size: 1rem;
+  font-weight: 700;
   color: #000;
-  padding-right: 5px;
+  padding-right: 10px;
   border: 1px;
   border-radius: 2px;
   background-color: #7da0c2;
@@ -539,27 +541,29 @@ height: 22px;
  }
 .amarillo{
   background-color: #eae74b;
-  font-size: 0.9rem;
-
+  font-size: 1rem;
+  font-weight: 700;
   color: #000;
-  padding-right: 5px;
+  padding-right: 10px;
   border: 1px;
   border-radius: 2px;
   
  }
  .rojo{
   background-color: #db7e7e;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-weight: 700;
   color: #000;
-  padding-right: 5px;
+  padding-right: 10px;
   border: 1px;
   border-radius: 2px;
  }
  .verde{
   background-color: #74cb97;
-  font-size: 0.9rem;
+  font-size: 1rem;
+  font-weight: 700;
   color: #000;
-  padding-right: 5px;
+  padding-right: 10px;
   border: 1px;
   border-radius: 2px;
  }
@@ -2472,7 +2476,7 @@ border: none;
   margin-top: 8px;
   float: left;
   width: 90px;
-  margin-left: 95px;
+  margin-left: 102px;
   background-color: #71a381;
   height: 20px;
   border-radius: 4px; 
