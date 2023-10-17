@@ -526,6 +526,10 @@ height: 22px;
 
   
 }
+#totalClientes .row {
+  display: inline-block;
+  /* Agrega otros estilos según sea necesario para las filas */
+}
 
 .azul{
   font-size: 1.2rem;
