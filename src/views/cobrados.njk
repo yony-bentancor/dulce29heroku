@@ -238,7 +238,7 @@ toggle between hiding and showing the dropdown content */
             <div class="col-12">
               <ul >
                 <li class="pedidoPendientesTotal">
-                  <strong>{{precioFinalTransferencia}} + {{precioFinal}}</strong>
+                  <strong>{{precioFinalTransferencia + precioFinal}}</strong>
                 </li>
               </ul>
             </div>
@@ -252,7 +252,8 @@ toggle between hiding and showing the dropdown content */
             <div class="col-12">
               <ul >
                 <li class="pedidoPendientesTotal">
-                  <strong>{{sumaTotalCosto}}</strong>
+                  <strong>{{ (precioFinalTransferencia + precioFinal) - sumaTotalCosto }}</strong>
+
                 </li>
               </ul>
             </div>
