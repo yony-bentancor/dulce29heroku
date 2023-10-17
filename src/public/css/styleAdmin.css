@@ -518,7 +518,7 @@ height: 22px;
     width: 680px;
     height: 16px;
     font-size: 0.9rem;
-    margin-left: 130px;
+    margin-left: 10px;
 
  /* Establece la dirección de flexión a fila */
     justify-content: space-between; /* Distribuye uniformemente los elementos en la fila */
