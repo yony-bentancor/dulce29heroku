@@ -528,6 +528,7 @@ height: 22px;
 }
 #totalClientes .row {
   display: inline-block;
+  margin-left: 100px;
   /* Agrega otros estilos según sea necesario para las filas */
 }
 
