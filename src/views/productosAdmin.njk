@@ -67,8 +67,6 @@
                     <input type="image" id="image" alt="delete" src="https://dulce29.herokuapp.com/static/img/borrado1.png" onclick="return confirm('¿Estás por eliminar un producto?')">
                   </form>
 
-                  <br>
-
                   <form name="formulario" method="get" action="/producto/update{{ producto.id }}">
                     <input type="hidden" name="id" value="{{ producto.id }}">
 
