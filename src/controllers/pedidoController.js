@@ -535,6 +535,7 @@ module.exports = {
       pedido.Monto_total = req.body.Monto_total;
       pedido.Pago = req.body.Pago;
       pedido.Descuento = req.body.Descuento;
+      pedido.createdAt = req.body.createdAt;
 
       // Actualiza las cantidades de los productos en un bucle
       for (let i = 1; i <= req.body.total_productos; i++) {

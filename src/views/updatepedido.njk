@@ -97,6 +97,15 @@
               <input type="text" name="Descuento" value="{{ pedido.Descuento }}" class="formcontrolUpdate">
             </div>
           </div>
+
+          <div class="row rowmovilinvisible">
+            <div class="col-3">
+              <strong>FECHA</strong>
+            </div>
+            <div class="col-9">
+              <input type="text" name="createdAt" value="{{ pedido.createdAt }}" class="formcontrolUpdate">
+            </div>
+          </div>
           <input type="hidden" name="total_productos" id="total_productos" value="{{ pedido.productos.length }}">
 
           {% for producto in pedido.productos %}
