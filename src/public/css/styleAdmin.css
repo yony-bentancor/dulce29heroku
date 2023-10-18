@@ -2579,7 +2579,7 @@ border: none;
 }
 
 .botones-container {
-  display: inline;
+  display: inline-block;
   margin-left: 10px;
  padding-bottom: 20px;
  
