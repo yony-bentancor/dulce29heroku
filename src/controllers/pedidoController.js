@@ -526,7 +526,7 @@ module.exports = {
       const pedido = await Pedido.findOne({ Numero_pedido: numeroPedido });
 
       if (pedido) {
-        return res.status(404).send("Pedido no encontrado");
+        return res.status(404).send(numeroPedido);
       }
 
       // Actualiza los campos del pedido con los datos del formulario
