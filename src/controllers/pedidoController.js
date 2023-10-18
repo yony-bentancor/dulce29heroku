@@ -525,7 +525,7 @@ module.exports = {
       // Encuentra el pedido por su número de pedido
       const pedido = await Pedido.findOne({ Numero_pedido: numeroPedido });
 
-      if (!pedido) {
+      if (pedido) {
         return res.status(404).send("Pedido no encontrado");
       }
 
