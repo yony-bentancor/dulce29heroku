@@ -87,6 +87,7 @@
               <input type="text" name="Pago" value="{{ pedido.Pago }}" class="formcontrolUpdate">
             </div>
           </div>
+          <input type="hidden" name="total_productos" id="total_productos" value="{{ pedido.productos.length }}">
 
           {% for producto in pedido.productos %}
             <div class="row rowmovilinvisible">
