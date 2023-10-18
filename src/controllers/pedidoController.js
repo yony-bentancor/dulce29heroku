@@ -520,62 +520,34 @@ module.exports = {
 
   updatePedido: async (req, res) => {
     try {
-      const Numero_pedido = req.body.Numero_pedido;
-      const productos = req.body.productos;
+      const numeroPedido = req.body.Numero_pedido;
 
-      console.log(productos);
+      // Encuentra el pedido por su número de pedido
+      const pedido = await Pedido.findOne({ Numero_pedido: numeroPedido });
 
-      // Realiza la búsqueda del pedido por el Numero_pedido
-      const pedido = await Pedido.findOne({ Numero_pedido: Numero_pedido });
-
-      // Verifica si se encontró el pedido
       if (!pedido) {
-        return res.status(404).send("Pedido no encontrados");
+        return res.status(404).send("Pedido no encontrado");
       }
 
-      // Itera sobre los campos de productos y actualiza los valores correspondientes
-      for (const key in productos) {
-        if (productos.hasOwnProperty(key)) {
-          pedido.productos[key] = productos[key];
-        }
+      // Actualiza los campos del pedido con los datos del formulario
+      pedido.username = req.body.username;
+      pedido.telefono = req.body.telefono;
+      pedido.Monto_total = req.body.Monto_total;
+      pedido.Pago = req.body.Pago;
+
+      // Actualiza los productos del pedido en un bucle
+      for (let i = 1; i <= req.body.total_productos; i++) {
+        const producto_nombre = req.body[`producto_nombre_${i}`];
+        const producto_cantidad = req.body[`producto_cantidad_${i}`];
+        const producto_precio = req.body[`producto_precio_${i}`];
+
+        const producto = pedido.productos[i - 1];
+        producto.nombre = producto_nombre;
+        producto.cantidad = producto_cantidad;
+        producto.precio = producto_precio;
       }
 
-      // Actualiza los campos del pedido
-
-      /*   pedido.productos["KEFIR SABORIZADOS DE FRUTILLA"] = cantidadKefirFrutilla;
-      pedido.productos["KEFIR LIMON JENGIBRE"] = cantidadKefirLimonJengibre;
-      pedido.productos["KEFIR ARANDANOS"] = cantidadKefirArandanos;
-      pedido.productos["KEFIR JUGOS NATURALES"] = cantidadKefirJugosNaturales;
-      pedido.productos["KEFIR DE NARANJA"] = cantidadKefirNaranja;
-      pedido.productos["KEFIR CON NARANJA Y ZANAHORIA"] =
-        cantidadKefirNaranjaZanahoria;
-      pedido.productos["KEFIR CON FRUTILLA"] = cantidadKefirFrutilla;
-      pedido.productos["DETOX VERDE"] = cantidadDetoxVerde;
-      pedido.productos["DETOX REMOLACHA"] = cantidadDetoxRemolacha;
-      pedido.productos["DETOX NARANJA Y ZANAHORIA"] =
-        cantidadDetoxNaranjaZanahoria;
-      pedido.productos["SMOOTHIE VERDE"] = cantidadSmoothieVerde;
-      pedido.productos["SMOOTHIE FRUTOS ROJOS"] = cantidadSmoothieFrutosRojos;
-      pedido.productos["SMOOTHIE CACAO"] = cantidadSmoothieCacao;
-      pedido.productos["SMOOTHIE FRUTILLA MANGO Y CHIA"] =
-        cantidadSmoothieFrutillaMangoChia;
-      pedido.productos["INFUSION DE HIBISCO"] = cantidadInfusionHibisco;
-      pedido.productos["SHOT INMUNOLOGICO"] = cantidadShotInmunologico;
-      pedido.productos["CHIA PUDDING"] = cantidadChiaPudding;
-      pedido.productos["PORRIDGE DE AVENA"] = cantidadPorridgeAvena;
-      pedido.productos["LECHE VEGETALES"] = cantidadLecheVegetales;
-      pedido.productos["LECHE DE COCO"] = cantidadLecheCoco;
-      pedido.productos["LECHE DE ALMENDRAS"] = cantidadLecheAlmendras;
-      pedido.productos["MATCHA"] = cantidadMatcha;
-      pedido.productos["CACAO"] = cantidadCacao;
-      pedido.productos["GOLDEN MILK"] = cantidadGoldenMilk; */
-      /*    for (const key in productos) {
-        if (productos.hasOwnProperty(key)) {
-          pedido.productos[key] = productos[key];
-        }
-      } */
-
-      // Guarda los cambios en la base de datos
+      // Guarda el pedido actualizado en la base de datos
       await pedido.save();
 
       res.redirect("/session/pendientes");
