@@ -40,6 +40,7 @@
     <div id="contenedor-clientes">
       <div id="info-pedidosUpdate">
         <form name="formulario" method="post" action="refreshproducto" enctype="multipart/form-data" class="row">
+
           <div class="row rowmovilinvisible">
             <div class="col-3">
               <strong>PRODUCTO</strong>
@@ -48,44 +49,43 @@
               <input type="text" name="name" value="{{ name }}" class="formcontrolUpdate">
             </div>
           </div>
-        </div>
 
-        <div class="row rowmovilinvisible">
-          <div class="col-3">
-            <strong>DESCRIPCION</strong>
+          <div class="row rowmovilinvisible">
+            <div class="col-3">
+              <strong>DESCRIPCION</strong>
+            </div>
+            <div class="col-9">
+              <input type="text" name="desc" value="{{ desc }}" class="formcontrolUpdate">
+            </div>
           </div>
-          <div class="col-9">
-            <input type="text" name="desc" value="{{ desc }}" class="formcontrolUpdate">
-          </div>
-        </div>
 
-        <div class="row rowmovilinvisible">
-          <div class="col-3">
-            <strong>IMAGEN</strong>
+          <div class="row rowmovilinvisible">
+            <div class="col-3">
+              <strong>IMAGEN</strong>
+            </div>
+            <div class="col-9">
+              <input type="file" name="image" value="{{ image }}" class="formcontrolUpdate">
+            </div>
           </div>
-          <div class="col-9">
-            <input type="file" name="image" value="{{ image }}" class="formcontrolUpdate">
-          </div>
-        </div>
 
-        <div class="row rowmovilinvisible">
-          <div class="col-3">
-            <strong>PRECIO VENTA</strong>
+          <div class="row rowmovilinvisible">
+            <div class="col-3">
+              <strong>PRECIO VENTA</strong>
+            </div>
+            <div class="col-9">
+              <input type="text" name="precioVenta" value="{{ precioVenta }}" class="formcontrolUpdate">
+            </div>
           </div>
-          <div class="col-9">
-            <input type="text" name="precioVenta" value="{{ precioVenta }}" class="formcontrolUpdate">
-          </div>
-        </div>
 
-        <div class="row rowmovilinvisible">
-          <div class="col-3">
-            <strong>COSTO PRODUCCION</strong>
+          <div class="row rowmovilinvisible">
+            <div class="col-3">
+              <strong>COSTO PRODUCCION</strong>
+            </div>
+            <div class="col-9">
+              <input type="text" name="costoProduccion" value="{{ costoProduccion }}" class="formcontrolUpdate">
+            </div>
           </div>
-          <div class="col-9">
-            <input type="text" name="costoProduccion" value="{{ costoProduccion }}" class="formcontrolUpdate">
-          </div>
-        </div>
-        {# <div class="form-section">
+          {# <div class="form-section">
             <label for="name" class="inputUpdProtxt">PRODUCTO</label>
             <input type="text" name="name" id="name" class="inputUpdProbox" value="{{name}}">
           </div>
@@ -115,20 +115,20 @@
             <input type="text" class="inputUpdProbox" id="costoProduccion" name="costoProduccion" value="{{costoProduccion}}">
           </div>
  #}
-        <div class="row rowmovilinvisible">
-          <div class="col-sm-2">
-            <input type="submit" class="btnUpdate" value="GUARDAR"/>
+          <div class="row rowmovilinvisible">
+            <div class="col-sm-2">
+              <input type="submit" class="btnUpdate" value="GUARDAR"/>
+            </div>
+            <div class="col-sm-2">
+              <a href="/session/productosAdmin" class="alink">
+                <input   type="submit" class="btnUpdate" value="CANCELAR"/>
+              </a>
+            </div>
           </div>
-          <div class="col-sm-2">
-            <a href="/session/productosAdmin" class="alink">
-              <input   type="submit" class="btnUpdate" value="CANCELAR"/>
-            </a>
-          </div>
-        </div>
-      </form>
-    </div>
+        </form>
+      </div>
 
-    {#  <div id="info-ProductoUpdate">
+      {#  <div id="info-ProductoUpdate">
         <form name="formulario" method="post" action="refreshproducto" enctype="multipart/form-data">
           <div class="row">
 
@@ -194,8 +194,8 @@
         
 
       </div> #}
-  </div>
+    </div>
 
-</body>
+  </body>
 
 {% endblock %}
