@@ -535,6 +535,13 @@ module.exports = {
       pedido.Monto_total = req.body.Monto_total;
       pedido.Pago = req.body.Pago;
 
+      // Actualiza las cantidades de los productos en un bucle
+      for (let i = 1; i <= req.body.total_productos; i++) {
+        const producto_cantidad = req.body[`producto_cantidad_${i}`];
+        // Actualiza la cantidad del producto correspondiente en el pedido
+        pedido.productos[i - 1].cantidad = producto_cantidad;
+      }
+
       // Actualiza los productos del pedido en un bucle
       /*   for (let i = 1; i <= req.body.total_productos; i++) {
         const producto_nombre = req.body[`producto_nombre_${i}`];
