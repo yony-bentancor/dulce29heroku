@@ -116,6 +116,14 @@
                 <input type="text" name="producto_precio_{{ loop.index }}" value="{{ producto.precio }}" class="formcontrolUpdate">
               </div>
             </div>
+            <div class="row rowmovilinvisible">
+              <div class="col-3">
+                <strong>DESCUENTO</strong>
+              </div>
+              <div class="col-9">
+                <input type="text" name="producto_pDescuento_{{ loop.index }}" value="{{ producto.Descuento }}" class="formcontrolUpdate">
+              </div>
+            </div>
           {% endfor %}
 
           <div class="row rowmovilinvisible">
