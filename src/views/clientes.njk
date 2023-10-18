@@ -182,28 +182,30 @@
               <div class="col-6">
                 <input class="formClienteCliente" list="browsers" name="browser" id="browser">
                 <datalist id="browsers">
-                  {% for pedido in pedidossinrepetir %}
-                    <option value="{{ pedido.username }}"></option>
-                  {% endfor %}
-                </datalist>
+                  {% for user in users %}
+                    <option type="text" name="username"  id="username" value="{{user.username}}">
+
+                      <!-- Campo oculto para el teléfono -->
+                    {% endfor %}
+                  </datalist>
+                </div>
+              </div>
+
+              <!-- Botón de envío de formulario -->
+              <div class="row">
+                <div class="col-2"></div>
+
+                <div class="col-10">
+                  <button type="submit" name="button" class="btn-primary btnClienteNuevoNBuscador">BUSCAR PEDIDO</button>
+                </div>
               </div>
             </div>
 
-            <!-- Botón de envío de formulario -->
-            <div class="row">
-              <div class="col-2"></div>
-
-              <div class="col-10">
-                <button type="submit" name="button" class="btn-primary btnClienteNuevoNBuscador">BUSCAR PEDIDO</button>
-              </div>
-            </div>
           </div>
 
         </div>
 
       </div>
+    </body>
 
-    </div>
-  </body>
-
-{% endblock %}
+  {% endblock %}
