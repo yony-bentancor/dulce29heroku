@@ -525,8 +525,8 @@ module.exports = {
       // Encuentra el pedido por su número de pedido
       const pedido = await Pedido.findOne({ Numero_pedido: numeroPedido });
 
-      if (pedido) {
-        return res.status(404).send(numeroPedido);
+      if (!pedido) {
+        return res.status(404).send("Pedido no encontrado");
       }
 
       // Actualiza los campos del pedido con los datos del formulario
@@ -536,7 +536,7 @@ module.exports = {
       pedido.Pago = req.body.Pago;
 
       // Actualiza los productos del pedido en un bucle
-      for (let i = 1; i <= req.body.total_productos; i++) {
+      /*   for (let i = 1; i <= req.body.total_productos; i++) {
         const producto_nombre = req.body[`producto_nombre_${i}`];
         const producto_cantidad = req.body[`producto_cantidad_${i}`];
         const producto_precio = req.body[`producto_precio_${i}`];
@@ -545,7 +545,7 @@ module.exports = {
         producto.nombre = producto_nombre;
         producto.cantidad = producto_cantidad;
         producto.precio = producto_precio;
-      }
+      } */
 
       // Guarda el pedido actualizado en la base de datos
       await pedido.save();
