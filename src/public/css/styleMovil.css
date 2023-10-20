@@ -340,7 +340,7 @@
     }
 
   #newUserMovil {
-    margin-top: 30px;
+    margin-top: 50px;
     text-align: left;
     padding-left: 8px;
     width: 250px;
@@ -462,19 +462,19 @@ margin-left: 46px;
         }
 
         #totalClientes{
-          margin-top: 20px;
+          margin-top: 10px;
           text-align: right;
           display: inline-block;
-          width: 290px;
+          width: 310px;
           z-index: 0;
           height: auto;
-          margin-left: 16px;
+          margin-left: 0px;
           background-color: #fff;
           position: absolute;
           border-radius: 4px;
           margin-bottom: 10px;
           padding-bottom: 10px;
-          padding-left: 30px;
+          padding-left: 10px;
         }
         
 
@@ -744,9 +744,9 @@ position: relative;
 position: relative;
   padding-bottom: 20px;
   margin-right: 0px;
-  margin-top: 180px;
+  margin-top: 250px;
   margin-left: 30px;
-  padding-left: 20px;
+  padding-left: 10px;
   padding-right: 8px;
   padding-top: 10px;
   height: auto;
