@@ -463,9 +463,9 @@ margin-left: 46px;
 
         #totalClientes{
           margin-top: 0px;
-          text-align: right;
+          text-align: left;
           display: inline-block;
-          width: 360px;
+          width: 330px;
           z-index: 0;
           height: auto;
           margin-left: 0px;
@@ -474,11 +474,12 @@ margin-left: 46px;
           border-radius: 4px;
           margin-bottom: 10px;
           padding-bottom: 10px;
-          margin-left: -10px;
+          margin-left: 0px;
         }
 
         .azul{
           font-size: 1rem;
+          width: 10px;
           font-weight: 700;
           color: #000;
           padding-right: 2px;
@@ -491,6 +492,7 @@ margin-left: 46px;
          }
         .amarillo{
           background-color: #eae74b;
+          width: 10px;
           font-size: 1rem;
           font-weight: 700;
           color: #000;
@@ -502,6 +504,7 @@ margin-left: 46px;
          }
          .rojo{
           background-color: #db7e7e;
+          width: 10px;
           font-size: 1rem;
           font-weight: 700;
           color: #000;
@@ -512,6 +515,7 @@ margin-left: 46px;
          }
          .verde{
           background-color: #74cb97;
+          width: 10px;
           font-size: 1rem;
           font-weight: 700;
           color: #000;
