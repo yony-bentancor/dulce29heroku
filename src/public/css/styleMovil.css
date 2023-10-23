@@ -34,20 +34,15 @@
 ------------------------------------------------------------------------*/
 
 @media screen and (max-width : 600px) {
-  #contenedor-clientes{
-
-     width: 400px;
-     margin-top: 10px;
-     margin-left: -16px;
-     height: 420px;
-     overflow-x: hidden;
-     overflow-y: auto;
-   
-     background-color: #afeeae;
-     position: absolute;
-    
-   
-   }
+  #contenedor-clientes {
+    width: 100%; /* Ancho completo de la pantalla */
+    height: auto; /* Altura automática según el contenido */
+    background-color: #afeeae;
+    position: relative; /* No lo coloques de manera absoluta */
+    padding: 0; /* Elimina el relleno */
+    margin: 0; /* Elimina los márgenes */
+    overflow: auto; /* Agrega barras de desplazamiento si es necesario en dispositivos móviles */
+  }
 
    
     #buscadorClientes{
@@ -461,12 +456,13 @@ margin-left: 46px;
           border-radius: 4px; 
         }
         #contenedorlateralCliente {
-          background-color: #c7bdbd;/*  */
+          background-color: #71a381;
+       /*    background-color: #c7bdbd;
           display: flex;
-          flex-direction: column; /* Alinea los divs verticalmente */
-          align-items: flex-start; /* Alinea los divs a la izquierda horizontalmente */
+          flex-direction: column; 
+          align-items: flex-start; 
           width: 300px;
-          height: auto;
+          height: auto; */
         }
 
         #totalClientes{
