@@ -36,7 +36,7 @@
 @media screen and (max-width : 600px) {
   #contenedor-clientes {
     width: 100%; /* Ancho completo de la pantalla */
-    height: auto; /* Altura automática según el contenido */
+    height: 900px; /* Altura automática según el contenido */
     background-color: #1d7c1c;
     position: relative; /* No lo coloques de manera absoluta */
     padding: 0; /* Elimina el relleno */
@@ -458,8 +458,9 @@ margin-left: 46px;
         #contenedorlateralCliente {
           background-color: #71a381;
           width: 400px;
-          height: auto;
+          height: 700px;
           margin-top: 20px;
+          display: flex;
        /*    background-color: #c7bdbd;
           display: flex;
           flex-direction: column; 
