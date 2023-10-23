@@ -43,6 +43,11 @@
     margin: 0; /* Elimina los márgenes */
     overflow: auto; /* Agrega barras de desplazamiento si es necesario en dispositivos móviles */
   }
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  
 
    
     #buscadorClientes{
