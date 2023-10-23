@@ -37,7 +37,7 @@
   #contenedor-clientes {
     width: 100%; /* Ancho completo de la pantalla */
     height: 900px; /* Altura automática según el contenido */
-    background-color: #1d7c1c;
+    background-color: #fff;
     position: relative; /* No lo coloques de manera absoluta */
     padding: 0; /* Elimina el relleno */
     margin: -30px;
@@ -810,7 +810,7 @@ position: relative;
   background-color: #fff;
 }
 #buscadorRealizados {
-  margin-top: 90px;
+  margin-top: 50px;
   text-align: left;
   padding-left: 14px;
   padding-right: 8px;
