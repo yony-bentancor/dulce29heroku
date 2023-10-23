@@ -43,7 +43,7 @@
      overflow-x: hidden;
      overflow-y: auto;
    
-     background-color: #fff;
+     background-color: #afeeae;
      position: absolute;
     
    
@@ -461,8 +461,7 @@ margin-left: 46px;
           border-radius: 4px; 
         }
         #contenedorlateralCliente {
-          background-color: #c7bdbd;
-          float: right;
+          background-color: #c7bdbd;/*  */
           display: flex;
           flex-direction: column; /* Alinea los divs verticalmente */
           align-items: flex-start; /* Alinea los divs a la izquierda horizontalmente */
