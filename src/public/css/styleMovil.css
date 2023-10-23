@@ -36,7 +36,7 @@
 @media screen and (max-width : 600px) {
   #contenedor-clientes{
 
-     width: 300px;
+     width: 400px;
      margin-top: 10px;
      margin-left: -16px;
      height: 420px;
@@ -460,14 +460,23 @@ margin-left: 46px;
           height: 20px;
           border-radius: 4px; 
         }
+        #contenedorlateralCliente {
+          background-color: #c7bdbd;
+          float: right;
+          display: flex;
+          flex-direction: column; /* Alinea los divs verticalmente */
+          align-items: flex-start; /* Alinea los divs a la izquierda horizontalmente */
+          width: 300px;
+          height: auto;
+        }
 
         #totalClientes{
           margin-top: 0px;
           font-size: 0.9;
-          margin-left: 0px;
+          margin-left: -20px;
       
           display: inline-block;
-          width: 480px;
+          width: 380px;
           z-index: 0;
           height: auto;
           background-color: #c57272;
@@ -506,13 +515,16 @@ margin-left: 46px;
         .azul{
           font-size: 0.9rem;
           font-weight: 700;
+          width: 18px;
           color: #000;
+          padding-left: 4px;
           padding-top: 5px;
           background-color: #7da0c2;
         
           
          }
         .amarillo{
+          width: 18px;
           background-color: #eae74b;
           font-size: 0.9rem;
           font-weight: 700;
@@ -521,6 +533,7 @@ margin-left: 46px;
           
          }
          .rojo{
+          width: 18px;
           background-color: #db7e7e;
           font-size: 0.9rem;
           font-weight: 700;
@@ -528,6 +541,7 @@ margin-left: 46px;
           padding-top: 5px;
          }
          .verde{
+          width: 18px;
           background-color: #74cb97;
           font-size: 0.9rem;
           font-weight: 700;
