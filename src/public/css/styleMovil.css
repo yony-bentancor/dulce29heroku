@@ -474,16 +474,13 @@ margin-left: 46px;
         #totalClientes{
           margin-top: 0px;
           font-size: 0.9rem;
-          margin-left: -40px;
-      
+          margin-left: 3px;
+          padding-left: 4px;
           display: inline-block;
-          width: 400px;
-          z-index: 0;
+          width: 380px;
           height: auto;
           background-color: #dbc7c7;
-          position: absolute;
-          border-radius: 4px;
-    
+          position: absolute;    
           padding-bottom: 10px;
         
         }
@@ -516,7 +513,7 @@ margin-left: 46px;
         .azul{
           font-size: 0.9rem;
           font-weight: 700;
-          width: 18px;
+          width: auto;
           color: #000;
           padding-left: 4px;
           padding-top: 5px;
