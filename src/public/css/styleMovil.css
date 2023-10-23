@@ -468,13 +468,12 @@ margin-left: 46px;
           width: 350px;
           z-index: 0;
           height: auto;
-          margin-left: 0px;
-          background-color: #fff;
+          background-color: #c57272;
           position: absolute;
           border-radius: 4px;
           margin-bottom: 10px;
           padding-bottom: 10px;
-          margin-left: 10px;
+        
         }
 
         .formClienteCliente{
@@ -482,7 +481,8 @@ margin-left: 46px;
           display: inline;
           width: 90px;
           margin-top: 8px;
-          margin-right: 10px;
+          float: left;
+          margin-left: 70px;
           border: 1px;
           height: 20px;
           border-radius: 2px;
@@ -490,6 +490,7 @@ margin-left: 46px;
         }
         .btnClienteNuevoNBuscador{
           font-size: 0.9rem;
+          display: inline;
           margin-top: 8px;
           float: left;
           width: 90px;
@@ -502,7 +503,8 @@ margin-left: 46px;
 
         .azul{
           font-size: 1rem;
-          width: 10px;
+          text-align: center;
+          width: 15px;
           font-weight: 700;
           color: #000;
           padding-right: 0px;
@@ -515,6 +517,7 @@ margin-left: 46px;
          }
         .amarillo{
           background-color: #eae74b;
+          text-align: center;
           width: 10px;
           font-size: 1rem;
           font-weight: 700;
@@ -527,6 +530,7 @@ margin-left: 46px;
          }
          .rojo{
           background-color: #db7e7e;
+          text-align: center;
           width: 10px;
           font-size: 1rem;
           font-weight: 700;
@@ -538,6 +542,7 @@ margin-left: 46px;
          }
          .verde{
           background-color: #74cb97;
+          text-align: center;
           width: 10px;
           font-size: 1rem;
           font-weight: 700;
