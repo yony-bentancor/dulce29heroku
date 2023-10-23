@@ -343,9 +343,9 @@
     padding-right: 8px;
     width: 370px;
     height: 260;
-    margin-left: 0px;
+    margin-left: 10px;
     background-color: #fff;
-    position: absolute;
+    position: relative;
     margin-bottom: 10px;
   }
 
