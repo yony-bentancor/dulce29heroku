@@ -477,6 +477,29 @@ margin-left: 46px;
           margin-left: 10px;
         }
 
+        .formClienteCliente{
+          font-size: 0.9rem;
+          display: inline;
+          width: 90px;
+          margin-top: 8px;
+          margin-right: 10px;
+          border: 1px;
+          height: 20px;
+          border-radius: 2px;
+          background-color: #eceaea;
+        }
+        .btnClienteNuevoNBuscador{
+          font-size: 0.9rem;
+          margin-top: 8px;
+          float: left;
+          width: 90px;
+          margin-left: 70px;
+          background-color: #71a381;
+          height: 20px;
+          border-radius: 4px; 
+          
+        }
+
         .azul{
           font-size: 1rem;
           width: 10px;
