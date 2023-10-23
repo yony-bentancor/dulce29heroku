@@ -465,7 +465,7 @@ margin-left: 46px;
           margin-top: 0px;
           text-align: right;
           display: inline-block;
-          width: 320px;
+          width: 360px;
           z-index: 0;
           height: auto;
           margin-left: 0px;
@@ -474,7 +474,7 @@ margin-left: 46px;
           border-radius: 4px;
           margin-bottom: 10px;
           padding-bottom: 10px;
-          padding-left: 0px;
+          margin-left: -10px;
         }
 
         .azul{
