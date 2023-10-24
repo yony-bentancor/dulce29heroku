@@ -70,10 +70,11 @@ toggle between hiding and showing the dropdown content */
           <div class="col-12">
             <!-- Columna para el nombre del producto -->
             <ul >
+              {% for pedido in pedidos %}
 
-              <li class="pedidoPendientesTotal">CLIENTE    {{ pedido.username }}
-              </li>
-
+                <li class="pedidoPendientesTotalRB">CLIENTE    {{ pedido.username }}
+                </li>
+              {% endfor %}
             </ul>
           </div>
 
