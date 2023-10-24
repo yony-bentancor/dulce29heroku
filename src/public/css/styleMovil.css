@@ -604,18 +604,18 @@ margin-left: 15px;
   height: 30px;
 }
 .pedidoPendientesTotalRB {
-  background-color: #dbdbd6e8;
+  background-color: #f9f9f7e8;
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-all;
-  margin-left: 0px;
+  margin-left: 10px;
   padding-left: 10px;
   padding-top: 8px;
   font-size: 1rem;
   font-weight: bold;
   text-align: left;
-  width: auto;
-  height: 20px;
+  width: 260;
+  height: 30px;
 }
 .pedidoPendientesTotalDatos{
   color: #fff;
@@ -1147,7 +1147,7 @@ position: relative;
   height: auto;
   font-size: 1.1rem;
   width: 320px;
-  background-color: #e4cbcb;
+  background-color: #FFF;
   display: block;
   position: relative;
   
