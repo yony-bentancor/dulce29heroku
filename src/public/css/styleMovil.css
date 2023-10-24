@@ -1153,7 +1153,7 @@ position: relative;
   }
 #box6{
 
-  width: 320px;
+  width: 312px;
   text-align: center;
   background-color: #717068;
 margin-top: 130px;
@@ -1170,8 +1170,8 @@ font-size: 1rem;
 margin-top: 0px;
 float: left;
 margin-left: 5px;
-  height: 20px;
-  background-color: #c2c5b3; 
+  height: 30px;
+  background-color: #FFF; 
 
 } 
 #box5 {
