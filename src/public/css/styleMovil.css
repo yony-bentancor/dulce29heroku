@@ -1068,7 +1068,7 @@ position: relative;
   padding-left: 10px;
   padding-top: 10px;
   border-radius: 4px;
-  height: 100px;
+  height: 200px;
  /*  background-color: #dcc5b0; */
   background-color: #dcb0b0;
 }
@@ -1091,12 +1091,12 @@ position: relative;
   
 margin-left: 70px;
 order: 1;
-margin-top: auto;
+margin-top: 300px;
 padding-bottom: 250px;
 height: auto;
 font-size: 1.1rem;
 width: 340px;
-background-color: #fff;
+background-color: #c1f5b6;
 display: block;
 position: relative;
 
