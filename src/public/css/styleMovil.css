@@ -1102,6 +1102,22 @@ position: relative;
 
 
 }
+
+#boxPedidoRB{
+  
+  margin-left: 70px;
+  order: 1;
+  margin-top: 300px;
+  padding-bottom: 250px;
+  height: auto;
+  font-size: 1.1rem;
+  width: 340px;
+  background-color: #fff;
+  display: block;
+  position: relative;
+  
+  
+  }
 #box6{
 
   width: 220px;

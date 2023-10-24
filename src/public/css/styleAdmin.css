@@ -1130,6 +1130,20 @@ position: absolute;
 
 
 }
+#boxPedidoRB{
+  width: 740px;
+  font-size: 1.1rem;
+  margin-left: 10px;
+  margin-right: 2px;
+  position: absolute;
+  float: left;
+  margin-top: 10px;
+  padding-left: 0px;
+  padding-top: 8px;
+  border-radius: 4px;
+  background-color: #fff;
+  height: auto;
+}
 .nuevoPedido{
   background-color: #afafaf3e;
   margin-bottom: 8px;
