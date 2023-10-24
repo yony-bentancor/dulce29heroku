@@ -588,7 +588,7 @@ margin-left: 15px;
 }
 
 
-.pedidoPendientesTotal {/* 
+.pedidoPendientesTotal {
   background-color: #f9f9f7e8;
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -601,8 +601,7 @@ margin-left: 15px;
   font-weight: bold;
   text-align: left;
   width: 210px;
-  height: 30px; */
-  background-color: #719ecb;
+  height: 30px;
 }
 .pedidoPendientesTotalDatos{
   color: #fff;
@@ -1069,7 +1068,7 @@ position: relative;
   padding-left: 10px;
   padding-top: 10px;
   border-radius: 4px;
-  height: 200px;
+  height: 100px;
  /*  background-color: #dcc5b0; */
   background-color: #dcb0b0;
 }
@@ -1090,14 +1089,14 @@ position: relative;
 
 #boxPedido{
   
-margin-left: 10px;
+margin-left: 70px;
 order: 1;
-margin-top: 300px;
+margin-top: auto;
 padding-bottom: 250px;
 height: auto;
 font-size: 1.1rem;
-width: 380px;
-background-color: #c1f5b6;
+width: 340px;
+background-color: #fff;
 display: block;
 position: relative;
 
