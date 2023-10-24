@@ -64,6 +64,47 @@ toggle between hiding and showing the dropdown content */
     </div>
 
     <div id="contenedor-pedidosRealizados">
+
+      <div id="tableroRealizadosBusqueda">
+
+        <div class="row">
+          <div class="col-9">
+            <!-- Columna para el nombre del producto -->
+            <ul >
+
+              <li class="pedidoPendientesTotal">TOTAL PEDIDOS</li>
+
+            </ul>
+          </div>
+
+          <div class="col-3">
+            <label class="rowpedidoRealizadosTotalDatos">
+              {{ contador }}</label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-9">
+            <!-- Columna para el nombre del producto -->
+            <ul >
+              {% for mensaje in mensajes %}
+                <li class="pedidoPendientesTotal">{{ mensaje.nombre }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="col-3">
+            <!-- Columna para la cantidad -->
+            <ul>
+              {% for mensaje in mensajes %}
+                <li class="rowpedidoRealizadosTotalDatos">{{ mensaje.cantidad }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+
       <div id="boxPedido">
         {% for pedido in pedidos %}
           <div id="info-pendientesBox">
@@ -157,124 +198,6 @@ toggle between hiding and showing the dropdown content */
             </div>
           </div>
         {% endfor %}
-      </div>
-
-      {#   <div id="boxPedido">
-        {% for pedido in pedidos %}
-          <div id="info-pendientesBox">
-            <div id="pendientesBox">
-              <div id="box3">
-                <div class="row">
-
-                  <div class="col-6  boxTxt ">
-                                  Nº    
-                              {{pedido.Mes}}-{{ pedido.Numero_pedido }}
-                  </div>
-                  <div class="col-6 {{ pedido.Estado }}">
-                    <form name="formularioCambio" method="get" action="/session/cambioEstadoEntregado/{{ pedido.Numero_pedido }}">
-                      <input type="submit" value="{{ pedido.Estado }}" class="{{ pedido.Estado }}" onclick="return confirm('¿Estás por cambiar el pedido de Realizado a Entregado ?')">
-                    </form>
-
-                  </div>
-                </div>
-              </div>
-              <div id="box4">
-                <div class="row boxTxtCliente">
-                  <div class="col-12">
-                    {{ pedido.username }} || {{pedido.fechaFormateada }}
-
-                  </div>
-                </div>
-              </div>
-              <div id="box5">
-                <div class="row boxTxtCliente">
-                  <div class="col-6">
-                    <form method="post" action="/session/updatepedido">
-                      <input type="hidden" name="Numero_pedido" value="{{ pedido.Numero_pedido }}" >
-
-                      <button type="submit">UPD</button>
-                    </form>
-                  </div>
-
-                  <div class="col-6 boxTxtCliente">
-                    <form name="formulario" method="post" action="/session/deletepedido{{ pedido.Numero_pedido}}", pedidoController.deletePedido>
-                      <input type="image" id="image" alt="delete" src="https://dulce29.herokuapp.com/static/img/borrado1.png" onclick="return confirm('¿Estás por eliminar un pedido?')">
-                    </form>
-                  </div>
-                </div>
-              </div>
-
-              <div id="boxunodos">
-                <div id="box1">
-                  <div class="row">
-
-                    {% for producto in pedido.productos %}
-
-                      <div class="col-12">
-                        {{ producto.nombre }}
-
-                      </div>
-                    {% endfor %}
-                  </div>
-                </div>
-
-                <div id="box2">
-                  <div class="row">
-                    {% for producto in pedido.productos %}
-
-                      <div class="col-12">
-
-                        {{ producto.cantidad }}
-
-                      </div>
-                    {% endfor %}
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        {% endfor %}
-      </div> #}
-
-      <div id="tableroRealizadosBusqueda">
-
-        <div class="row">
-          <div class="col-9">
-            <!-- Columna para el nombre del producto -->
-            <ul >
-
-              <li class="pedidoPendientesTotal">TOTAL PEDIDOS</li>
-
-            </ul>
-          </div>
-
-          <div class="col-3">
-            <label class="rowpedidoRealizadosTotalDatos">
-              {{ contador }}</label>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-9">
-            <!-- Columna para el nombre del producto -->
-            <ul >
-              {% for mensaje in mensajes %}
-                <li class="pedidoPendientesTotal">{{ mensaje.nombre }}</li>
-              {% endfor %}
-            </ul>
-          </div>
-          <div class="col-3">
-            <!-- Columna para la cantidad -->
-            <ul>
-              {% for mensaje in mensajes %}
-                <li class="rowpedidoRealizadosTotalDatos">{{ mensaje.cantidad }}</li>
-              {% endfor %}
-            </ul>
-          </div>
-
-        </div>
-
       </div>
 
     </div>
