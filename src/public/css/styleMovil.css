@@ -1068,9 +1068,10 @@ position: relative;
   padding-left: 10px;
   padding-top: 10px;
   border-radius: 4px;
-  height: auto;
+  height: 300px;
+  overflow-y: auto;
  /*  background-color: #dcc5b0; */
-  background-color: #dcb0b0;
+  background-color: #b0ccdc;
 }
 
 #newPedido{
@@ -1107,11 +1108,11 @@ position: relative;
   
   margin-left: 70px;
   order: 1;
-  margin-top: 300px;
+  margin-top: 200px;
   padding-bottom: 250px;
   height: auto;
   font-size: 1.1rem;
-  width: 340px;
+  width: 380px;
   background-color: #fff;
   display: block;
   position: relative;
