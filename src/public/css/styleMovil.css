@@ -1068,7 +1068,7 @@ position: relative;
   padding-left: 10px;
   padding-top: 10px;
   border-radius: 4px;
-  height: 100px;
+  height: auto;
  /*  background-color: #dcc5b0; */
   background-color: #dcb0b0;
 }
