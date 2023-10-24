@@ -723,6 +723,7 @@ module.exports = {
         infobusqueda,
         contador,
         mensajes,
+        username: infobusqueda.browser,
       });
     } catch (error) {
       res.status(500).json({ error: error.message });
