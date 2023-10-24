@@ -756,7 +756,7 @@ position: relative;
 ---------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------*/
 #contenedor-pedidosRealizados{
-  width: 100%; /* Ancho completo de la pantalla */
+  width: 400px; /* Ancho completo de la pantalla */
   height: 900px; /* Altura automática según el contenido */
   background-color: #fff;
   position: relative; /* No lo coloques de manera absoluta */
@@ -764,7 +764,7 @@ position: relative;
   margin: -30px;
   margin-top: 20px;
   margin-right: -10px; /* Elimina los márgenes */
-  overflow: auto; /* Agrega barras de desplazamiento si es necesario en dispositivos móviles */
+  overflow-y: auto; /* Agrega barras de desplazamiento si es necesario en dispositivos móviles */
 }
 
 
