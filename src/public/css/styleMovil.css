@@ -1166,7 +1166,7 @@ font-size: 1rem;
 } 
 #box3{
 
-  width: 195px;
+  width: 280px;
 margin-top: 0px;
 float: left;
 margin-left: 5px;
@@ -1175,7 +1175,7 @@ margin-left: 5px;
 
 } 
 #box5 {
-  width: 195px;
+  width: 280px;
   margin-top: 5px;
   margin-left: 10%;
     height: auto;
@@ -1183,7 +1183,7 @@ margin-left: 5px;
 }
 #box4{
 
-  width: 195px;
+  width: 280px;
 margin-top: 5px;
 margin-left: 5px;
   height: auto;
@@ -1212,7 +1212,7 @@ margin-left: 5px;
   }
 
   #boxunodos {
-    width: 210px;
+    width: 280px;
     font-size: 0.99rem;
    margin-left: 0px;
     margin-top: 5px;
