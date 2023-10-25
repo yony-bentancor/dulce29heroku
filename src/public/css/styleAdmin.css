@@ -1371,9 +1371,9 @@ position: absolute;
 #buscadorRealizados {
   margin-top: 210px; /* Añade espacio entre los dos divs */
   padding-left: 30px;
-  padding-right: 0px;
+  padding-right: 30px;
   text-align: left;
-  width: 290px;
+  width: 260px;
   height: auto;
   background-color: #bc6c6c;
   border-radius: 4px;
