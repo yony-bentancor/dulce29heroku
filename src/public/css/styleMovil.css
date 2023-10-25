@@ -1196,6 +1196,7 @@ margin-left: 5px;
 .boxTxtCliente{
   text-align: center;
   align-items: center;
+  padding-top: 8px;
   background-color: #fff;
   height: 20px;
   font-size: 1.1rem;
