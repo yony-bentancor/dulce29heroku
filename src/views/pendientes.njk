@@ -242,7 +242,7 @@ toggle between hiding and showing the dropdown content */
                                   Nº    
                               {{pedido.Mes}}-{{ pedido.Numero_pedido }}
                                       </div>
-                                      <div class="col-6  boxTxtEstado ">
+                                      <div class="col-6  {{ pedido.Estado }}">
                                         <form name="formularioCambio" method="get" action="/session/cambioEstadoRealizado/{{ pedido.Numero_pedido }}">
                                           <input type="submit" value="{{ pedido.Estado }}" class="{{ pedido.Estado }}" onclick="return confirm('¿Estás por cambiar el pedido de Pendiente a Realizado?')">
                                         </form>
