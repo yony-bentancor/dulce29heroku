@@ -872,6 +872,7 @@ position: absolute;
 
 #boxunodos {
   width: 210px;
+  font-size: 1.1rem;
   margin-top: 5px;
   padding-left: 8px;
   position: absolute;
@@ -917,7 +918,7 @@ margin-left: 10%;
   width: 150px;
   font-size: 1rem;
 margin-top: 5px;
-margin-left: 5%;
+margin-left: 8%;
   height: auto;
   background-color: #c5c0b3; 
 
