@@ -1166,12 +1166,12 @@ font-size: 1rem;
 } 
 #box3{
 
-  width: 280px;
+  width: 330px;
 margin-top: 0px;
 float: left;
-margin-left: 5px;
+margin-left: 0px;
   height: 30px;
-  background-color: #9e7d7d; 
+  background-color: #fff; 
 
 } 
 #box5 {
@@ -1228,10 +1228,10 @@ margin-left: 5px;
 
 .boxTxt{
   text-align: center;
-  height: 20px;
+  height: 30px;
   font-size: 1.2rem;
   background-color: #c2cfe2;
-  padding-top: 3px;
+
  
  
   }

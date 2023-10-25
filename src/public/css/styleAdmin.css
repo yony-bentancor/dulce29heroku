@@ -1262,10 +1262,10 @@ position: absolute;
    }
   
   
-   .Realizado { background-color:rgb(255, 209, 7); font-weight: 700; color: #000; border: none;  }
-   .Entregado { background-color:rgb(67, 143, 82); font-weight: 700; color: #fff; border: none; }
-  .Pendiente { background-color:#b14949;  font-weight: 700; color: #fff; border: none;}
-  .Cobrado { background-color:#436a8f;  font-weight: 700; color: #fff; border: none;}
+   .Realizado { background-color:rgb(255, 209, 7); font-weight: 700; color: #000; border: none; height: 30px; text-align: center;  }
+   .Entregado { background-color:rgb(67, 143, 82); font-weight: 700; color: #fff; border: none; height: 30px; text-align: center;  }
+  .Pendiente { background-color:#b14949;  font-weight: 700; color: #fff; border: none;height: 30px; text-align: center;  }
+  .Cobrado { background-color:#436a8f;  font-weight: 700; color: #fff; border: none;height: 30px; text-align: center;  }
   
   
   .rowpedidototal{
