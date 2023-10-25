@@ -915,12 +915,12 @@ margin-left: 10%;
 } 
 #box4{
 
-  width: 270px;
+  width: 200px;
   font-size: 1rem;
 margin-top: 5px;
 margin-left: 8%;
   height: 20px;
-  background-color: #cfa12e; 
+
 
 } 
 #box6{
@@ -981,6 +981,8 @@ font-size: 1rem;
  
     background-color: #fff;
     height: 20px;
+    text-align: center;
+    align-items: center;
  
   
     
