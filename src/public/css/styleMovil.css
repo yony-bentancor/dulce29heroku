@@ -811,16 +811,16 @@ position: relative;
   }
 
 #boxPedidoRealizado {
-  margin-left: 70px;
+  margin-left: 20px;
   order: 1;
   margin-top: auto;
   padding-bottom: 250px;
   height: auto;
   font-size: 1.1rem;
-  width: 270px;
+  width: 340px;
+  background-color: #fff;
   display: block;
   position: relative;
-  background-color: #fff;
 }
 #buscadorRealizados {
   margin-top: 30px;
