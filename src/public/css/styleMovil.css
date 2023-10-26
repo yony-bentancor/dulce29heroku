@@ -1271,18 +1271,16 @@ color: #fff;
 
 }
 #boxPedidoEntregado{
-  width: 340px;
-  font-size: 1.1rem;
-  margin-left: 40px;
-  margin-right: 2px;
-  display: inline-block;
-  margin-top: 10px;
-  padding-left: 20px;
-  padding-top: 8px;
-  border-radius: 4px;
-  background-color: #fff;
+  margin-left: 20px;
+  order: 1;
+  margin-top: auto;
+  padding-bottom: 250px;
   height: auto;
-  position:relative;
+  font-size: 1.1rem;
+  width: 340px;
+  background-color: #fff;
+  display: block;
+  position: relative;
 
 }
 .subtituloEntregado{
