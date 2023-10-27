@@ -1354,6 +1354,17 @@ position: absolute;
   background-color: #fff;
 
 }
+#tableroCobradosTotalWeb{
+  width: 340px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-top: 10px;
+  margin-left: 800px;
+  display: block;
+  height: auto;
+  background-color: #fff;
+
+}
 
 #tableroRealizadoTotalWeb{
   width: 340px;

@@ -789,6 +789,7 @@ position: relative;
   margin-left: 30px;
   padding-left: 10px;
   padding-top: 10px;
+
   height: auto;
   background-color:rgb(250, 228, 131);
 }
@@ -932,6 +933,20 @@ text-align: left;
 -----------------------------------------------------------------------
 ------------------------------------------------------------------------*/
 
+
+#tableroCobradosTotalWeb{
+  width: 320px;
+  display: block;
+position: relative;
+  padding-bottom: 20px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-left: 30px;
+  padding-left: 10px;
+  padding-top: 10px;
+  height: auto;
+  background-color: #a1dbaf;
+}
 .subtitulosCobrados{
   background-color: #c4dceee8;
   margin-left: 0px;
@@ -963,7 +978,7 @@ position: relative;
   padding-left: 10px;
   padding-top: 10px;
   height: auto;
-  background-color: #FFF;
+  background-color: #a1dbaf;
 }
 
     /*------------------------------------DELIVERY--------------------
@@ -1091,7 +1106,6 @@ position: relative;
   margin-left: 30px;
   padding-left: 10px;
   padding-top: 10px;
-
   height: auto;
  /*  background-color: #dcc5b0; */
   background-color: #dcb0b0;
