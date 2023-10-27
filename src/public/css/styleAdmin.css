@@ -722,7 +722,7 @@ height: 20px;
       padding: 0; /* Elimina el relleno predeterminado de la lista */
     }
 
-    .pedidoPendientesTotalDatosCantidad{
+    .pedidoPendientesTotalDatosCantidadPE{
       color: #000;
       background-color:  #cd9090;
       border: none;
@@ -742,6 +742,26 @@ height: 20px;
       width: 38px;
       height: 20px;
         }
+        .pedidoPendientesTotalDatosCantidad{
+          color: #000;
+          background-color:  #cd9090;
+          border: none;
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          word-break: break-all;
+          margin-left: 4px;
+          padding-top: 4px;
+          padding-left: 4px;;
+          padding-right: 4px;
+          padding-bottom: 4px;
+          display: block;
+          border-radius: 4px;
+          margin-bottom: 5px;
+          font-size: 1rem;
+          text-align: center;
+          width: 38px;
+          height: 20px;
+            }
 
     .pedidoPendientesTotalDatos{
       color: #fff;
