@@ -789,7 +789,6 @@ position: relative;
   margin-left: 30px;
   padding-left: 10px;
   padding-top: 10px;
-  border-radius: 4px;
   height: auto;
   background-color:rgb(250, 228, 131);
 }
@@ -951,9 +950,8 @@ position: relative;
   margin-left: 30px;
   padding-left: 10px;
   padding-top: 10px;
-  border-radius: 4px;
   height: auto;
-  background-color: #a1dbaf;
+  background-color: #FFF;
 }
 
     /*------------------------------------DELIVERY--------------------
@@ -1081,7 +1079,7 @@ position: relative;
   margin-left: 30px;
   padding-left: 10px;
   padding-top: 10px;
-  border-radius: 4px;
+
   height: auto;
  /*  background-color: #dcc5b0; */
   background-color: #dcb0b0;
