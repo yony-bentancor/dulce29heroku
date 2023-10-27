@@ -595,13 +595,13 @@ margin-left: 15px;
   word-break: break-all;
   margin-left: 20px;
   padding-left: 10px;
-  padding-top: 8px;
+  padding-top: 5px;
   border-radius: 4px;
   font-size: 0.9rem;
   
   text-align: left;
   width: 210px;
-  height: 20px;
+  height: 24px;
 }
 .pedidoPendientesTotalRB {
   background-color: #f9f9f7e8;
