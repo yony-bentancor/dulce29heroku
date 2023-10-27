@@ -1197,12 +1197,12 @@ margin-left: 6px;
   background-color: #fff; 
 
 } 
-#box5 {
-  width: 280px;
+#box5 {display: none;
+/*   width: 280px;
   margin-top: 5px;
   margin-left: 10%;
     height: auto;
-    background-color: #c5c0b3; 
+    background-color: #c5c0b3;  */
 }
 #box4{
 
