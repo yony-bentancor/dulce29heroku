@@ -928,11 +928,23 @@ text-align: left;
 }
 
 
-   /*------------------------------------Realizados --------------------
+   /*------------------------------------cobrados --------------------
 -----------------------------------------------------------------------
 ------------------------------------------------------------------------*/
 
-
+.subtitulosCobrados{
+  background-color: #c4dceee8;
+  margin-left: 0px;
+  padding-left: 20px;
+  padding-top: 3px;
+  display: block;
+  margin-bottom: 5px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-align: center;
+  width: 300px;
+  height: 20px;
+  }
 
 
   /*------------------------------------ENTREGADOS--------------------
