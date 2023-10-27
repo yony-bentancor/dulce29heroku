@@ -601,7 +601,7 @@ margin-left: 15px;
   font-weight: bold;
   text-align: left;
   width: 210px;
-  height: 30px;
+  height: 20px;
 }
 .pedidoPendientesTotalRB {
   background-color: #f9f9f7e8;
@@ -948,17 +948,17 @@ position: relative;
   background-color: #fff;
 }
 .subtitulosCobrados{
-  background-color: #c4dceee8;
+  background-color: #b3d3ebe8;
   margin-left: 0px;
   padding-left: 20px;
-  padding-top: 3px;
+  padding-top: 6px;
   display: block;
   margin-bottom: 5px;
   border-radius: 4px;
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   text-align: center;
   width: 300px;
-  height: 20px;
+  height: 28px;
   }
 
 
