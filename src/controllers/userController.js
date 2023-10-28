@@ -1540,7 +1540,7 @@ module.exports = {
         productos,
         precioFinal,
         precioFinalTransferencia,
-        fechaActual,
+        /* fechaActual */
         nombreMes,
         sumaTotalCosto,
         cincoUsernamesRepetidos,
