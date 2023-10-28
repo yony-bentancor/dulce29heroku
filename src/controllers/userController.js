@@ -1437,29 +1437,6 @@ module.exports = {
         fechaFormateada: pedido.createdAt.toLocaleString("es-ES", opciones),
       }));
 
-      // Obtener un array de todos los usernames en pedidos cobrados
-      const usernames = pedidosCobrados.map((pedido) => pedido.username);
-
-      // Contar cuántas veces se repite cada username
-      const conteoUsernames = usernames.reduce((conteo, username) => {
-        conteo[username] = (conteo[username] || 0) + 1;
-        return conteo;
-      }, {});
-
-      // Convertir el objeto de conteo en un array de objetos
-      const usernamesRepetidos = Object.keys(conteoUsernames).map(
-        (username) => ({
-          username,
-          count: conteoUsernames[username],
-        })
-      );
-
-      // Ordenar el array de usernames repetidos por la cantidad en orden descendente
-      usernamesRepetidos.sort((a, b) => b.count - a.count);
-
-      // Obtener los 5 primeros usernames repetidos
-      const cincoUsernamesRepetidos = usernamesRepetidos.slice(0, 3);
-
       // Consulta para obtener usuarios y productos
       const [users, productos] = await Promise.all([
         User.find().sort({ username: 1 }),
@@ -1498,34 +1475,6 @@ module.exports = {
           total + pedido.Monto_total * (1 - pedido.Descuento / 100),
         0
       );
-      const pedidosEnTransferencia = pedidosCobrados.filter(
-        (pedido) => pedido.Pago === "Transferencia"
-      );
-
-      // Calcular el precio final (ajusta esto según tus necesidades)
-      const precioFinalTransferencia = pedidosEnTransferencia.reduce(
-        (total, pedido) =>
-          total + pedido.Monto_total * (1 - pedido.Descuento / 100),
-        0
-      );
-      const resultado = await Pedido.aggregate([
-        {
-          $match: {
-            Estado: "Cobrado",
-            Estado: { $nin: ["Realizado", "Entregado", "Pendiente"] },
-            createdAt: { $gte: fechaInicio, $lte: fechaFin },
-          },
-        },
-        {
-          $group: {
-            _id: null,
-            totalCosto: { $sum: "$Costo_total" },
-          },
-        },
-      ]);
-
-      // El resultado contendrá la suma total de Costo_total de los pedidos que coinciden con los criterios de búsqueda
-      const sumaTotalCosto = resultado[0] ? resultado[0].totalCosto : 0;
 
       res.render("cobrados", {
         pedidos: pedidosFormateados,
@@ -1534,16 +1483,8 @@ module.exports = {
         contadorEfectivo: pedidosFormateados.filter(
           (pedido) => pedido.Pago === "Efectivo"
         ).length,
-        contadorTransferencia: pedidosFormateados.filter(
-          (pedido) => pedido.Pago === "Transferencia"
-        ).length,
         productos,
         precioFinal,
-        precioFinalTransferencia,
-        /* fechaActual */
-        nombreMes,
-        sumaTotalCosto,
-        cincoUsernamesRepetidos,
       });
     } catch (error) {
       // Manejo de errores más detallado
