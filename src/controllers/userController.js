@@ -1424,6 +1424,23 @@ module.exports = {
         month: "long",
         day: "numeric",
       };
+      const numeroMes = fechaInicio.getMonth();
+      const nombresMeses = [
+        "Enero",
+        "Febrero",
+        "Marzo",
+        "Abril",
+        "Mayo",
+        "Junio",
+        "Julio",
+        "Agosto",
+        "Septiembre",
+        "Octubre",
+        "Noviembre",
+        "Diciembre",
+      ];
+
+      const nombreMes = nombresMeses[numeroMes];
 
       // Consulta para obtener pedidos entregados que no estén en estados específicos y que estén dentro del rango de fechas
       const pedidosCobrados = await Pedido.find({
@@ -1539,6 +1556,7 @@ module.exports = {
         ).length,
         productos,
         precioFinal,
+        nombreMes,
         precioFinalTransferencia,
         cincoUsernamesRepetidos,
         sumaTotalCosto,
