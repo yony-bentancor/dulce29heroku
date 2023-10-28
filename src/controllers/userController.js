@@ -1508,7 +1508,7 @@ module.exports = {
           total + pedido.Monto_total * (1 - pedido.Descuento / 100),
         0
       );
-      const resultado = await Pedido.aggregate([
+      /*  const resultado = await Pedido.aggregate([
         {
           $match: {
             Estado: "Cobrado",
@@ -1522,7 +1522,7 @@ module.exports = {
             totalCosto: { $sum: "$Costo_total" },
           },
         },
-      ]);
+      ]); */
 
       // El resultado contendrá la suma total de Costo_total de los pedidos que coinciden con los criterios de búsqueda
       const sumaTotalCosto = resultado[0] ? resultado[0].totalCosto : 0;
