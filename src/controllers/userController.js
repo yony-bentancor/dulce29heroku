@@ -1513,7 +1513,7 @@ module.exports = {
           $match: {
             Estado: "Cobrado",
             Estado: { $nin: ["Realizado", "Entregado", "Pendiente"] },
-            createdAt: { $gte: primerDiaDelMes, $lte: fechaActual },
+            createdAt: { $gte: fechaInicio, $lte: fechaFin },
           },
         },
         {
