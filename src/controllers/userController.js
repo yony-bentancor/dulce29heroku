@@ -1499,6 +1499,17 @@ module.exports = {
         0
       );
 
+
+      const pedidosEnTransferencia = pedidosCobrados.filter(
+        (pedido) => pedido.Pago === "Transferencia"
+      );
+
+      // Calcular el precio final (ajusta esto según tus necesidades)
+      const precioFinalTransferencia = pedidosEnTransferencia.reduce(
+        (total, pedido) =>
+          total + pedido.Monto_total * (1 - pedido.Descuento / 100),
+        0
+      );
       res.render("cobrados", {
         pedidos: pedidosFormateados,
         mensajes,
@@ -1506,8 +1517,12 @@ module.exports = {
         contadorEfectivo: pedidosFormateados.filter(
           (pedido) => pedido.Pago === "Efectivo"
         ).length,
+        contadorTransferencia: pedidosFormateados.filter(
+          (pedido) => pedido.Pago === "Transferencia"
+        ).length,
         productos,
         precioFinal,
+        precioFinalTransferencia
         cincoUsernamesRepetidos,
       });
     } catch (error) {
