@@ -1498,8 +1498,6 @@ module.exports = {
           total + pedido.Monto_total * (1 - pedido.Descuento / 100),
         0
       );
-
-
       const pedidosEnTransferencia = pedidosCobrados.filter(
         (pedido) => pedido.Pago === "Transferencia"
       );
@@ -1510,6 +1508,7 @@ module.exports = {
           total + pedido.Monto_total * (1 - pedido.Descuento / 100),
         0
       );
+
       res.render("cobrados", {
         pedidos: pedidosFormateados,
         mensajes,
@@ -1522,7 +1521,7 @@ module.exports = {
         ).length,
         productos,
         precioFinal,
-        precioFinalTransferencia
+        precioFinalTransferencia,
         cincoUsernamesRepetidos,
       });
     } catch (error) {
