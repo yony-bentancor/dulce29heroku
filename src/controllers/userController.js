@@ -1437,6 +1437,29 @@ module.exports = {
         fechaFormateada: pedido.createdAt.toLocaleString("es-ES", opciones),
       }));
 
+      // Obtener un array de todos los usernames en pedidos cobrados
+      const usernames = pedidosCobrados.map((pedido) => pedido.username);
+
+      // Contar cuántas veces se repite cada username
+      const conteoUsernames = usernames.reduce((conteo, username) => {
+        conteo[username] = (conteo[username] || 0) + 1;
+        return conteo;
+      }, {});
+
+      // Convertir el objeto de conteo en un array de objetos
+      const usernamesRepetidos = Object.keys(conteoUsernames).map(
+        (username) => ({
+          username,
+          count: conteoUsernames[username],
+        })
+      );
+
+      // Ordenar el array de usernames repetidos por la cantidad en orden descendente
+      usernamesRepetidos.sort((a, b) => b.count - a.count);
+
+      // Obtener los 5 primeros usernames repetidos
+      const cincoUsernamesRepetidos = usernamesRepetidos.slice(0, 3);
+
       // Consulta para obtener usuarios y productos
       const [users, productos] = await Promise.all([
         User.find().sort({ username: 1 }),
@@ -1485,6 +1508,7 @@ module.exports = {
         ).length,
         productos,
         precioFinal,
+        cincoUsernamesRepetidos,
       });
     } catch (error) {
       // Manejo de errores más detallado
