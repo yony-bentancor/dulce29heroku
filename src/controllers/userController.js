@@ -1580,9 +1580,11 @@ module.exports = {
       const users = await User.find({ repitePedido: true }).sort({
         username: 1,
       });
+      const countRepitePedidoUsers = users.length;
 
       res.render("automaticos", {
         users,
+        countRepitePedidoUsers,
       });
     } catch (error) {
       res.status(500).json({ error: error.message });
