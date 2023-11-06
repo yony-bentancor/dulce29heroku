@@ -1,8 +1,10 @@
 const schedule = require("node-schedule");
+const open = require("open"); // Asegúrate de instalar el paquete 'open' con npm install open
 
-// Tarea programada que se ejecuta todos los días a las 15:00 (3:00 PM)
-const tareaProgramada = schedule.scheduleJob("0 20 * * *", function () {
-  console.log("Tarea programada ejecutada a las 8:00 PM");
+// Tarea programada que se ejecuta todos los días a las 20:10 (8:10 PM) y redirige a un sitio web
+const tareaProgramada = schedule.scheduleJob("10 20 * * *", function () {
+  const url = "https://www.google.com.uy"; // Reemplaza esto con la URL de tu sitio web
+  open(url);
 });
 /* const User = require("./models/User"); // Asegúrate de importar tu modelo User
 const Pedido = require("./models/Pedido"); // Asegúrate de importar tu modelo Pedido 
