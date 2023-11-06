@@ -5,6 +5,7 @@ const nunjucks = require("nunjucks");
 const db = require("./db");
 var fs = require("fs");
 require("dotenv").config();
+const cron = require("node-cron");
 const productoRoutes = require("./routes/producto.routes");
 const pageRoutes = require("./routes/page.routes");
 const posteoRoutes = require("./routes/posteo.routers");
