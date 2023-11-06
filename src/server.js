@@ -19,7 +19,7 @@ db();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 // Importa la tarea programada
-const tareaProgramada = require("./tareaProgramada");
+const schedule = require("./tareaProgramada");
 
 app.use("/", pageRoutes);
 app.use("/producto", productoRoutes);
