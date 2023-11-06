@@ -20,7 +20,6 @@ router.get(
 );
 router.get("/delivery/:username", userController.btnDelivey);
 router.get("/pendientes", userController.pendientesAdmin);
-router.get("/automaticos", userController.automaticosAdmin);
 router.get("/realizados", userController.realizadosAdmin);
 router.get("/cobrados", userController.cobrados);
 router.post("/estadisticasMes", userController.estadisticasAdminMes);

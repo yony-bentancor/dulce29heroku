@@ -1573,24 +1573,6 @@ module.exports = {
     }
   },
 
-  automaticosAdmin: async (req, res) => {
-    try {
-      // Objeto para almacenar los productos y sus cantidades
-
-      const users = await User.find({ repitePedido: true }).sort({
-        username: 1,
-      });
-      const countRepitePedidoUsers = users.length;
-
-      res.render("automaticos", {
-        users,
-        countRepitePedidoUsers,
-      });
-    } catch (error) {
-      res.status(500).json({ error: error.message });
-    }
-  },
-
   showProductosAdmin: async (req, res) => {
     try {
       const productos = await Producto.find();
