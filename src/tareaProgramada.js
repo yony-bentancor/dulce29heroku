@@ -1,6 +1,15 @@
 const cron = require("node-cron");
-const User = require("./models/User"); // Asegúrate de importar tu modelo User
-const Pedido = require("./models/Pedido"); // Asegúrate de importar tu modelo Pedido
+
+cron.schedule("0 0 * * *", () => {
+  // Coloca aquí la lógica de tu tarea programada
+  console.log("Tarea programada ejecutada");
+});
+
+// Inicia la tarea programada
+cron.start();
+/* const User = require("./models/User"); // Asegúrate de importar tu modelo User
+const Pedido = require("./models/Pedido"); // Asegúrate de importar tu modelo Pedido 
+
 
 // Define la tarea programada que se ejecuta cada 7 días
 cron.schedule("0 0 * * *", async () => {
@@ -45,4 +54,4 @@ cron.schedule("0 0 * * *", async () => {
 });
 
 // Inicia la tarea programada
-cron.start();
+cron.start();*/
