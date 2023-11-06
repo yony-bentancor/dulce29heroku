@@ -1,14 +1,9 @@
 const schedule = require("node-schedule");
 // Tarea programada que se ejecuta a las 20:17 (8:17 PM)
-const tareaProgramada = schedule.scheduleJob("25 20 * * *", function () {
-  // Acción a realizar a las 8:17 PM
-  console.log("Tarea programada ejecutada a las 8:17 PM");
-
-  // Esperar 5 minutos (300,000 ms) y luego ejecutar la acción nuevamente al hacer refresh
-  setTimeout(function () {
-    // Acción a realizar después de 5 minutos
-    console.log("Tarea programada ejecutada a las 8:22 PM al hacer refresh");
-  }, 300000);
+// Tarea programada que se ejecuta cada 3 minutos
+const tareaProgramada = schedule.scheduleJob("*/3 * * * *", function () {
+  // Acción a realizar cada 3 minutos
+  console.log("Tarea programada ejecutada cada 3 minutos");
 });
 /* const User = require("./models/User"); // Asegúrate de importar tu modelo User
 const Pedido = require("./models/Pedido"); // Asegúrate de importar tu modelo Pedido 
