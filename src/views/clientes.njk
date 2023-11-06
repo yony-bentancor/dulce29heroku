@@ -88,11 +88,13 @@
             <div class="col-3">
               {{ user.email }}
             </div>
-            {% if user.repitePedido %}
-              <div class="col-1">
-                {{ user.repitePedido }}
-              </div>
-            {% endif %}
+            <div class="col-1">
+              {% if user.repitePedido %}
+                <div class="col-1">
+                  {{ user.repitePedido }}
+                </div>
+              {% endif %}
+            </div>
 
             <div class="col-1">
               <form method="post" action="/session/updateUser">
