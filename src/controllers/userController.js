@@ -1568,6 +1568,84 @@ module.exports = {
     }
   },
 
+  automaticosAdmin: async (req, res) => {
+    try {
+      const pedidos = await Pedido.find({
+        Estado: { $nin: ["Realizado", "Entregado", "Cobrado"] },
+      }).sort({
+        createdAt: 1,
+      });
+      let contador = 0;
+      for (let i = 0; i < pedidos.length; i++) {
+        contador++;
+      }
+
+      const opciones = {
+        month: "long",
+        day: "numeric",
+      };
+
+      const pedidosFormateados = pedidos.map((pedido) => {
+        const fechaFormateada = pedido.createdAt.toLocaleString(
+          "es-ES",
+          opciones
+        );
+        return { ...pedido.toObject(), fechaFormateada };
+      });
+
+      const pedidosPendientes = await Pedido.find({
+        Estado: { $nin: ["Realizado", "Entregado", "Cobrado"] },
+      });
+
+      // Objeto para almacenar los productos y sus cantidades
+      const productosCantidad = {};
+
+      for (let i = 0; i < pedidosPendientes.length; i++) {
+        const productos = pedidosPendientes[i].productos;
+
+        for (const [key, value] of Object.entries(productos)) {
+          const nombreProducto = value.nombre; // Suponemos que el nombre del producto está en la propiedad "nombre"
+          const cantidad = value.cantidad;
+
+          if (!productosCantidad[nombreProducto]) {
+            productosCantidad[nombreProducto] = cantidad;
+          } else {
+            productosCantidad[nombreProducto] += cantidad;
+          }
+        }
+      }
+
+      // Crear un array para almacenar los mensajes a mostrar en la plantilla
+      const mensajesNombre = [];
+      const mensajes = [];
+
+      // Agregar mensajes al array
+      for (const nombreProducto in productosCantidad) {
+        const cantidadProducto = productosCantidad[nombreProducto];
+        mensajes.push({ nombre: nombreProducto, cantidad: cantidadProducto });
+      }
+      mensajes.sort((a, b) => b.cantidad - a.cantidad);
+      const users = await User.find().sort({
+        username: 1,
+      });
+
+      const productos = await Producto.find().sort({ Numero_pedido: 1 });
+
+      res.render("automaticos", {
+        pedidos,
+        pedidos: pedidosFormateados,
+        contador,
+        users,
+        productos,
+        /*  sumaProductos, */
+        mensajes,
+        pedidosPendientes,
+      });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  },
+
   showProductosAdmin: async (req, res) => {
     try {
       const productos = await Producto.find();

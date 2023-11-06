@@ -14,6 +14,7 @@ const userSquema = new Schema(
     email: { type: String, required: true },
     hash: { type: String, require: true },
     createdAt: { type: Date },
+    repitePedido: { type: Boolean, default: false },
   },
 
   {
