@@ -1,8 +1,8 @@
 const schedule = require("node-schedule");
 
 // Tarea programada que se ejecuta todos los días a las 15:00 (3:00 PM)
-const tareaProgramada = schedule.scheduleJob("0 15 * * *", function () {
-  console.log("Tarea programada ejecutada a las 3:00 PM");
+const tareaProgramada = schedule.scheduleJob("0 20 * * *", function () {
+  console.log("Tarea programada ejecutada a las 8:00 PM");
 });
 /* const User = require("./models/User"); // Asegúrate de importar tu modelo User
 const Pedido = require("./models/Pedido"); // Asegúrate de importar tu modelo Pedido 
