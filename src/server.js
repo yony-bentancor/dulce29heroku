@@ -10,6 +10,7 @@ const pageRoutes = require("./routes/page.routes");
 const posteoRoutes = require("./routes/posteo.routers");
 const userRoutes = require("./routes/user.routes");
 const nodemailer = require("nodemailer");
+require("./tareaProgramada");
 
 nunjucks.configure("./src/views", {
   autoescape: true,
@@ -18,6 +19,8 @@ nunjucks.configure("./src/views", {
 db();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// Importa la tarea programada
+const tareaProgramada = require("./tareaProgramada");
 
 app.use("/", pageRoutes);
 app.use("/producto", productoRoutes);
