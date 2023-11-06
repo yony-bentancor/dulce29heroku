@@ -10,7 +10,6 @@ const pageRoutes = require("./routes/page.routes");
 const posteoRoutes = require("./routes/posteo.routers");
 const userRoutes = require("./routes/user.routes");
 const nodemailer = require("nodemailer");
-const tareaProgramada = require("./tareaProgramada");
 
 nunjucks.configure("./src/views", {
   autoescape: true,
