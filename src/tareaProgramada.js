@@ -1,12 +1,9 @@
-const cron = require("node-cron");
+const schedule = require("node-schedule");
 
-cron.schedule("0 0 * * *", () => {
-  // Coloca aquí la lógica de tu tarea programada
-  console.log("Tarea programada ejecutada");
+// Tarea programada que se ejecuta todos los días a las 15:00 (3:00 PM)
+const tareaProgramada = schedule.scheduleJob("0 15 * * *", function () {
+  console.log("Tarea programada ejecutada a las 3:00 PM");
 });
-
-// Inicia la tarea programada
-cron.start();
 /* const User = require("./models/User"); // Asegúrate de importar tu modelo User
 const Pedido = require("./models/Pedido"); // Asegúrate de importar tu modelo Pedido 
 
