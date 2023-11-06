@@ -402,6 +402,7 @@ module.exports = {
       telefonoSalida,
       direccionSalida,
       emailSalida,
+      repitePedidoSalida,
     } = req.body; // Desestructura los datos recibidos del formulario
 
     try {
@@ -423,6 +424,9 @@ module.exports = {
       }
       if (user.email !== emailSalida) {
         user.email = emailSalida;
+      }
+      if (user.repitePedido !== repitePedidoSalida) {
+        user.repitePedido = repitePedidoSalida;
       }
 
       await user.save(); // Guarda los cambios en la base de datos
