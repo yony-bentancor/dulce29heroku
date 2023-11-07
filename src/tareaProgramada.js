@@ -11,6 +11,14 @@ const tareaProgramada = schedule.scheduleJob("*/3 * * * *", async function () {
     const limiteDias = 1;
 
     // Busca usuarios con repitePedido establecido en true
+
+    const ultimoPedido = await Pedido.findOne()
+      .sort({ Numero_pedido: -1 })
+      .select("Numero_pedido");
+
+    // Incrementar el número de pedido
+    const Numero_pedido = ultimoPedido ? ultimoPedido.Numero_pedido + 1 : 1;
+
     const usuariosRepetidores = await User.find({ repitePedido: true }).exec();
 
     for (const usuario of usuariosRepetidores) {
@@ -31,7 +39,13 @@ const tareaProgramada = schedule.scheduleJob("*/3 * * * *", async function () {
             username: usuario.username,
             direccion: usuario.direccion,
             telefono: usuario.telefono,
+            Numero_pedido: Numero_pedido,
             Estado: "Pendiente",
+            Monto_total: ultimoPedido.Monto_total,
+            Costo_total: ultimoPedido.Costo_total,
+            Pago: ultimoPedido.Pago,
+            Mes: ultimoPedido.Mes,
+            Descuento: ultimoPedido.Descuento,
             // Otros campos del pedido como Estado, Pago, Monto_total, etc.
             createdAt: new Date(), // Actualiza la fecha de creación
             productos: ultimoPedido.productos, // Usa los mismos productos
