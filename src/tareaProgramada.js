@@ -1,16 +1,11 @@
 const schedule = require("node-schedule");
-// Tarea programada que se ejecuta a las 20:17 (8:17 PM)
+const User = require("./models/User"); // Asegúrate de importar tu modelo User
+const Pedido = require("./models/Pedido"); // Asegúrate de importar tu modelo Pedido
+
 // Tarea programada que se ejecuta cada 3 minutos
-const tareaProgramada = schedule.scheduleJob("*/3 * * * *", function () {
-  // Acción a realizar cada 3 minutos
+const tareaProgramada = schedule.scheduleJob("*/3 * * * *", async function () {
   console.log("Tarea programada ejecutada cada 3 minutos");
-});
-/* const User = require("./models/User"); // Asegúrate de importar tu modelo User
-const Pedido = require("./models/Pedido"); // Asegúrate de importar tu modelo Pedido 
 
-
-// Define la tarea programada que se ejecuta cada 7 días
-cron.schedule("0 0 * * *", async () => {
   try {
     const hoy = new Date();
     const limiteDias = 1;
@@ -50,6 +45,3 @@ cron.schedule("0 0 * * *", async () => {
     console.error("Error en la tarea programada:", error);
   }
 });
-
-// Inicia la tarea programada
-cron.start();*/
