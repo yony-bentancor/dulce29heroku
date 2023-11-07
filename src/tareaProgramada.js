@@ -41,14 +41,15 @@ const tareaProgramada = schedule.scheduleJob("*/3 * * * *", async function () {
             telefono: usuario.telefono,
             Numero_pedido: Numero_pedido,
             Estado: "Pendiente",
+
+            // Otros campos del pedido como Estado, Pago, Monto_total, etc.
+            createdAt: new Date(), // Actualiza la fecha de creación
+            productos: ultimoPedido.productos, // Usa los mismos productos
             Monto_total: ultimoPedido.Monto_total,
             Costo_total: ultimoPedido.Costo_total,
             Pago: ultimoPedido.Pago,
             Mes: ultimoPedido.Mes,
             Descuento: ultimoPedido.Descuento,
-            // Otros campos del pedido como Estado, Pago, Monto_total, etc.
-            createdAt: new Date(), // Actualiza la fecha de creación
-            productos: ultimoPedido.productos, // Usa los mismos productos
           });
 
           await nuevoPedido.save(); // Guarda el nuevo pedido en la base de datos
