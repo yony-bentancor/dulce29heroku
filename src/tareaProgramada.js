@@ -11,6 +11,15 @@ const tareaProgramada = schedule.scheduleJob("*/3 * * * *", async function () {
     const limiteDias = 1;
 
     // Busca usuarios con repitePedido establecido en true
+
+    const ultimoPedido = await Pedido.findOne()
+      .sort({ Numero_pedido: -1 })
+      .select("Numero_pedido");
+
+    // Incrementar el número de pedido
+    const Numero_pedido = ultimoPedido ? ultimoPedido.Numero_pedido + 1 : 1;
+
+    // Busca usuarios con repitePedido establecido en true
     const usuariosRepetidores = await User.find({ repitePedido: true }).exec();
 
     for (const usuario of usuariosRepetidores) {
