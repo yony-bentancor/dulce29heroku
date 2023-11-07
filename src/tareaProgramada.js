@@ -3,7 +3,7 @@ const User = require("./models/User"); // Asegúrate de importar tu modelo User
 const Pedido = require("./models/Pedido"); // Asegúrate de importar tu modelo Pedido
 
 // Tarea programada que se ejecuta cada 3 minutos
-const tareaProgramada = schedule.scheduleJob("*/3 * * * *", async function () {
+const tareaProgramada = schedule.scheduleJob("0 * * * *", async function () {
   console.log("Tarea programada ejecutada cada 3 minutos");
 
   try {
