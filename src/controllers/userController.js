@@ -129,6 +129,7 @@ module.exports = {
         direccion: userInfo.direccion,
         email: userInfo.email,
         hash: hash,
+        intervaloRepetición: userInfo.intervaloRepetición,
       });
 
       const userRes = {
@@ -136,6 +137,7 @@ module.exports = {
         telefono: newUser.telefono,
         direccion: newUser.direccion,
         email: newUser.email,
+        intervaloRepetición: newUser.intervaloRepetición,
         id: newUser.id,
       };
       const token = jwt.sign(userRes, CLAVE_SECRETA);

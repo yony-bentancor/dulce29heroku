@@ -15,6 +15,7 @@ const userSquema = new Schema(
     hash: { type: String, require: true },
     createdAt: { type: Date },
     repitePedido: { type: Boolean, default: false },
+    intervaloRepetición: { type: Number },
   },
 
   {
