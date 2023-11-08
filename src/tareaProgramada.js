@@ -31,10 +31,10 @@ const tareaProgramada = schedule.scheduleJob("50 12 * * *", async function () {
         .exec();
 
       if (ultimoPedido) {
-        const tiempoTranscurrido = hoy - ultimoPedido.createdAt;
-        const minutosTranscurridos = tiempoTranscurrido / (1000 * 60);
+        const tiempoTranscurrido =
+          (hoy - ultimoPedido.createdAt) / (1000 * 60 * 60 * 24); // Calcula el tiempo en días
 
-        if (minutosTranscurridos >= intervaloRepetición) {
+        if (tiempoTranscurrido >= intervaloRepeticiónDias) {
           // Crea un nuevo pedido con los mismos productos que el último pedido
           const nuevoPedido = new Pedido({
             username: usuario.username,
