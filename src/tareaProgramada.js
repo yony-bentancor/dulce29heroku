@@ -12,7 +12,7 @@ const tareaProgramada = schedule.scheduleJob("50 12 * * *", async function () {
       .select("Numero_pedido");
 
     // Incrementar el número de pedido
-    const Numero_pedido = ultimoPedidoPendiente
+    let Numero_pedido = ultimoPedidoPendiente
       ? ultimoPedidoPendiente.Numero_pedido + 1
       : 1;
 
