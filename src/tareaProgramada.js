@@ -2,21 +2,19 @@ const schedule = require("node-schedule");
 const User = require("./models/User"); // Asegúrate de importar tu modelo User
 const Pedido = require("./models/Pedido"); // Asegúrate de importar tu modelo Pedido
 
-const tareaProgramada = schedule.scheduleJob("* * * * * 7", async function () {
-  console.log("Tarea programada ejecutada 1 vez x semana");
-
+const tareaProgramada = schedule.scheduleJob("50 12 * * *", async function () {
   try {
     const hoy = new Date();
     const limiteDias = 1;
 
-    // Busca usuarios con repitePedido establecido en true
-
-    const ultimoPedido = await Pedido.findOne()
+    const ultimoPedidoPendiente = await Pedido.findOne()
       .sort({ Numero_pedido: -1 })
       .select("Numero_pedido");
 
     // Incrementar el número de pedido
-    const Numero_pedido = ultimoPedido ? ultimoPedido.Numero_pedido + 1 : 1;
+    const Numero_pedido = ultimoPedidoPendiente
+      ? ultimoPedidoPendiente.Numero_pedido + 1
+      : 1;
 
     // Busca usuarios con repitePedido establecido en true
     const usuariosRepetidores = await User.find({ repitePedido: true }).exec();
