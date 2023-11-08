@@ -2,9 +2,8 @@ const schedule = require("node-schedule");
 const User = require("./models/User"); // Asegúrate de importar tu modelo User
 const Pedido = require("./models/Pedido"); // Asegúrate de importar tu modelo Pedido
 
-// Tarea programada que se ejecuta cada 3 minutos
-const tareaProgramada = schedule.scheduleJob("0 * * * *", async function () {
-  console.log("Tarea programada ejecutada cada 3 minutos");
+const tareaProgramada = schedule.scheduleJob("* * * * * 7", async function () {
+  console.log("Tarea programada ejecutada 1 vez x semana");
 
   try {
     const hoy = new Date();
