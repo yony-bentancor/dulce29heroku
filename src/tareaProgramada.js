@@ -2,7 +2,7 @@ const schedule = require("node-schedule");
 const User = require("./models/User"); // Asegúrate de importar tu modelo User
 const Pedido = require("./models/Pedido"); // Asegúrate de importar tu modelo Pedido
 
-const tareaProgramada = schedule.scheduleJob("40 13 * * *", async function () {
+const tareaProgramada = schedule.scheduleJob("15 20 * * *", async function () {
   try {
     const hoy = new Date();
     const limiteDias = 1;
