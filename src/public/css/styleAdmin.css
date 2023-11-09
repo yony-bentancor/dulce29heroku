@@ -1161,7 +1161,7 @@ text-align: left;
 
 #newPedido {
   margin-top: 10px; /* Añade espacio entre los dos divs */
-  padding-left: 0px;
+  padding-left: 8px;
 
   text-align: left;
   width: 340px;
@@ -1169,7 +1169,7 @@ text-align: left;
   background-color: #fff;
   border-radius: 4px;
   margin-bottom: 10px;
-  margin-left: 40px;
+  margin-left: 0px;
 }
 
 
