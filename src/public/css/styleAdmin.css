@@ -515,10 +515,10 @@ height: 22px;
   #totalClientes {
     display: flex;
     background-color: #fff;
-    width: 580px;
+    width: 550px;
     height: 26px;
     font-size: 0.9rem;
-    padding-left: 20px;
+    margin-left: 30px;
 
  /* Establece la dirección de flexión a fila */
     justify-content: space-between; /* Distribuye uniformemente los elementos en la fila */
@@ -759,7 +759,7 @@ height: 20px;
           margin-bottom: 5px;
           font-size: 1rem;
           text-align: center;
-          width: 38px;
+          width: 58px;
           height: 20px;
             }
 
@@ -1164,7 +1164,7 @@ text-align: left;
   padding-left: 8px;
 
   text-align: left;
-  width: 580px;
+  width: 550px;
   height: auto;
   background-color: rgb(217, 225, 232);
   border-radius: 4px;
@@ -1220,7 +1220,7 @@ position: absolute;
     background-color: #f3f0f0;
     margin-bottom: 12px;
 
-    margin-left: 8px;
+    margin-left: 18px;
     text-align: center;
     font-size: 1.1rem;
     padding-top: 10px;
