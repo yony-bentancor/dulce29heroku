@@ -673,7 +673,8 @@ height: 20px;
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-all;
-    margin-left: 20px;
+    margin-top: 10px;
+    margin-left: 0px;
     padding-left: 20px;
     padding-top: 3px;
     display: block;
@@ -744,12 +745,13 @@ height: 20px;
         }
         .pedidoPendientesTotalDatosCantidad{
           color: #fff;
-          background-color:  #436a8f;
+          background-color:  rgba(106, 126, 145, 0.816)
           border: none;
           overflow-wrap: break-word;
           word-wrap: break-word;
           word-break: break-all;
-          margin-left: 4px;
+          margin-top: 10px;
+          margin-left: 0px;
           padding-top: 4px;
           padding-left: 4px;;
           padding-right: 4px;
@@ -759,7 +761,7 @@ height: 20px;
           margin-bottom: 5px;
           font-size: 1.1rem;
           text-align: center;
-          width: 72px;
+          width: 100px;
           height: 20px;
             }
 
@@ -1221,15 +1223,15 @@ position: absolute;
     margin-bottom: 8px;
     display: block;
     margin-top: 1px;
-    margin-left: 1px;
+    margin-left: 8px;
   margin-right: 1px;
    text-align: center;
   color: #fff;
-   font-size: 1.3rem;
+   font-size: 1.2rem;
     padding-top: 5px;
     width: 440px;
     font-weight: bold;
-    height: 32px;
+    height: 28px;
     }
   .nuevoClientetxt{
     background-color: #afafaf3e;
