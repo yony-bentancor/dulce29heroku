@@ -21,7 +21,7 @@ const tareaProgramada = schedule.scheduleJob("05 22 * * *", async function () {
 
     for (const usuario of usuariosRepetidores) {
       // Obtener el intervalo de repetición personalizado del usuario (en minutos)
-      const intervaloRepetición = usuario.intervaloRepetición;
+      const intervaloRepeticiónDias = usuario.intervaloRepetición;
 
       // Buscar el último pedido correspondiente al cliente
       const ultimoPedido = await Pedido.findOne({
