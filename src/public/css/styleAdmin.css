@@ -1164,8 +1164,8 @@ text-align: left;
   padding-left: 8px;
 
   text-align: left;
-  width: 550px;
-  height: auto;
+  width: 450px;
+  height: 500px;
   background-color: rgb(217, 225, 232);
   border-radius: 4px;
   padding-bottom: 10px;
@@ -1217,16 +1217,17 @@ position: absolute;
   height: 22px;
   }
   .nuevoPedidoPendiente{
-    background-color: #f3f0f0;
-    margin-bottom: 12px;
-
-    margin-left: 18px;
-    text-align: center;
-    font-size: 1.1rem;
-    padding-top: 10px;
-    width: 580px;
+    background-color: #787272c8;
+    margin-bottom: 8px;
+    display: block;
+  margin-right: 6px;
+   text-align: center;
+  color: #fff;
+   font-size: 1.3rem;
+    padding-top: 5px;
+    width: 332px;
     font-weight: bold;
-    height: 30px;
+    height: 32px;
     }
   .nuevoClientetxt{
     background-color: #afafaf3e;
