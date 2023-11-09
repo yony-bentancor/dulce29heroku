@@ -56,7 +56,84 @@
           <div class="col-2">PEDIDOS ENTREGADOS</div>
         </div>
       </div>
-      <div id="info-clientes">
+      <div id="newPedido">
+
+        <div class="row nuevoPedidoPendiente">
+          <div class="col-12">
+            <strong>    PEDIDO NUEVO</strong>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-9">
+            <ul >
+              <li class="pedidoPendientesTotal">CLIENTE</li>
+            </ul>
+          </div>
+          <div class="col-3">
+            <form action="/session/newpedido" method="POST">
+              <input class="pedidoPendientesTotalDatosCantidad" list="browsers" name="browser" id="browser">
+              <datalist id="browsers">
+                {% for user in users %}
+                  <option type="text" name="username"  id="username" value="{{user.username}}">
+
+                  {% endfor %}
+                </datalist>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-9">
+                <ul >
+                  <li class="pedidoPendientesTotal">PAGO</li>
+                </ul>
+              </div>
+
+              <div class="col-3">
+                <input type="text" id="Pago" name="Pago" list="opcionesPago"  class="pedidoPendientesTotalDatosCantidad">
+                <datalist id="opcionesPago">
+                  <option value="Efectivo">
+                    <option value="Transferencia"></datalist>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-9">
+                    <ul >
+                      <li class="pedidoPendientesTotal">DESCUENTO</li>
+                    </ul>
+                  </div>
+                  <div class="col-3">
+                    <input type="text" id="Descuento" name="Descuento" list="opcionesDescuento" class="pedidoPendientesTotalDatosCantidad">
+                    <datalist id="opcionesDescuento">
+                      <option value="0">
+                        <option value="5">
+                          <option value="10">
+                            <option value="15">
+                              <option value="25">
+                                <option value="100"></datalist>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              {% for producto in productos %}
+                                <div class="col-9">
+                                  <label class="pedidoPendientesTotal">{{ producto.name }}</label>
+                                  <input type="hidden" name="productos[]" value="{{ producto.name }}">
+                                  <input type="hidden" name="precios[]" value="{{ producto.precioVenta }}">
+                                  <input type="hidden" name="costos[]" value="{{ producto.costoProduccion }}">
+                                </div>
+
+                                <div class="col-3">
+                                  <input type="number" class="rowpedidoEntregadosTotalDatosColor" name="cantidades[]" value="0">
+                                </div>
+                              {% endfor %}
+                            </div>
+                            <button type="submit" class="btn-primary btnCliente">AGREGAR</button>
+                          </form>
+
+                        </div>
+                        {# <div id="info-clientes">
 
         <div class="row rowmovilinvisible">
           <div class="col-2">
@@ -77,7 +154,7 @@
         </div>
 
         {% for user in users %}
-          {#  <div class="col-2"> {{ user._id }}</div> #}
+     
           <div class="row rowmovil">
             <div class="col-2">
               {{ user.username }}</div>
@@ -102,9 +179,7 @@
 
                 <button type="submit">UPD</button>
               </form>
-              {#   <form name="formUpdateUser" method="post" action="/session/updateUser{{ user.username }}", userController.updateUser>
-                <input type="image" id="image" alt="update" src="http://localhost:3001/static/img/editar.png">
-              </form> #}
+          
 
             </div>
 
@@ -118,86 +193,9 @@
           </div>
         {% endfor %}
 
-      </div>
+      </div> #}
 
-      <div id="contenedorlateralCliente">
-        <div id="newPedido">
-
-          <div class="row nuevoPedidoPendiente">
-            <div class="col-12">
-              <strong>    PEDIDO NUEVO</strong>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-9">
-              <ul >
-                <li class="pedidoPendientesTotal">CLIENTE</li>
-              </ul>
-            </div>
-            <div class="col-3">
-              <form action="/session/newpedido" method="POST">
-                <input class="pedidoPendientesTotalDatosCantidad" list="browsers" name="browser" id="browser">
-                <datalist id="browsers">
-                  {% for user in users %}
-                    <option type="text" name="username"  id="username" value="{{user.username}}">
-
-                    {% endfor %}
-                  </datalist>
-                </div>
-              </div>
-
-              <div class="row">
-                <div class="col-9">
-                  <ul >
-                    <li class="pedidoPendientesTotal">PAGO</li>
-                  </ul>
-                </div>
-
-                <div class="col-3">
-                  <input type="text" id="Pago" name="Pago" list="opcionesPago"  class="pedidoPendientesTotalDatosCantidad">
-                  <datalist id="opcionesPago">
-                    <option value="Efectivo">
-                      <option value="Transferencia"></datalist>
-                    </div>
-                  </div>
-
-                  <div class="row">
-                    <div class="col-9">
-                      <ul >
-                        <li class="pedidoPendientesTotal">DESCUENTO</li>
-                      </ul>
-                    </div>
-                    <div class="col-3">
-                      <input type="text" id="Descuento" name="Descuento" list="opcionesDescuento" class="pedidoPendientesTotalDatosCantidad">
-                      <datalist id="opcionesDescuento">
-                        <option value="0">
-                          <option value="5">
-                            <option value="10">
-                              <option value="15">
-                                <option value="25">
-                                  <option value="100"></datalist>
-                                </div>
-                              </div>
-
-                              <div class="row">
-                                {% for producto in productos %}
-                                  <div class="col-9">
-                                    <label class="pedidoPendientesTotal">{{ producto.name }}</label>
-                                    <input type="hidden" name="productos[]" value="{{ producto.name }}">
-                                    <input type="hidden" name="precios[]" value="{{ producto.precioVenta }}">
-                                    <input type="hidden" name="costos[]" value="{{ producto.costoProduccion }}">
-                                  </div>
-
-                                  <div class="col-3">
-                                    <input type="number" class="rowpedidoEntregadosTotalDatosColor" name="cantidades[]" value="0">
-                                  </div>
-                                {% endfor %}
-                              </div>
-                              <button type="submit" class="btn-primary btnCliente">AGREGAR</button>
-                            </form>
-
-                          </div>
+                        <div id="contenedorlateralCliente">
 
                           <div id="newUserMovil">
                             <form name="formulario"  method="post" action="/session/newuser", userController.login>
