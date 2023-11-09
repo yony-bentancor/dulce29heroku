@@ -514,7 +514,7 @@ height: 22px;
 
   #totalClientes {
     display: flex;
-    background-color: #fff;
+    background-color: #cba6a6;
     width: 680px;
     height: 16px;
     font-size: 0.9rem;
@@ -1164,9 +1164,9 @@ text-align: left;
   padding-left: 8px;
 
   text-align: left;
-  width: 340px;
+  width: 640px;
   height: auto;
-  background-color: #fff;
+  background-color: #b48080;
   border-radius: 4px;
   margin-bottom: 10px;
   margin-left: 0px;
@@ -1217,7 +1217,7 @@ position: absolute;
   height: 22px;
   }
   .nuevoPedidoPendiente{
-    background-color: #fff;
+    background-color: #886161;
     margin-bottom: 8px;
     margin-left: 50px;
   
@@ -1225,7 +1225,7 @@ position: absolute;
   
     font-size: 1.1rem;
     padding-top: 2px;
-    width: 300px;
+    width: 640px;
     font-weight: bold;
     height: 22px;
     }
