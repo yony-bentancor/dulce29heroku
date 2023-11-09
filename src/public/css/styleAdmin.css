@@ -514,11 +514,11 @@ height: 22px;
 
   #totalClientes {
     display: flex;
-    background-color: #f1eded;
+    background-color: #fff;
     width: 580px;
     height: 26px;
     font-size: 0.9rem;
-    margin-left: 0px;
+    padding-left: 20px;
 
  /* Establece la dirección de flexión a fila */
     justify-content: space-between; /* Distribuye uniformemente los elementos en la fila */
@@ -744,7 +744,7 @@ height: 20px;
         }
         .pedidoPendientesTotalDatosCantidad{
           color: #000;
-          background-color:  #cd9090;
+          background-color:  #436a8f;
           border: none;
           overflow-wrap: break-word;
           word-wrap: break-word;
@@ -1219,14 +1219,14 @@ position: absolute;
   .nuevoPedidoPendiente{
     background-color: #f3f0f0;
     margin-bottom: 12px;
-    
-    margin-left: 0px;
+
+    margin-left: 8px;
     text-align: center;
     font-size: 1.1rem;
     padding-top: 10px;
-    width: 570px;
+    width: 580px;
     font-weight: bold;
-    height: 34px;
+    height: 30px;
     }
   .nuevoClientetxt{
     background-color: #afafaf3e;
