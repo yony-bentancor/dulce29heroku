@@ -669,7 +669,7 @@ height: 20px;
     }
 
   .pedidoPendientesTotal{
-    background-color: #f9f9f7e8;
+    background-color: #e4e4dfe8;
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-all;
@@ -681,7 +681,7 @@ height: 20px;
     border-radius: 4px;
     font-size: 0.9rem;
     text-align: left;
-    width: 260px;
+    width: 200px;
     height: 20px;
     }
     .pedidoPendientesTotalRB{
@@ -757,9 +757,9 @@ height: 20px;
           display: block;
           border-radius: 4px;
           margin-bottom: 5px;
-          font-size: 1.2rem;
+          font-size: 1.1rem;
           text-align: center;
-          width: 58px;
+          width: 72px;
           height: 20px;
             }
 
@@ -1160,13 +1160,13 @@ text-align: left;
 }
 
 #newPedido {
-  margin-top: 10px; /* Añade espacio entre los dos divs */
+  margin-top: 18px; /* Añade espacio entre los dos divs */
   padding-left: 8px;
 
   text-align: left;
   width: 400px;
   height: 500px;
-  background-color: #f4f5f7;
+  background-color: #fff;
   border-radius: 4px;
   padding-bottom: 10px;
   margin-left: 0px;
