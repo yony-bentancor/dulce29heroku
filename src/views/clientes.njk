@@ -60,7 +60,7 @@
 
         <div class="row nuevoPedidoPendiente">
           <div class="col-12">
-            <strong>    PEDIDO NUEVO</strong>
+            <strong>     NUEVO PEDIDO</strong>
           </div>
         </div>
         <div class="row">
@@ -136,7 +136,15 @@
                                 </div>
                               {% endfor %}
                             </div>
-                            <button type="submit" class="btn-primary formClienteCliente">AGREGAR</button>
+
+                            <div class="row alineadoFormCliente">
+                              <div class="col-6">
+                                <label for="email" class="formClientetxt"></label>
+                              </div>
+                              <div class="col-6">
+                                <button type="submit" class="btn-primary formClienteCliente">AGREGAR</button>
+                              </div>
+                            </div>
                           </form>
 
                         </div>
@@ -160,36 +168,36 @@
 
                             <div class="row alineadoFormCliente">
                               <div class="col-6">
-                                <label for="telefono" class="formClientetxt">TELEFONO</label>
+                                <label for="telefono" class="pedidoPendientesTotal">TELEFONO</label>
                               </div>
                               <div class="col-6">
-                                <input type="text" name="telefono" id="telefono" value="{{telefono}}" class="formClienteCliente" required="true"/>
-                              </div>
-                            </div>
-
-                            <div class="row alineadoFormCliente">
-                              <div class="col-6">
-                                <label for="direccion" class="formClientetxt">DIRECCION</label>
-                              </div>
-                              <div class="col-6">
-                                <input type="text" name="direccion" id="direccion" value="{{direccion}}" class="formClienteCliente" required="true"/>
+                                <input type="text" name="telefono" id="telefono" value="{{telefono}}" class="pedidoPendientesTotalDatosCantidad" required="true"/>
                               </div>
                             </div>
 
                             <div class="row alineadoFormCliente">
                               <div class="col-6">
-                                <label for="email" class="formClientetxt">EMAIL</label>
+                                <label for="direccion" class="pedidoPendientesTotal">DIRECCION</label>
                               </div>
                               <div class="col-6">
-                                <input type="text" name="email" id="email" value="{{email}}" class="formClienteCliente" required="true"/>
+                                <input type="text" name="direccion" id="direccion" value="{{direccion}}" class="pedidoPendientesTotalDatosCantidad" required="true"/>
+                              </div>
+                            </div>
+
+                            <div class="row alineadoFormCliente">
+                              <div class="col-6">
+                                <label for="email" class="pedidoPendientesTotal">EMAIL</label>
+                              </div>
+                              <div class="col-6">
+                                <input type="text" name="email" id="email" value="{{email}}" class="pedidoPendientesTotalDatosCantidad" required="true"/>
                               </div>
                             </div>
                             <div class="row alineadoFormCliente">
                               <div class="col-6">
-                                <label for="email" class="formClientetxt">REPETICION PEDIDO</label>
+                                <label for="email" class="pedidoPendientesTotal">REPETICION PEDIDO</label>
                               </div>
                               <div class="col-6">
-                                <input type="text" name="intervaloRepetición" id="intervaloRepetición" value="{{intervaloRepetición}}" class="formClienteCliente" required="true"/>
+                                <input type="text" name="intervaloRepetición" id="intervaloRepetición" value="{{intervaloRepetición}}" class="pedidoPendientesTotalDatosCantidad" required="true"/>
                               </div>
                             </div>
 
