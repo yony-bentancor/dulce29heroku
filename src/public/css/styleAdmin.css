@@ -375,7 +375,7 @@ margin-left: -8px;
 
   margin-top: 18px; /* Añade espacio entre los dos divs */
   padding-left: 8px;
-
+position: absolute;
   text-align: left;
   width: 400px;
   height: 500px;

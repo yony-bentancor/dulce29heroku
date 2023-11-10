@@ -206,68 +206,69 @@
 
                           <div id="newUserMovil">
                             <form name="formulario"  method="post" action="/session/newuser", userController.login>
-                              <div class="row">
-                                <div class="col-12 nuevoClientetxt">
-                                  <label for="username" >NUEVO CLIENTE</label>
-                                </div>
-
-                              </div>
-
-                              <div class="row alineadoFormCliente">
-                                <div class="col-6">
-                                  <label for="username" class="formClientetxt">NOMBRE</label>
-                                </div>
-                                <div class="col-6">
-                                  <input type="text" name="username" id="username" value="{{username}}" class="formClienteCliente" required="true"/>
+                              <div class="row nuevoPedidoPendiente">
+                                <div class="col-12">
+                                  <strong>     NUEVO CLIENTE</strong>
                                 </div>
                               </div>
 
-                              <div class="row alineadoFormCliente">
-                                <div class="col-6">
-                                  <label for="telefono" class="formClientetxt">TELEFONO</label>
-                                </div>
-                                <div class="col-6">
-                                  <input type="text" name="telefono" id="telefono" value="{{telefono}}" class="formClienteCliente" required="true"/>
-                                </div>
-                              </div>
+                            </div>
 
-                              <div class="row alineadoFormCliente">
-                                <div class="col-6">
-                                  <label for="direccion" class="formClientetxt">DIRECCION</label>
-                                </div>
-                                <div class="col-6">
-                                  <input type="text" name="direccion" id="direccion" value="{{direccion}}" class="formClienteCliente" required="true"/>
-                                </div>
+                            <div class="row alineadoFormCliente">
+                              <div class="col-6">
+                                <label for="username" class="formClientetxt">NOMBRE</label>
                               </div>
+                              <div class="col-6">
+                                <input type="text" name="username" id="username" value="{{username}}" class="formClienteCliente" required="true"/>
+                              </div>
+                            </div>
 
-                              <div class="row alineadoFormCliente">
-                                <div class="col-6">
-                                  <label for="email" class="formClientetxt">EMAIL</label>
-                                </div>
-                                <div class="col-6">
-                                  <input type="text" name="email" id="email" value="{{email}}" class="formClienteCliente" required="true"/>
-                                </div>
+                            <div class="row alineadoFormCliente">
+                              <div class="col-6">
+                                <label for="telefono" class="formClientetxt">TELEFONO</label>
                               </div>
-                              <div class="row alineadoFormCliente">
-                                <div class="col-6">
-                                  <label for="email" class="formClientetxt">REPETICION PEDIDO</label>
-                                </div>
-                                <div class="col-6">
-                                  <input type="text" name="intervaloRepetición" id="intervaloRepetición" value="{{intervaloRepetición}}" class="formClienteCliente" required="true"/>
-                                </div>
+                              <div class="col-6">
+                                <input type="text" name="telefono" id="telefono" value="{{telefono}}" class="formClienteCliente" required="true"/>
                               </div>
+                            </div>
 
-                              <div class="row alineadoFormCliente">
-                                <div class="col-6">
-                                  <label for="email" class="formClientetxt"></label>
-                                </div>
-                                <div class="col-6">
-                                  <button type="submit" name="button" class="btn-primary formClienteCliente">REGISTRAR</button>
-                                </div>
+                            <div class="row alineadoFormCliente">
+                              <div class="col-6">
+                                <label for="direccion" class="formClientetxt">DIRECCION</label>
                               </div>
-                            </form>
+                              <div class="col-6">
+                                <input type="text" name="direccion" id="direccion" value="{{direccion}}" class="formClienteCliente" required="true"/>
+                              </div>
+                            </div>
 
-                            {#  <div id="buscadorRealizados">
+                            <div class="row alineadoFormCliente">
+                              <div class="col-6">
+                                <label for="email" class="formClientetxt">EMAIL</label>
+                              </div>
+                              <div class="col-6">
+                                <input type="text" name="email" id="email" value="{{email}}" class="formClienteCliente" required="true"/>
+                              </div>
+                            </div>
+                            <div class="row alineadoFormCliente">
+                              <div class="col-6">
+                                <label for="email" class="formClientetxt">REPETICION PEDIDO</label>
+                              </div>
+                              <div class="col-6">
+                                <input type="text" name="intervaloRepetición" id="intervaloRepetición" value="{{intervaloRepetición}}" class="formClienteCliente" required="true"/>
+                              </div>
+                            </div>
+
+                            <div class="row alineadoFormCliente">
+                              <div class="col-6">
+                                <label for="email" class="formClientetxt"></label>
+                              </div>
+                              <div class="col-6">
+                                <button type="submit" name="button" class="btn-primary formClienteCliente">REGISTRAR</button>
+                              </div>
+                            </div>
+                          </form>
+
+                          {#  <div id="buscadorRealizados">
                             <div class="row">
                               <div class="col-12 nuevoClientetxt">
                                 <strong>  BUSCAR CLIENTE</strong>
@@ -306,9 +307,9 @@
                             </div>
 
                           </div> #}
-                          </div>
-
                         </div>
-                      </body>
 
-                    {% endblock %}
+                      </div>
+                    </body>
+
+                  {% endblock %}
