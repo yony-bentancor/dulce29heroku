@@ -349,17 +349,17 @@ margin-left: -8px;
  .rowmovilinvisible{
   background-color: #7a6f6fc8;
   margin-bottom: 8px;
-  display: block;
-  margin-top: 1px;
+
+  margin-top: -4px;
   margin-left: 0px;
 margin-right: 1px;
- text-align: center;
+
 color: #fff;
- font-size: 1.2rem;
+ font-size: 1.1rem;
   padding-top: 5px;
   width: 940px;
-  font-weight: bold;
-  height: 28px;
+ 
+  height: 18px;
   
 
  }
