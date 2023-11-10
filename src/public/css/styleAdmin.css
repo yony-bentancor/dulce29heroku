@@ -366,12 +366,10 @@ color: #fff;
  }
 
  .rowmovil{
-  background-color: #e4e4dfe8;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-all;
+  background-color: rgb(213, 214, 219);
+padding-top: 10px;
   border-radius: 4px;
-  margin-top: 10px;
+  margin-top: 15px;
   height: 20px;
 }
 .rowmovilUpdate{
