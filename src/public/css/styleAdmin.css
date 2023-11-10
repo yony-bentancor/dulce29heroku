@@ -371,13 +371,13 @@ margin-left: -8px;
 
  #newUserMovil {
   margin-top: 0px;
-  text-align: right;
-  display: inline-block;
-  width: 290px;
+ float: right;
+ position: absolute;
+  width: 400px;
   z-index: 0;
   height: auto;
   margin-left: 10px;
-  background-color: #c98e8e;
+  background-color: #ebe3e3;
   position: absolute;
   border-radius: 4px;
   margin-bottom: 10px;
