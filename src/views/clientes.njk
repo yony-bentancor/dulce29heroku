@@ -121,14 +121,18 @@
                             <div class="row">
                               {% for producto in productos %}
                                 <div class="col-8">
-                                  <label class="pedidoPendientesTotal">{{ producto.name }}</label>
+                                  <ul >
+                                    <li class="pedidoPendientesTotal">
+                                      <label >{{ producto.name }}</label>
+                                    </li>
+                                  </ul>
                                   <input type="hidden" name="productos[]" value="{{ producto.name }}">
                                   <input type="hidden" name="precios[]" value="{{ producto.precioVenta }}">
                                   <input type="hidden" name="costos[]" value="{{ producto.costoProduccion }}">
                                 </div>
 
                                 <div class="col-4">
-                                  <input type="number" class="rowpedidoEntregadosTotalDatosColor" name="cantidades[]" value="0">
+                                  <input type="number" class="pedidoPendientesTotalDatosCantidad" name="cantidades[]" value="0">
                                 </div>
                               {% endfor %}
                             </div>
