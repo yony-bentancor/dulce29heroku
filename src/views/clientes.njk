@@ -138,10 +138,10 @@
                             </div>
 
                             <div class="row alineadoFormCliente">
-                              <div class="col-6">
+                              <div class="col-8">
                                 <label for="email" class="formClientetxt"></label>
                               </div>
-                              <div class="col-6">
+                              <div class="col-4">
                                 <button type="submit" class="btn-primary formClienteCliente">AGREGAR</button>
                               </div>
                             </div>
@@ -194,7 +194,16 @@
                             </div>
                             <div class="row alineadoFormCliente">
                               <div class="col-6">
-                                <label for="email" class="pedidoPendientesTotal">REPETICION PEDIDO</label>
+                                <label for="email" class="pedidoPendientesTotal">REPETIR PEDIDO </label>
+                              </div>
+                              <div class="col-6">
+                                <input type="text" name="repitePedido" id="repitePedido" value="{{repitePedido}}" class="pedidoPendientesTotalDatosCantidad" required="true"/>
+                              </div>
+                            </div>
+
+                            <div class="row alineadoFormCliente">
+                              <div class="col-6">
+                                <label for="email" class="pedidoPendientesTotal">REPETICION EN DIAS</label>
                               </div>
                               <div class="col-6">
                                 <input type="text" name="intervaloRepetición" id="intervaloRepetición" value="{{intervaloRepetición}}" class="pedidoPendientesTotalDatosCantidad" required="true"/>
