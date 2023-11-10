@@ -349,6 +349,7 @@ margin-left: -8px;
  .rowmovilinvisible{
   background-color: #7a6f6fc8;
   margin-bottom: 8px;
+  padding-bottom: 8px;
 
   margin-top: -4px;
   margin-left: 0px;
@@ -356,7 +357,7 @@ margin-right: 1px;
 
 color: #fff;
  font-size: 1.1rem;
-  padding-top: 5px;
+  padding-top: 8px;
   width: 940px;
  
   height: 18px;
@@ -1247,14 +1248,15 @@ position: absolute;
 
     .tagCliente{
       background-color: #787272c8;
-      margin-bottom: 8px;
+   
       display: block;
       margin-top: 1px;
       margin-left: 0px;
     margin-right: 1px;
      text-align: center;
+     z-index: 1;
     color: #fff;
-     font-size: 1.2rem;
+     font-size: 1.1rem;
       padding-top: 5px;
       width: 940px;
       font-weight: bold;
