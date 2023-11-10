@@ -348,8 +348,8 @@ margin-left: -8px;
 }
  .rowmovilinvisible{
   background-color: #7a6f6fc8;
-  margin-bottom: 8px;
-  padding-bottom: 8px;
+  margin-bottom: 18px;
+  padding-bottom: 18px;
 
   margin-top: -4px;
   margin-left: 0px;
@@ -360,16 +360,17 @@ color: #fff;
   padding-top: 8px;
   width: 940px;
  
-  height: 18px;
+  height: 22px;
   
 
  }
 
  .rowmovil{
-  background-color: rgb(213, 214, 219);
-padding-top: 10px;
+  background-color: #fff;
+padding-top: 5px;
+padding-bottom: 5px;
   border-radius: 4px;
-  margin-top: 15px;
+  margin-top: 8px;
   height: 20px;
 }
 .rowmovilUpdate{
