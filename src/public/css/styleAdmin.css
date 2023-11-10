@@ -259,9 +259,9 @@ margin-left: -8px;
 }
 
 #info-clientes{
-  margin-left: 500px;
-  margin-top: -200px;
-   width: 660px;
+  margin-left: 20px;
+  margin-top: 20px;
+   width: 940px;
    height: auto;
    background-color: #fff;
    position: absolute;
@@ -1234,6 +1234,22 @@ position: absolute;
     font-weight: bold;
     height: 28px;
     }
+
+    .tagCliente{
+      background-color: #787272c8;
+      margin-bottom: 8px;
+      display: block;
+      margin-top: 1px;
+      margin-left: 8px;
+    margin-right: 1px;
+     text-align: center;
+    color: #fff;
+     font-size: 1.2rem;
+      padding-top: 5px;
+      width: 940px;
+      font-weight: bold;
+      height: 28px;
+      }
   .nuevoClientetxt{
     background-color: #afafaf3e;
     margin-bottom: 8px;
