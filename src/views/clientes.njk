@@ -229,6 +229,67 @@
 
                             </div>
 
+                            <div id="info-clientes">
+
+                              <div class="row rowmovilinvisible">
+                                <div class="col-2">
+                                  <strong>NOMBRE</strong>
+                                </div>
+                                <div class="col-2">
+                                  <strong>TELEFONO </strong>
+                                </div>
+                                <div class="col-2">
+                                  <strong>DIRECCION </strong>
+                                </div>
+                                <div class="col-2">
+                                  <strong>EMAIL </strong>
+                                </div>
+                                <div class="col-2">
+                                  <strong>REPITE PEDIDO</strong>
+                                </div>
+                              </div>
+
+                              {% for user in users %}
+
+                                <div class="row rowmovil">
+                                  <div class="col-2">
+                                    {{ user.username }}</div>
+                                  <div class="col-2">
+                                    {{ user.telefono }}</div>
+                                  <div class="col-2">
+                                    {{ user.direccion }}</div>
+                                  <div class="col-3">
+                                    {{ user.email }}
+                                  </div>
+                                  <div class="col-1">
+                                    {% if user.repitePedido %}
+                                      <div class="col-1">
+                                        {{ user.repitePedido }}
+                                      </div>
+                                    {% endif %}
+                                  </div>
+
+                                  <div class="col-1">
+                                    <form method="post" action="/session/updateUser">
+                                      <input type="hidden" name="username" value="{{ user.username }}">
+
+                                      <button type="submit">UPD</button>
+                                    </form>
+
+                                  </div>
+
+                                  <div class="col-1">
+                                    <form name="formulario" method="post" action="/session/deleteuser{{ user.username }}", userController.deleteuser>
+                                      <input type="image" id="image" alt="delete" src="https://dulce29.herokuapp.com/static/img/borrado1.png" onclick="return confirm('¿Estás por eliminar un cliente')">
+                                    </form>
+
+                                  </div>
+
+                                </div>
+                              {% endfor %}
+
+                            </div>
+
                             {#  <div id="buscadorRealizados">
                             <div class="row">
                               <div class="col-12 nuevoClientetxt">
