@@ -194,10 +194,10 @@
                             </div>
                             <div class="row alineadoFormCliente">
                               <div class="col-6">
-                                <label for="email" class="pedidoPendientesTotal">REPETIR PEDIDO </label>
+                                <label for="repitePedido" class="pedidoPendientesTotal">REPETIR PEDIDO</label>
                               </div>
                               <div class="col-6">
-                                <input type="text" name="repitePedido" id="repitePedido" value="{{repitePedido}}" class="pedidoPendientesTotalDatosCantidad" required="true"/>
+                                <input type="checkbox" name="repitePedido" id="repitePedido" {{#if repitePedido}} checked {{/if}}/>
                               </div>
                             </div>
 
