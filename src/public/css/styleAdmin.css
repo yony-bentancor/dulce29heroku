@@ -1131,7 +1131,7 @@ text-align: left;
   height: auto;
 }
 #contenedorlateralCliente {
-  background-color: #fff;
+  background-color: #cc8787;
   float: right;
   display: flex;
   flex-direction: column; /* Alinea los divs verticalmente */
