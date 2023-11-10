@@ -519,10 +519,13 @@ module.exports = {
         contador++;
       }
 
+      const productos = await Producto.find().sort({ Numero_pedido: 1 });
+
       res.render("clientes", {
         usuariosBusqueda,
         contador,
         users,
+        productos,
       });
     } catch (error) {
       res.status(500).json({ error: error.message });
