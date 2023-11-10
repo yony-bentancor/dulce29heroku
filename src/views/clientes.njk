@@ -201,35 +201,35 @@
  #}
                                 <input type="text" id="repitePedido" name="repitePedido" list="repitePedidoList" class="pedidoPendientesTotalDatosCantidad">
                                 <datalist id="repitePedidoList">
-                                  <option value="true">Sí</option>
-                                  <option value="false">No</option>
-                                </datalist>
 
-                              </div>
+                                  <option value="true">
+                                    <option value="false"></datalist>
+
+                                  </div>
+                                </div>
+
+                                <div class="row alineadoFormCliente">
+                                  <div class="col-6">
+                                    <label for="email" class="pedidoPendientesTotal">REPETICION EN DIAS</label>
+                                  </div>
+                                  <div class="col-6">
+                                    <input type="text" name="intervaloRepetición" id="intervaloRepetición" value="{{intervaloRepetición}}" class="pedidoPendientesTotalDatosCantidad" required="true"/>
+                                  </div>
+                                </div>
+
+                                <div class="row alineadoFormCliente">
+                                  <div class="col-6">
+                                    <label for="email" class="formClientetxt"></label>
+                                  </div>
+                                  <div class="col-6">
+                                    <button type="submit" name="button" class="btn-primary formClienteCliente">REGISTRAR</button>
+                                  </div>
+                                </div>
+                              </form>
+
                             </div>
 
-                            <div class="row alineadoFormCliente">
-                              <div class="col-6">
-                                <label for="email" class="pedidoPendientesTotal">REPETICION EN DIAS</label>
-                              </div>
-                              <div class="col-6">
-                                <input type="text" name="intervaloRepetición" id="intervaloRepetición" value="{{intervaloRepetición}}" class="pedidoPendientesTotalDatosCantidad" required="true"/>
-                              </div>
-                            </div>
-
-                            <div class="row alineadoFormCliente">
-                              <div class="col-6">
-                                <label for="email" class="formClientetxt"></label>
-                              </div>
-                              <div class="col-6">
-                                <button type="submit" name="button" class="btn-primary formClienteCliente">REGISTRAR</button>
-                              </div>
-                            </div>
-                          </form>
-
-                        </div>
-
-                        {#  <div id="buscadorRealizados">
+                            {#  <div id="buscadorRealizados">
                             <div class="row">
                               <div class="col-12 nuevoClientetxt">
                                 <strong>  BUSCAR CLIENTE</strong>
@@ -268,7 +268,7 @@
                             </div>
 
                           </div> #}
-                        {# <div id="info-clientes">
+                            {# <div id="info-clientes">
 
         <div class="row rowmovilinvisible">
           <div class="col-2">
@@ -330,7 +330,7 @@
 
               </div> #}
 
-                      </div>
-                    </body>
+                          </div>
+                        </body>
 
-                  {% endblock %}
+                      {% endblock %}
