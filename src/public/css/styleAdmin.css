@@ -259,9 +259,9 @@ margin-left: -8px;
 }
 
 #info-clientes{
-  margin-left: 500px;
-  margin-top: -200px;
-   width: 660px;
+  margin-left: 10px;
+  margin-top: 10px;
+   width: 960px;
    height: auto;
    background-color: #fff;
    position: absolute;
@@ -1230,7 +1230,7 @@ position: absolute;
   color: #fff;
    font-size: 1.2rem;
     padding-top: 5px;
-    width: 440px;
+    width: 940px;
     font-weight: bold;
     height: 28px;
     }
