@@ -197,7 +197,10 @@
                                 <label for="repitePedido" class="pedidoPendientesTotal">REPETIR PEDIDO</label>
                               </div>
                               <div class="col-6">
-                                <input type="checkbox" name="repitePedido" id="repitePedido" {{#if repitePedido}} checked {{/if}}/>
+                                <select name="repitePedido" id="repitePedido" class="pedidoPendientesTotalDatosCantidad" required="true">
+                                  <option value="true" {% if repitePedido == "true" %} selected {% endif %}>Sí</option>
+                                  <option value="false" {% if repitePedido == "false" %} selected {% endif %}>No</option>
+                                </select>
                               </div>
                             </div>
 
