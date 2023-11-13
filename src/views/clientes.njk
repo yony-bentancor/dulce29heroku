@@ -72,6 +72,38 @@
       </div>
     </div>
 
+    <div class="tableroGeneralMovil">
+      <div class="row">
+        <div class="col-12">
+          <label class="tagTotales">TOTAL CLIENTES</label>
+          <label class="azul">
+            {{ contadorUser }}
+          </label>
+        </div>
+        <div class="col-12">
+          <label class="tagTotales">PEDIDOS PENDIENTES</label>
+          <label class="rojo">
+            {{ cantidadPendientes }}
+
+          </label>
+        </div>
+        <div class="col-12">
+          <label class="tagTotales">PEDIDOS REALIZADOS</label>
+          <label class="amarillo">
+            {{ cantidadRealizados }}
+          </label>
+        </div>
+        <div class="col-12">
+          <label class="tagTotales">PEDIDOS ENTREGADOS</label>
+          <label class="verde">
+
+            {{ cantidadEntregados }}
+          </label>
+        </div>
+
+      </div>
+    </div>
+
     {#  admin- usuario          #}
     <div id="contenedor-clientes">
 

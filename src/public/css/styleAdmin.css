@@ -1450,6 +1450,10 @@ position: absolute;
     height: 20px;
   }
 
+  .tableroGeneralMovil{
+    display: none;
+  }
+
   .tagTotales{
     background-color: #e4e4dfe8;
     overflow-wrap: break-word;

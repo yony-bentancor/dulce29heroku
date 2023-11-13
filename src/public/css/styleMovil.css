@@ -529,12 +529,17 @@ margin-left: 46px;
           height: 20px;
           }
         .tableroGeneral{
-          width: 300px;
-          margin-left: 0px;
-          display: block;
-          background-color: #badac7;
+         
+          display: none;
+          
+        }
        
-          height: 80px;
+      
+        .tableroGeneralMovil{
+          width: 300px;
+          margin-left: 10px;
+          display: inline-block;
+          height: 20px;
         }
 
         .azul{
