@@ -93,7 +93,7 @@ a.menu:active {
   margin-top: 0px;
   margin-left: 20px;
   background-color: #b1d3e9;
-  color: #fff;
+  color: #000;
   height: 18px;
   font-size: 1rem;
   border-radius: 4px;
@@ -1390,7 +1390,7 @@ position: absolute;
     }
 
     #info-pedidosUpdate{
-      margin-left: 380px;
+      margin-left: 400px;
       width: 200px;
       height: auto;
       background-color: #ffffff;
