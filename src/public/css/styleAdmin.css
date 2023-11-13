@@ -1393,6 +1393,23 @@ position: absolute;
   height: 20px;
   }
 
+  .tagTotales{
+    background-color: #f9f9f7e8;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    margin-left: 1px;
+    padding-left: 20px;
+    padding-top: 3px;
+    display: block;
+    margin-bottom: 5px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    text-align: left;
+    width: AUTO;
+    height: 20px;
+    }
+
 .formClienteRealizado{
   font-size: 0.9rem;
   display: inline;
