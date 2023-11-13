@@ -618,13 +618,26 @@ margin-left: 15px;
 
 }
 
+.formClienteClientebtn{
+  font-size: 0.9rem;
+  display: inline;
+  width: 100px;
+  margin-top: 8px;
+  margin-left:0px;
+  border: 1px;
+ 
+  height: 20px;
+  border-radius: 2px;
+  background-color: #eceaea;
+}
+
 
 .pedidoPendientesTotal {
   background-color: #d8e7f0e1;
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-all;
-  margin-left: 10px;
+  margin-left: 0px;
   padding-left: 10px;
   padding-top: 5px;
   border-radius: 4px;
