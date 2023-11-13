@@ -1392,6 +1392,10 @@ position: absolute;
   width: 260px;
   height: 20px;
   }
+  .tableroGeneral{
+    width: 800px;
+    height: 20px;
+  }
 
   .tagTotales{
     background-color: #f9f9f7e8;
