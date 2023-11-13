@@ -525,12 +525,12 @@ margin-left: 46px;
           border-radius: 4px;
           font-size: 0.9rem;
           text-align: left;
-          width: 120px;
+          width: 250px;
           height: 20px;
           }
         .tableroGeneral{
           width: 300px;
-          margin-left: 10px;
+          margin-left: 0px;
           display: block;
           background-color: #badac7;
        
