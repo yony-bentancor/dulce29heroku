@@ -40,31 +40,32 @@
       </div>
     </div>
 
-    {#  admin- usuario          #}
-    <div id="contenedor-clientes">
-      <div class="tableroGeneral">
-        <ul class="menu">
-          <li class="tagTotales">TOTAL CLIENTES</li>
-          <li class="azul">
-            {{ contadorUser }}
-          </li>
-          <li class="tagTotales">TOTAL PENDIENTES</li>
-          <li class="rojo">
-            {{ cantidadPendientes }}
-
-          </li>
-          <li class="tagTotales">TOTAL REALIZADOS</li>
-          <li class="amarillo">
-            {{ cantidadRealizados }}
-          </li>
-          <li class="verde">
-          <li class="tagTotales">TOTAL ENTREGADOS</li>
-          {{ cantidadEntregados }}
+    <div class="tableroGeneral">
+      <ul class="menu">
+        <li class="tagTotales">TOTAL CLIENTES</li>
+        <li class="azul">
+          {{ contadorUser }}
         </li>
-        <li></li>
-        <li></li>
-      </ul>
-    </div>
+        <li class="tagTotales">TOTAL PENDIENTES</li>
+        <li class="rojo">
+          {{ cantidadPendientes }}
+
+        </li>
+        <li class="tagTotales">TOTAL REALIZADOS</li>
+        <li class="amarillo">
+          {{ cantidadRealizados }}
+        </li>
+        <li class="verde">
+        <li class="tagTotales">TOTAL ENTREGADOS</li>
+        {{ cantidadEntregados }}
+      </li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+
+  {#  admin- usuario          #}
+  <div id="contenedor-clientes">
 
     {#  <div id="totalClientes">
         <div class="row">

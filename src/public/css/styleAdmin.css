@@ -1394,6 +1394,7 @@ position: absolute;
   }
   .tableroGeneral{
     width: 800px;
+    display: inline-block;
     height: 20px;
   }
 
