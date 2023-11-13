@@ -90,9 +90,10 @@ a.menu:active {
 }
 .formcontrolUpdate{
   width: 120px;
-  margin-top: 3px;
+  margin-top: 0px;
+  margin-left: 20px;
   background-color: #b1d3e9;
-
+  color: #fff;
   height: 18px;
   font-size: 1rem;
   border-radius: 4px;
