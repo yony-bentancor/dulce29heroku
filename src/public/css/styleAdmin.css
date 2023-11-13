@@ -1406,7 +1406,7 @@ position: absolute;
   }
   .tableroGeneral{
     width: 700px;
-    margin-left: 380px;
+    margin-left: 390px;
     display: inline-block;
     height: 20px;
   }
@@ -1417,10 +1417,12 @@ position: absolute;
     word-wrap: break-word;
     word-break: break-all;
     margin-left: 1px;
-    padding-left: 20px;
-    padding-top: 3px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 5px;
+    padding-top: 5px;
     display: inline;
-    margin-bottom: 5px;
+
     border-radius: 4px;
     font-size: 0.9rem;
     text-align: left;
