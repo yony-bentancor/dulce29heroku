@@ -129,6 +129,7 @@ module.exports = {
         direccion: userInfo.direccion,
         email: userInfo.email,
         hash: hash,
+        repitePedido: userInfo.repitePedido,
         intervaloRepetición: userInfo.intervaloRepetición,
       });
 
@@ -137,6 +138,7 @@ module.exports = {
         telefono: newUser.telefono,
         direccion: newUser.direccion,
         email: newUser.email,
+        repitePedido: newUser.repitePedido,
         intervaloRepetición: newUser.intervaloRepetición,
         id: newUser.id,
       };
