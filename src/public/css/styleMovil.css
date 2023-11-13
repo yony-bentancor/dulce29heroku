@@ -525,7 +525,7 @@ margin-left: 46px;
           border-radius: 4px;
           font-size: 0.9rem;
           text-align: left;
-          width: 180px;
+          width: 210px;
           height: 20px;
           }
         .tableroGeneral{
@@ -536,7 +536,7 @@ margin-left: 46px;
        
       
         .tableroGeneralMovil{
-          width: 360px;
+          width: 300px;
           margin-left: 10px;
           display: inline-block;
           background-color: #436a8f;
