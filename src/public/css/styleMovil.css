@@ -536,10 +536,10 @@ margin-left: 46px;
        
       
         .tableroGeneralMovil{
-          width: 300px;
-          margin-left: 10px;
+          width: 280px;
+          margin-left: 20px;
           display: inline-block;
-          background-color: #436a8f;
+          background-color: #fff;
           height: auto;
         }
 
@@ -624,7 +624,7 @@ margin-left: 15px;
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-all;
-  margin-left: 20px;
+  margin-left: 30px;
   padding-left: 10px;
   padding-top: 5px;
   border-radius: 4px;
