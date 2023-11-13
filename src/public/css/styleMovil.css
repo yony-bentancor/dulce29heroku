@@ -539,6 +539,7 @@ margin-left: 46px;
           width: 360px;
           margin-left: 10px;
           display: inline-block;
+          background-color: #436a8f;
           height: auto;
         }
 
@@ -547,7 +548,7 @@ margin-left: 46px;
           font-weight: 700;
           width: 18px;
           color: #000;
-          padding-left: 14px;
+       
           padding-top: 5px;
           background-color: #7da0c2;
         
