@@ -368,12 +368,13 @@ color: #7a6f6fc8;
  }
 
  .rowmovil{
-  background-color: #fff;
+  font-size: 1rem;
+/*   background-color: #fff;
 padding-top: 5px;
 padding-bottom: 5px;
   border-radius: 4px;
   margin-top: 8px;
-  height: 20px;
+  height: 20px; */
 }
 .rowmovilUpdate{
   background-color: #ffffff;
