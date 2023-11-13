@@ -1406,7 +1406,7 @@ position: absolute;
     margin-left: 1px;
     padding-left: 20px;
     padding-top: 3px;
-    display: block;
+    display: inline;
     margin-bottom: 5px;
     border-radius: 4px;
     font-size: 0.9rem;
