@@ -359,7 +359,7 @@ margin-right: 1px;
 color: #fff;
  font-size: 1.1rem;
   padding-top: 8px;
-  width: 940px;
+  width: auto;
  
   height: 22px;
   
@@ -1263,7 +1263,7 @@ position: absolute;
     color: #fff;
      font-size: 1.1rem;
       padding-top: 5px;
-      width: 940px;
+      width: auto;
       font-weight: bold;
       height: 28px;
       }
