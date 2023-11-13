@@ -1405,14 +1405,14 @@ position: absolute;
   height: 20px;
   }
   .tableroGeneral{
-    width: 800px;
-    margin-left: 280px;
+    width: 700px;
+    margin-left: 380px;
     display: inline-block;
     height: 20px;
   }
 
   .tagTotales{
-    background-color: #f9f9f7e8;
+    background-color: #e4e4dfe8;
     overflow-wrap: break-word;
     word-wrap: break-word;
     word-break: break-all;
