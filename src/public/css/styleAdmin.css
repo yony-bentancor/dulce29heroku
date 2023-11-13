@@ -429,7 +429,7 @@ height: 22px;
     display: inline;
     width: 100px;
     margin-top: 8px;
-    margin-left:26px;
+    margin-left:25px;
     border: 1px;
    
     height: 20px;
@@ -1375,7 +1375,7 @@ position: absolute;
 
     #info-pedidosUpdate{
       margin-left: 380px;
-      width: 400px;
+      width: 200px;
       height: auto;
       background-color: #ffffff;
       position: absolute;
