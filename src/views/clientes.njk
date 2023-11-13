@@ -55,19 +55,19 @@
         <li class="amarillo">
           {{ cantidadRealizados }}
         </li>
-        <li class="verde">
         <li class="tagTotales">TOTAL ENTREGADOS</li>
-        {{ cantidadEntregados }}
-      </li>
-      <li></li>
-      <li></li>
-    </ul>
-  </div>
+        <li class="verde">
 
-  {#  admin- usuario          #}
-  <div id="contenedor-clientes">
+          {{ cantidadEntregados }}
+        </li>
 
-    {#  <div id="totalClientes">
+      </ul>
+    </div>
+
+    {#  admin- usuario          #}
+    <div id="contenedor-clientes">
+
+      {#  <div id="totalClientes">
         <div class="row">
           <div class="col-1 azul">{{ contadorUser }}</div>
           <div class="col-2">CLIENTES</div>
@@ -82,246 +82,246 @@
           <div class="col-2">PEDIDOS ENTREGADOS</div>
         </div>
       </div> #}
-    <div id="newPedido">
+      <div id="newPedido">
 
-      <div class="row nuevoPedidoPendiente">
-        <div class="col-12">
-          <strong>     NUEVO PEDIDO</strong>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12"></div>
-      </div>
-
-      <div class="row">
-        <div class="col-8">
-          <ul >
-            <li class="pedidoPendientesTotal">CLIENTE</li>
-          </ul>
-        </div>
-        <div class="col-4">
-          <form action="/session/newpedido" method="POST">
-            <input class="pedidoPendientesTotalDatosCantidad" list="browsers" name="browser" id="browser">
-            <datalist id="browsers">
-              {% for user in users %}
-                <option type="text" name="username"  id="username" value="{{user.username}}">
-
-                {% endfor %}
-              </datalist>
-            </div>
+        <div class="row nuevoPedidoPendiente">
+          <div class="col-12">
+            <strong>     NUEVO PEDIDO</strong>
           </div>
+        </div>
+        <div class="row">
+          <div class="col-12"></div>
+        </div>
 
-          <div class="row">
-            <div class="col-8">
-              <ul >
-                <li class="pedidoPendientesTotal">PAGO</li>
-              </ul>
+        <div class="row">
+          <div class="col-8">
+            <ul >
+              <li class="pedidoPendientesTotal">CLIENTE</li>
+            </ul>
+          </div>
+          <div class="col-4">
+            <form action="/session/newpedido" method="POST">
+              <input class="pedidoPendientesTotalDatosCantidad" list="browsers" name="browser" id="browser">
+              <datalist id="browsers">
+                {% for user in users %}
+                  <option type="text" name="username"  id="username" value="{{user.username}}">
+
+                  {% endfor %}
+                </datalist>
+              </div>
             </div>
 
-            <div class="col-4">
-              <input type="text" id="Pago" name="Pago" list="opcionesPago"  class="pedidoPendientesTotalDatosCantidad">
-              <datalist id="opcionesPago">
-                <option value="Efectivo">
-                  <option value="Transferencia"></datalist>
-                </div>
+            <div class="row">
+              <div class="col-8">
+                <ul >
+                  <li class="pedidoPendientesTotal">PAGO</li>
+                </ul>
               </div>
 
-              <div class="row">
-                <div class="col-8">
-                  <ul >
-                    <li class="pedidoPendientesTotal">DESCUENTO</li>
-                  </ul>
+              <div class="col-4">
+                <input type="text" id="Pago" name="Pago" list="opcionesPago"  class="pedidoPendientesTotalDatosCantidad">
+                <datalist id="opcionesPago">
+                  <option value="Efectivo">
+                    <option value="Transferencia"></datalist>
+                  </div>
                 </div>
-                <div class="col-4">
-                  <input type="text" id="Descuento" name="Descuento" list="opcionesDescuento" class="pedidoPendientesTotalDatosCantidad">
-                  <datalist id="opcionesDescuento">
-                    <option value="0">
-                      <option value="5">
-                        <option value="10">
-                          <option value="15">
-                            <option value="25">
-                              <option value="100"></datalist>
-                            </div>
-                          </div>
 
-                          <div class="row">
-                            {% for producto in productos %}
+                <div class="row">
+                  <div class="col-8">
+                    <ul >
+                      <li class="pedidoPendientesTotal">DESCUENTO</li>
+                    </ul>
+                  </div>
+                  <div class="col-4">
+                    <input type="text" id="Descuento" name="Descuento" list="opcionesDescuento" class="pedidoPendientesTotalDatosCantidad">
+                    <datalist id="opcionesDescuento">
+                      <option value="0">
+                        <option value="5">
+                          <option value="10">
+                            <option value="15">
+                              <option value="25">
+                                <option value="100"></datalist>
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              {% for producto in productos %}
+                                <div class="col-8">
+                                  <ul >
+                                    <li class="pedidoPendientesTotal">
+                                      <label >{{ producto.name }}</label>
+                                    </li>
+                                  </ul>
+                                  <input type="hidden" name="productos[]" value="{{ producto.name }}">
+                                  <input type="hidden" name="precios[]" value="{{ producto.precioVenta }}">
+                                  <input type="hidden" name="costos[]" value="{{ producto.costoProduccion }}">
+                                </div>
+
+                                <div class="col-4">
+                                  <input type="number" class="pedidoPendientesTotalDatosCantidad" name="cantidades[]" value="0">
+                                </div>
+                              {% endfor %}
+                            </div>
+
+                            <div class="row alineadoFormCliente">
                               <div class="col-8">
-                                <ul >
-                                  <li class="pedidoPendientesTotal">
-                                    <label >{{ producto.name }}</label>
-                                  </li>
-                                </ul>
-                                <input type="hidden" name="productos[]" value="{{ producto.name }}">
-                                <input type="hidden" name="precios[]" value="{{ producto.precioVenta }}">
-                                <input type="hidden" name="costos[]" value="{{ producto.costoProduccion }}">
+                                <label for="email" class="formClientetxt"></label>
                               </div>
-
                               <div class="col-4">
-                                <input type="number" class="pedidoPendientesTotalDatosCantidad" name="cantidades[]" value="0">
+                                <button type="submit" class="btn-primary pedidoPendientesTotalDatosCantidad">REALIZAR</button>
                               </div>
-                            {% endfor %}
-                          </div>
-
-                          <div class="row alineadoFormCliente">
-                            <div class="col-8">
-                              <label for="email" class="formClientetxt"></label>
                             </div>
-                            <div class="col-4">
-                              <button type="submit" class="btn-primary pedidoPendientesTotalDatosCantidad">REALIZAR</button>
-                            </div>
-                          </div>
-                        </form>
+                          </form>
 
-                      </div>
+                        </div>
 
-                      <div id="newUserMovil">
-                        <form name="formulario"  method="post" action="/session/newuser", userController.login>
-                          <div class="row tagCliente">
-                            <div class="col-12">
-                              <strong>     NUEVO CLIENTE</strong>
-                            </div>
-                          </div>
-
-                          <div class="row alineadoFormCliente">
-                            <div class="col-6">
-                              <label for="username" class="pedidoPendientesTotal">NOMBRE</label>
-                            </div>
-                            <div class="col-6">
-                              <input type="text" name="username" id="username" value="{{username}}" class="pedidoPendientesTotalDatosCantidad" required="true"/>
-                            </div>
-                          </div>
-
-                          <div class="row alineadoFormCliente">
-                            <div class="col-6">
-                              <label for="telefono" class="pedidoPendientesTotal">TELEFONO</label>
-                            </div>
-                            <div class="col-6">
-                              <input type="text" name="telefono" id="telefono" value="{{telefono}}" class="pedidoPendientesTotalDatosCantidad" required="true"/>
-                            </div>
-                          </div>
-
-                          <div class="row alineadoFormCliente">
-                            <div class="col-6">
-                              <label for="direccion" class="pedidoPendientesTotal">DIRECCION</label>
-                            </div>
-                            <div class="col-6">
-                              <input type="text" name="direccion" id="direccion" value="{{direccion}}" class="pedidoPendientesTotalDatosCantidad" required="true"/>
-                            </div>
-                          </div>
-
-                          <div class="row alineadoFormCliente">
-                            <div class="col-6">
-                              <label for="email" class="pedidoPendientesTotal">EMAIL</label>
-                            </div>
-                            <div class="col-6">
-                              <input type="text" name="email" id="email" value="{{email}}" class="pedidoPendientesTotalDatosCantidad" required="true"/>
-                            </div>
-                          </div>
-                          <div class="row alineadoFormCliente">
-                            <div class="col-6">
-                              <label for="email" class="pedidoPendientesTotal">REPETIR PEDIDO </label>
-                            </div>
-                            <div class="col-6">
-                              {#                                 <input type="text" name="repitePedido" id="repitePedido" value="{{repitePedido}}" class="pedidoPendientesTotalDatosCantidad" required="true"/>
- #}
-                              <input type="text" id="repitePedido" name="repitePedido" list="repitePedidoList" class="pedidoPendientesTotalDatosCantidad">
-                              <datalist id="repitePedidoList">
-
-                                <option value="true">
-                                  <option value="false"></datalist>
-
-                                </div>
-                              </div>
-
-                              <div class="row alineadoFormCliente">
-                                <div class="col-6">
-                                  <label for="email" class="pedidoPendientesTotal">REPETICION EN DIAS</label>
-                                </div>
-                                <div class="col-6">
-                                  <input type="text" name="intervaloRepetición" id="intervaloRepetición" value="{{intervaloRepetición}}" class="pedidoPendientesTotalDatosCantidad" required="true"/>
-                                </div>
-                              </div>
-
-                              <div class="row alineadoFormCliente">
-                                <div class="col-6">
-                                  <label for="email" class="formClientetxt"></label>
-                                </div>
-                                <div class="col-6">
-                                  <button type="submit" name="button" class="btn-primary formClienteCliente">REGISTRAR</button>
-                                </div>
-                              </div>
-                            </form>
-
-                          </div>
-
-                          <div id="info-clientes">
+                        <div id="newUserMovil">
+                          <form name="formulario"  method="post" action="/session/newuser", userController.login>
                             <div class="row tagCliente">
                               <div class="col-12">
-                                <strong>CLIENTES</strong>
+                                <strong>     NUEVO CLIENTE</strong>
                               </div>
                             </div>
 
-                            <div class="row rowmovilinvisible">
-                              <div class="col-2">
-                                <strong>NOMBRE</strong>
+                            <div class="row alineadoFormCliente">
+                              <div class="col-6">
+                                <label for="username" class="pedidoPendientesTotal">NOMBRE</label>
                               </div>
-                              <div class="col-2">
-                                <strong>TELEFONO </strong>
-                              </div>
-                              <div class="col-2">
-                                <strong>DIRECCION </strong>
-                              </div>
-                              <div class="col-2">
-                                <strong>EMAIL </strong>
-                              </div>
-                              <div class="col-4">
-                                <strong>REPITE PEDIDO</strong>
+                              <div class="col-6">
+                                <input type="text" name="username" id="username" value="{{username}}" class="pedidoPendientesTotalDatosCantidad" required="true"/>
                               </div>
                             </div>
 
-                            {% for user in users %}
-
-                              <div class="row rowmovil">
-                                <div class="col-2">
-                                  {{ user.username }}</div>
-                                <div class="col-2">
-                                  {{ user.telefono }}</div>
-                                <div class="col-2">
-                                  {{ user.direccion }}</div>
-                                <div class="col-3">
-                                  {{ user.email }}
-                                </div>
-                                <div class="col-1">
-                                  {% if user.repitePedido %}
-                                    <div class="col-1">
-                                      {{ user.repitePedido }}
-                                    </div>
-                                  {% endif %}
-                                </div>
-
-                                <div class="col-1">
-                                  <form method="post" action="/session/updateUser">
-                                    <input type="hidden" name="username" value="{{ user.username }}">
-
-                                    <button type="submit">UPD</button>
-                                  </form>
-
-                                </div>
-
-                                <div class="col-1">
-                                  <form name="formulario" method="post" action="/session/deleteuser{{ user.username }}", userController.deleteuser>
-                                    <input type="image" id="image" alt="delete" src="https://dulce29.herokuapp.com/static/img/borrado1.png" onclick="return confirm('¿Estás por eliminar un cliente')">
-                                  </form>
-
-                                </div>
-
+                            <div class="row alineadoFormCliente">
+                              <div class="col-6">
+                                <label for="telefono" class="pedidoPendientesTotal">TELEFONO</label>
                               </div>
-                            {% endfor %}
+                              <div class="col-6">
+                                <input type="text" name="telefono" id="telefono" value="{{telefono}}" class="pedidoPendientesTotalDatosCantidad" required="true"/>
+                              </div>
+                            </div>
 
-                          </div>
+                            <div class="row alineadoFormCliente">
+                              <div class="col-6">
+                                <label for="direccion" class="pedidoPendientesTotal">DIRECCION</label>
+                              </div>
+                              <div class="col-6">
+                                <input type="text" name="direccion" id="direccion" value="{{direccion}}" class="pedidoPendientesTotalDatosCantidad" required="true"/>
+                              </div>
+                            </div>
 
-                          {#  <div id="buscadorRealizados">
+                            <div class="row alineadoFormCliente">
+                              <div class="col-6">
+                                <label for="email" class="pedidoPendientesTotal">EMAIL</label>
+                              </div>
+                              <div class="col-6">
+                                <input type="text" name="email" id="email" value="{{email}}" class="pedidoPendientesTotalDatosCantidad" required="true"/>
+                              </div>
+                            </div>
+                            <div class="row alineadoFormCliente">
+                              <div class="col-6">
+                                <label for="email" class="pedidoPendientesTotal">REPETIR PEDIDO </label>
+                              </div>
+                              <div class="col-6">
+                                {#                                 <input type="text" name="repitePedido" id="repitePedido" value="{{repitePedido}}" class="pedidoPendientesTotalDatosCantidad" required="true"/>
+ #}
+                                <input type="text" id="repitePedido" name="repitePedido" list="repitePedidoList" class="pedidoPendientesTotalDatosCantidad">
+                                <datalist id="repitePedidoList">
+
+                                  <option value="true">
+                                    <option value="false"></datalist>
+
+                                  </div>
+                                </div>
+
+                                <div class="row alineadoFormCliente">
+                                  <div class="col-6">
+                                    <label for="email" class="pedidoPendientesTotal">REPETICION EN DIAS</label>
+                                  </div>
+                                  <div class="col-6">
+                                    <input type="text" name="intervaloRepetición" id="intervaloRepetición" value="{{intervaloRepetición}}" class="pedidoPendientesTotalDatosCantidad" required="true"/>
+                                  </div>
+                                </div>
+
+                                <div class="row alineadoFormCliente">
+                                  <div class="col-6">
+                                    <label for="email" class="formClientetxt"></label>
+                                  </div>
+                                  <div class="col-6">
+                                    <button type="submit" name="button" class="btn-primary formClienteCliente">REGISTRAR</button>
+                                  </div>
+                                </div>
+                              </form>
+
+                            </div>
+
+                            <div id="info-clientes">
+                              <div class="row tagCliente">
+                                <div class="col-12">
+                                  <strong>CLIENTES</strong>
+                                </div>
+                              </div>
+
+                              <div class="row rowmovilinvisible">
+                                <div class="col-2">
+                                  <strong>NOMBRE</strong>
+                                </div>
+                                <div class="col-2">
+                                  <strong>TELEFONO </strong>
+                                </div>
+                                <div class="col-2">
+                                  <strong>DIRECCION </strong>
+                                </div>
+                                <div class="col-2">
+                                  <strong>EMAIL </strong>
+                                </div>
+                                <div class="col-4">
+                                  <strong>REPITE PEDIDO</strong>
+                                </div>
+                              </div>
+
+                              {% for user in users %}
+
+                                <div class="row rowmovil">
+                                  <div class="col-2">
+                                    {{ user.username }}</div>
+                                  <div class="col-2">
+                                    {{ user.telefono }}</div>
+                                  <div class="col-2">
+                                    {{ user.direccion }}</div>
+                                  <div class="col-3">
+                                    {{ user.email }}
+                                  </div>
+                                  <div class="col-1">
+                                    {% if user.repitePedido %}
+                                      <div class="col-1">
+                                        {{ user.repitePedido }}
+                                      </div>
+                                    {% endif %}
+                                  </div>
+
+                                  <div class="col-1">
+                                    <form method="post" action="/session/updateUser">
+                                      <input type="hidden" name="username" value="{{ user.username }}">
+
+                                      <button type="submit">UPD</button>
+                                    </form>
+
+                                  </div>
+
+                                  <div class="col-1">
+                                    <form name="formulario" method="post" action="/session/deleteuser{{ user.username }}", userController.deleteuser>
+                                      <input type="image" id="image" alt="delete" src="https://dulce29.herokuapp.com/static/img/borrado1.png" onclick="return confirm('¿Estás por eliminar un cliente')">
+                                    </form>
+
+                                  </div>
+
+                                </div>
+                              {% endfor %}
+
+                            </div>
+
+                            {#  <div id="buscadorRealizados">
                             <div class="row">
                               <div class="col-12 nuevoClientetxt">
                                 <strong>  BUSCAR CLIENTE</strong>
@@ -360,7 +360,7 @@
                             </div>
 
                           </div> #}
-                          {# <div id="info-clientes">
+                            {# <div id="info-clientes">
 
         <div class="row rowmovilinvisible">
           <div class="col-2">
@@ -422,7 +422,7 @@
 
               </div> #}
 
-                        </div>
-                      </body>
+                          </div>
+                        </body>
 
-                    {% endblock %}
+                      {% endblock %}
