@@ -511,6 +511,13 @@ margin-left: 46px;
           border-radius: 4px; 
           
         }
+        .tableroGeneral{
+          width: 300px;
+          margin-left: 10px;
+          display: inline-block;
+       
+          height: 20px;
+        }
 
         .azul{
           font-size: 0.9rem;
