@@ -510,13 +510,31 @@ margin-left: 46px;
           height: 20px;
           border-radius: 4px; 
           
-        }
+        } 
+        .tagTotales{
+          background-color: #e4e4dfe8;
+          overflow-wrap: break-word;
+          word-wrap: break-word;
+          word-break: break-all;
+          margin-left: 1px;
+          padding-left: 10px;
+          padding-right: 10px;
+          padding-bottom: 5px;
+          padding-top: 5px;
+          display: block;
+          border-radius: 4px;
+          font-size: 0.9rem;
+          text-align: left;
+          width: 120px;
+          height: 20px;
+          }
         .tableroGeneral{
           width: 300px;
           margin-left: 10px;
           display: block;
+          background-color: #badac7;
        
-          height: 20px;
+          height: 80px;
         }
 
         .azul{
