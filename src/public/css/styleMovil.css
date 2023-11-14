@@ -645,7 +645,21 @@ margin-left: 15px;
   background-color: #d8e7f0e1;
   word-wrap: break-word;
   word-break: break-all;
-  margin-left: 20px;
+  margin-left: 10px;
+  padding-left: 20px;
+  padding-top: 5px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+ 
+  text-align: left;
+  width: 210px;
+  height: 24px;
+}
+.pedidoPendientesTotalNU {
+  background-color: #d8e7f0e1;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-left: 40px;
   padding-left: 20px;
   padding-top: 5px;
   border-radius: 4px;
