@@ -187,7 +187,7 @@
                     </div>
 
                   </div>
-                  <div id="box6DEL" class="{{ pedido.Estado }}">
+                  <div id="box6" class="{{ pedido.Estado }}">
                     <div class="row">
                       <div class="col-12">
                         PAGO {{ pedido.Pago }}
@@ -202,9 +202,9 @@
 
                       </div>
                       <div class="col-12">
-                        {#   {{ pedido.Descuento }}% OFF ||  #}PRECIO FINAL{{ pedido.Monto_total * (1 - pedido.Descuento / 100) }}
+                        {#   {{ pedido.Descuento }}% OFF ||  #}{{ pedido.Monto_total * (1 - pedido.Descuento / 100) }} PRECIO FINAL
 
-                      </div>
+                                      </div>
 
                     </div>
                   </div>
