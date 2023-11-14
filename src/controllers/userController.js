@@ -327,6 +327,47 @@ module.exports = {
           );
           return { ...pedido.toObject(), fechaFormateada };
         });
+        let contador = 0;
+        for (let i = 0; i < pedidos.length; i++) {
+          contador++;
+        }
+
+        const pedidosRealizados = await Pedido.find({
+          Estado: { $nin: ["Pendiente", "Entregado", "Cobrado"] },
+        });
+
+        // Objeto para almacenar los productos y sus cantidades
+        const productosCantidad = {};
+
+        for (let i = 0; i < pedidosRealizados.length; i++) {
+          const productos = pedidosRealizados[i].productos;
+
+          for (const [key, value] of Object.entries(productos)) {
+            const nombreProducto = value.nombre; // Suponemos que el nombre del producto está en la propiedad "nombre"
+            const cantidad = value.cantidad;
+
+            if (!productosCantidad[nombreProducto]) {
+              productosCantidad[nombreProducto] = cantidad;
+            } else {
+              productosCantidad[nombreProducto] += cantidad;
+            }
+          }
+        }
+
+        // Crear un array para almacenar los mensajes a mostrar en la plantilla
+        const mensajesNombre = [];
+        const mensajes = [];
+
+        // Agregar mensajes al array
+        for (const nombreProducto in productosCantidad) {
+          const cantidadProducto = productosCantidad[nombreProducto];
+          mensajes.push({ nombre: nombreProducto, cantidad: cantidadProducto });
+        }
+        mensajes.sort((a, b) => b.cantidad - a.cantidad);
+
+        const users = await User.find().sort({
+          username: 1,
+        });
 
         const productos = await Producto.find().sort({ Numero_pedido: 1 });
 
@@ -336,6 +377,10 @@ module.exports = {
           // Resto de los datos relacionados con "delivery"...
           productos,
           pedidos: pedidosFormateados,
+
+          contador,
+          pedidosRealizados,
+          mensajes,
         });
       }
 
