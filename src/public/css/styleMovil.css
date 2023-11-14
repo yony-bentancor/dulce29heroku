@@ -1340,6 +1340,10 @@ font-size: 1rem;
   padding-top: 4px;
 
 } 
+
+.center-text {
+  text-align: center;
+}
 #box6DEL{
 
   width: 312px;
