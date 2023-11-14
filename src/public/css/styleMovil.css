@@ -36,14 +36,13 @@
 @media screen and (max-width : 600px) {
   #contenedor-clientes {
     width: 100%; /* Ancho completo de la pantalla */
-    height: 900px; /* Altura automática según el contenido */
+    height: auto; /* Altura automática según el contenido */
     background-color: #fff;
     position: relative; /* No lo coloques de manera absoluta */
     padding: 0; /* Elimina el relleno */
     margin: -30px;
     margin-top: 20px;
     margin-right: -10px; /* Elimina los márgenes */
-    overflow: auto; /* Agrega barras de desplazamiento si es necesario en dispositivos móviles */
   }
 
   
@@ -337,6 +336,10 @@
     font-weight: bold;
     height: 22px;
     }
+    .alineadoFormCliente{
+      text-align: left;
+      padding-left: 26px;
+    }
 
   #newUserMovil {
     margin-top: 50px;
@@ -344,8 +347,8 @@
     padding-left: 14px;
     padding-right: 8px;
     width: 330px;
-    height: 260;
-    margin-left: 50px;
+    height: auto;
+    margin-left: 20px;
     background-color: #fff;
     position: relative;
     margin-bottom: 10px;
@@ -544,9 +547,9 @@ margin-left: 46px;
         }
 
         .azul{
-          font-size: 0.9rem;
+          font-size: 1.1rem;
           font-weight: 700;
-          width: 18px;
+          width: 25px;
           color: #000;
        
           padding-top: 5px;
@@ -555,26 +558,26 @@ margin-left: 46px;
           
          }
         .amarillo{
-          width: 18px;
+          width: 25px;
           background-color: #eae74b;
-          font-size: 0.9rem;
+         
           font-weight: 700;
           color: #000;
           padding-top: 5px;
           
          }
          .rojo{
-          width: 18px;
+          width: 25px;
           background-color: #db7e7e;
-          font-size: 0.9rem;
+          font-size: 1.1rem;
           font-weight: 700;
           color: #000;
           padding-top: 5px;
          }
          .verde{
-          width: 18px;
+          width: 25px;
           background-color: #74cb97;
-          font-size: 0.9rem;
+          font-size: 1.1rem;
           font-weight: 700;
           color: #000;
           padding-top: 5px;
@@ -634,7 +637,6 @@ margin-left: 15px;
 
 .pedidoPendientesTotal {
   background-color: #d8e7f0e1;
-  overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-all;
   margin-left: 0px;
@@ -691,8 +693,7 @@ padding-left: 2px;
 padding-right: 6px;
 padding-bottom: 4px;
 border-radius: 4px;
-font-size: 1.3rem;
-font-weight: bold;
+font-size: 1rem;
 text-align: right;
 width: 40px;
 height: 24px;
