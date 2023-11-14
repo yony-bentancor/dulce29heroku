@@ -148,94 +148,90 @@
                 </div>
                 <div id="box4">
                   <div class="row boxTxtCliente">
+                    <div class="col-12">
+                     CLIENTE ||  {{ pedido.username }}
 
-                    <div class="row boxTxtCliente">
-                      <div class="col-12">
-                        {{ pedido.username }} || {{pedido.Mes }}
-
-                      </div>
                     </div>
                   </div>
+                </div>
 
-                  <div id="boxunodos">
-                    <div id="box1">
-                      <div class="row">
+                <div id="boxunodos">
+                  <div id="box1">
+                    <div class="row">
 
-                        {% for producto in pedido.productos %}
-                          {% if producto.cantidad != 0 %}
-                            <div class="col-12">
-
-                              {{ producto.nombre }}
-                            </div>
-                          {% endif %}
-                        {% endfor %}
-
-                      </div>
-                    </div>
-
-                    <div id="box2">
-                      <div class="row">
-                        {% for producto in pedido.productos %}
-
+                      {% for producto in pedido.productos %}
+                        {% if producto.cantidad != 0 %}
                           <div class="col-12">
 
-                            {{ producto.cantidad }}
-
+                            {{ producto.nombre }}
                           </div>
-                        {% endfor %}
-                      </div>
+                        {% endif %}
+                      {% endfor %}
+
                     </div>
-
                   </div>
-                  <div id="box6DEL" class="{{ pedido.Estado }}">
+
+                  <div id="box2">
                     <div class="row">
-                      <div class="col-12">
-                        PAGO {{ pedido.Pago }}
+                      {% for producto in pedido.productos %}
 
-                      </div>
-                      <div class="col-12">
-                        DIRECCION  {{ pedido.direccion }}
+                        <div class="col-12">
 
-                      </div>
-                      <div class="col-12">
-                     CELULAR {{ pedido.telefono }}
+                          {{ producto.cantidad }}
 
-                      </div>
-                      <div class="col-12">
-                        {#   {{ pedido.Descuento }}% OFF ||  #}{{ pedido.Monto_total * (1 - pedido.Descuento / 100) }} PRECIO FINAL
+                        </div>
+                      {% endfor %}
+                    </div>
+                  </div>
+
+                </div>
+                <div id="box6" class="{{ pedido.Estado }}">
+                  <div class="row">
+                    <div class="col-12">
+                      PAGO: {{ pedido.Pago }}
+
+                    </div>
+                    <div class="col-12">
+                                       COSTO  {{ pedido.direccion }} || {{ pedido.telefono }} TOTAL 
+
+                                      </div>
+                    <div class="col-12">
+                      {{ pedido.Monto_total * (1 - pedido.Descuento / 100) }} PRECIO FINAL
 
                                       </div>
 
-                    </div>
                   </div>
+                </div>
 
-                  {#  <div id="box5">
+                <div id="box5">
                   <div class="row boxTxtCliente">
                     <div class="col-6">
-                      <form method="post" action="/session/updatepedido">
+                      {# <form method="post" action="/session/updatepedido">
                         <input type="hidden" name="Numero_pedido" value="{{ pedido.Numero_pedido }}" >
 
                         <button type="submit">UPD</button>
-                      </form>
+                      </form> #}
+                      FECHA:
                     </div>
 
                     <div class="col-6 boxTxtCliente">
-                      <form name="formulario" method="post" action="/session/deletepedido{{ pedido.Numero_pedido}}", pedidoController.deletePedido>
+                      {{pedido.fechaFormateada }}
+                      {#    <form name="formulario" method="post" action="/session/deletepedido{{ pedido.Numero_pedido}}", pedidoController.deletePedido>
                         <input type="image" id="image" alt="delete" src="https://dulce29.herokuapp.com/static/img/borrado1.png" onclick="return confirm('¿Estás por eliminar un pedido?')">
-                      </form>
+                      </form> #}
                     </div>
                   </div>
-                </div> #}
-
                 </div>
-              </div>
-            {% endfor %}
 
-          </div>
+              </div>
+            </div>
+          {% endfor %}
 
         </div>
+
       </div>
+    </div>
 
-    </body>
+  </body>
 
-  {% endblock %}
+{% endblock %}
