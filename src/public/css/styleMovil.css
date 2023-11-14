@@ -40,6 +40,7 @@
     background-color: #fff;
     position: relative; /* No lo coloques de manera absoluta */
     padding: 0; /* Elimina el relleno */
+    padding-bottom: 30px;
     margin: -30px;
     margin-top: 20px;
     margin-right: -10px; /* Elimina los márgenes */
@@ -529,7 +530,7 @@ margin-left: 46px;
           font-size: 0.9rem;
           text-align: left;
           width: 210px;
-          height: 20px;
+          height: 25px;
           }
         .tableroGeneral{
          
