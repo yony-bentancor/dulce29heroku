@@ -278,7 +278,32 @@ module.exports = {
       if (userRes.username === "Natalia") {
         const token = jwt.sign(userRes, CLAVE_SECRETA);
         const users = await User.find().sort({ username: 1 });
-        return res.render("clientes", { users });
+        // Nuevo código para el caso de usuario "Natalia"
+        try {
+          const cantidadPendientes = await Pedido.countDocuments({
+            Estado: "Pendiente",
+          });
+          const cantidadRealizados = await Pedido.countDocuments({
+            Estado: "Realizado",
+          });
+          const cantidadEntregados = await Pedido.countDocuments({
+            Estado: "Entregado",
+          });
+
+          const contadorUser = users.length;
+          const productos = await Producto.find().sort({ Numero_pedido: 1 });
+
+          return res.render("clientes", {
+            users,
+            cantidadPendientes,
+            cantidadRealizados,
+            cantidadEntregados,
+            contadorUser,
+            productos,
+          });
+        } catch (error) {
+          return res.status(500).json({ error: error.message });
+        }
       }
 
       if (userRes.username === "delivery") {
