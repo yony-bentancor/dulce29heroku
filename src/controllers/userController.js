@@ -329,7 +329,7 @@ module.exports = {
           pedidos,
           // Resto de los datos relacionados con "delivery"...
           productos,
-          fechaFormateada,
+          pedidos: pedidosFormateados,
         });
       }
 
