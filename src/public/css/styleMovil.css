@@ -736,6 +736,24 @@ width: 60px;
 height: 24px;
 }
 
+.pedidoPendientesTotalDatosCantidadNU {
+  color: #000;
+  background-color:#d8e7f0e1;
+  overflow-wrap: break-word;
+word-wrap: break-word;
+word-break: break-all; 
+margin-left: 20px;
+padding-top: 4px;
+padding-left: 2px;
+padding-right: 6px;
+padding-bottom: 4px;
+border-radius: 4px;
+font-size: 1rem;
+text-align: right;
+width: 60px;
+height: 24px;
+}
+
 .pedidoPendientesTotalDatosCantidadPE {
   color: #000;
   background-color:#f9f9f7e8;

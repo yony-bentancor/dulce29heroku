@@ -853,6 +853,27 @@ height: 20px;
           width: 100px;
           height: 20px;
             }
+            .pedidoPendientesTotalDatosCantidadNU{
+              color: #fff;
+              background-color:  #6f8599;
+              border: none;
+              overflow-wrap: break-word;
+              word-wrap: break-word;
+              word-break: break-all;
+              margin-top: 10px;
+              margin-left: 0px;
+              padding-top: 4px;
+              padding-left: 4px;;
+              padding-right: 4px;
+              padding-bottom: 4px;
+              display: block;
+              border-radius: 4px;
+              margin-bottom: 5px;
+              font-size: 1.1rem;
+              text-align: center;
+              width: 100px;
+              height: 20px;
+                }
 
     .pedidoPendientesTotalDatos{
       color: #fff;
