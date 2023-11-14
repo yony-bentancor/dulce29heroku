@@ -191,57 +191,59 @@
                       PAGO: {{ pedido.Pago }}
 
                     </div>
-                    <div class="col-12">
-                                       DIRECCION:                    
-<a href="https://www.google.com/maps/search/?api=1&query={{ pedido.direccion }}" style="color: white;">{{ pedido.direccion }}</a>
 
-                    </div>
                     <div class="col-12">
-                                       TELEFONO:     <a href="https://api.whatsapp.com/send?phone={{ pedido.telefono }}" style="color: white;>
-                        {{ pedido.telefono }}</a>
+                     DIRECCION: 
+                    <a href="https://www.google.com/maps/search/?api=1&query={{ pedido.direccion }}" 
+                    style="color: white;">{{ pedido.direccion }}</a>
+                    </div>
+
+                    <div class="col-12">
+                    TELEFONO:<a href="https://api.whatsapp.com/send?phone={{ pedido.telefono }}" 
+                     style="color: white;">{{ pedido.telefono }}</a>
 
                     </div>
                     <div class="col-12">
                      PRECIO FINAL: {{ pedido.Monto_total * (1 - pedido.Descuento / 100) }}
 
-                      </div>
-                      <div class="col-12">
+                    </div>
+                    <div class="col-12">
                      FECHA: {{pedido.fechaFormateada }}
 
-                      </div>
-
                     </div>
-                  </div>
 
-                  <div id="box5">
-                    <div class="row boxTxtCliente">
-                      <div class="col-6">
-                        {# <form method="post" action="/session/updatepedido">
+                  </div>
+                </div>
+
+                <div id="box5">
+                  <div class="row boxTxtCliente">
+                    <div class="col-6">
+                      {# <form method="post" action="/session/updatepedido">
                         <input type="hidden" name="Numero_pedido" value="{{ pedido.Numero_pedido }}" >
 
                         <button type="submit">UPD</button>
                       </form> #}
 
-                      </div>
+                    </div>
 
-                      <div class="col-6 boxTxtCliente">
+                    <div class="col-6 boxTxtCliente">
 
-                        {#    <form name="formulario" method="post" action="/session/deletepedido{{ pedido.Numero_pedido}}", pedidoController.deletePedido>
+                      {#    <form name="formulario" method="post" action="/session/deletepedido{{ pedido.Numero_pedido}}", pedidoController.deletePedido>
                         <input type="image" id="image" alt="delete" src="https://dulce29.herokuapp.com/static/img/borrado1.png" onclick="return confirm('¿Estás por eliminar un pedido?')">
                       </form> #}
-                      </div>
                     </div>
                   </div>
-
                 </div>
-              </div>
-            {% endfor %}
 
-          </div>
+              </div>
+            </div>
+          {% endfor %}
 
         </div>
+
       </div>
+    </div>
 
-    </body>
+  </body>
 
-  {% endblock %}
+{% endblock %}
