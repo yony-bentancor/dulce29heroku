@@ -1126,12 +1126,13 @@ position: relative;
 ------------------------------------------------------------------------*/
 #contenedor-pedidosRealizadosDelivery{
 /*   background-color:  rgba(248, 230, 151, 0.641); */
- background-color: #fff;
-  width: 340px;
-  height: auto;
-  margin-left: -28px;
-  margin-top: -10px;
-  margin-bottom: 20px;
+margin-left: 0px;
+margin-top: 0px;
+width: 290px;
+height: auto;
+background-color: #fff;
+position: absolute;
+display: block;
 }
 #tableroPendienteTotal{
   width: 330px;

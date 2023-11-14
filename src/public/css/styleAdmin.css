@@ -1729,12 +1729,12 @@ height: 38px;
 }
 
 #contenedor-pedidosRealizadosDelivery{
-  width: 640px;
-  margin-left: 38%;
+  margin-left: 16%;
+  margin-top: 30px;
+  width: 1080px;
   height: auto;
-  margin-top: 60px;
-  background-color: rgb(230, 251, 144);
-  padding-bottom: 20px;
+  background-color: #fff;
+  position: relative;
 
 }
 
