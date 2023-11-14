@@ -314,13 +314,6 @@ module.exports = {
         });
 
         // Resto del código relacionado con "delivery" ...
-        const pedidosFormateados = pedidos.map((pedido) => {
-          const fechaFormateada = pedido.createdAt.toLocaleString(
-            "es-ES",
-            opciones
-          );
-          return { ...pedido.toObject(), fechaFormateada };
-        });
 
         const productos = await Producto.find().sort({ Numero_pedido: 1 });
 
@@ -329,7 +322,6 @@ module.exports = {
           pedidos,
           // Resto de los datos relacionados con "delivery"...
           productos,
-          pedidos: pedidosFormateados,
         });
       }
 
