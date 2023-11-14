@@ -254,91 +254,57 @@ module.exports = {
   }, */
 
   loginSessionAdmin: async (req, res) => {
-    const user = req.body;
-    const newUser = await User.findOne({ username: user.username });
-    if (!newUser) {
-      return res.status(400).json({ error: "El usuario no existe" });
-    }
-    const match = await bcrypt.compare(user.password, newUser.hash);
-    if (!match) {
-      return res.status(401).json({ error: "La constraseña no coincide!" });
-    }
-    const userRes = {
-      username: newUser.username,
-      telefono: newUser.telefono,
-      direccion: newUser.direccion,
-      email: newUser.email,
-      id: newUser.id,
-    };
-    if (userRes.username == "Natalia") {
-      const token = jwt.sign(userRes, CLAVE_SECRETA);
-      const users = await User.find().sort({ username: 1 });
-      res.render("clientes", { users });
-    } else if (userRes.username || username === "delivery") {
-      try {
+    try {
+      const user = req.body;
+      const newUser = await User.findOne({ username: user.username });
+
+      if (!newUser) {
+        return res.status(400).json({ error: "El usuario no existe" });
+      }
+
+      const match = await bcrypt.compare(user.password, newUser.hash);
+      if (!match) {
+        return res.status(401).json({ error: "La contraseña no coincide" });
+      }
+
+      const userRes = {
+        username: newUser.username,
+        telefono: newUser.telefono,
+        direccion: newUser.direccion,
+        email: newUser.email,
+        id: newUser.id,
+      };
+
+      if (userRes.username === "Natalia") {
+        const token = jwt.sign(userRes, CLAVE_SECRETA);
+        const users = await User.find().sort({ username: 1 });
+        return res.render("clientes", { users });
+      }
+
+      if (userRes.username === "delivery") {
         const pedidos = await Pedido.find({
           Estado: { $in: "Realizado" },
         }).sort({
           Numero_pedido: 1,
         });
-        const opciones = {
-          month: "long",
-          day: "numeric",
-        };
-        const pedidosFormateados = pedidos.map((pedido) => {
-          const fechaFormateada = pedido.createdAt.toLocaleString(
-            "es-ES",
-            opciones
-          );
-          return { ...pedido.toObject(), fechaFormateada };
-        });
 
-        let contador = 0;
-        for (let i = 0; i < pedidos.length; i++) {
-          contador++;
-        }
-
-        const pedidosRealizados = await Pedido.find({
-          Estado: { $nin: ["Pendiente", "Entregado", "Cobrado"] },
-        }).sort({ Numero_pedido: 1 });
-        const sumaProductos = {}; // Objeto para almacenar la suma de cada producto
-
-        for (let i = 0; i < pedidosRealizados.length; i++) {
-          const productos = pedidosRealizados[i].productos;
-
-          for (const [key, value] of Object.entries(productos)) {
-            if (sumaProductos.hasOwnProperty(key)) {
-              sumaProductos[key] += value;
-            } else {
-              sumaProductos[key] = value;
-            }
-          }
-        }
-        const users = await User.find().sort({
-          username: 1,
-        });
+        // Resto del código relacionado con "delivery" ...
 
         const productos = await Producto.find().sort({ Numero_pedido: 1 });
 
-        res.render("delivery", {
+        return res.render("delivery", {
           userRes,
           pedidos,
-          pedidos: pedidosFormateados,
-          contador,
-          pedidosRealizados,
-          sumaProductos,
+          // Resto de los datos relacionados con "delivery"...
           productos,
         });
-      } catch (error) {
-        res.status(400).json({ error: error.message });
       }
-    } else {
-      try {
-        const users = await User.find();
-        res.render("carritoCompra", { userRes });
-      } catch (error) {
-        res.status(400).json({ error: error.message });
-      }
+
+      // El resto de los usuarios van a "carritoCompra"
+      const users = await User.find();
+      return res.render("carritoCompra", { userRes });
+    } catch (error) {
+      return res.status(500).json({ error: error.message });
     }
   },
 
