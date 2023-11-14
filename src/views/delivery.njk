@@ -22,34 +22,26 @@
   </script>
 
   <body>
+
+    {{userRes.username}}
     <div id="navbarAdministrador">
-      {{userRes.username}}
+      {# 
+      <label for="menu-toggle" class="menu-toggle-label">&#9776;</label> #}
       <div class="row">
         <div class="col-12">
-          <input type="checkbox" id="menu-toggle" class="menu-toggle">
-          <label for="menu-toggle" class="menu-toggle-label botonMenu">&#9776;</label>
+          <input type="checkbox"  id="menu-toggle" class="menu-toggle">
+
           <ul class="menu">
 
             <li>
-             PEDIDOS PENDIENTES
+              <a href="/session/realizados">REALIZADOS</a>
             </li>
             <li>
-              {#     <a href="/session/deliveryentregado">PEDIDOS ENTREGADOS</a> #}
-              <a href="https://dulce29.herokuapp.com/session/deliveryentregado" id="deliveryLink">PEDIDOS ENTREGADOS</a>
-
-              <script>
-                var deliveryLink = document.getElementById("deliveryLink");
-                var username = "{{ userRes.username }}"; // Obtén el valor de username desde tu aplicación
-
-                deliveryLink.addEventListener("click", function () {
-                  var url = "https://dulce29.herokuapp.com/session/deliveryentregado/" + encodeURIComponent(username);
-                  window.location.href = url;
-                });
-              </script>
-
+              <a href="/session/entregados">ENTREGADOS</a>
             </li>
 
           </ul>
+
         </div>
       </div>
     </div>
