@@ -1058,11 +1058,11 @@ margin-left: 8%;
 } 
 #box6{
 
-  width: 170px;
-  text-align: center;
+  width: 190px;
+  text-align: left;
   background-color: #717068;
 margin-top: 130px;
-margin-left: 5%;
+padding-left: 10px;
 color: #fff;
 font-size: 1rem;
   height: 50px;
