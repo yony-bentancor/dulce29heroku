@@ -129,7 +129,7 @@
 
         <div id="boxPedidoRealizado">
           {% for pedido in pedidos %}
-            <div id="info-pendientesBox">
+            <div id="info-pendientesBoxDEL">
               <div id="pendientesBox">
                 <div id="box3">
                   <div class="row">
@@ -192,13 +192,17 @@
 
                     </div>
                     <div class="col-12">
-                                       COSTO  {{ pedido.direccion }} || {{ pedido.telefono }} TOTAL 
+                                       DIRECCION:  {{ pedido.direccion }}
+
+                    </div>
+                    <div class="col-12">
+                                       TELEFONO: {{ pedido.telefono }} TOTAL 
 
                                       </div>
                     <div class="col-12">
-                      {{ pedido.Monto_total * (1 - pedido.Descuento / 100) }} PRECIO FINAL
+                     PRECIO FINAL: {{ pedido.Monto_total * (1 - pedido.Descuento / 100) }}
 
-                                      </div>
+                    </div>
 
                   </div>
                 </div>
