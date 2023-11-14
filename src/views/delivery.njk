@@ -192,11 +192,13 @@
 
                     </div>
                     <div class="col-12">
-                                       DIRECCION:  {{ pedido.direccion }}
+                                       DIRECCION:                    
+                   <a href="https://www.google.com/maps/search/?api=1&query={{ pedido.direccion }}">{{ pedido.direccion }}</a>
 
                     </div>
                     <div class="col-12">
-                                       TELEFONO: {{ pedido.telefono }}
+                                       TELEFONO:     <a href="https://api.whatsapp.com/send?phone={{ pedido.telefono }}">
+                        {{ pedido.telefono }}</a>
 
                     </div>
                     <div class="col-12">
@@ -223,7 +225,7 @@
                     </div>
 
                     <div class="col-6 boxTxtCliente">
-                      {{pedido.fechaFormateada }}
+
                       {#    <form name="formulario" method="post" action="/session/deletepedido{{ pedido.Numero_pedido}}", pedidoController.deletePedido>
                         <input type="image" id="image" alt="delete" src="https://dulce29.herokuapp.com/static/img/borrado1.png" onclick="return confirm('¿Estás por eliminar un pedido?')">
                       </form> #}
