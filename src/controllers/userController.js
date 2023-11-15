@@ -306,7 +306,7 @@ module.exports = {
         }
       }
 
-      if (userRes.username === "delivery") {
+      if (userRes.username === "DELIVERY") {
         const pedidos = await Pedido.find({
           Estado: { $in: "Realizado" },
         }).sort({
