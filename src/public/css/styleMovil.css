@@ -1342,7 +1342,8 @@ font-size: 1rem;
 } 
 
 .center-text {
-  margin-left: 130px;
+  margin-left: 120px;
+  margin-top: 10px;
   font-size: 1rem;
 }
 #box6DEL{
