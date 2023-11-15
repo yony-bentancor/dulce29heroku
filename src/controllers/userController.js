@@ -897,7 +897,7 @@ module.exports = {
   entregadosAdminDelivery: async (req, res) => {
     const username = req.params.username;
     console.log(username);
-    if (username === "delivery") {
+    if (username === "DELIVERY") {
       try {
         const pedidos = await Pedido.find({
           Estado: { $in: "Entregado" },
