@@ -930,13 +930,28 @@ module.exports = {
           const productos = pedidosEntregado[i].productos;
 
           for (const [key, value] of Object.entries(productos)) {
-            if (sumaProductos.hasOwnProperty(key)) {
-              sumaProductos[key] += value;
+            const nombreProducto = value.nombre; // Suponemos que el nombre del producto está en la propiedad "nombre"
+            const cantidad = value.cantidad;
+
+            if (!productosCantidad[nombreProducto]) {
+              productosCantidad[nombreProducto] = cantidad;
             } else {
-              sumaProductos[key] = value;
+              productosCantidad[nombreProducto] += cantidad;
             }
           }
         }
+
+        // Crear un array para almacenar los mensajes a mostrar en la plantilla
+        const mensajesNombre = [];
+        const mensajes = [];
+
+        // Agregar mensajes al array
+        for (const nombreProducto in productosCantidad) {
+          const cantidadProducto = productosCantidad[nombreProducto];
+          mensajes.push({ nombre: nombreProducto, cantidad: cantidadProducto });
+        }
+        mensajes.sort((a, b) => b.cantidad - a.cantidad);
+
         const users = await User.find().sort({
           username: 1,
         });
@@ -949,8 +964,10 @@ module.exports = {
           pedidos: pedidosFormateados,
           contador,
           pedidosEntregado,
-          sumaProductos,
+
           productos,
+
+          mensajes,
         });
       } catch {
         const pedidos = await Pedido.find({
