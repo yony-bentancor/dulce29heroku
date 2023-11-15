@@ -1072,14 +1072,14 @@ margin-left: 8%;
 } 
 #box6{
 
-  width: 170px;
-  text-align: center;
+  width: 182px;
+  text-align: left;
   background-color: #717068;
 margin-top: 130px;
-margin-left: 5%;
+margin-left: 4px;
 color: #fff;
-font-size: 1rem;
-  height: 50px;
+font-size: 0.9rem;
+  height: 80px;
   padding-top: 4px;
 
 } 
