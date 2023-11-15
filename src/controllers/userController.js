@@ -1032,15 +1032,12 @@ module.exports = {
         });
 
         res.render("deliveryEntregado", {
-          username,
+          /*    productos: productosConDiferencia, */
           pedidos,
           pedidos: pedidosFormateados,
-          contador,
-          pedidosEntregado,
-
+          contadorEntregados,
+          contadorEfectivo,
           productos,
-
-          mensajes,
         });
       }
     }
