@@ -1039,8 +1039,6 @@ module.exports = {
           contadorEfectivo,
           productos,
           contador,
-          pedidosEntregados,
-          mensajes,
         });
       }
     }
