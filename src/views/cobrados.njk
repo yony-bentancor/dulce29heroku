@@ -312,7 +312,7 @@ toggle between hiding and showing the dropdown content */
                 <div id="box4">
                   <div class="row boxTxtCliente">
                     <div class="col-12">
-                      {{ pedido.username }} || {{pedido.fechaFormateada }}
+                      CLIENTE   {{ pedido.username }}
 
                     </div>
                   </div>
@@ -363,6 +363,10 @@ toggle between hiding and showing the dropdown content */
                       {{ pedido.Descuento }}% OFF || {{ pedido.Monto_total * (1 - pedido.Descuento / 100) }} PRECIO FINAL
 
                                       </div>
+                    <div class="col-12">
+                     FECHA: {{pedido.fechaFormateada }}
+
+                    </div>
 
                   </div>
                 </div>
