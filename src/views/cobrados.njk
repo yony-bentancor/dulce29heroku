@@ -89,7 +89,7 @@ toggle between hiding and showing the dropdown content */
               <!-- Columna para el nombre del producto -->
               <ul >
 
-                <li class="pedidoPendientesTotal">
+                <li class="pedidoCobradoMes">
                   <strong>TOTAL PEDIDOS</strong>
 
                 </li>
@@ -122,7 +122,7 @@ toggle between hiding and showing the dropdown content */
               <!-- Columna para el nombre del producto -->
               <ul >
                 {% for mensaje in mensajes %}
-                  <li class="pedidoPendientesTotal">{{ mensaje.nombre }}</li>
+                  <li class="pedidoCobradoMes">{{ mensaje.nombre }}</li>
                 {% endfor %}
               </ul>
             </div>
@@ -150,7 +150,7 @@ toggle between hiding and showing the dropdown content */
             <div class="col-9">
               <ul>
                 {% for usernameInfo in cincoUsernamesRepetidos %}
-                  <li class="pedidoPendientesTotal">
+                  <li class="pedidoCobradoMes">
                     {{ usernameInfo.username }} || {{ usernameInfo.count }}
                   </li>
                 {% endfor %}
@@ -176,7 +176,7 @@ toggle between hiding and showing the dropdown content */
             <div class="col-9">
               <ul>
 
-                <li class="pedidoPendientesTotal">
+                <li class="pedidoCobradoMes">
                   {{ contadorEfectivo }} || {{ precioFinal }}
                 </li>
 
@@ -188,7 +188,7 @@ toggle between hiding and showing the dropdown content */
             {#  <div class="col-12">
               <ul>
 
-                <li class="pedidoPendientesTotal">
+                <li class="pedidoCobradoMes">
                   {{ costoFinal }}
                 </li>
 
@@ -210,7 +210,7 @@ toggle between hiding and showing the dropdown content */
           <div class="row">
             <div class="col-9">
               <ul >
-                <li class="pedidoPendientesTotal">
+                <li class="pedidoCobradoMes">
                   {{ contadorTransferencia }} || {{ precioFinalTransferencia }}
                 </li>
               </ul>
@@ -232,7 +232,7 @@ toggle between hiding and showing the dropdown content */
             </div>
             <div class="col-9">
               <ul >
-                <li class="pedidoPendientesTotal">
+                <li class="pedidoCobradoMes">
                   <strong>{{sumaTotalCosto}}</strong>
                 </li>
               </ul>
@@ -249,7 +249,7 @@ toggle between hiding and showing the dropdown content */
             </div>
             <div class="col-9">
               <ul >
-                <li class="pedidoPendientesTotal">
+                <li class="pedidoCobradoMes">
                   <strong>{{precioFinalTransferencia + precioFinal}}</strong>
                 </li>
               </ul>
@@ -266,7 +266,7 @@ toggle between hiding and showing the dropdown content */
             </div>
             <div class="col-9">
               <ul >
-                <li class="pedidoPendientesTotal">
+                <li class="pedidoCobradoMes">
                   <strong>{{ (precioFinalTransferencia + precioFinal) - sumaTotalCosto }}</strong>
 
                 </li>
