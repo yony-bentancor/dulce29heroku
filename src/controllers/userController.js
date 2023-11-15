@@ -1031,13 +1031,16 @@ module.exports = {
           };
         });
 
-        res.render("entregados", {
-          /*    productos: productosConDiferencia, */
+        res.render("deliveryEntregado", {
+          username,
           pedidos,
           pedidos: pedidosFormateados,
-          contadorEntregados,
-          contadorEfectivo,
+          contador,
+          pedidosEntregado,
+
           productos,
+
+          mensajes,
         });
       }
     }
