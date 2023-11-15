@@ -943,7 +943,7 @@ module.exports = {
 
         const productos = await Producto.find().sort({ Numero_pedido: 1 });
 
-        res.render("deliveryentregado", {
+        res.render("deliveryEntregado", {
           username,
           pedidos,
           pedidos: pedidosFormateados,
