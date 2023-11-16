@@ -17,11 +17,11 @@ module.exports = {
     try {
       const { adminUsername } = req.params;
       // Realiza la búsqueda condicional en función del adminUsername
-      const newUser =
+      /*  const newUser =
         adminUsername === "DELIVERY"
-          ? await User.findOne({ username: "DELIVERY" }) // O el valor adecuado
-          : await User.findOne({ username: adminUsername });
-      if (newUser) {
+          ? await User.findOne({ username: "DELIVERY" }) 
+          : await User.findOne({ username: adminUsername }); */
+      if (adminUsername === "DELIVERY") {
         // Usuario autorizado
         const pedidos = await Pedido.find({
           Estado: { $in: "Realizado" },
@@ -79,7 +79,7 @@ module.exports = {
         const productos = await Producto.find().sort({ Numero_pedido: 1 });
 
         res.render("delivery", {
-          userRes: newUser,
+          /*      userRes: newUser, */
           pedidos,
           pedidos: pedidosFormateados,
           contador,
