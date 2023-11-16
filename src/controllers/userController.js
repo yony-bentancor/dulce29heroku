@@ -897,6 +897,7 @@ module.exports = {
   entregadosAdminDelivery: async (req, res) => {
     const username = req.params.username;
     console.log(username);
+
     if (username === "DELIVERY") {
       try {
         const pedidos = await Pedido.find({
@@ -904,10 +905,12 @@ module.exports = {
         }).sort({
           Numero_pedido: 1,
         });
+
         const opciones = {
           month: "long",
           day: "numeric",
         };
+
         const pedidosFormateados = pedidos.map((pedido) => {
           const fechaFormateada = pedido.createdAt.toLocaleString(
             "es-ES",
@@ -924,13 +927,14 @@ module.exports = {
         const pedidosEntregado = await Pedido.find({
           Estado: { $nin: ["Pendiente", "Realizado", "Cobrado"] },
         }).sort({ Numero_pedido: 1 });
-        const sumaProductos = {}; // Objeto para almacenar la suma de cada producto
+
+        const productosCantidad = {}; // Corregido: Se agregó la inicialización
 
         for (let i = 0; i < pedidosEntregado.length; i++) {
           const productos = pedidosEntregado[i].productos;
 
           for (const [key, value] of Object.entries(productos)) {
-            const nombreProducto = value.nombre; // Suponemos que el nombre del producto está en la propiedad "nombre"
+            const nombreProducto = value.nombre;
             const cantidad = value.cantidad;
 
             if (!productosCantidad[nombreProducto]) {
@@ -941,16 +945,9 @@ module.exports = {
           }
         }
 
-        // Crear un array para almacenar los mensajes a mostrar en la plantilla
-        const mensajesNombre = [];
-        const mensajes = [];
-
-        // Agregar mensajes al array
-        for (const nombreProducto in productosCantidad) {
-          const cantidadProducto = productosCantidad[nombreProducto];
-          mensajes.push({ nombre: nombreProducto, cantidad: cantidadProducto });
-        }
-        mensajes.sort((a, b) => b.cantidad - a.cantidad);
+        const mensajes = Object.entries(productosCantidad)
+          .map(([nombre, cantidad]) => ({ nombre, cantidad }))
+          .sort((a, b) => b.cantidad - a.cantidad);
 
         const users = await User.find().sort({
           username: 1,
@@ -961,116 +958,24 @@ module.exports = {
         res.render("deliveryEntregado", {
           username,
           pedidos,
-          pedidos: pedidosFormateados,
+          pedidosFormateados,
           contador,
           pedidosEntregado,
           mensajes,
           productos,
         });
-      } catch {
-        const pedidos = await Pedido.find({
-          Estado: { $in: "Entregado" },
-        }).sort({
-          Numero_pedido: 1,
-        });
-        const opciones = {
-          month: "long",
-          day: "numeric",
-        };
+      } catch (error) {
+        console.error(
+          "Ocurrió un error durante la ejecución del bloque try:",
+          error
+        );
 
-        const pedidosFormateados = pedidos.map((pedido) => {
-          const fechaFormateada = pedido.createdAt.toLocaleString(
-            "es-ES",
-            opciones
-          );
-          return { ...pedido.toObject(), fechaFormateada };
-        });
-
-        let contador = 0;
-        for (let i = 0; i < pedidos.length; i++) {
-          contador++;
-        }
-
-        const pedidosEntregados = await Pedido.find({
-          Estado: { $nin: ["Realizado", "Cobrado", "Pendiente"] },
-        }).sort({
-          createdAt: 1,
-        });
-        let contadorEntregados = 0;
-        for (let i = 0; i < pedidosEntregados.length; i++) {
-          contadorEntregados++;
-        }
-        const pedidosCobrados = await Pedido.find({
-          Estado: { $nin: ["Realizado", "Cobrado", "Pendiente"] },
-        });
-        let contadorEfectivo = 0;
-        for (let i = 0; i < pedidosCobrados.length; i++) {
-          if (pedidosCobrados[i].Pago === "Efectivo") {
-            contadorEfectivo++;
-          }
-          console.log(contadorEfectivo);
-        }
-
-        const users = await User.find().sort({
-          username: 1,
-        });
-
-        const sumaProductos = {}; // Objeto para almacenar la suma de cada producto
-
-        for (let i = 0; i < pedidosEntregado.length; i++) {
-          const productos = pedidosEntregado[i].productos;
-
-          for (const [key, value] of Object.entries(productos)) {
-            const nombreProducto = value.nombre; // Suponemos que el nombre del producto está en la propiedad "nombre"
-            const cantidad = value.cantidad;
-
-            if (!productosCantidad[nombreProducto]) {
-              productosCantidad[nombreProducto] = cantidad;
-            } else {
-              productosCantidad[nombreProducto] += cantidad;
-            }
-          }
-        }
-
-        // Crear un array para almacenar los mensajes a mostrar en la plantilla
-        const mensajesNombre = [];
-        const mensajes = [];
-
-        // Agregar mensajes al array
-        for (const nombreProducto in productosCantidad) {
-          const cantidadProducto = productosCantidad[nombreProducto];
-          mensajes.push({ nombre: nombreProducto, cantidad: cantidadProducto });
-        }
-        mensajes.sort((a, b) => b.cantidad - a.cantidad);
-
-        const productos = await Producto.find().sort({ Numero_pedido: 1 });
-
-        const productosConDiferencia = productos.map((producto) => {
-          const precioVenta = producto.precioVenta;
-          const costoProduccion = producto.costoProduccion;
-
-          return {
-            name: producto.name,
-
-            precioVenta: producto.precioVenta,
-            costoProduccion: producto.costoProduccion,
-          };
-        });
-
-        res.render("deliveryEntregado", {
-          /*    productos: productosConDiferencia, */
-          pedidos,
-          pedidos: pedidosFormateados,
-          contadorEntregados,
-          contadorEfectivo,
-          pedidosEntregados,
-          productos,
-          contador,
-          mensajes,
-        });
+        // Se elimina la repetición de código y se maneja el error de manera general
+        res.status(500).send("Error interno del servidor");
       }
     }
   },
+
   entregadosAdmin: async (req, res) => {
     try {
       const opciones = {
