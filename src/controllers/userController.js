@@ -18,7 +18,7 @@ module.exports = {
     console.log(username);
     const user = req.body;
     const newUser = await User.findOne({ username: user.username });
-    if (userRes.username || username === "delivery") {
+    if (userRes.username || username === "DELIVERY") {
       try {
         const pedidos = await Pedido.find({
           Estado: { $in: "Realizado" },
