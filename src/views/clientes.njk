@@ -310,14 +310,17 @@
                                 <div class="col-2">
                                   <strong>TELEFONO </strong>
                                 </div>
-                                <div class="col-2">
+                                {#     <div class="col-2">
                                   <strong>DIRECCION </strong>
-                                </div>
-                                <div class="col-2">
+                                </div> #}
+                                <div class="col-3">
                                   <strong>EMAIL </strong>
                                 </div>
                                 <div class="col-4">
                                   <strong>REPITE PEDIDO</strong>
+                                </div>
+                                <div class="col-1">
+                                  <strong></strong>
                                 </div>
                               </div>
 
@@ -328,12 +331,12 @@
                                     {{ user.username }}</div>
                                   <div class="col-2">
                                     {{ user.telefono }}</div>
-                                  <div class="col-2">
-                                    {{ user.direccion }}</div>
-                                  <div class="col-2">
+                                  {#   <div class="col-2">
+                                    {{ user.direccion }}</div> #}
+                                  <div class="col-3">
                                     {{ user.email }}
                                   </div>
-                                  <div class="col-2">
+                                  <div class="col-3">
                                     {% if user.repitePedido %}
                                       <div>
                                         {#  {{ user.repitePedido }}|| #}
