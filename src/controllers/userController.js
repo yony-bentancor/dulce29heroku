@@ -964,7 +964,7 @@ module.exports = {
           pedidos: pedidosFormateados,
           contador,
           pedidosEntregado,
-
+          mensajes,
           productos,
 
           mensajes,
