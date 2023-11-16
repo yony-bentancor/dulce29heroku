@@ -90,15 +90,7 @@ module.exports = {
       } else {
         // Usuario no autorizado
         const users = await User.find();
-        res.render("delivery", {
-          userRes: newUser,
-          pedidos,
-          pedidos: pedidosFormateados,
-          contador,
-          pedidosRealizados,
-          mensajes,
-          productos,
-        });
+        res.render("carritoCompra", { userRes: newUser });
       }
     } catch (error) {
       res.status(500).json({ error: error.message });
