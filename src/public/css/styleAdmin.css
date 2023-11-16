@@ -1576,6 +1576,7 @@ position: absolute;
   padding-left: 10px;
   padding-top: 10px;
   margin-left: 800px;
+  margin-top: 26px;
   display: block;
   height: auto;
   background-color: #fff;
@@ -1590,12 +1591,13 @@ position: absolute;
   display: block;
   height: auto;
   background-color: #fff;
+  margin-top: 26px;
 
 }
 
 #tableroRealizadoTotalWeb{
   width: 340px;
-  margin-top: 20px;
+  margin-top: 26px;
   padding-bottom: 20px;
   padding-left: 10px;
   padding-top: 10px;
