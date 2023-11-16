@@ -952,7 +952,7 @@ position: absolute;
   float: left;
   margin-top: 0px;
   padding-left: 0px;
-  padding-top: 8px;
+  padding-top: 0px;
   border-radius: 4px;
   background-color: #fff;
 
@@ -1306,6 +1306,7 @@ text-align: left;
   display: block;
   height: auto;
   background-color: #fff;
+  margin-top: 26px;
 }
 #tableroRealizadosBusqueda {
   width: 340px;
@@ -1339,9 +1340,9 @@ text-align: left;
   margin-right: 2px;
 position: absolute;
   float: left;
-  margin-top: 10px;
+  margin-top: 0px;
   padding-left: 0px;
-  padding-top: 8px;
+  padding-top: 0px;
   border-radius: 4px;
   background-color: #fff;
 
