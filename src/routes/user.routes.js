@@ -18,7 +18,7 @@ router.get(
   "/deliveryentregado/:username",
   userController.entregadosAdminDelivery
 );
-router.get("/delivery/:username", userController.btnDelivey);
+router.get("/delivery/:adminUsername", userController.btnDelivey);
 router.get("/pendientes", userController.pendientesAdmin);
 router.get("/realizados", userController.realizadosAdmin);
 router.get("/cobrados", userController.cobrados);
