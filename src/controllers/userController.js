@@ -966,8 +966,6 @@ module.exports = {
           pedidosEntregado,
           mensajes,
           productos,
-
-          mensajes,
         });
       } catch {
         const pedidos = await Pedido.find({
@@ -1039,6 +1037,7 @@ module.exports = {
           contadorEfectivo,
           productos,
           contador,
+          mensajes,
         });
       }
     }
