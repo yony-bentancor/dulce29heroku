@@ -89,8 +89,8 @@ module.exports = {
         });
       } else {
         // Usuario no autorizado
-        const users = await User.find();
-        res.redirect("delivery", { userRes: newUser });
+
+        res.redirect("delivery");
       }
     } catch (error) {
       res.status(500).json({ error: error.message });
