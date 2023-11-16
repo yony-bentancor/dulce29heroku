@@ -1063,6 +1063,7 @@ module.exports = {
           pedidos: pedidosFormateados,
           contadorEntregados,
           contadorEfectivo,
+          pedidosEntregados,
           productos,
           contador,
           mensajes,
