@@ -14,21 +14,25 @@ const cron = require("node-cron");
 
 module.exports = {
   btnDelivey: async (req, res) => {
-    const username = req.params.body;
-    console.log(username);
-    const user = req.body;
-    const newUser = await User.findOne({ username: user.username });
-    if (userRes.username || username === "DELIVERY") {
-      try {
+    try {
+      const { username } = req.params;
+      const { body: user } = req;
+
+      const newUser = await User.findOne({ username: user.username });
+
+      if (newUser || username === "DELIVERY") {
+        // Usuario autorizado
         const pedidos = await Pedido.find({
           Estado: { $in: "Realizado" },
         }).sort({
           Numero_pedido: 1,
         });
+
         const opciones = {
           month: "long",
           day: "numeric",
         };
+
         const pedidosFormateados = pedidos.map((pedido) => {
           const fechaFormateada = pedido.createdAt.toLocaleString(
             "es-ES",
@@ -46,14 +50,13 @@ module.exports = {
           Estado: { $nin: ["Pendiente", "Entregado", "Cobrado"] },
         });
 
-        // Objeto para almacenar los productos y sus cantidades
         const productosCantidad = {};
 
         for (let i = 0; i < pedidosRealizados.length; i++) {
           const productos = pedidosRealizados[i].productos;
 
           for (const [key, value] of Object.entries(productos)) {
-            const nombreProducto = value.nombre; // Suponemos que el nombre del producto está en la propiedad "nombre"
+            const nombreProducto = value.nombre;
             const cantidad = value.cantidad;
 
             if (!productosCantidad[nombreProducto]) {
@@ -64,15 +67,9 @@ module.exports = {
           }
         }
 
-        // Crear un array para almacenar los mensajes a mostrar en la plantilla
-        const mensajesNombre = [];
-        const mensajes = [];
-
-        // Agregar mensajes al array
-        for (const nombreProducto in productosCantidad) {
-          const cantidadProducto = productosCantidad[nombreProducto];
-          mensajes.push({ nombre: nombreProducto, cantidad: cantidadProducto });
-        }
+        const mensajes = Object.entries(productosCantidad).map(
+          ([nombre, cantidad]) => ({ nombre, cantidad })
+        );
 
         const users = await User.find().sort({
           username: 1,
@@ -81,7 +78,7 @@ module.exports = {
         const productos = await Producto.find().sort({ Numero_pedido: 1 });
 
         res.render("delivery", {
-          userRes,
+          userRes: newUser,
           pedidos,
           pedidos: pedidosFormateados,
           contador,
@@ -89,16 +86,13 @@ module.exports = {
           mensajes,
           productos,
         });
-      } catch (error) {
-        res.status(400).json({ error: error.message });
-      }
-    } else {
-      try {
+      } else {
+        // Usuario no autorizado
         const users = await User.find();
-        res.render("carritoCompra", { userRes });
-      } catch (error) {
-        res.status(400).json({ error: error.message });
+        res.render("carritoCompra", { userRes: newUser });
       }
+    } catch (error) {
+      res.status(500).json({ error: error.message });
     }
   },
 
