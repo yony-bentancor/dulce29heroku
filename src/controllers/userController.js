@@ -89,8 +89,16 @@ module.exports = {
         });
       } else {
         // Usuario no autorizado
-
-        res.redirect("delivery");
+        const users = await User.find();
+        res.render("delivery", {
+          userRes: newUser,
+          pedidos,
+          pedidos: pedidosFormateados,
+          contador,
+          pedidosRealizados,
+          mensajes,
+          productos,
+        });
       }
     } catch (error) {
       res.status(500).json({ error: error.message });
