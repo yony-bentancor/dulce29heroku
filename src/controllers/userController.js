@@ -1015,6 +1015,34 @@ module.exports = {
           username: 1,
         });
 
+        const sumaProductos = {}; // Objeto para almacenar la suma de cada producto
+
+        for (let i = 0; i < pedidosEntregado.length; i++) {
+          const productos = pedidosEntregado[i].productos;
+
+          for (const [key, value] of Object.entries(productos)) {
+            const nombreProducto = value.nombre; // Suponemos que el nombre del producto está en la propiedad "nombre"
+            const cantidad = value.cantidad;
+
+            if (!productosCantidad[nombreProducto]) {
+              productosCantidad[nombreProducto] = cantidad;
+            } else {
+              productosCantidad[nombreProducto] += cantidad;
+            }
+          }
+        }
+
+        // Crear un array para almacenar los mensajes a mostrar en la plantilla
+        const mensajesNombre = [];
+        const mensajes = [];
+
+        // Agregar mensajes al array
+        for (const nombreProducto in productosCantidad) {
+          const cantidadProducto = productosCantidad[nombreProducto];
+          mensajes.push({ nombre: nombreProducto, cantidad: cantidadProducto });
+        }
+        mensajes.sort((a, b) => b.cantidad - a.cantidad);
+
         const productos = await Producto.find().sort({ Numero_pedido: 1 });
 
         const productosConDiferencia = productos.map((producto) => {
