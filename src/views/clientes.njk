@@ -336,22 +336,22 @@
                                   <div class="col-1">
                                     {% if user.repitePedido %}
                                       <div class="col-1">
-                                        {{ user.repitePedido }}||
-                                        {{user.intervaloRepetición}}
+                                        {#  {{ user.repitePedido }}|| #}
+                                     CADA   {{user.intervaloRepetición}} DIAS
                                       </div>
                                     {% endif %}
                                   </div>
 
-                                  <div class="col-1">
+                                  <div class="col-2">
                                     <form method="post" action="/session/updateUser">
                                       <input type="hidden" name="username" value="{{ user.username }}">
 
                                       <button type="submit">UPD</button>
                                     </form>
 
-                                  </div>
+                                    {# </div>
 
-                                  <div class="col-1">
+                                  <div class="col-1"> #}
                                     <form name="formulario" method="post" action="/session/deleteuser{{ user.username }}", userController.deleteuser>
                                       <input type="image" id="image" alt="delete" src="https://dulce29.herokuapp.com/static/img/borrado1.png" onclick="return confirm('¿Estás por eliminar un cliente')">
                                     </form>
