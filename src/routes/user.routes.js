@@ -13,7 +13,7 @@ router.post("/record", userController.record);
 router.post("/newuser", userController.login);
 router.post("/newpedido", pedidoController.pageNewPedido);
 router.get("/clientes", userController.clientesAdmin);
-router.get("/delivery", userController.realizadosAdmin);
+router.get("/deliver", userController.realizadosAdmin);
 router.get(
   "/deliveryentregado/:username",
   userController.entregadosAdminDelivery

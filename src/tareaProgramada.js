@@ -42,6 +42,7 @@ const tareaProgramada = schedule.scheduleJob("58 08 * * *", async function () {
             telefono: usuario.telefono,
             Numero_pedido: Numero_pedido,
             Estado: "Pendiente",
+            repitePedido: "si",
 
             // Otros campos del pedido como Estado, Pago, Monto_total, etc.
             createdAt: new Date(), // Actualiza la fecha de creación
