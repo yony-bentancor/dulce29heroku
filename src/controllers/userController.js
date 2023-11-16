@@ -15,12 +15,13 @@ const cron = require("node-cron");
 module.exports = {
   btnDelivey: async (req, res) => {
     try {
-      const { username } = req.params;
-      const { body: user } = req;
-
-      const newUser = await User.findOne({ username: user.username });
-
-      if (newUser || username === "DELIVERY") {
+      const { adminUsername } = req.params;
+      // Realiza la búsqueda condicional en función del adminUsername
+      const newUser =
+        adminUsername === "DELIVERY"
+          ? await User.findOne({ username: "DELIVERY" }) // O el valor adecuado
+          : await User.findOne({ username: adminUsername });
+      if (newUser) {
         // Usuario autorizado
         const pedidos = await Pedido.find({
           Estado: { $in: "Realizado" },
@@ -890,7 +891,7 @@ module.exports = {
 
   entregadosAdminDelivery: async (req, res) => {
     const username = req.params.username;
-    console.log(username);
+    adminUsername = username;
 
     if (username === "DELIVERY") {
       try {
@@ -951,6 +952,7 @@ module.exports = {
 
         res.render("deliveryEntregado", {
           username,
+          adminUsername,
           pedidos,
           pedidosFormateados,
           contador,
