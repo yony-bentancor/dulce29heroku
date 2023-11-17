@@ -859,6 +859,32 @@ module.exports = {
     }
   },
 
+  cambioEstadoEntregadoDelivery: async (req, res) => {
+    const Numero_pedido = req.params.Numero_pedido;
+
+    const pedidos = await Pedido.find({
+      username: { $eq: Numero_pedido },
+      Estado: { $ne: "Realizado" },
+    });
+
+    try {
+      const pedidoActualizado = await Pedido.findOneAndUpdate(
+        { Numero_pedido: Numero_pedido },
+        { Estado: "Entregado" },
+        { new: true }
+      );
+
+      if (!pedidoActualizado) {
+        // No se encontró el pedido con el número proporcionado
+        return res.status(404).json({ mensaje: "Pedido no encontrado" });
+      }
+
+      res.redirect("session/delivery/entregados");
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  },
+
   cambioEstadoCobrado: async (req, res) => {
     const Numero_pedido = req.params.Numero_pedido;
 

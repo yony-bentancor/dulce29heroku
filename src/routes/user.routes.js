@@ -47,6 +47,10 @@ router.get(
   userController.cambioEstadoEntregado
 );
 router.get(
+  "/cambioEstadoEntregado/:Numero_pedido",
+  userController.cambioEstadoEntregadoDelivery
+);
+router.get(
   "/cambioEstadoCobrado/:Numero_pedido",
   userController.cambioEstadoCobrado
 );
