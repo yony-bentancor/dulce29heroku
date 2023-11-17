@@ -892,10 +892,6 @@ module.exports = {
   },
 
   entregadosAdminDelivery: async (req, res) => {
-    /*     const username = req.params.username;
-    adminUsername = username || "DELIVERY";
-
-    if (username === "DELIVERY") { */
     try {
       const pedidos = await Pedido.find({
         Estado: { $in: "Entregado" },
@@ -953,8 +949,8 @@ module.exports = {
       const productos = await Producto.find().sort({ Numero_pedido: 1 });
 
       res.render("deliveryEntregado", {
-        username,
-        adminUsername,
+        /*    username,
+        adminUsername, */
         pedidos,
         pedidosFormateados,
         contador,
