@@ -968,7 +968,7 @@ module.exports = {
       );
 
       // Se elimina la repetición de código y se maneja el error de manera general
-      res.status(500).send("Error interno del servidor");
+      res.status(500).send("Error interno del servidores");
     }
     /*  } */
   },
