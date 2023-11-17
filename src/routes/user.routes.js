@@ -14,10 +14,11 @@ router.post("/newuser", userController.login);
 router.post("/newpedido", pedidoController.pageNewPedido);
 router.get("/clientes", userController.clientesAdmin);
 /* router.get("/delivery", userController.realizadosAdmin); */
-router.get(
+/* router.get(
   "/deliveryentregado/:username",
   userController.entregadosAdminDelivery
-);
+); */
+router.get("/deliveryentregado", userController.entregadosAdminDelivery);
 router.get("/delivery/:adminUsername", userController.btnDelivey);
 router.get("/pendientes", userController.pendientesAdmin);
 router.get("/realizados", userController.realizadosAdmin);
