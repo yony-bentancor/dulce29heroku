@@ -15,88 +15,82 @@ const cron = require("node-cron");
 module.exports = {
   btnDelivey: async (req, res) => {
     try {
-      const { adminUsername } = req.params;
+      // Usuario autorizado
+      const pedidos = await Pedido.find({
+        Estado: { $in: "Realizado" },
+      }).sort({
+        Numero_pedido: 1,
+      });
 
-      // Realiza la búsqueda condicional en función del adminUsername
-      /*  const newUser =
-        adminUsername === "DELIVERY"
-          ? await User.findOne({ username: "DELIVERY" }) 
-          : await User.findOne({ username: adminUsername }); */
-      if (adminUsername === "DELIVERY") {
-        // Usuario autorizado
-        const pedidos = await Pedido.find({
-          Estado: { $in: "Realizado" },
-        }).sort({
-          Numero_pedido: 1,
-        });
+      const opciones = {
+        month: "long",
+        day: "numeric",
+      };
 
-        const opciones = {
-          month: "long",
-          day: "numeric",
-        };
+      const pedidosFormateados = pedidos.map((pedido) => {
+        const fechaFormateada = pedido.createdAt.toLocaleString(
+          "es-ES",
+          opciones
+        );
+        return { ...pedido.toObject(), fechaFormateada };
+      });
 
-        const pedidosFormateados = pedidos.map((pedido) => {
-          const fechaFormateada = pedido.createdAt.toLocaleString(
-            "es-ES",
-            opciones
-          );
-          return { ...pedido.toObject(), fechaFormateada };
-        });
+      let contador = 0;
+      for (let i = 0; i < pedidos.length; i++) {
+        contador++;
+      }
 
-        let contador = 0;
-        for (let i = 0; i < pedidos.length; i++) {
-          contador++;
-        }
+      const pedidosRealizados = await Pedido.find({
+        Estado: { $nin: ["Pendiente", "Entregado", "Cobrado"] },
+      });
 
-        const pedidosRealizados = await Pedido.find({
-          Estado: { $nin: ["Pendiente", "Entregado", "Cobrado"] },
-        });
+      const productosCantidad = {};
 
-        const productosCantidad = {};
+      for (let i = 0; i < pedidosRealizados.length; i++) {
+        const productos = pedidosRealizados[i].productos;
 
-        for (let i = 0; i < pedidosRealizados.length; i++) {
-          const productos = pedidosRealizados[i].productos;
+        for (const [key, value] of Object.entries(productos)) {
+          const nombreProducto = value.nombre;
+          const cantidad = value.cantidad;
 
-          for (const [key, value] of Object.entries(productos)) {
-            const nombreProducto = value.nombre;
-            const cantidad = value.cantidad;
-
-            if (!productosCantidad[nombreProducto]) {
-              productosCantidad[nombreProducto] = cantidad;
-            } else {
-              productosCantidad[nombreProducto] += cantidad;
-            }
+          if (!productosCantidad[nombreProducto]) {
+            productosCantidad[nombreProducto] = cantidad;
+          } else {
+            productosCantidad[nombreProducto] += cantidad;
           }
         }
-
-        const mensajes = Object.entries(productosCantidad).map(
-          ([nombre, cantidad]) => ({ nombre, cantidad })
-        );
-
-        const users = await User.find().sort({
-          username: 1,
-        });
-
-        const productos = await Producto.find().sort({ Numero_pedido: 1 });
-
-        res.render("delivery", {
-          /*  userRes: newUser, */
-          adminUsername,
-          pedidos,
-          pedidos: pedidosFormateados,
-          contador,
-          pedidosRealizados,
-          mensajes,
-          productos,
-        });
-      } else {
-        // Usuario no autorizado
-        const users = await User.find();
-        res.render("carritoCompra" /* { userRes: newUser } */);
       }
+
+      const mensajes = Object.entries(productosCantidad).map(
+        ([nombre, cantidad]) => ({ nombre, cantidad })
+      );
+
+      const users = await User.find().sort({
+        username: 1,
+      });
+
+      const productos = await Producto.find().sort({ Numero_pedido: 1 });
+
+      res.render("delivery", {
+        /*  userRes: newUser, */
+        adminUsername,
+        pedidos,
+        pedidos: pedidosFormateados,
+        contador,
+        pedidosRealizados,
+        mensajes,
+        productos,
+      });
     } catch (error) {
-      res.status(500).json({ error: error.message });
+      console.error(
+        "Ocurrió un error durante la ejecución del bloque try:",
+        error
+      );
+
+      // Se elimina la repetición de código y se maneja el error de manera general
+      res.status(500).send("Error interno del servidor");
     }
+    /*   } */
   },
 
   index: async (req, res) => {
