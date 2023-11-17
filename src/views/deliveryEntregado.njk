@@ -140,8 +140,8 @@
                               {{pedido.Mes}}-{{ pedido.Numero_pedido }}
                     </div>
                     <div class="col-6 {{ pedido.Estado }}">
-                      <form name="formularioCambio" method="get" action="/session/cambioEstadoEntregado/{{ pedido.Numero_pedido }}">
-                        <input type="submit" value="{{ pedido.Estado }}" class="{{ pedido.Estado }}" onclick="return confirm('¿Estás por cambiar el pedido de Realizado a Entregado ?')">
+                      <form name="formularioCambio" method="get" action="">
+                        <input type="submit" value="{{ pedido.Estado }}" class="{{ pedido.Estado }}" onclick="return confirm('No tienes permiso para cambiar el pedido de Entregado a Cobrado')">
                       </form>
 
                     </div>
