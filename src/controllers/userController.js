@@ -80,6 +80,7 @@ module.exports = {
 
         res.render("delivery", {
           /*  userRes: newUser, */
+          adminUsername,
           pedidos,
           pedidos: pedidosFormateados,
           contador,
