@@ -891,86 +891,86 @@ module.exports = {
   },
 
   entregadosAdminDelivery: async (req, res) => {
-    const username = req.params.username;
+    /*   const username = req.params.username;
     adminUsername = username;
 
-    if (username === "DELIVERY") {
-      try {
-        const pedidos = await Pedido.find({
-          Estado: { $in: "Entregado" },
-        }).sort({
-          Numero_pedido: 1,
-        });
+    if (username === "DELIVERY") { */
+    try {
+      const pedidos = await Pedido.find({
+        Estado: { $in: "Entregado" },
+      }).sort({
+        Numero_pedido: 1,
+      });
 
-        const opciones = {
-          month: "long",
-          day: "numeric",
-        };
+      const opciones = {
+        month: "long",
+        day: "numeric",
+      };
 
-        const pedidosFormateados = pedidos.map((pedido) => {
-          const fechaFormateada = pedido.createdAt.toLocaleString(
-            "es-ES",
-            opciones
-          );
-          return { ...pedido.toObject(), fechaFormateada };
-        });
+      const pedidosFormateados = pedidos.map((pedido) => {
+        const fechaFormateada = pedido.createdAt.toLocaleString(
+          "es-ES",
+          opciones
+        );
+        return { ...pedido.toObject(), fechaFormateada };
+      });
 
-        let contador = 0;
-        for (let i = 0; i < pedidos.length; i++) {
-          contador++;
-        }
+      let contador = 0;
+      for (let i = 0; i < pedidos.length; i++) {
+        contador++;
+      }
 
-        const pedidosEntregado = await Pedido.find({
-          Estado: { $nin: ["Pendiente", "Realizado", "Cobrado"] },
-        }).sort({ Numero_pedido: 1 });
+      const pedidosEntregado = await Pedido.find({
+        Estado: { $nin: ["Pendiente", "Realizado", "Cobrado"] },
+      }).sort({ Numero_pedido: 1 });
 
-        const productosCantidad = {}; // Corregido: Se agregó la inicialización
+      const productosCantidad = {}; // Corregido: Se agregó la inicialización
 
-        for (let i = 0; i < pedidosEntregado.length; i++) {
-          const productos = pedidosEntregado[i].productos;
+      for (let i = 0; i < pedidosEntregado.length; i++) {
+        const productos = pedidosEntregado[i].productos;
 
-          for (const [key, value] of Object.entries(productos)) {
-            const nombreProducto = value.nombre;
-            const cantidad = value.cantidad;
+        for (const [key, value] of Object.entries(productos)) {
+          const nombreProducto = value.nombre;
+          const cantidad = value.cantidad;
 
-            if (!productosCantidad[nombreProducto]) {
-              productosCantidad[nombreProducto] = cantidad;
-            } else {
-              productosCantidad[nombreProducto] += cantidad;
-            }
+          if (!productosCantidad[nombreProducto]) {
+            productosCantidad[nombreProducto] = cantidad;
+          } else {
+            productosCantidad[nombreProducto] += cantidad;
           }
         }
-
-        const mensajes = Object.entries(productosCantidad)
-          .map(([nombre, cantidad]) => ({ nombre, cantidad }))
-          .sort((a, b) => b.cantidad - a.cantidad);
-
-        const users = await User.find().sort({
-          username: 1,
-        });
-
-        const productos = await Producto.find().sort({ Numero_pedido: 1 });
-
-        res.render("deliveryEntregado", {
-          username,
-          adminUsername,
-          pedidos,
-          pedidosFormateados,
-          contador,
-          pedidosEntregado,
-          mensajes,
-          productos,
-        });
-      } catch (error) {
-        console.error(
-          "Ocurrió un error durante la ejecución del bloque try:",
-          error
-        );
-
-        // Se elimina la repetición de código y se maneja el error de manera general
-        res.status(500).send("Error interno del servidor");
       }
+
+      const mensajes = Object.entries(productosCantidad)
+        .map(([nombre, cantidad]) => ({ nombre, cantidad }))
+        .sort((a, b) => b.cantidad - a.cantidad);
+
+      const users = await User.find().sort({
+        username: 1,
+      });
+
+      const productos = await Producto.find().sort({ Numero_pedido: 1 });
+
+      res.render("deliveryEntregado", {
+        username,
+        adminUsername,
+        pedidos,
+        pedidosFormateados,
+        contador,
+        pedidosEntregado,
+        mensajes,
+        productos,
+      });
+    } catch (error) {
+      console.error(
+        "Ocurrió un error durante la ejecución del bloque try:",
+        error
+      );
+
+      // Se elimina la repetición de código y se maneja el error de manera general
+      res.status(500).send("Error interno del servidor");
     }
+    /*  } */
   },
 
   entregadosAdmin: async (req, res) => {
