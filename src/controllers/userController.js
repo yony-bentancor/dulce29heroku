@@ -879,7 +879,7 @@ module.exports = {
         return res.status(404).json({ mensaje: "Pedido no encontrado" });
       }
 
-      res.redirect("session/entregados");
+      res.redirect("/session/delivery/entregados");
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
