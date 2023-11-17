@@ -73,7 +73,7 @@ module.exports = {
 
       res.render("delivery", {
         /*  userRes: newUser, */
-        adminUsername,
+        /*    adminUsername, */
         pedidos,
         pedidos: pedidosFormateados,
         contador,
