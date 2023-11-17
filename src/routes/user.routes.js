@@ -47,7 +47,7 @@ router.get(
   userController.cambioEstadoEntregado
 );
 router.get(
-  "/cambioEstadoEntregado/:Numero_pedido",
+  "/cambioEstadoEntregadoDelivery/:Numero_pedido",
   userController.cambioEstadoEntregadoDelivery
 );
 router.get(
