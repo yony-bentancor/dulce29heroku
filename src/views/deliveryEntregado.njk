@@ -205,11 +205,11 @@
 
                     </div>
                     <div class="col-12">
-                      {% if pedido.Pago === 'Efectivo' %}
+                      {% if pedido
+                        .Pago
+                        .trim() === "Efectivo" %}
     MONTO A PAGAR: {{ pedido.Monto_total * (1 - pedido.Descuento / 100) }}
-
                       {% endif %}
-
                     </div>
                     <div class="col-12">
                      FECHA: {{pedido.fechaFormateada }}
