@@ -96,7 +96,7 @@ a.menu:active {
   word-wrap: break-word;
   word-break: break-all;
   margin-top: 10px;
-  margin-left: 0px;
+  margin-left: 70px;
   padding-top: 4px;
   padding-left: 4px;;
   padding-right: 4px;
@@ -106,7 +106,7 @@ a.menu:active {
   margin-bottom: 5px;
   font-size: 1.1rem;
   text-align: center;
-  width: 100px;
+  width: 80px;
   height: 20px;
   }
 
@@ -1500,7 +1500,7 @@ position: absolute;
 
     #info-pedidosUpdate{
       margin-left: 300px;
-      width: 360px;
+      width: 160px;
       height: 600px;
       background-color: #fff;
     
