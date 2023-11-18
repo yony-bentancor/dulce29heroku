@@ -1500,10 +1500,11 @@ position: absolute;
 
     #info-pedidosUpdate{
       margin-left: 300px;
-      width: 400px;
+      width: 600px;
       height: 500px;
       background-color: #fff;
       position: absolute;
+      display: block;
      margin-top: 10px;
      font-size: 0.9rem;
      padding-left: 20px;
