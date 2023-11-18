@@ -1489,10 +1489,10 @@ position: absolute;
     }
 
     #info-pedidosUpdate{
-      margin-left: 400px;
+      margin-left: 300px;
       width: 400px;
-      height: auto;
-      background-color: #ffffff;
+      height: 600px;
+      background-color: #e25959;
       position: absolute;
      margin-top: 10px;
      font-size: 0.9rem;
