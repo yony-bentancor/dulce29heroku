@@ -89,15 +89,25 @@ a.menu:active {
   margin-top: 8px;
 }
 .formcontrolUpdate{
-  width: 120px;
-  margin-top: 0px;
-  margin-left: 100px;
-  background-color: #b1d3e9;
-  color: #000;
-  height: 18px;
-  font-size: 1rem;
+  color: #fff;
+  background-color:  #6f8599;
+  border: none;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-top: 10px;
+  margin-left: 0px;
+  padding-top: 4px;
+  padding-left: 4px;;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  display: block;
   border-radius: 4px;
-  border-color: rgb(217, 222, 227);
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+  text-align: center;
+  width: 100px;
+  height: 20px;
   }
 
 .form-control1 {
