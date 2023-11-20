@@ -391,7 +391,7 @@ color: #7a6f6fc8;
  }
 
  .rowmovilinvisibleUpdate{
-  background-color: #894b4b;
+  background-color: #c7e3c7;
   margin-bottom: 18px;
   padding-bottom: 18px;
   margin-top: -4px;
@@ -1500,10 +1500,9 @@ position: absolute;
 
     #info-pedidosUpdate{
       margin-left: 300px;
-      width: 160px;
+      width: 360px;
       height: 600px;
-      background-color: #fff;
-    
+      background-color: #d3aeae;
       display: inline-block;
      margin-top: 10px;
      font-size: 0.9rem;
