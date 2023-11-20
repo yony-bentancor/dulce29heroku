@@ -106,7 +106,7 @@ a.menu:active {
   margin-bottom: 5px;
   font-size: 1.1rem;
   text-align: center;
-  width: 80px;
+  width: auto;
   height: 20px;
   }
 
@@ -391,7 +391,7 @@ color: #7a6f6fc8;
  }
 
  .rowmovilinvisibleUpdate{
-  background-color: #fff;
+  background-color: #894b4b;
   margin-bottom: 18px;
   padding-bottom: 18px;
   margin-top: -4px;
@@ -799,7 +799,7 @@ height: 20px;
     
       font-size: 0.9rem;
       text-align: left;
-      width: 200px;
+      width: auto;
       height: 20px;
       }
     .pedidoPendientesTotalRB{
