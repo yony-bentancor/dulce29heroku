@@ -266,10 +266,10 @@ module.exports = {
         id: newUser.id,
       };
 
-      if (userRes.username === "Natalia") {
+      if (userRes.username === "ADMINISTRADOR") {
         const token = jwt.sign(userRes, CLAVE_SECRETA);
         const users = await User.find().sort({ username: 1 });
-        // Nuevo código para el caso de usuario "Natalia"
+        // Nuevo código para el caso de usuario "ADMINISTRADOR"
         try {
           const cantidadPendientes = await Pedido.countDocuments({
             Estado: "Pendiente",
