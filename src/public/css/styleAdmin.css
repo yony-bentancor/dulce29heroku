@@ -395,12 +395,12 @@ color: #7a6f6fc8;
   margin-bottom: 18px;
   padding-bottom: 2px;
   margin-top: 0px;
-  margin-left: 0px;
+  margin-left: 20px;
   margin-right: 10px;
   color: #7a6f6fc8;
  font-size: 1rem;
   padding-top: 3px;
-  width: 340px;
+  width: 360px;
   height: 25px;
  }
 
@@ -1500,7 +1500,7 @@ position: absolute;
 
     #info-pedidosUpdate{
       margin-left: 300px;
-      width: 360px;
+      width: 400px;
       height: 600px;
       background-color: #d3aeae;
       display: inline-block;
