@@ -95,7 +95,7 @@ a.menu:active {
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-all;
-  margin-top: 0px;
+  margin-top: 1px;
   margin-left: 20px;
   padding-top: 4px;
   padding-left: 4px;;
@@ -394,13 +394,13 @@ color: #7a6f6fc8;
   background-color: #c7e3c7;
   margin-bottom: 18px;
   padding-bottom: 2px;
-  margin-top: -4px;
+  margin-top: 0px;
   margin-left: 0px;
   margin-right: 10px;
   color: #7a6f6fc8;
  font-size: 1rem;
   padding-top: 3px;
-  width: 300px;
+  width: 340px;
   height: 25px;
  }
 
