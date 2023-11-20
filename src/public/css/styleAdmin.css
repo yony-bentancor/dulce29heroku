@@ -796,12 +796,29 @@ height: 20px;
       padding-top: 3px;
       display: block;
       margin-bottom: 5px;
-    
       font-size: 0.9rem;
       text-align: left;
       width: auto;
       height: 20px;
       }
+
+      .styleClienteNuevo{
+        background-color: #e4e4dfe8;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        word-break: break-all;
+        border-radius: 4px;
+        margin-top: 10px;
+        margin-left: 5px;
+        padding-left: 20px;
+        padding-top: 3px;
+        display: block;
+        margin-bottom: 5px;
+        font-size: 0.9rem;
+        text-align: left;
+        width: auto;
+        height: 20px;
+        }
     .pedidoPendientesTotalRB{
       background-color: #f9f9f7e8;
       overflow-wrap: break-word;
