@@ -41,47 +41,47 @@
       <div id="info-pedidosUpdate">
         <form name="formulario" method="post" action="refreshproducto" enctype="multipart/form-data" class="row">
 
-          <div class="row rowmovilinvisible">
-            <div class="col-3">
-              <strong>PRODUCTO</strong>
+          <div class="row rowmovilinvisibleUpdate">
+            <div class="col-7">
+              <label for="producto" class="pedidoPendientesTotalNU">PRODUCTO</label>
             </div>
-            <div class="col-9">
+            <div class="col-5">
               <input type="text" name="name" value="{{ name }}" class="formcontrolUpdate">
             </div>
           </div>
 
-          <div class="row rowmovilinvisible">
-            <div class="col-3">
-              <strong>DESCRIPCION</strong>
+          <div class="row rowmovilinvisibleUpdate">
+            <div class="col-7">
+              <label for="descripcion" class="pedidoPendientesTotalNU">DESCRIPCION</label>
             </div>
-            <div class="col-9">
+            <div class="col-5">
               <input type="text" name="desc" value="{{ desc }}" class="formcontrolUpdate">
             </div>
           </div>
 
-          <div class="row rowmovilinvisible">
-            <div class="col-3">
-              <strong>IMAGEN</strong>
+          <div class="row rowmovilinvisibleUpdate">
+            <div class="col-7">
+              <label for="imagen" class="pedidoPendientesTotalNU">IMAGEN</label>
             </div>
-            <div class="col-9">
+            <div class="col-5">
               <input type="file" name="image" value="{{ image }}" class="formcontrolUpdate">
             </div>
           </div>
 
-          <div class="row rowmovilinvisible">
-            <div class="col-3">
-              <strong>PRECIO VENTA</strong>
+          <div class="row rowmovilinvisibleUpdate">
+            <div class="col-7">
+              <label for="precio" class="pedidoPendientesTotalNU">PRECIO VENTA</label>
             </div>
-            <div class="col-9">
+            <div class="col-5">
               <input type="text" name="precioVenta" value="{{ precioVenta }}" class="formcontrolUpdate">
             </div>
           </div>
 
-          <div class="row rowmovilinvisible">
-            <div class="col-3">
-              <strong>COSTO PRODUCCION</strong>
+          <div class="row rowmovilinvisibleUpdate">
+            <div class="col-7">
+              <label for="costo" class="pedidoPendientesTotalNU">COSTO PRODUCCION</label>
             </div>
-            <div class="col-9">
+            <div class="col-5">
               <input type="text" name="costoProduccion" value="{{ costoProduccion }}" class="formcontrolUpdate">
             </div>
           </div>
@@ -115,16 +115,18 @@
             <input type="text" class="inputUpdProbox" id="costoProduccion" name="costoProduccion" value="{{costoProduccion}}">
           </div>
  #}
-          <div class="row rowmovilinvisible">
-            <div class="col-sm-2">
+          <div class="row rowmovilinvisibleUpdate">
+
+            <div class="col-4">
               <input type="submit" class="btnUpdate" value="GUARDAR"/>
             </div>
-            <div class="col-sm-2"></div>
-            <div class="col-sm-2">
+            <div class="col-2"></div>
+            <div class="col-4">
               <a href="/session/clientes" class="alink">
-                <input   type="submit" class="btnUpdate" value="CANCELAR"/>
+                <input type="submit" class="btnUpdate" value="CANCELAR"/>
               </a>
             </div>
+            <div class="col-2"></div>
           </div>
         </form>
       </div>
