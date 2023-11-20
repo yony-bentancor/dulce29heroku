@@ -393,15 +393,15 @@ color: #7a6f6fc8;
  .rowmovilinvisibleUpdate{
   background-color: #c7e3c7;
   margin-bottom: 18px;
-  padding-bottom: 18px;
+  padding-bottom: 2px;
   margin-top: -4px;
   margin-left: 0px;
-  margin-right: 1px;
+  margin-right: 10px;
   color: #7a6f6fc8;
  font-size: 1rem;
-  padding-top: 8px;
+  padding-top: 3px;
   width: 300px;
-  height: 20px;
+  height: 25px;
  }
 
  .rowmovil{
