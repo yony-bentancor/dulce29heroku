@@ -95,8 +95,8 @@ a.menu:active {
   overflow-wrap: break-word;
   word-wrap: break-word;
   word-break: break-all;
-  margin-top: 10px;
-  margin-left: 70px;
+  margin-top: 0px;
+  margin-left: 20px;
   padding-top: 4px;
   padding-left: 4px;;
   padding-right: 4px;
@@ -104,8 +104,8 @@ a.menu:active {
   display: block;
   border-radius: 4px;
   margin-bottom: 5px;
-  font-size: 1.1rem;
-  text-align: center;
+  font-size: 0.9rem;
+  text-align: left;
   width: auto;
   height: 20px;
   }
@@ -790,8 +790,8 @@ height: 20px;
       word-wrap: break-word;
       word-break: break-all;
       border-radius: 4px;
-      margin-top: 10px;
-      margin-left: 0px;
+      margin-top: 0px;
+      margin-left: 5px;
       padding-left: 20px;
       padding-top: 3px;
       display: block;
