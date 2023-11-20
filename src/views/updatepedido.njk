@@ -43,115 +43,116 @@
 
       <div id="info-pedidosUpdate">
         <form name="formulario" method="post" action="refreshPedido" class="row">
-          <div class="row rowmovilinvisible">
+          <div class="row rowmovilinvisibleUpdate">
 
-            <div class="col-3">
-              <strong>CLIENTE</strong>
+            <div class="col-7">
+              <label for="cliente" class="pedidoPendientesTotalNU">CLIENTE</label>
             </div>
-            <div class="col-9">
+            <div class="col-5">
               <input type="text" name="username" value="{{ pedido.username }}" class="formcontrolUpdate">
             </div>
           </div>
 
-          <div class="row rowmovilinvisible">
-            <div class="col-3">
-              <strong>NUMERO PEDIDO</strong>
+          <div class="row rowmovilinvisibleUpdate">
+            <div class="col-7">
+              <label for="numeropedido" class="pedidoPendientesTotalNU">NUMERO PEDIDO</label>
             </div>
-            <div class="col-9">
+            <div class="col-5">
               <input type="text" name="Numero_pedido" value="{{ pedido.Numero_pedido }}" class="formcontrolUpdate">
             </div>
           </div>
 
-          <div class="row rowmovilinvisible">
-            <div class="col-3">
-              <strong>TELEFONO</strong>
+          <div class="row rowmovilinvisibleUpdate">
+            <div class="col-7">
+              <label for="telefono" class="pedidoPendientesTotalNU">TELEFONO</label>
             </div>
-            <div class="col-9">
+            <div class="col-5">
               <input type="text" name="telefono" value="{{ pedido.telefono }}" class="formcontrolUpdate">
             </div>
           </div>
 
-          <div class="row rowmovilinvisible">
-            <div class="col-3">
-              <strong>MONTO TOTAL</strong>
+          <div class="row rowmovilinvisibleUpdate">
+            <div class="col-7">
+              <label for="monto" class="pedidoPendientesTotalNU">MONTO TOTAL</label>
             </div>
-            <div class="col-9">
+            <div class="col-5">
               <input type="text" name="Monto_total" value="{{ pedido.Monto_total }}" class="formcontrolUpdate">
             </div>
           </div>
 
-          <div class="row rowmovilinvisible">
-            <div class="col-3">
-              <strong>PAGO</strong>
+          <div class="row rowmovilinvisibleUpdate">
+            <div class="col-7">
+              <label for="cliente" class="pedidoPendientesTotalNU">PAGO</label>
             </div>
-            <div class="col-9">
+            <div class="col-5">
               <input type="text" name="Pago" value="{{ pedido.Pago }}" class="formcontrolUpdate">
             </div>
           </div>
 
-          <div class="row rowmovilinvisible">
-            <div class="col-3">
-              <strong>DESCUENTO</strong>
+          <div class="row rowmovilinvisibleUpdate">
+            <div class="col-7">
+              <label for="descuento" class="pedidoPendientesTotalNU">DESCUENTO</label>
             </div>
-            <div class="col-9">
+            <div class="col-5">
               <input type="text" name="Descuento" value="{{ pedido.Descuento }}" class="formcontrolUpdate">
             </div>
           </div>
 
-          <div class="row rowmovilinvisible">
-            <div class="col-3">
-              <strong>FECHA</strong>
+          <div class="row rowmovilinvisibleUpdate">
+            <div class="col-7">
+              <label for="fecha" class="pedidoPendientesTotalNU">FECHA</label>
             </div>
-            <div class="col-9">
+            <div class="col-5">
               <input type="date" name="createdAt" value="{{ pedido.createdAt }}" class="formcontrolUpdate">
             </div>
           </div>
           <input type="hidden" name="total_productos" id="total_productos" value="{{ pedido.productos.length }}">
 
           {% for producto in pedido.productos %}
-            <div class="row rowmovilinvisible">
-              <div class="col-3">
-                <strong>NOMBRE</strong>
+            <div class="row rowmovilinvisibleUpdate">
+              <div class="col-7">
+                <label for="nombre" class="pedidoPendientesTotalNU">NOMBRE</label>
               </div>
-              <div class="col-9">
+              <div class="col-5">
                 <input type="text" name="producto_nombre_{{ loop.index }}" value="{{ producto.nombre }}" class="formcontrolUpdate">
               </div>
             </div>
 
-            <div class="row rowmovilinvisible">
-              <div class="col-3">
-                <strong>CANTIDAD</strong>
+            <div class="row rowmovilinvisibleUpdate">
+              <div class="col-7">
+                <label for="cantidad" class="pedidoPendientesTotalNU">CANTIDAD</label>
               </div>
-              <div class="col-9">
+              <div class="col-5">
                 <input type="text" name="producto_cantidad_{{ loop.index }}" value="{{ producto.cantidad }}" class="formcontrolUpdate">
               </div>
             </div>
 
-            <div class="row rowmovilinvisible">
-              <div class="col-3">
-                <strong>PRECIO</strong>
+            <div class="row rowmovilinvisibleUpdate">
+              <div class="col-7">
+                <label for="precio" class="pedidoPendientesTotalNU">PRECIO</label>
               </div>
-              <div class="col-9">
+              <div class="col-5">
                 <input type="text" name="producto_precio_{{ loop.index }}" value="{{ producto.precio }}" class="formcontrolUpdate">
               </div>
             </div>
 
           {% endfor %}
 
-          <div class="row rowmovilinvisible">
-            <div class="col-sm-2">
+          <div class="row rowmovilinvisibleUpdate">
+
+            <div class="col-4">
               <input type="submit" class="btnUpdate" value="GUARDAR"/>
             </div>
-            <div class="col-sm-2"></div>
-            <div class="col-sm-2">
+            <div class="col-2"></div>
+            <div class="col-4">
               <a href="/session/clientes" class="alink">
-                <input   type="submit" class="btnUpdate" value="CANCELAR"/>
+                <input type="submit" class="btnUpdate" value="CANCELAR"/>
               </a>
             </div>
+            <div class="col-2"></div>
           </div>
         </form>
       </div>
-
     </div>
 
   </body>
