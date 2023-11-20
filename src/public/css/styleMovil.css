@@ -1047,7 +1047,7 @@ text-align: left;
 }
 
 .botones-container {
-  display: flex;
+  display: none;
   margin-left: 100px;
  
  
