@@ -18,6 +18,12 @@ const pedidoSquema = new Schema(
     Costo_total: { type: Number },
     Descuento: { type: Number },
     Mes: { type: String },
+    creacion: {
+      type: String,
+      enum: ["AUTOMATICO", "MANUAL"], // Puedes ajustar los valores según tus necesidades
+      default: "MANUAL", // Valor por defecto al ingresar manualmente
+    },
+
     productos: [
       {
         nombre: String,

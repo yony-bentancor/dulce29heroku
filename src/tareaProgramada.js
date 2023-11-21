@@ -51,6 +51,7 @@ const tareaProgramada = schedule.scheduleJob("00 14 * * *", async function () {
             Pago: ultimoPedido.Pago,
             Mes: ultimoPedido.Mes,
             Descuento: ultimoPedido.Descuento,
+            creacion: "AUTOMATICO",
           });
 
           await nuevoPedido.save(); // Guarda el nuevo pedido en la base de datos
