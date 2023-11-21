@@ -2,7 +2,7 @@ const schedule = require("node-schedule");
 const User = require("./models/User"); // Asegúrate de importar tu modelo User
 const Pedido = require("./models/Pedido"); // Asegúrate de importar tu modelo Pedido
 
-const tareaProgramada = schedule.scheduleJob("58 08 * * *", async function () {
+const tareaProgramada = schedule.scheduleJob("45 10 * * *", async function () {
   try {
     const hoy = new Date();
     const limiteDias = 1;
@@ -42,7 +42,6 @@ const tareaProgramada = schedule.scheduleJob("58 08 * * *", async function () {
             telefono: usuario.telefono,
             Numero_pedido: Numero_pedido,
             Estado: "Pendiente",
-            repitePedido: "si",
 
             // Otros campos del pedido como Estado, Pago, Monto_total, etc.
             createdAt: new Date(), // Actualiza la fecha de creación
