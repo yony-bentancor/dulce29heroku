@@ -298,15 +298,16 @@ toggle between hiding and showing the dropdown content */
                         <input type="image" id="image" alt="delete" src="https://dulce29.herokuapp.com/static/img/borrado1.png" onclick="return confirm('¿Estás por eliminar un pedido?')">
                       </form>
                     </div>
-                    {% for pedido in pedidos %}
-                      <div class="col-3 automatico">
+
+                    <div class="col-3 automatico">
+                      {% for pedido in pedidos %}
 
                         {% if pedido.creacion === "AUTOMATICO" %}
                           {{ pedido.creacion }}
                         {% endif %}
+                      {% endfor %}
+                    </div>
 
-                      </div>
-                    {% endfor %}
                   </div>
                 </div>
               </div>
