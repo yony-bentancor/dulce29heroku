@@ -370,8 +370,9 @@ toggle between hiding and showing the dropdown content */
                   </div>
                 </div>
                 <div id="box5">
-                  <div class="row boxTxtCliente">
-                    <div class="col-6">
+                  <div class="row">
+
+                    <div class="col-3">
                       <form method="post" action="/session/updatepedido">
                         <input type="hidden" name="Numero_pedido" value="{{ pedido.Numero_pedido }}" >
 
@@ -379,11 +380,16 @@ toggle between hiding and showing the dropdown content */
                       </form>
                     </div>
 
-                    <div class="col-6 boxTxtCliente">
+                    <div class="col-3">
                       <form name="formulario" method="post" action="/session/deletepedido{{ pedido.Numero_pedido}}", pedidoController.deletePedido>
                         <input type="image" id="image" alt="delete" src="https://dulce29.herokuapp.com/static/img/borrado1.png" onclick="return confirm('¿Estás por eliminar un pedido?')">
                       </form>
                     </div>
+
+                    <div class="col-3 {% if pedido.creacion !== 'AUTOMATICO' %}hidden{% endif %}">
+                      {{ pedido.creacion }}
+                    </div>
+
                   </div>
                 </div>
 

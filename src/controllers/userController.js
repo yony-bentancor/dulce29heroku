@@ -250,12 +250,12 @@ module.exports = {
       const newUser = await User.findOne({ username: user.username });
 
       if (!newUser) {
-        res.render("loginError");
+        res.redirect("loginError");
       }
 
       const match = await bcrypt.compare(user.password, newUser.hash);
       if (!match) {
-        return res.status(401).json({ error: "La contraseña no coincide" });
+        res.redirect("loginError");
       }
 
       const userRes = {
