@@ -21,7 +21,7 @@ const pedidoSquema = new Schema(
     creacion: {
       type: String,
       enum: ["AUTOMATICO", "MANUAL"], // Puedes ajustar los valores según tus necesidades
-      default: "MANUAL", // Valor por defecto al ingresar manualmente
+      default: "MANUAL", // Valor por defecto al ingres
     },
 
     productos: [
