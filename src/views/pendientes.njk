@@ -299,10 +299,8 @@ toggle between hiding and showing the dropdown content */
                       </form>
                     </div>
 
-                    <div class="col-3 automatico">
-
+                    <div class="col-3 {% if pedido.creacion !== 'AUTOMATICO' %}hidden{% endif %}">
                       {{ pedido.creacion }}
-
                     </div>
 
                   </div>
