@@ -250,7 +250,7 @@ module.exports = {
       const newUser = await User.findOne({ username: user.username });
 
       if (!newUser) {
-        return res.status(400).json({ error: "El usuario no existe" });
+        res.render("loginError");
       }
 
       const match = await bcrypt.compare(user.password, newUser.hash);
