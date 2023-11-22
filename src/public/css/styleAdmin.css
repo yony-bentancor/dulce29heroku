@@ -1053,11 +1053,13 @@ position: absolute;
 } 
 
 #box5 {
-  width: 200px;
+  width: 170px;
+  margin-top: 5px;
+  margin-left: 5px;
   padding-top: 5px;
-  padding-left: 5px;
+  padding-left: 8px;
     height: 25px;
-    background-color: #c5c0b3; 
+    background-color: #fff; 
 }
 
 #boxunodos {

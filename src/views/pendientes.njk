@@ -301,7 +301,7 @@ toggle between hiding and showing the dropdown content */
                     {% for pedido in pedidos %}
                       <div class="col-3 automatico">
 
-                        {% if pedido.creacion == "AUTOMATICO" %}
+                        {% if pedido.creacion === "AUTOMATICO" %}
                           {{ pedido.creacion }}
                         {% endif %}
 
