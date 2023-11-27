@@ -117,7 +117,7 @@ a.menu:active {
   height: 24px;
   font-size: 1.3rem;
   border-radius: 4px;
-  border-color: rgb(248, 249, 250);
+  border-color:solid 1px,  rgb(248, 249, 250);
   }
 
   .btninicio{
