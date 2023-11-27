@@ -22,33 +22,24 @@
       <div class="row">
         <form  method="post" action="/session/administrador">
 
-          <div class="col-12">
+          <div class="col-6">
 
-            <label for="username" class="form-label txtLoginAdmin">USU</label>
-            <input type="text" name="usuario"  class="form-control1" required="true"/>
-
+            <label for="username" class="form-label">USUARIO</label>
+          </div>
+          <div class="col-6">
+            <input type="text" name="username"   class="form-control1" required="true"/>
+          </div>
+          <div class="col-6">
             <label for="password" class="form-label txtLoginAdmin">CONTRASEÑA</label>
-            <input type="password" name="password"   class="form-control1" required="true"/>
-
+          </div>
+          <div class="col-6">
+            <input type="password" name="password" class="form-control1" required="true"/>
+          </div>
+          <div class="col-12">
             <button type="submit" name="button" class="btninicio">
                   Iniciar sesión
                 </button>
           </div>
-          {# 
-          <div class="col-12">
-            <form action="/tu-ruta-de-envio" method="post">
-              <!-- Etiqueta y campo de entrada para Usuario -->
-              <label for="username">Usuario:</label>
-              <input type="text" id="username" name="username" value="username" class="form-control" required>
-
-              <!-- Etiqueta y campo de entrada para Contraseña -->
-              <label for="password">Contraseña:</label>
-              <input type="password" id="password" name="password" value="password" class="form-control" required>
-
-              <!-- Botón de envío -->
-              <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
-          </div> #}
 
         </form>
       </div>
@@ -58,7 +49,6 @@
 
 </body>
 <script>
-  // Función para obtener parámetros de la URL
   function getParameterByName(name, url) {
     if (!url) 
       url = window.location.href;
@@ -72,27 +62,19 @@
     return decodeURIComponent(results[2].replace(/\+/g, " "));
   }
 
-  // Verificar si hay un mensaje de error en la URL
-  var errorMessage = getParameterByName('error');
+  // Verificar si hay un mensaje de error en la URL para la contraseña
+  var errorMessageContraseña = getParameterByName('errorContraseña');
 
-  // Mostrar un mensaje de error si es necesario
-  / Mostrar un mensaje de error si es necesario
-if (errorMessage) {
-  var messageToShow;
-
-  switch (errorMessage) {
-    case 'UsuarioIncorrecto':
-      messageToShow = 'El usuario es incorrecto. Por favor, inténtelo de nuevo.';
-      break;
-
-    case 'ContraseñaIncorrecta':
-      messageToShow = 'La contraseña es incorrecta. Por favor, inténtelo de nuevo.';
-      break;
-
-    default:
-      messageToShow = 'Error desconocido. Por favor, inténtelo de nuevo.';
+  // Mostrar un mensaje de error para la contraseña si es necesario
+  if (errorMessageContraseña === 'ContraseñaIncorrecta') {
+    alert('La contraseña es incorrecta. Por favor, inténtelo de nuevo.');
   }
 
-  alert(messageToShow);
-}
+  // Verificar si hay un mensaje de error en la URL para el usuario
+  var errorMessageUsuario = getParameterByName('errorUsuario');
+
+  // Mostrar un mensaje de error para el usuario si es necesario
+  if (errorMessageUsuario === 'UsuarioIncorrecto') {
+    alert('El usuario es incorrecto. Por favor, inténtelo de nuevo.');
+  }
 </script>
