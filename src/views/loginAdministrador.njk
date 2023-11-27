@@ -65,7 +65,7 @@
   }
 
   // Verificar si hay un mensaje de error en la URL para la contraseña
-  var errorMessageContraseña = getParameterByName('errorContraseña');
+  var errorMessageContraseña = getParameterByName('ContraseñaIncorrecta');
 
   // Mostrar un mensaje de error para la contraseña si es necesario
   if (errorMessageContraseña === 'ContraseñaIncorrecta') {
@@ -73,7 +73,7 @@
   }
 
   // Verificar si hay un mensaje de error en la URL para el usuario
-  var errorMessageUsuario = getParameterByName('errorUsuario');
+  var errorMessageUsuario = getParameterByName('UsuarioIncorrecto');
 
   // Mostrar un mensaje de error para el usuario si es necesario
   if (errorMessageUsuario === 'UsuarioIncorrecto') {
