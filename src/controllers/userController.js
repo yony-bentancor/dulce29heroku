@@ -250,12 +250,12 @@ module.exports = {
       const newUser = await User.findOne({ username: user.username });
 
       if (!newUser) {
-        res.redirect("loginError");
+        res.redirect("administrador");
       }
 
       const match = await bcrypt.compare(user.password, newUser.hash);
       if (!match) {
-        res.redirect("loginError");
+        res.redirect("administrador");
       }
 
       const userRes = {
