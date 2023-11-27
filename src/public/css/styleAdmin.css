@@ -73,12 +73,12 @@ a.menu:active {
 #login {
   text-align: right;
   margin-left: 640px;
-  background-color: #ffffff;
+  background-color: #a36868;
   height: 380px;
   font: 0.9rem sans-serif;
   padding-right: 5px;
   margin-top: 90px;
-  width: 180px;
+  width: 280px;
   position: absolute;
   word-spacing: 0.8rem;
 
