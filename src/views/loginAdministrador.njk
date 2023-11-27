@@ -61,7 +61,23 @@
   var errorMessage = getParameterByName('error');
 
   // Mostrar un mensaje de error si es necesario
-  if (errorMessage === 'ContraseñaIncorrecta') {
-    alert('La contraseña es incorrecta. Por favor, inténtelo de nuevo.');
+  / Mostrar un mensaje de error si es necesario
+if (errorMessage) {
+  var messageToShow;
+
+  switch (errorMessage) {
+    case 'UsuarioIncorrecto':
+      messageToShow = 'El usuario es incorrecto. Por favor, inténtelo de nuevo.';
+      break;
+
+    case 'ContraseñaIncorrecta':
+      messageToShow = 'La contraseña es incorrecta. Por favor, inténtelo de nuevo.';
+      break;
+
+    default:
+      messageToShow = 'Error desconocido. Por favor, inténtelo de nuevo.';
   }
+
+  alert(messageToShow);
+}
 </script>
