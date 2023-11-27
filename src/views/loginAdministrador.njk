@@ -21,7 +21,7 @@
     <div id="login">
       <div class="row">
         <form  method="post" action="/session/administrador">
-
+          {# 
           <div class="col-12">
 
             <label for="username" class="form-label txtLoginAdmin">USU</label>
@@ -33,18 +33,20 @@
             <button type="submit" name="button" class="btninicio">
                   Iniciar sesión
                 </button>
-          </div>
+          </div> #}
           <div class="col-12">
+            <form action="/tu-ruta-de-envio" method="post">
+              <!-- Etiqueta y campo de entrada para Usuario -->
+              <label for="username">Usuario:</label>
+              <input type="text" id="username" name="username" value="username" class="form-control" required>
 
-            <label class="form-label">USUARIO</label>
-            <input type="text" name="usuario" value="{{username}}"  class="form-control1" required="true"/>
+              <!-- Etiqueta y campo de entrada para Contraseña -->
+              <label for="password">Contraseña:</label>
+              <input type="password" id="password" name="password" value="password" class="form-control" required>
 
-            <label class="form-label">CONTRASEÑA</label>
-            <input type="password" name="password" value="{{password}}"  class="form-control1" required="true"/>
-
-            <button type="submit" name="button" class="btninicio">
-                  Iniciar sesión
-                </button>
+              <!-- Botón de envío -->
+              <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
           </div>
 
         </form>
