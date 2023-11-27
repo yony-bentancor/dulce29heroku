@@ -22,19 +22,22 @@
       <div class="row">
         <form  method="post" action="/session/administrador">
 
-          <div class="col-6">
+          <div class="col-12">
 
             <label for="username" class="form-label">USUARIO</label>
+
+            <input type="text" name="username" class="form-control1"  required="true"/>
           </div>
-          <div class="col-6">
-            <input type="text" name="username" required="true"/>
-          </div>
+        </div>
+        <div class="row">
           <div class="col-6">
             <label for="password" class="form-label txtLoginAdmin">CONTRASEÑA</label>
           </div>
           <div class="col-6">
             <input type="password" name="password" class="form-control1" required="true"/>
           </div>
+        </div>
+        <div class="row">
           <div class="col-12">
             <button type="submit" name="button" class="btninicio">
                   Iniciar sesión
