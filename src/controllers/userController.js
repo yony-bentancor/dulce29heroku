@@ -249,7 +249,9 @@ module.exports = {
       const user = req.body;
       const newUser = await User.findOne({ username: user.username });
       if (!newUser) {
-        return res.redirect("https://dulce29.herokuapp.com/administrador");
+        return res.redirect(
+          "https://dulce29.herokuapp.com/administrador?error=UsuarioIncorrecto"
+        );
       }
       const match = await bcrypt.compare(user.password, newUser.hash);
       if (!match) {
