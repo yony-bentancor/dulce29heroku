@@ -248,14 +248,12 @@ module.exports = {
     try {
       const user = req.body;
       const newUser = await User.findOne({ username: user.username });
-
       if (!newUser) {
-        res.redirect("loginError");
+        return res.status(400).json({ error: "El usuario no existe" });
       }
-
       const match = await bcrypt.compare(user.password, newUser.hash);
       if (!match) {
-        res.redirect("loginError");
+        return res.status(401).json({ error: "La constraseña no coincide!" });
       }
 
       const userRes = {
