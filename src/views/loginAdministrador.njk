@@ -21,19 +21,20 @@
     <div id="login">
       <div class="row">
         <form  method="post" action="/session/administrador">
-          {# 
+
           <div class="col-12">
 
             <label for="username" class="form-label txtLoginAdmin">USU</label>
-            <input type="text" name="usuario" value="{{username}}"  class="form-control1" required="true"/>
+            <input type="text" name="usuario"  class="form-control1" required="true"/>
 
             <label for="password" class="form-label txtLoginAdmin">CONTRASEÑA</label>
-            <input type="password" name="password" value="{{password}}"  class="form-control1" required="true"/>
+            <input type="password" name="password"   class="form-control1" required="true"/>
 
             <button type="submit" name="button" class="btninicio">
                   Iniciar sesión
                 </button>
-          </div> #}
+          </div>
+          {# 
           <div class="col-12">
             <form action="/tu-ruta-de-envio" method="post">
               <!-- Etiqueta y campo de entrada para Usuario -->
@@ -47,7 +48,7 @@
               <!-- Botón de envío -->
               <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
-          </div>
+          </div> #}
 
         </form>
       </div>
