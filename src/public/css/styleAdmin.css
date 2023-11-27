@@ -72,9 +72,9 @@ a.menu:active {
 
 #login {
   text-align: right;
-  margin-left: 640px;
-  background-color: #a36868;
-  height: 380px;
+  margin-left: 560px;
+  background-color: #fff;
+  height: 280px;
   font: 0.9rem sans-serif;
   padding-right: 5px;
   margin-top: 90px;
@@ -112,6 +112,7 @@ a.menu:active {
 
 .form-control1 {
   width: 90px;
+  background-color: #ceffe4;
   margin-top: 5px;
   margin-right: 18px;
   height: 24px;
