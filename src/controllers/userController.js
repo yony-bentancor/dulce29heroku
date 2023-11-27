@@ -253,7 +253,9 @@ module.exports = {
       }
       const match = await bcrypt.compare(user.password, newUser.hash);
       if (!match) {
-        return res.status(401).json({ error: "La constraseña no coincide!" });
+        return res.redirect(
+          "https://dulce29.herokuapp.com/administrador?error=ContraseñaIncorrecta"
+        );
       }
 
       const userRes = {

@@ -10,6 +10,29 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
+<script>
+  // Función para obtener parámetros de la URL
+  function getParameterByName(name, url) {
+    if (!url) 
+      url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+      results = regex.exec(url);
+    if (!results) 
+      return null;
+    if (!results[2]) 
+      return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+  }
+
+  // Verificar si hay un mensaje de error en la URL
+  var errorMessage = getParameterByName('error');
+
+  // Mostrar un mensaje de error si es necesario
+  if (errorMessage === 'UsuarioIncorrecto') {
+    alert('La contraseña es incorrecta. Por favor, inténtelo de nuevo.');
+  }
+</script>
 
 <body>
   <div>
