@@ -1745,6 +1745,26 @@ height: 20px;
   width: 260px;
   height: 20px;
   }
+  .rowpedidoRealizadosTotalDatosRB{
+    color: #000;
+    background-color:  rgba(195, 218, 255, 0.933);
+    border: none;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    margin-left: 4px;
+    padding-top: 4px;
+    padding-left: 4px;;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    display: block;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    text-align: center;
+    width: 38px;
+    height: 20px;
+      }
  .rowpedidoRealizadosTotalDatos{
   color: #000;
   background-color:  rgba(248, 230, 151, 0.933);

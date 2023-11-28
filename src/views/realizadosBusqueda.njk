@@ -68,11 +68,22 @@ toggle between hiding and showing the dropdown content */
         <div id="tableroRealizadoTotalWeb">
 
           <div class="row">
+            <div class="row">
+              <div class="col-12">
+                <!-- Columna para el nombre del producto -->
+                <ul >
+                  <li>
+                    <label class="pedidoPendientesTotal">CLIENTE || {{username}}</label>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
             <div class="col-9">
               <!-- Columna para el nombre del producto -->
               <ul >
 
-                <li class="pedidoRealizadosTotal">TOTAL PEDIDOS REALIZADOS</li>
+                <li class="pedidoRealizadosTotal">TOTAL PEDIDOS HISTORICO</li>
 
               </ul>
             </div>
@@ -96,7 +107,7 @@ toggle between hiding and showing the dropdown content */
               <!-- Columna para la cantidad -->
               <ul>
                 {% for mensaje in mensajes %}
-                  <li class="rowpedidoRealizadosTotalDatos">{{ mensaje.cantidad }}</li>
+                  <li class="rowpedidoRealizadosTotalDatosRB">{{ mensaje.cantidad }}</li>
                 {% endfor %}
               </ul>
             </div>
