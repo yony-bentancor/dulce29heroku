@@ -373,45 +373,45 @@
 
                             </div>
 
-                            {#  <div id="buscadorRealizados">
-                            <div class="row">
-                              <div class="col-12 nuevoClientetxt">
-                                <strong>  BUSCAR CLIENTE</strong>
-                              </div>
-                            </div>
-
-                            <div class="row alineadoFormCliente">
-                              <div class="col-6">
-                                <form name="formulario" method="post" action="/session/realizadosBusqueda">
-                                  <label for="browser" class="formClientetxt">CLIENTE</label>
+                            <div id="buscadorRealizados">
+                              <div class="row">
+                                <div class="col-12 nuevoClientetxt">
+                                  <strong>  BUSCAR CLIENTE</strong>
                                 </div>
+                              </div>
 
+                              <div class="row alineadoFormCliente">
                                 <div class="col-6">
-                                  <input class="formClienteCliente" list="browsers" name="browser" id="browser">
-                                  <datalist id="browsers">
-                                    {% for user in users %}
-                                      <option type="text" name="username"  id="username" value="{{user.username}}">
+                                  <form name="formulario" method="post" action="/session/realizadosBusqueda">
+                                    <label for="browser" class="formClientetxt">CLIENTE</label>
+                                  </div>
 
-                                        <!-- Campo oculto para el teléfono -->
-                                      {% endfor %}
-                                    </datalist>
+                                  <div class="col-6">
+                                    <input class="formClienteCliente" list="browsers" name="browser" id="browser">
+                                    <datalist id="browsers">
+                                      {% for user in users %}
+                                        <option type="text" name="username"  id="username" value="{{user.username}}">
+
+                                          <!-- Campo oculto para el teléfono -->
+                                        {% endfor %}
+                                      </datalist>
+                                    </div>
+                                  </div>
+
+                                  <!-- Botón de envío de formulario -->
+                                  <div class="row alineadoFormCliente">
+                                    <div class="col-6">
+                                      <label for="email" class="formClientetxt"></label>
+                                    </div>
+                                    <div class="col-6">
+                                      <button type="submit" name="button" class="btn-primary formClienteCliente">BUSCAR PEDIDO</button>
+                                    </div>
                                   </div>
                                 </div>
 
-                                <!-- Botón de envío de formulario -->
-                                <div class="row alineadoFormCliente">
-                                  <div class="col-6">
-                                    <label for="email" class="formClientetxt"></label>
-                                  </div>
-                                  <div class="col-6">
-                                    <button type="submit" name="button" class="btn-primary formClienteCliente">BUSCAR PEDIDO</button>
-                                  </div>
-                                </div>
                               </div>
 
                             </div>
-
-                          </div> #}
                             {# <div id="info-clientes">
 
         <div class="row rowmovilinvisible">
