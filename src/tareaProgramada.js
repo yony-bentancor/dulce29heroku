@@ -4,7 +4,7 @@ const User = require("./models/User");
 const Pedido = require("./models/Pedido");
 
 const tareaProgramada = cron.schedule(
-  "56 4 * * *",
+  "22 10 * * *",
   async () => {
     try {
       const hoy = new Date();
