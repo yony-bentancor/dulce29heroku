@@ -111,12 +111,12 @@ a.menu:active {
   }
 
 .form-control1 {
-  width: 100px;
+  width: 120px;
   background-color: #d9f6e6;
   margin-top: 5px;
   margin-right: 18px;
   height: 24px;
-  font-size: 1.1rem;
+  font-size: 1rem;
   border-radius: 4px;
   border-color:solid 1px,  
   }

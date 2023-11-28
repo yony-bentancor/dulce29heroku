@@ -6,16 +6,16 @@
 @media screen and (max-width : 600px) {
   #logoAdmin {
     height: 60px;
-    margin-left: 82px;
+    margin-left: 92px;
     margin-top: 50px;
     position: absolute;
     width: 100px;
    }
   #login {
     background-color: #ffffff;
-  margin-left: 40px;
+  margin-left: 80px;
     height: 100px;
-    width: 200px;
+    width: 260px;
     font: 0.9rem sans-serif;
     margin-top: 200px;
     word-spacing: 0.8rem;
