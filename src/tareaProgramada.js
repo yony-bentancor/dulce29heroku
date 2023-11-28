@@ -1,10 +1,10 @@
+// tareaProgramada.js
 const cron = require("node-cron");
 const User = require("./models/User");
 const Pedido = require("./models/Pedido");
 
-// Define la tarea programada usando node-cron
 const tareaProgramada = cron.schedule(
-  "13 10 * * *",
+  "56 4 * * *",
   async () => {
     try {
       const hoy = new Date();
@@ -63,13 +63,10 @@ const tareaProgramada = cron.schedule(
   },
   {
     scheduled: true,
-    timezone: "America/New_York", // Ajusta el huso horario según tu ubicación
+    timezone: "America/Montevideo", // Ajusta el huso horario según tu ubicación
   }
 );
 
-tareaProgramada.start(); // Inicia la tarea programada
+tareaProgramada.start();
 
-// Manejo de eventos en caso de errores
-tareaProgramada.on("error", (error) => {
-  console.error("Error en la tarea programada:", error);
-});
+module.exports = tareaProgramada;
