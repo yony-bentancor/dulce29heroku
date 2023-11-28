@@ -6,7 +6,7 @@
 @media screen and (max-width : 600px) {
   #logoAdmin {
     height: 60px;
-    margin-left: 52px;
+    margin-left: 82px;
     margin-top: 50px;
     position: absolute;
     width: 100px;
@@ -539,13 +539,14 @@ margin-left: 46px;
         }
 
         .form-control1 {
-          width: 90px;
+          width: 100px;
+          background-color: #d9f6e6;
           margin-top: 5px;
           margin-right: 18px;
           height: 24px;
-          font-size: 1.3rem;
+          font-size: 1.1rem;
           border-radius: 4px;
-          border-color:solid 1px,  rgb(193, 208, 229);
+          border-color:solid 1px,  
           }
        
       
