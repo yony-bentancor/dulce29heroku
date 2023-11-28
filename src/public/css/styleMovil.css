@@ -527,10 +527,10 @@ margin-left: 46px;
           padding-top: 5px;
           display: inline-block;
           border-radius: 4px;
-          font-size: 0.9rem;
+          font-size: 1rem;
           text-align: left;
-          width: 210px;
-          height: 25px;
+          width: 240px;
+          height: 30px;
           }
         .tableroGeneral{
          
@@ -552,52 +552,62 @@ margin-left: 46px;
       
         .tableroGeneralMovil{
           width: 320px;
-          margin-left: 30px;
+          margin-left: 0px;
           display: inline-block;
           background-color: #fff;
           height: auto;
         }
 
         .azul{
-          font-size: 1.1rem;
+          font-size: 1.3rem;
           font-weight: 700;
-          width: 25px;
+          width: 30px;
+          height: 30px;
           color: #000;
-        height: 25px;
-        margin-top: 3px;
+          margin-top: 3px;
           padding-top: 5px;
+          padding-left: 5px;
+      
           background-color: #7da0c2;
         
           
          }
         .amarillo{
-          width: 25px;
+        
           background-color: #eae74b;
-          margin-top: 3px;
+          font-size: 1.3rem;
           font-weight: 700;
+          width: 30px;
+          height: 30px;
           color: #000;
+          margin-top: 3px;
           padding-top: 5px;
-          height: 25px;
+          padding-left: 5px;
           
          }
          .rojo{
-          width: 25px;
+         
           background-color: #db7e7e;
-          font-size: 1.1rem;
+          font-size: 1.3rem;
           font-weight: 700;
-          margin-top: 3px;
+          width: 30px;
+          height: 30px;
           color: #000;
+          margin-top: 3px;
           padding-top: 5px;
-          height: 25px;
+          padding-left: 5px;
          }
          .verde{
-          width: 25px;
-          height: 25px;
+         
           background-color: #74cb97;
-          font-size: 1.1rem;
+          font-size: 1.3rem;
           font-weight: 700;
+          width: 30px;
+          height: 30px;
           color: #000;
+          margin-top: 3px;
           padding-top: 5px;
+          padding-left: 5px;
          }
         
 
