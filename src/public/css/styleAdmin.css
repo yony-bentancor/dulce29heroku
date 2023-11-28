@@ -766,7 +766,8 @@ height: 20px;
     width: 200px;
     height: 20px;
     }
-    .pedidoCobradoMes{
+    
+    .pedidoCobradoMesRB{
       background-color: #e4e4dfe8;
       overflow-wrap: break-word;
       word-wrap: break-word;
@@ -825,7 +826,7 @@ height: 20px;
       overflow-wrap: break-word;
       word-wrap: break-word;
       word-break: break-all;
-      margin-left: 20px;
+      margin-left: 30px;
       padding-left: 20px;
       padding-top: 3px;
       display: block;
