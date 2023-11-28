@@ -4,7 +4,7 @@ const Pedido = require("./models/Pedido");
 
 // Define la tarea programada usando node-cron
 const tareaProgramada = cron.schedule(
-  "01 13 * * *",
+  "13 10 * * *",
   async () => {
     try {
       const hoy = new Date();
