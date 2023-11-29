@@ -739,6 +739,19 @@ module.exports = {
         username: { $eq: browser },
         /* Estado: { $ne: "Pendiente" }, */
       });
+      const opciones = {
+        month: "long",
+        day: "numeric",
+      };
+
+      const pedidosFormateados = pedidos.map((pedido) => {
+        const fechaFormateada = pedido.createdAt.toLocaleString(
+          "es-ES",
+          opciones
+        );
+        return { ...pedido.toObject(), fechaFormateada };
+      });
+
       let contador = 0;
       for (let i = 0; i < pedidos.length; i++) {
         contador++;
