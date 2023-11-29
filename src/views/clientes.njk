@@ -300,11 +300,11 @@
                               <div class="row alineadoFormCliente">
                                 <div class="col-6">
                                   <form name="formulario" method="post" action="/session/realizadosBusqueda">
-                                    <label for="browser" class="formClientetxt">CLIENTE</label>
+                                    <label for="browser" class="styleClienteNuevo">CLIENTE</label>
                                   </div>
 
                                   <div class="col-6">
-                                    <input class="formClienteCliente" list="browsers" name="browser" id="browser">
+                                    <input class="pedidoPendientesTotalDatosCantidadNU" list="browsers" name="browser" id="browser">
                                     <datalist id="browsers">
                                       {% for user in users %}
                                         <option type="text" name="username"  id="username" value="{{user.username}}">
