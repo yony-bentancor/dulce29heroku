@@ -115,21 +115,6 @@
     {#  admin- usuario          #}
     <div id="contenedor-clientes">
 
-      {#  <div id="totalClientes">
-        <div class="row">
-          <div class="col-1 azul">{{ contadorUser }}</div>
-          <div class="col-2">CLIENTES</div>
-
-          <div class="col-1 rojo">{{ cantidadPendientes }}</div>
-          <div class="col-2">PEDIDOS PENDIENTES</div>
-
-          <div class="col-1 amarillo">{{ cantidadRealizados }}</div>
-          <div class="col-2">PEDIDOS REALIZADOS</div>
-
-          <div class="col-1 verde">{{ cantidadEntregados }}</div>
-          <div class="col-2">PEDIDOS ENTREGADOS</div>
-        </div>
-      </div> #}
       <div id="newPedido">
 
         <div class="row nuevoPedidoPendiente">
@@ -137,6 +122,7 @@
             <strong>     NUEVO PEDIDO</strong>
           </div>
         </div>
+
         <div class="row">
           <div class="col-12"></div>
         </div>
@@ -225,6 +211,7 @@
 
                         <div id="newUserMovil">
                           <form name="formulario"  method="post" action="/session/newuser", userController.login>
+
                             <div class="row tagCliente">
                               <div class="col-12">
                                 <strong>     NUEVO CLIENTE</strong>
@@ -266,13 +253,13 @@
                                 <input type="text" name="email" id="email" value="{{email}}" class="pedidoPendientesTotalDatosCantidadNU" required="true"/>
                               </div>
                             </div>
+
                             <div class="row ">
                               <div class="col-6">
                                 <label for="repite" class="styleClienteNuevo">REPETIR PEDIDO </label>
                               </div>
                               <div class="col-6">
-                                {#                                 <input type="text" name="repitePedido" id="repitePedido" value="{{repitePedido}}" class="pedidoPendientesTotalDatosCantidad" required="true"/>
- #}
+
                                 <input type="text" id="repitePedido" name="repitePedido" list="repitePedidoList" class="pedidoPendientesTotalDatosCantidadNU">
                                 <datalist id="repitePedidoList">
 
@@ -339,142 +326,7 @@
                                   </div>
                                 </div>
 
-                                <div id="info-clientes">
-                                  <div class="row tagCliente">
-                                    <div class="col-12">
-                                      <strong>CLIENTES</strong>
-                                    </div>
-                                  </div>
-
-                                  <div class="row rowmovilinvisible">
-                                    <div class="col-2">
-                                      <strong>NOMBRE</strong>
-                                    </div>
-                                    <div class="col-2">
-                                      <strong>TELEFONO </strong>
-                                    </div>
-                                    {#     <div class="col-2">
-                                  <strong>DIRECCION </strong>
-                                </div> #}
-                                    <div class="col-3">
-                                      <strong>EMAIL </strong>
-                                    </div>
-                                    <div class="col-4">
-                                      <strong>REPITE PEDIDO</strong>
-                                    </div>
-                                    <div class="col-1">
-                                      <strong></strong>
-                                    </div>
-                                  </div>
-
-                                  {% for user in users %}
-
-                                    <div class="row rowmovil">
-                                      <div class="col-2">
-                                        {{ user.username }}</div>
-                                      <div class="col-2">
-                                        {{ user.telefono }}</div>
-                                      {#   <div class="col-2">
-                                    {{ user.direccion }}</div> #}
-                                      <div class="col-3">
-                                        {{ user.email }}
-                                      </div>
-                                      <div class="col-3">
-                                        {% if user.repitePedido %}
-                                          <div>
-                                            {#  {{ user.repitePedido }}|| #}
-                                     CADA   {{user.intervaloRepetición}} DIAS
-                                      </div>
-                                        {% endif %}
-                                      </div>
-
-                                      <div class="col-1">
-                                        <form method="post" action="/session/updateUser">
-                                          <input type="hidden" name="username" value="{{ user.username }}">
-
-                                          <button type="submit">UPD</button>
-                                        </form>
-
-                                      </div>
-
-                                      <div class="col-1">
-                                        <form name="formulario" method="post" action="/session/deleteuser{{ user.username }}", userController.deleteuser>
-                                          <input type="image" id="image" alt="delete" src="https://dulce29.herokuapp.com/static/img/borrado1.png" onclick="return confirm('¿Estás por eliminar un cliente')">
-                                        </form>
-
-                                      </div>
-
-                                    </div>
-                                  {% endfor %}
-
-                                </div>
-
                               </div>
+                            </body>
 
-                            </div>
-                            {# <div id="info-clientes">
-
-        <div class="row rowmovilinvisible">
-          <div class="col-2">
-            <strong>NOMBRE</strong>
-          </div>
-          <div class="col-2">
-            <strong>TELEFONO </strong>
-          </div>
-          <div class="col-2">
-            <strong>DIRECCION </strong>
-          </div>
-          <div class="col-2">
-            <strong>EMAIL </strong>
-          </div>
-          <div class="col-2">
-            <strong>REPITE PEDIDO</strong>
-          </div>
-        </div>
-
-        {% for user in users %}
-     
-          <div class="row rowmovil">
-            <div class="col-2">
-              {{ user.username }}</div>
-            <div class="col-2">
-              {{ user.telefono }}</div>
-            <div class="col-2">
-              {{ user.direccion }}</div>
-            <div class="col-3">
-              {{ user.email }}
-            </div>
-            <div class="col-1">
-              {% if user.repitePedido %}
-                <div class="col-1">
-                  {{ user.repitePedido }}
-                </div>
-              {% endif %}
-            </div>
-
-            <div class="col-1">
-              <form method="post" action="/session/updateUser">
-                <input type="hidden" name="username" value="{{ user.username }}">
-
-                <button type="submit">UPD</button>
-              </form>
-          
-
-            </div>
-
-            <div class="col-1">
-              <form name="formulario" method="post" action="/session/deleteuser{{ user.username }}", userController.deleteuser>
-                <input type="image" id="image" alt="delete" src="https://dulce29.herokuapp.com/static/img/borrado1.png" onclick="return confirm('¿Estás por eliminar un cliente')">
-              </form>
-
-            </div>
-
-          </div>
-        {% endfor %}
-
-              </div> #}
-
-                          </div>
-                        </body>
-
-                      {% endblock %}
+                          {% endblock %}
