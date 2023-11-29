@@ -775,6 +775,7 @@ module.exports = {
       res.render("realizadosBusqueda", {
         pedidos,
         infobusqueda,
+        pedidos: pedidosFormateados,
         contador,
         mensajes,
         username: infobusqueda.browser,
