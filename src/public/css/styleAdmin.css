@@ -1656,17 +1656,20 @@ position: absolute;
 
 #buscadorRealizados {
 
-  text-align: right;
-  display: inline-block;
-  width: 290px;
-  z-index: 0;
-  height: auto;
-  margin-left: 10px;
-  border-radius: 4px;
-  margin-bottom: 10px;
-  padding-bottom: 10px;
-  margin-top: 240px; /* Añade espacio entre los dos divs */
+ 
+
+
+
+
+  padding-left: 8px;
+position: absolute;
+  text-align: left;
+  width: 400px;
+  height: 500px;
   background-color: #fff;
+  border-radius: 4px;
+  padding-bottom: 10px;
+  margin-left: 500px;
  
 }
 
