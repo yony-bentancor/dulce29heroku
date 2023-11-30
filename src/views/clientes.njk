@@ -146,14 +146,14 @@
             </div>
 
             <div class="row">
-              <div class="col-8">
+              <div class="col-6">
                 <ul >
-                  <li class="pedidoPendientesTotal">PAGO</li>
+                  <li class="styleClienteNuevo">PAGO</li>
                 </ul>
               </div>
 
-              <div class="col-4">
-                <input type="text" id="Pago" name="Pago" list="opcionesPago"  class="pedidoPendientesTotalDatosCantidad">
+              <div class="col-6">
+                <input type="text" id="Pago" name="Pago" list="opcionesPago"  class="pedidoPendientesTotalDatosCantidadNU">
                 <datalist id="opcionesPago">
                   <option value="Efectivo">
                     <option value="Transferencia"></datalist>
@@ -161,13 +161,13 @@
                 </div>
 
                 <div class="row">
-                  <div class="col-8">
+                  <div class="col-6">
                     <ul >
-                      <li class="pedidoPendientesTotal">DESCUENTO</li>
+                      <li class="styleClienteNuevo">DESCUENTO</li>
                     </ul>
                   </div>
-                  <div class="col-4">
-                    <input type="text" id="Descuento" name="Descuento" list="opcionesDescuento" class="pedidoPendientesTotalDatosCantidad">
+                  <div class="col-6">
+                    <input type="text" id="Descuento" name="Descuento" list="opcionesDescuento" class="pedidoPendientesTotalDatosCantidadNU">
                     <datalist id="opcionesDescuento">
                       <option value="0">
                         <option value="5">
@@ -180,9 +180,9 @@
 
                             <div class="row">
                               {% for producto in productos %}
-                                <div class="col-8">
+                                <div class="col-6">
                                   <ul >
-                                    <li class="pedidoPendientesTotal">
+                                    <li class="styleClienteNuevo">
                                       <label >{{ producto.name }}</label>
                                     </li>
                                   </ul>
@@ -191,15 +191,16 @@
                                   <input type="hidden" name="costos[]" value="{{ producto.costoProduccion }}">
                                 </div>
 
-                                <div class="col-4">
-                                  <input type="number" class="pedidoPendientesTotalDatosCantidad" name="cantidades[]" value="0">
+                                <div class="col-6">
+                                  <input type="number" class="pedidoPendientesTotalDatosCantidadNU" name="cantidades[]" value="0">
                                 </div>
                               {% endfor %}
                             </div>
 
                             <div class="row">
-                              <div class="col-12">
+                              <div class="col-6"></div>
 
+                              <div class="col-6">
                                 <button type="submit" class="btn-primary formClienteCliente">REALIZAR</button>
                               </div>
                             </div>
