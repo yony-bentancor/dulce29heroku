@@ -135,7 +135,7 @@
           </div>
           <div class="col-6">
             <form action="/session/newpedido" method="POST">
-              <input class="pedidoPendientesTotalDatosCantidadNU" list="browsers" name="browser" id="browser">
+              <input class="pedidoPendientesTotalDatosCantidadNU" list="browsers" name="browser" id="browser" required="true">
               <datalist id="browsers">
                 {% for user in users %}
                   <option type="text" name="username"  id="username" value="{{user.username}}">
@@ -303,7 +303,7 @@
                                   </div>
 
                                   <div class="col-6">
-                                    <input class="pedidoPendientesTotalDatosCantidadNU" list="browsers" name="browser" id="browser">
+                                    <input class="pedidoPendientesTotalDatosCantidadNU" list="browsers" name="browser" id="browser" required="true">
                                     <datalist id="browsers">
                                       {% for user in users %}
                                         <option type="text" name="username"  id="username" value="{{user.username}}">
