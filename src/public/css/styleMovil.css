@@ -795,7 +795,7 @@ height: 24px;
   overflow-wrap: break-word;
 word-wrap: break-word;
 word-break: break-all; 
-margin-left: 20px;
+margin-left: 10px;
 padding-top: 4px;
 padding-left: 2px;
 padding-right: 6px;
@@ -803,9 +803,27 @@ padding-bottom: 4px;
 border-radius: 4px;
 font-size: 1rem;
 text-align: right;
-width: 70px;
+width: 100px;
 height: 24px;
 }
+
+.styleClienteNuevo{
+  background-color: #e4e4dfe8;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-left: 5px;
+  padding-left: 20px;
+  padding-top: 3px;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+  text-align: left;
+  width: auto;
+  height: 24px;
+  }
 
 .pedidoPendientesTotalDatosCantidadPE {
   color: #000;
