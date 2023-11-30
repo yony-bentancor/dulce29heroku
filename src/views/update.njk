@@ -61,7 +61,7 @@
 
           <div class="row rowmovilinvisibleUpdate">
             <div class="col-7">
-              <label for="imagen" class="pedidoPendientesTotalNU">IMAGEN</label>
+              <label for="image" class="pedidoPendientesTotalNU">IMAGEN</label>
             </div>
             <div class="col-5">
               <input type="file" name="image" value="{{ image }}" class="formcontrolUpdate">
@@ -85,36 +85,14 @@
               <input type="text" name="costoProduccion" value="{{ costoProduccion }}" class="formcontrolUpdate">
             </div>
           </div>
-          {# <div class="form-section">
-            <label for="name" class="inputUpdProtxt">PRODUCTO</label>
-            <input type="text" name="name" id="name" class="inputUpdProbox" value="{{name}}">
+          <div class="row rowmovilinvisibleUpdate">
+            <div class="col-7">
+              <label for="costo" class="pedidoPendientesTotalNU">NUMERO PRODUCTO</label>
+            </div>
+            <div class="col-5">
+              <input type="text" name="numeroProducto" value="{{ numeroProducto }}" class="formcontrolUpdate">
+            </div>
           </div>
-
-          <div class="form-section">
-            <label for="desc" class="inputUpdProtxt">DESCRIPCION</label>
-            <input type="text" class="inputUpdProbox" name="desc" id="desc" value="{{desc}}">
-          </div>
-
-          <div class="form-section">
-            <label for="image" class="inputUpdProtxt">IMAGEN</label>
-            <input type="file" id="image" class="inputUpdProbox" name="image">
-          </div>
-
-          <div class="form-section">
-            <label for="numeroProducto" class="inputUpdProtxt">NUMERO ID</label>
-            <input type="text" class="inputUpdProbox" id="numeroProducto" name="numeroProducto" value="{{numeroProducto}}">
-          </div>
-
-          <div class="form-section">
-            <label for="precioVenta" class="inputUpdProtxt">PRECIO VENTA</label>
-            <input type="text" class="inputUpdProbox" name="precioVenta" id="precioVenta" value="{{precioVenta}}">
-          </div>
-
-          <div class="form-section">
-            <label for="costoProduccion" class="inputUpdProtxt">COSTO PRODUCCION</label>
-            <input type="text" class="inputUpdProbox" id="costoProduccion" name="costoProduccion" value="{{costoProduccion}}">
-          </div>
- #}
           <div class="row rowmovilinvisibleUpdate">
 
             <div class="col-4">
@@ -130,73 +108,6 @@
           </div>
         </form>
       </div>
-
-      {#  <div id="info-ProductoUpdate">
-        <form name="formulario" method="post" action="refreshproducto" enctype="multipart/form-data">
-          <div class="row">
-
-            <div class="col-4 inputUpdProtxt">
-              PRODUCTO
-            </div>
-
-            <div class="col-8 inputUpdPro">
-              <input type ="text" name="name" id="name" class="inputUpdProbox"  value="{{name}}" >
-            </div>
-
-          </div>
-
-          <div class="row">
-            <div class="col-4 inputUpdProtxt">
-              DESCRIPCION
-            </div>
-            <div class="col-8 inputUpdPro"><input type ="text" class="inputUpdProbox"  name="desc" id="desc" value="{{desc}}"></div>
-
-          </div>
-
-          <div class="row">
-            <div class="col-4 inputUpdProtxt">
-            IMAGEN
-            </div>
-            <div class="col-8 inputUpdPro">
-              <input type="file" id="image" class="inputUpdProbox" name="image">
-            </div>
-            <div class="row">
-              <div class="col-4 inputUpdProtxt">
-          NUMERO ID
-            </div>
-              <div class="col-8 inputUpdPro"><input type="text" class="inputUpdProbox"   id="numeroProducto" name="numeroProducto" value="{{numeroProducto}}" ></div>
-            </div>
-            <div class="row">
-              <div class="col-4 inputUpdProtxt">
-          PRECIO VENTA
-            </div>
-              <div class="col-8 inputUpdPro"><input type ="text" class="inputUpdProbox" name="precioVenta" id="precioVenta" value="{{precioVenta}}"></div>
-            </div>
-            <div class="row">
-              <div class="col-4 inputUpdProtxt">
-          COSTO PRODUCCION
-            </div>
-
-              <div class="col-8 inputUpdPro"><input type="text" class="inputUpdProbox"  id="costoProduccion" name="costoProduccion" value="{{costoProduccion}}" ></div>
-            </div>
-            <div class="row">
-              <div class="col-4"></div>
-
-              <div class="col-3">
-                <input type="submit" class="btnUpdate" value="GUARDAR"/>
-              </div>
-              <div class="col-3">
-                <a href="/session/productosAdmin">
-                  <input   type="submit" class="btnUpdate" value="CANCELAR"/></a>
-              </div>
-              <div class="col-2"></div>
-            </div>
-          </form>
-        </div>
-
-        
-
-      </div> #}
     </div>
 
   </body>

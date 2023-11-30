@@ -343,7 +343,7 @@ module.exports = {
       }
 
       const producto = await Producto.findOneAndUpdate(
-        { desc: datos.name },
+        { numeroProducto: datos.numeroProducto }, // Cambia la clave de búsqueda a "numeroProducto"
         datos,
         {
           new: true,
