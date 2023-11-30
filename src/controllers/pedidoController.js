@@ -343,7 +343,7 @@ module.exports = {
       }
 
       const producto = await Producto.findOneAndUpdate(
-        { desc: datos.desc },
+        { desc: datos.name },
         datos,
         {
           new: true,
