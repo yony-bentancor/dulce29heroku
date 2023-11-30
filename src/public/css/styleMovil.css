@@ -509,17 +509,27 @@ margin-left: 46px;
         }
 
         .formClienteCliente{
-          font-size: 0.9rem;
+          font-size: 1rem;
           display: inline;
-          width: 90px;
+          width: 100px;
           margin-top: 8px;
-      
-          margin-left: 30px;
+          margin-left: 10px;
           border: 1px;
-          height: 20px;
+          height: 24px;
           border-radius: 2px;
           background-color: #eceaea;
         }
+
+
+
+
+
+
+
+
+
+
+
         .btnClienteNuevoNBuscador{
           font-size: 0.9rem;
           display: inline;
@@ -795,7 +805,7 @@ height: 24px;
   overflow-wrap: break-word;
 word-wrap: break-word;
 word-break: break-all; 
-margin-left: 10px;
+
 padding-top: 4px;
 padding-left: 2px;
 padding-right: 6px;
@@ -804,7 +814,9 @@ border-radius: 4px;
 font-size: 1rem;
 text-align: right;
 width: 100px;
+margin-left: 10px;
 height: 24px;
+
 }
 
 .styleClienteNuevo{
