@@ -995,6 +995,21 @@ position: relative;
   height: auto;
   background-color:rgb(250, 228, 131);
 }
+
+#tableroRealizadoBusqueda {
+  width: 320px;
+  display: block;
+position: relative;
+  padding-bottom: 20px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-left: 30px;
+  padding-left: 10px;
+  padding-top: 10px;
+
+  height: auto;
+  background-color:rgb(131, 188, 250);
+}
 .pedidoRealizadosTotal{
 
   background-color: #f9f9f7e8;
@@ -1725,7 +1740,25 @@ padding-bottom: 3px;
   width: 40px;
   height: 30px;
     }
-
+    .rowpedidoRealizadosTotalDatosRB{
+      color: #000;
+      background-color:  #f9f9f7e8;
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-all; 
+    
+      padding-top: 4px;
+      padding-left: 2px;
+      padding-right: 6px;
+      padding-bottom: 4px;
+      border-radius: 4px;
+      font-size: 1.6rem;
+      font-weight: bold;
+      text-align: right;
+      width: 40px;
+      height: 30px;
+        }
+    
     #buscadorEntregados {
       width: 320px;
       display: block;

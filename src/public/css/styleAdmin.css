@@ -1652,6 +1652,18 @@ position: absolute;
   margin-top: 26px;
 
 }
+#tableroRealizadoBusqueda{
+  width: 340px;
+  margin-top: 26px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  padding-top: 10px;
+  margin-left: 760px;
+  display: block;
+  height: auto;
+  background-color: #fff;
+
+}
 
 #tableroRealizadoTotalWeb{
   width: 340px;
