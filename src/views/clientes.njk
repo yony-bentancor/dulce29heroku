@@ -128,14 +128,14 @@
         </div>
 
         <div class="row">
-          <div class="col-8">
+          <div class="col-6">
             <ul >
-              <li class="pedidoPendientesTotal">CLIENTE</li>
+              <li class="styleClienteNuevo">CLIENTE</li>
             </ul>
           </div>
-          <div class="col-4">
+          <div class="col-6">
             <form action="/session/newpedido" method="POST">
-              <input class="pedidoPendientesTotalDatosCantidad" list="browsers" name="browser" id="browser">
+              <input class="pedidoPendientesTotalDatosCantidadNU" list="browsers" name="browser" id="browser">
               <datalist id="browsers">
                 {% for user in users %}
                   <option type="text" name="username"  id="username" value="{{user.username}}">
