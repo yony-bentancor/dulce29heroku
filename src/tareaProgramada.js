@@ -23,7 +23,7 @@ const tareaProgramada = cron.schedule(
       }).exec();
 
       for (const usuario of usuariosRepetidores) {
-        const intervaloRepeticiónDias = usuario.intervaloRepetición;
+        const intervaloRepeticiónDias = usuario.intervaloRepeticion;
 
         const ultimoPedido = await Pedido.findOne({
           username: usuario.username,

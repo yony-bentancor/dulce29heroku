@@ -121,7 +121,7 @@ module.exports = {
         email: userInfo.email,
         hash: hash,
         repitePedido: userInfo.repitePedido,
-        intervaloRepetición: userInfo.intervaloRepetición,
+        intervaloRepeticion: userInfo.intervaloRepeticion,
       });
 
       const userRes = {
@@ -130,7 +130,7 @@ module.exports = {
         direccion: newUser.direccion,
         email: newUser.email,
         repitePedido: newUser.repitePedido,
-        intervaloRepetición: newUser.intervaloRepetición,
+        intervaloRepeticion: newUser.intervaloRepeticion,
         id: newUser.id,
       };
       const token = jwt.sign(userRes, CLAVE_SECRETA);
@@ -423,6 +423,7 @@ module.exports = {
       const telefonoSalida = user.telefono;
       const direccionSalida = user.direccion;
       const emailSalida = user.email;
+      const intervaloRepeticionSalida = user.intervaloRepeticion;
 
       if (!user) {
         return res.status(404).json({
@@ -437,6 +438,7 @@ module.exports = {
         direccionSalida,
         emailSalida,
         userid,
+        intervaloRepeticionSalida,
       });
     } catch (error) {
       res.status(404).json({ error: error.message });
@@ -451,6 +453,7 @@ module.exports = {
       direccionSalida,
       emailSalida,
       repitePedidoSalida,
+      intervaloRepeticionSalida,
     } = req.body; // Desestructura los datos recibidos del formulario
 
     try {
@@ -475,6 +478,9 @@ module.exports = {
       }
       if (user.repitePedido !== repitePedidoSalida) {
         user.repitePedido = repitePedidoSalida;
+      }
+      if (user.intervaloRepeticion !== intervaloRepeticionSalida) {
+        user.intervaloRepeticion = intervaloRepeticionSalida;
       }
 
       await user.save(); // Guarda los cambios en la base de datos
