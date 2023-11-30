@@ -353,7 +353,7 @@ module.exports = {
 
       if (!producto) {
         return res.status(404).json({
-          error: "El producto que se quiere editar no existe.",
+          error: "El producto que se quiere editar noJJJ existe.",
         });
       }
 
