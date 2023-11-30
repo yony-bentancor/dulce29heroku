@@ -46,6 +46,25 @@
     margin-right: -10px; /* Elimina los márgenes */
   }
 
+
+
+  #info-pedidosUpdate{
+    margin-left: 15px;
+    width: 320px;      
+    height: 600px;
+    background-color: #fff;
+    display: block;
+    position: relative;
+   margin-top: 10px;
+   font-size: 0.9rem;
+   padding-left: 10px;
+   padding-bottom: 10px;
+   padding-top: 10px;
+
+
+
+   }
+
   
 
    
