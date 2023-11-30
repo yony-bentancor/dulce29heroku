@@ -333,7 +333,15 @@ module.exports = {
   updateProducto: async (req, res) => {
     try {
       const datos = req.body;
-      console.log(datos);
+
+      // Verificar si se proporcionó una nueva imagen
+      const tieneNuevaImagen = req.file !== undefined;
+
+      // Si no hay nueva imagen, excluirla de los datos a actualizar
+      if (!tieneNuevaImagen) {
+        delete datos.image; // Asegúrate de que "imagen" sea el nombre correcto del campo
+      }
+
       const producto = await Producto.findOneAndUpdate(
         { desc: datos.desc },
         datos,
@@ -351,7 +359,7 @@ module.exports = {
 
       res.json(producto);
     } catch (error) {
-      res.status(404).json({ error: error.message });
+      res.status(500).json({ error: error.message });
     }
   },
 
