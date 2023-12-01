@@ -222,9 +222,8 @@
                     </div>
 
                     <div class="col-3">
-                      <form name="formulario" method="post" action="/session/deletepedido{{ pedido.Numero_pedido}}", pedidoController.deletePedido>
-                        <input type="image" id="image" alt="delete" src="https://dulce29.herokuapp.com/static/img/borrado1.png" onclick="return confirm('¿Estás por eliminar un pedido?')">
-                      </form>
+                      <input type="image" id="image" alt="delete" src="https://dulce29.herokuapp.com/static/img/borrado1.png" onclick="return confirm('no tiene permisos de administrador')">
+
                     </div>
 
                     <div class="col-3 {% if pedido.creacion !== 'AUTOMATICO' %}hidden{% endif %}">
