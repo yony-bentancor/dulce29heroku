@@ -49,16 +49,17 @@
 
 
   #info-pedidosUpdate{
-    margin-left: 15px;
-    width: 320px;      
-    height: 600px;
+    margin-left: 0px;
+    width: 300px;      
+    height: auto;
     background-color: #fff;
     display: inline-block;
-   margin-top: 10px;
+   margin-top: 0px;
    font-size: 0.9rem;
-   padding-left: 20px;
+   padding-left: 10px;
    padding-bottom: 10px;
    padding-top: 10px;
+   margin-bottom: 20px;
 
 
 
@@ -753,16 +754,39 @@ margin-left: 15px;
   background-color: #d8e7f0e1;
   word-wrap: break-word;
   word-break: break-all;
-  margin-left: 40px;
-  padding-left: 20px;
+  margin-left: 10px;
+  padding-left: 10px;
   padding-top: 5px;
   border-radius: 4px;
   font-size: 0.9rem;
  
   text-align: left;
-  width: 230px;
+  width: 160px;
   height: 24px;
 }
+
+
+.formcontrolUpdate{
+  color: #fff;
+  background-color:  #6f8599;
+  border: none;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-all;
+  margin-top: 1px;
+  margin-left: 20px;
+  padding-top: 4px;
+  padding-left: 4px;;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  display: block;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  text-align: left;
+  width: 90px;
+  height: 20px;
+  }
 .pedidoPendientesTotalRB {
   background-color: #f9f9f7e8;
   margin-bottom: 10px;
