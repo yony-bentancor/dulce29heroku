@@ -935,64 +935,54 @@ module.exports = {
 
   entregadosAdminDelivery: async (req, res) => {
     try {
-      const pedidos = await Pedido.find({
-        Estado: { $in: "Entregado" },
-      }).sort({
-        Numero_pedido: 1,
-      });
-
       const opciones = {
         month: "long",
         day: "numeric",
       };
 
-      const pedidosFormateados = pedidos.map((pedido) => {
-        const fechaFormateada = pedido.createdAt.toLocaleString(
-          "es-ES",
-          opciones
-        );
-        return { ...pedido.toObject(), fechaFormateada };
-      });
-
-      let contador = 0;
-      for (let i = 0; i < pedidos.length; i++) {
-        contador++;
-      }
-
-      const pedidosEntregado = await Pedido.find({
-        Estado: { $nin: ["Pendiente", "Realizado", "Cobrado"] },
+      // Consulta para obtener pedidos entregados que no estén en estados específicos
+      const pedidosEntregados = await Pedido.find({
+        Estado: "Entregado",
+        Estado: { $nin: ["Realizado", "Cobrado", "Pendiente"] },
       }).sort({ Numero_pedido: 1 });
 
-      const productosCantidad = {}; // Corregido: Se agregó la inicialización
+      const pedidosFormateados = pedidosEntregados.map((pedido) => ({
+        ...pedido.toObject(),
+        fechaFormateada: pedido.createdAt.toLocaleString("es-ES", opciones),
+      }));
 
-      for (let i = 0; i < pedidosEntregado.length; i++) {
-        const productos = pedidosEntregado[i].productos;
+      // Consulta para obtener usuarios y productos
+      const [users, productos] = await Promise.all([
+        User.find().sort({ username: 1 }),
+        Producto.find().sort({ Numero_pedido: 1 }),
+      ]);
 
-        for (const [key, value] of Object.entries(productos)) {
-          const nombreProducto = value.nombre;
-          const cantidad = value.cantidad;
+      // Calcular el total de productos
+      const productosCantidad = {};
 
-          if (!productosCantidad[nombreProducto]) {
-            productosCantidad[nombreProducto] = cantidad;
-          } else {
-            productosCantidad[nombreProducto] += cantidad;
-          }
+      for (const pedido of pedidosEntregados) {
+        for (const producto of pedido.productos) {
+          const nombreProducto = producto.nombre;
+          const cantidad = producto.cantidad;
+
+          productosCantidad[nombreProducto] =
+            (productosCantidad[nombreProducto] || 0) + cantidad;
         }
       }
 
-      const mensajes = Object.entries(productosCantidad)
-        .map(([nombre, cantidad]) => ({ nombre, cantidad }))
-        .sort((a, b) => b.cantidad - a.cantidad);
+      // Crear un array para almacenar los mensajes a mostrar en la plantilla
+      const mensajes = [];
 
-      const users = await User.find().sort({
-        username: 1,
-      });
+      // Agregar mensajes al array
+      for (const nombreProducto in productosCantidad) {
+        const cantidadProducto = productosCantidad[nombreProducto];
+        mensajes.push({ nombre: nombreProducto, cantidad: cantidadProducto });
+      }
+      mensajes.sort((a, b) => b.cantidad - a.cantidad);
 
       const pedidosEnEfectivo = pedidosEntregados.filter(
         (pedido) => pedido.Pago === "Efectivo"
       );
-
-      const productos = await Producto.find().sort({ Numero_pedido: 1 });
       // Calcular el precio final (ajusta esto según tus necesidades)
       const precioFinal = pedidosEnEfectivo.reduce(
         (total, pedido) =>
@@ -1000,32 +990,22 @@ module.exports = {
         0
       );
 
-      res.render("deliveryEntregado", {
-        /*    username,
-        adminUsername, */
-        pedidos,
-        pedidosFormateados,
-        contador,
-        pedidosEntregado,
+      // Renderizar la vista "entregados" con los datos
+      res.render("entregados", {
+        pedidos: pedidosFormateados,
         mensajes,
-        productos,
-        contadorEntregados: pedidosEntregado.length,
+        contadorEntregados: pedidosEntregados.length,
         contadorEfectivo: pedidosFormateados.filter(
           (pedido) => pedido.Pago === "Efectivo"
         ).length,
-
+        productos,
         precioFinal,
       });
     } catch (error) {
-      console.error(
-        "Ocurrió un error durante la ejecución del bloque try:",
-        error
-      );
-
-      // Se elimina la repetición de código y se maneja el error de manera general
-      res.status(500).send("Error interno del servidor");
+      // Manejo de errores más detallado
+      console.error("Error al cargar datos:", error);
+      res.status(500).send(`Error interno del servidor: ${error.message}`);
     }
-    /*   } */
   },
 
   entregadosAdmin: async (req, res) => {
