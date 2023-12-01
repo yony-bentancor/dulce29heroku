@@ -989,6 +989,12 @@ module.exports = {
       });
 
       const productos = await Producto.find().sort({ Numero_pedido: 1 });
+      // Calcular el precio final (ajusta esto según tus necesidades)
+      const precioFinal = pedidosEnEfectivo.reduce(
+        (total, pedido) =>
+          total + pedido.Monto_total * (1 - pedido.Descuento / 100),
+        0
+      );
 
       res.render("deliveryEntregado", {
         /*    username,
@@ -999,6 +1005,12 @@ module.exports = {
         pedidosEntregado,
         mensajes,
         productos,
+        contadorEntregados: pedidosEntregados.length,
+        contadorEfectivo: pedidosFormateados.filter(
+          (pedido) => pedido.Pago === "Efectivo"
+        ).length,
+
+        precioFinal,
       });
     } catch (error) {
       console.error(
