@@ -213,11 +213,7 @@
                 <div id="box5">
                   <div class="row">
 
-                    <div class="col-3"></div>
-
-                    <div class="col-3"></div>
-
-                    <div class="col-3 {% if pedido.creacion !== 'AUTOMATICO' %}hidden{% endif %}">
+                    <div class="col-12 {% if pedido.creacion !== 'AUTOMATICO' %}hidden{% endif %}">
                       {{ pedido.creacion }}
                     </div>
 
