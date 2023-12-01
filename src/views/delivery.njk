@@ -217,8 +217,8 @@
                      FECHA: {{pedido.fechaFormateada }}
 
                     </div>
-                    <div class="col-6"></div>
-                    <div class="col-6 {% if pedido.creacion !== 'AUTOMATICO' %}hidden{% endif %}">
+
+                    <div class="col-12 {% if pedido.creacion !== 'AUTOMATICO' %}hidden{% endif %}">
                       {{ pedido.creacion }}
                     </div>
 
