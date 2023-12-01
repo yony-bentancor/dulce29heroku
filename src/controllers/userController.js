@@ -991,7 +991,7 @@ module.exports = {
       );
 
       // Renderizar la vista "entregados" con los datos
-      res.render("entregados", {
+      res.render("deliveryEntregado", {
         pedidos: pedidosFormateados,
         mensajes,
         contadorEntregados: pedidosEntregados.length,
