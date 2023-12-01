@@ -1009,6 +1009,15 @@ position: relative;
   position: absolute;
   display: block;
 }
+#contenedorPedidoUpdate{
+  margin-left: 0px;
+  margin-top: 0px;
+  width: 290px;
+  height: auto;
+  background-color: #fff;
+  position: absolute;
+  display: block;
+  }
 
 
 
