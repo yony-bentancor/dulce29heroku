@@ -1063,7 +1063,8 @@ position: relative;
 #boxPedidoRealizado {
   margin-left: 20px;
   order: 1;
-  margin-top: 30px;
+  margin-top: 50px;
+  padding-top: 10px;
   padding-bottom: 250px;
   height: auto;
   font-size: 1.1rem;
