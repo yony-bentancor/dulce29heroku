@@ -127,6 +127,32 @@
           </div>
 
         </div> #}
+        <div id="buscadorEntregados">
+          <div class="row rowEntregados">
+
+            <div class="col-4">
+              <strong>PEDIDOS ENTREGADOS</strong>
+            </div>
+
+            <div class="col-4">
+              <strong>PEDIDOS EN EFECTIVO</strong>
+            </div>
+            <div class="col-4">
+              <strong>RECAUDACION EFECTIVO</strong>
+            </div>
+
+          </div>
+
+          <div class="row rowEntregadosDatos">
+
+            <div class="col-4">{{contadorEntregados}}</div>
+
+            <div class="col-4">{{contadorEfectivo}}</div>
+            <div class="col-4">{{ precioFinal }}</div>
+
+          </div>
+
+        </div>
 
         <div id="boxPedidoRealizado">
           {% for pedido in pedidos %}
