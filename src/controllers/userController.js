@@ -1005,7 +1005,7 @@ module.exports = {
         pedidosEntregado,
         mensajes,
         productos,
-        contadorEntregados: pedidosEntregados.length,
+        contadorEntregados: pedidosEntregado.length,
         contadorEfectivo: pedidosFormateados.filter(
           (pedido) => pedido.Pago === "Efectivo"
         ).length,
