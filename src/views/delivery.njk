@@ -213,22 +213,19 @@
     MONTO A PAGAR: {{ pedido.Monto_total * (1 - pedido.Descuento / 100) }}
                       {% endif %}
                     </div>
-                    <div class="col-12">
+                    <div class="col-6">
                      FECHA: {{pedido.fechaFormateada }}
 
                     </div>
-
+                    <div class="col-6 {% if pedido.creacion !== 'AUTOMATICO' %}hidden{% endif %}">
+                      {{ pedido.creacion }}
+                    </div>
                   </div>
                 </div>
 
                 <div id="box5">
                   <div class="row boxTxtCliente">
-                    <div class="col-6">
-                      <div class="col-3 {% if pedido.creacion !== 'AUTOMATICO' %}hidden{% endif %}">
-                        {{ pedido.creacion }}
-                      </div>
-
-                    </div>
+                    <div class="col-6"></div>
 
                     <div class="col-6 boxTxtCliente">
 
