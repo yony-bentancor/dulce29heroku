@@ -388,6 +388,19 @@ color: #fff;
   font-weight: bold;
   height: 32px;
 }
+#tagClienteinfo{ 
+  background-color: #787272c8;
+  margin-bottom: 8px;
+  display: block;
+margin-right: 6px;
+ text-align: center;
+color: #fff;
+ font-size: 1.3rem;
+  padding-top: 5px;
+  width: 332px;
+  font-weight: bold;
+  height: 32px;
+}
 
   #info-clientes{
    display: none;
