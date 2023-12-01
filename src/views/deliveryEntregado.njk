@@ -222,7 +222,20 @@
                 <div id="box5">
                   <div class="row">
 
-                    <div class="col-12 {% if pedido.creacion !== 'AUTOMATICO' %}hidden{% endif %}">
+                    <div class="col-3">
+
+                      <input type="hidden" name="Numero_pedido" value="{{ pedido.Numero_pedido }}" >
+
+                      <button type="submit" onclick="return confirm('no tiene permisos de administrador')">UPD</button>
+
+                    </div>
+
+                    <div class="col-3">
+                      <input type="image" id="image" alt="delete" src="https://dulce29.herokuapp.com/static/img/borrado1.png" onclick="return confirm('no tiene permisos de administrador')">
+
+                    </div>
+
+                    <div class="col-6 {% if pedido.creacion !== 'AUTOMATICO' %}hidden{% endif %}">
                       {{ pedido.creacion }}
                     </div>
 
