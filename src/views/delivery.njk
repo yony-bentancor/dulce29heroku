@@ -224,11 +224,9 @@
                 <div id="box5">
                   <div class="row boxTxtCliente">
                     <div class="col-6">
-                      {# <form method="post" action="/session/updatepedido">
-                        <input type="hidden" name="Numero_pedido" value="{{ pedido.Numero_pedido }}" >
-
-                        <button type="submit">UPD</button>
-                      </form> #}
+                      <div class="col-3 {% if pedido.creacion !== 'AUTOMATICO' %}hidden{% endif %}">
+                        {{ pedido.creacion }}
+                      </div>
 
                     </div>
 
