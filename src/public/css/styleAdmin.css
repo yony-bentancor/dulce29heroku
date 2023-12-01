@@ -270,6 +270,14 @@ margin-left: -8px;
   background-color: #fff;
   position: absolute;
 }
+#contenedorClientes{
+  margin-left: 10%;
+  margin-top: 20px;
+  width: 1040px;
+  height: 1200px;
+  background-color: #fff;
+  position: absolute;
+}
 
 #info-clientes{
   margin-left: 680px;

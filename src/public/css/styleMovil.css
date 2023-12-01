@@ -45,6 +45,17 @@
     margin-top: 20px;
     margin-right: -10px; /* Elimina los márgenes */
   }
+  #contenedorClientes{
+    width: 100%; /* Ancho completo de la pantalla */
+    height: auto; /* Altura automática según el contenido */
+    background-color: #fff;
+    position: relative; /* No lo coloques de manera absoluta */
+    padding: 0; /* Elimina el relleno */
+    padding-bottom: 30px;
+    margin: -30px;
+    margin-top: 20px;
+    margin-right: -10px; /* Elimina los márgenes */
+  }
 
 
 
