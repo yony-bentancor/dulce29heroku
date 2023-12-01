@@ -988,6 +988,10 @@ module.exports = {
         username: 1,
       });
 
+      const pedidosEnEfectivo = pedidosEntregados.filter(
+        (pedido) => pedido.Pago === "Efectivo"
+      );
+
       const productos = await Producto.find().sort({ Numero_pedido: 1 });
       // Calcular el precio final (ajusta esto según tus necesidades)
       const precioFinal = pedidosEnEfectivo.reduce(
