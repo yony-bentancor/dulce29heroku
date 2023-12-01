@@ -49,28 +49,13 @@
 
 
   #info-pedidosUpdate{
-/*     margin-left: 0px;
-    width: 300px;      
-    height: auto;
-    background-color: #be9191;
-    display: inline-block;
-   margin-top: 0px;
-   font-size: 0.9rem;
-   padding-left: 10px;
-   padding-bottom: 10px;
-   padding-top: 10px;
-   margin-bottom: 20px; */
-
-
-
-
    width: 320px;
    display: block;
  position: relative;
    padding-bottom: 20px;
    margin-right: 10px;
    margin-top: 0px;
-   margin-left: 0px;
+   margin-left: -20px;
    padding-left: 10px;
    padding-top: 10px;
    height: auto;
