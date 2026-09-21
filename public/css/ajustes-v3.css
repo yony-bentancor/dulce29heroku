@@ -1,0 +1,87 @@
+/* Dulce29 · ajuste estético V3
+   Mantiene la identidad de V2, pero reduce escala, alturas y espacios. */
+:root{--content-max:1320px}
+body{font-size:15px}
+.site-header{height:72px;padding:0 clamp(22px,4vw,64px);gap:28px}
+.logo{display:block;width:112px;height:58px;overflow:hidden}
+.logo img{width:100%;height:100%;object-fit:contain}
+.logo small,.logo span{display:none}
+.site-header nav{gap:24px;font-size:13px}
+.site-header nav a{padding:25px 0}
+.head-actions{font-size:13px;gap:16px}
+
+.hero{min-height:520px;grid-template-columns:44% 56%}
+.hero-copy{padding:64px clamp(36px,6vw,90px)}
+.hero h1{font-size:clamp(48px,5.2vw,76px);line-height:.98;letter-spacing:-1.6px;margin:18px 0 20px;max-width:570px}
+.hero-copy p{font-size:16px;line-height:1.6;max-width:470px;margin:0}
+.hero-actions{margin-top:24px;gap:20px}
+.btn{padding:11px 18px;font-size:13px}
+.hero-photo{min-height:520px;max-height:580px}
+.hero-note{right:20px;bottom:20px;padding:14px 18px;font-size:13px}
+.eyebrow{font-size:9px;letter-spacing:2.2px}
+.ticker{padding:14px 3vw;font-size:10px}
+
+.section{padding:72px 6vw 32px}
+.intro{grid-template-columns:27% 73%}
+.intro h2,.story h2{font-size:clamp(36px,4vw,58px)}
+.intro>div{gap:32px}
+.intro p,.story-copy p{font-size:14px;line-height:1.65}
+
+.product-grid{padding:0 6vw 72px;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;max-width:1500px;margin:0 auto}
+.product-grid.shop{padding-top:24px}
+.product-image{height:280px}
+.product-image span{top:10px;left:10px;padding:5px 8px;font-size:9px}
+.product-info{padding:12px 1px 8px}
+.product-info h3{font-size:14px;margin-bottom:3px}
+.product-info strong{font-size:14px}
+.product-info small{font-size:12px}
+.product-card .btn{width:100%;padding:9px 12px;font-size:12px}
+
+.service-grid a{padding:42px 5vw;min-height:220px}
+.service-grid h3{font-size:30px;margin:26px 0 10px}
+.service-grid p{font-size:14px;min-height:42px}
+.story{min-height:470px}
+.story-copy{padding:60px 7vw}
+.story-copy h2{margin:18px 0}
+.footer{padding:42px 6vw;gap:40px;font-size:13px}
+.footer .logo{width:118px;height:62px;margin-bottom:12px}
+.footer .logo img{filter:none}
+.wa{width:48px;height:48px;right:22px;bottom:22px;font-size:13px}
+
+.page-head{padding:58px 6vw 30px}
+.page-head.compact{padding-bottom:38px}
+.page-head h1{font-size:clamp(44px,5.5vw,72px);letter-spacing:-1.5px;margin:10px 0}
+.page-head p{font-size:15px}
+.filters{padding:20px 6vw;gap:8px}
+.filters a{padding:8px 12px;font-size:12px}
+
+.detail{grid-template-columns:55% 45%;min-height:560px}
+.detail-copy{padding:60px 6vw}
+.detail-copy h1{font-size:48px}
+.price{font-size:34px}
+.cart-page,.checkout{padding-top:38px;padding-bottom:70px}
+.login{padding:75px 6vw;min-height:540px}.login h1{font-size:58px}
+.dashboard-head{padding:50px 6vw 25px}.dashboard-head h1{font-size:48px}
+.admin-main{padding:45px 4vw}.admin-main h1{font-size:46px}
+.kpis{margin:28px 0}.kpis article{padding:20px}.kpis b{font-size:30px}
+.admin-page{padding:45px 5vw 70px}.admin-page h1{font-size:50px}
+.editorial,.service-hero,.contact{padding:70px 6vw;min-height:520px}
+.editorial h1,.service-hero h1,.contact h1{font-size:clamp(48px,6vw,82px);margin:16px 0 40px}
+.editorial-grid img{height:420px}.lead{font-size:20px}
+.course-grid{padding-bottom:70px}.course-grid article{padding:30px}.course-grid h2{font-size:32px}
+
+@media(max-width:1100px){.product-grid{grid-template-columns:repeat(3,1fr)}.product-image{height:300px}}
+@media(max-width:900px){
+ .site-header{height:68px;padding:0 18px}.logo{width:96px;height:54px}.site-header nav{top:68px;padding:20px}.site-header nav a{padding:5px}
+ .hero{grid-template-columns:1fr}.hero-copy{padding:52px 24px}.hero h1{font-size:52px}.hero-photo{min-height:400px;max-height:440px}
+ .intro{padding:58px 24px 26px}.intro h2{font-size:42px}.product-grid{grid-template-columns:repeat(2,1fr);padding:0 20px 58px;gap:16px}.product-image{height:300px}
+ .service-grid a{padding:34px 24px}.story-photo{height:350px}.story-copy{padding:52px 24px}.footer{padding:38px 24px}
+}
+@media(max-width:560px){
+ body{font-size:14px}.site-header{grid-template-columns:1fr auto auto}.logo{width:88px;height:50px}.head-actions{font-size:11px}
+ .hero-copy{padding:44px 22px}.hero h1{font-size:43px;margin:14px 0 16px}.hero-copy p{font-size:14px}.hero-photo{min-height:310px}.hero-note{display:none}
+ .ticker{font-size:9px;padding:11px 12px}.intro{padding-top:48px}.intro h2{font-size:38px}
+ .product-grid{grid-template-columns:2fr 2fr;gap:10px;padding:0 14px 48px}.product-image{height:210px}.product-info{gap:8px}.product-info h3,.product-info strong{font-size:12px}.product-info small{font-size:10px}.product-card .btn{font-size:11px;padding:8px}
+ .page-head{padding:48px 22px 26px}.page-head h1{font-size:48px}.filters{padding:14px 18px}.story-photo{height:280px}.story-copy{padding:44px 22px}.footer{padding:34px 22px}
+ .editorial,.service-hero,.contact{padding:50px 22px}.editorial h1,.service-hero h1,.contact h1{font-size:46px}.wa{width:44px;height:44px;right:16px;bottom:16px}
+}
