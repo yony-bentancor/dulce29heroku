@@ -1,0 +1,2 @@
+const r=require('express').Router(),c=require('../controllers/adminController'),{requireUser}=require('../middleware/auth'),{role}=require('../middleware/roles');
+r.use(requireUser,role('admin'));r.get('/',c.dashboard);r.get('/:model',c.list);r.get('/:model/nuevo',c.form);r.get('/:model/:id/editar',c.form);r.post('/:model/guardar',c.save);r.post('/:model/:id/eliminar',c.remove);module.exports=r;

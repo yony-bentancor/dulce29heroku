@@ -1,0 +1,15 @@
+module.exports = {
+ products: require('./products'),
+ clients: require('./clients'),
+ users: require('./users'),
+ deliverers: require('./deliveries'),
+ orders: require('./orders'),
+ content: require('./content'),
+ categories:['Kéfir','Jugos','Detox','Mermeladas','Untables','Almacén','Shots','Leches vegetales'],
+ zones:['Centro','Real de San Carlos','El General','El Calabrés'],
+ payments:['Efectivo','Transferencia','Mercado Pago'],
+ courses:[
+  {id:1,name:'Fermentos en casa',date:'2026-10-10',price:890},
+  {id:2,name:'Organización con Thermomix',date:'2026-10-24',price:990}
+ ]
+};

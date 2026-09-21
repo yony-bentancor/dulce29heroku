@@ -1,14 +1,31 @@
-# Dulce29 V2 — demo integral
+# Dulce29 V2
 
-Base completa Node + Express + Nunjucks, preparada para Heroku y para sustituir el store en memoria por MongoDB más adelante.
+Reestructuración completa del demo Dulce29.
+
+## Arquitectura
+- `routes/`: definición de rutas.
+- `controllers/`: lógica HTTP.
+- `services/`: WhatsApp, mapas y pedidos.
+- `models/`: adaptadores preparados para migrar a MongoDB.
+- `data/demo/`: datos temporales de demostración.
+- `views/`: Nunjucks separado por áreas.
+- `public/`: CSS, JS e imágenes.
+- `config/`, `middleware/`, `utils/`.
 
 ## Ejecutar
-`npm install` y luego `npm start`. Abrir http://localhost:3000
+```bash
+npm install
+npm start
+```
+Abrir `http://localhost:3000`.
 
-## Accesos demo
-Entrar en `/login`: botones para Cliente, Administrador y Repartidor. Contraseña conceptual: `dulce29`.
+## Usuarios demo
+Entrar en `/login` y elegir:
+- Natalia · Administradora
+- Sofía · Cliente
+- Martín · Repartidor
 
-## Incluido
-15 productos con imágenes demo locales; Market, detalle, carrito y checkout; 2 clientes; 4 pedidos en diferentes estados; 2 repartidores; panel cliente; panel repartidor mobile-first; panel admin; CRUD crear/modificar/eliminar para todos los modelos principales; promociones; cursos; consultas Epigenética/Thermomix; zonas de Colonia; pagos; contenido web; Google Maps para logística y navegación; WhatsApp contextual; soporte de imagen y URL de video; responsive.
+## Importante
+Esta V2 sigue usando datos en memoria a propósito. La capa de modelos quedó separada para incorporar MongoDB después sin volver a rearmar rutas y vistas.
 
-> Los datos son demostrativos y se reinician al reiniciar Node. Esto es intencional hasta conectar MongoDB.
+Las fotos de demostración se cargan desde Unsplash y se pueden reemplazar desde los datos/admin por imágenes propias de Dulce29.

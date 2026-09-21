@@ -1,0 +1,1 @@
+{% extends 'layouts/base.njk' %}{% block content %}<section class="page-head"><span class="eyebrow">APRENDER</span><h1>Cursos</h1></section><section class="course-grid">{% for c in courses %}<article><small>{{c.date}}</small><h2>{{c.name}}</h2><strong>$ {{c.price}}</strong><a class="btn" href="/contacto">Consultar</a></article>{% endfor %}</section>{% endblock %}

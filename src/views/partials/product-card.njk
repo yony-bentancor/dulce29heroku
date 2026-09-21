@@ -1,1 +1,0 @@
-<article class="product"><a href="/producto/{{p.id}}"><img src="{{p.image}}"><small>{{p.category}}</small><h3>{{p.name}}</h3><p>{{p.size}} · Stock {{p.stock}}</p><strong>${{p.price}}</strong></a><form method="post" action="/carrito/agregar/{{p.id}}"><button {% if p.stock==0 %}disabled{% endif %}>{% if p.stock==0 %}Sin stock{% else %}Agregar{% endif %}</button></form></article>

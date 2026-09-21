@@ -1,0 +1,10 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{% block title %}Dulce29 · Inspirando hábitos{% endblock %}</title>
+<meta name="description" content="Dulce29 · alimentación real, kéfir, jugos y bienestar en Colonia del Sacramento.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/app.css"></head><body>
+{% include 'partials/header.njk' %}
+<main>{% block content %}{% endblock %}</main>
+<a class="wa" href="https://wa.me/{{brand.WHATSAPP}}?text=Hola%20Dulce29,%20quiero%20hacer%20una%20consulta" target="_blank" aria-label="WhatsApp">WA</a>
+{% include 'partials/footer.njk' %}<script src="/js/app.js"></script></body></html>
