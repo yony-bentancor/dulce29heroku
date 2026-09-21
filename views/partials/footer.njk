@@ -1,8 +1,51 @@
-<footer class="footer footer-minimal">
-<div class="footer-brand"><img src="/images/brand/logo-dulce29.png" alt="Dulce29"></div>
-<div class="footer-top"><span class="footer-line"></span><button type="button" class="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver arriba"><span class="back-top-icon">⌃</span><small>VOLVER ARRIBA</small></button><span class="footer-line"></span></div>
-<div class="footer-social">
-<a href="https://www.instagram.com/dulce29.uy/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.7" r="1"/></svg></a>
-<span class="social-divider"></span>
-<a href="https://wa.me/{{brand.WHATSAPP}}" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M20.5 11.7a8.5 8.5 0 0 1-12.6 7.5L3 20.5l1.3-4.7A8.5 8.5 0 1 1 20.5 11.7Z"/><path d="M8.1 7.7c.2-.5.5-.5.8-.5h.5c.2 0 .4.1.5.4l.9 2c.1.3.1.5-.1.7l-.7.9c-.2.2-.1.4 0 .6.7 1.3 1.8 2.4 3.1 3 .2.1.4.1.6-.1l.9-1.1c.2-.2.4-.3.7-.2l2 .9c.3.1.4.3.4.5 0 .4-.2 1.5-1 2.1-.7.6-1.6.8-2.6.6-1-.2-2.3-.7-3.9-1.7-2.6-1.7-4.2-4.3-4.4-5.8-.2-1.4.3-2.3.8-2.8.4-.4.9-.6 1.5-.5Z"/></svg></a>
-</div></footer>
+{# Footer V6: estilos aislados para evitar reglas globales de .footer, img, button y svg #}
+<style>
+#dulce29-footer-v6, #dulce29-footer-v6 * {box-sizing:border-box!important}
+#dulce29-footer-v6 {
+  display:grid!important; grid-template-columns:190px minmax(0,1fr) 110px!important;
+  align-items:center!important; gap:22px!important;
+  width:100%!important; height:116px!important; min-height:0!important; max-height:116px!important;
+  margin:0!important; padding:14px clamp(24px,5vw,80px)!important;
+  background:#123f34!important; color:#fff!important; border:0!important;
+  overflow:hidden!important; position:relative!important;
+}
+#dulce29-footer-v6 .d29-logo {display:block!important;width:142px!important;height:78px!important;max-width:142px!important;max-height:78px!important;object-fit:contain!important;margin:0!important;padding:0!important;background:transparent!important;border:0!important;mix-blend-mode:multiply!important;filter:brightness(1.65) contrast(1.2)!important}
+#dulce29-footer-v6 .d29-center {display:flex!important;align-items:center!important;justify-content:center!important;gap:22px!important;min-width:0!important}
+#dulce29-footer-v6 .d29-line {display:block!important;height:1px!important;flex:1 1 0!important;max-width:340px!important;background:rgba(255,255,255,.36)!important}
+#dulce29-footer-v6 .d29-top {display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:7px!important;width:110px!important;min-width:110px!important;height:auto!important;min-height:0!important;margin:0!important;padding:0!important;background:transparent!important;color:#fff!important;border:0!important;border-radius:0!important;box-shadow:none!important;cursor:pointer!important;font:inherit!important}
+#dulce29-footer-v6 .d29-up {display:flex!important;align-items:center!important;justify-content:center!important;width:35px!important;height:35px!important;min-width:35px!important;min-height:35px!important;border:1px solid rgba(255,255,255,.85)!important;border-radius:50%!important;background:transparent!important;font:24px/1 Arial,sans-serif!important}
+#dulce29-footer-v6 .d29-caption {display:block!important;color:#fff!important;font:600 9px/1.2 Arial,sans-serif!important;letter-spacing:2px!important;white-space:nowrap!important}
+#dulce29-footer-v6 .d29-social {display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:15px!important;width:auto!important;height:auto!important}
+#dulce29-footer-v6 .d29-social a {display:flex!important;align-items:center!important;justify-content:center!important;width:30px!important;height:30px!important;min-width:30px!important;min-height:30px!important;margin:0!important;padding:0!important;border:0!important;background:transparent!important;color:#fff!important;text-decoration:none!important;box-shadow:none!important}
+#dulce29-footer-v6 .d29-social svg {display:block!important;width:26px!important;height:26px!important;max-width:26px!important;max-height:26px!important;min-width:26px!important;min-height:26px!important;fill:none!important;stroke:#fff!important;stroke-width:1.7!important;stroke-linecap:round!important;stroke-linejoin:round!important;background:transparent!important;border:0!important}
+#dulce29-footer-v6 .d29-separator {display:block!important;width:1px!important;height:26px!important;background:rgba(255,255,255,.4)!important}
+@media(max-width:700px){
+#dulce29-footer-v6 {height:102px!important;max-height:102px!important;grid-template-columns:1fr auto!important;grid-template-rows:49px 22px!important;gap:5px 12px!important;padding:9px 20px!important}
+#dulce29-footer-v6 .d29-logo {width:112px!important;height:48px!important;max-width:112px!important;max-height:48px!important}
+#dulce29-footer-v6 .d29-center {grid-column:1/-1!important;grid-row:2!important;gap:10px!important}
+#dulce29-footer-v6 .d29-top {flex-direction:row!important;width:120px!important;min-width:120px!important;gap:7px!important}
+#dulce29-footer-v6 .d29-up {width:23px!important;height:23px!important;min-width:23px!important;min-height:23px!important;font-size:18px!important}
+#dulce29-footer-v6 .d29-caption {font-size:7px!important;letter-spacing:1px!important}
+#dulce29-footer-v6 .d29-social {grid-column:2!important;grid-row:1!important}
+}
+</style>
+<footer id="dulce29-footer-v6" aria-label="Pie de página Dulce29">
+  <img class="d29-logo" src="/images/brand/logo-dulce29.png" alt="Dulce29 · Inspirando hábitos">
+  <div class="d29-center">
+    <span class="d29-line" aria-hidden="true"></span>
+    <button class="d29-top" type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver arriba">
+      <span class="d29-up" aria-hidden="true">⌃</span>
+      <span class="d29-caption">VOLVER ARRIBA</span>
+    </button>
+    <span class="d29-line" aria-hidden="true"></span>
+  </div>
+  <div class="d29-social">
+    <a href="https://www.instagram.com/dulce29.uy/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="#fff" stroke="none"/></svg>
+    </a>
+    <span class="d29-separator" aria-hidden="true"></span>
+    <a href="https://wa.me/{{brand.WHATSAPP}}" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.4 11.7a8.4 8.4 0 0 1-12.5 7.4L3 20.5l1.3-4.7a8.4 8.4 0 1 1 16.1-4.1Z"/><path d="M8.4 7.6c-.5.3-.9 1.1-.9 1.8 0 2.6 3.8 6.9 6.8 7.1.9.1 2.2-.6 2.3-1.3l-2.5-1.2-1.1 1c-1.5-.7-2.8-2-3.5-3.5l.9-1.1-1.1-2.7Z"/></svg>
+    </a>
+  </div>
+</footer>
