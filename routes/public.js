@@ -1,5 +1,1 @@
-const r=require('express').Router(), c=require('../controllers/homeController');
-r.get('/',c.home); r.get('/nosotros',c.about); r.get('/contacto',c.contact); r.get('/cursos',c.courses);
-r.get('/epigenetica',(q,s,n)=>{q.params.kind='Epigenética';c.service(q,s,n)});
-r.get('/thermomix',(q,s,n)=>{q.params.kind='Thermomix';c.service(q,s,n)});
-module.exports=r;
+const r=require('express').Router(),c=require('../controllers/homeController');r.get('/',c.home);r.get('/nosotros',c.about);r.get('/contacto',c.contact);r.post('/contacto',c.sendContact);r.get('/cursos',c.courses);r.get('/epigenetica',(q,s,n)=>{q.params.kind='Epigenética';c.service(q,s,n)});r.get('/thermomix',(q,s,n)=>{q.params.kind='Thermomix';c.service(q,s,n)});module.exports=r;

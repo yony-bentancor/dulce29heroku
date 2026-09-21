@@ -1,0 +1,1 @@
+module.exports={contactEmail:'hola@dulce29.uy',whatsapp:'59895789647',location:'Colonia del Sacramento, Uruguay'};
