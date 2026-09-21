@@ -1,4 +1,49 @@
-<header class="site-header"><a class="logo" href="/"><span>DULCE29</span><small>INSPIRANDO HÁBITOS</small></a>
-<button class="menu-btn" data-menu>Menú</button><nav data-nav>
-<a class="{{'active' if currentPath=='/productos'}}" href="/productos">Productos</a><a href="/epigenetica">Epigenética</a><a href="/thermomix">Thermomix</a><a href="/cursos">Cursos</a><a href="/nosotros">Nosotros</a><a href="/contacto">Contacto</a></nav>
-<div class="head-actions">{% if user %}<a href="{{'/admin' if user.role=='admin' else '/repartidor' if user.role=='delivery' else '/mi-dulce29'}}">{{user.name}}</a>{% else %}<a href="/login">Ingresar</a>{% endif %}<a class="cart" href="/carrito">Bolsa <b>{{cart|length}}</b></a></div></header>
+<header class="site-header">
+
+    <a class="logo" href="/">
+        <span>DULCE29</span>
+        <small>INSPIRANDO HÁBITOS</small>
+    </a>
+
+    <button class="menu-btn" data-menu>Menú</button>
+
+    <nav data-nav>
+        <a class="{% if currentPath == '/productos' %}active{% endif %}"
+       href="/productos">
+      Productos
+    </a>
+
+        <a href="/epigenetica">Epigenética</a>
+        <a href="/thermomix">Thermomix</a>
+        <a href="/cursos">Cursos</a>
+        <a href="/nosotros">Nosotros</a>
+        <a href="/contacto">Contacto</a>
+    </nav>
+
+    <div class="head-actions">
+
+        {% if user %}
+
+            {% if user.role == 'admin' %}
+                <a href="/admin">{{ user.name }}</a>
+
+            {% elif user.role == 'delivery' %}
+                <a href="/repartidor">{{ user.name }}</a>
+
+            {% else %}
+                <a href="/mi-dulce29">{{ user.name }}</a>
+            {% endif %}
+
+        {% else %}
+
+            <a href="/login">Ingresar</a>
+
+        {% endif %}
+
+        <a class="cart" href="/carrito">
+      Bolsa <b>{{ cart | length }}</b>
+        </a>
+
+    </div>
+
+</header>
