@@ -1,0 +1,19 @@
+{
+  "name": "dulce29",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Dulce29 Colonia - plataforma integral demo",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "nunjucks": "^3.2.4"
+  }
+}
