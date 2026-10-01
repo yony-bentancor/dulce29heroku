@@ -1,9 +1,0 @@
-{% extends 'layouts/admin.njk' %}{% from 'partials/macros.njk' import field %}
-{% block title %}Nuevo cliente{% endblock %}{% block heading %}Nuevo cliente{% endblock %}
-{% block body %}
-<form class="box" method="post" action="/admin/clientes" style="max-width:680px">
- {{ field('name','Nombre y apellido','','text','',true) }}<div class="g2">{{ field('phone','Teléfono','','tel','',true) }}{{ field('email','Email','','email') }}</div>
- <div class="g2">{{ field('street','Dirección') }}<label class="field"><span>Zona</span><select name="zone"><option value="">—</option>{% for z in zones %}<option>{{ z.name }}</option>{% endfor %}</select></label></div>
- {{ field('addrNotes','Referencias') }}<label class="field"><span>Notas internas</span><textarea name="notes" rows="2"></textarea></label>
- <button class="btn">Crear cliente</button></form>
-{% endblock %}

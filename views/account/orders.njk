@@ -1,7 +1,0 @@
-{% extends 'layouts/account.njk' %}
-{% block title %}Mis pedidos · Dulce29{% endblock %}
-{% block account %}
-<h1>Mis pedidos</h1>
-<div class="seg" style="margin-bottom:18px">{% for x in [['todos','Todos'],['activos','En curso'],['entregados','Entregados']] %}<a href="?estado={{ x[0] }}" aria-current="{{ 'true' if f == x[0] else 'false' }}">{{ x[1] }}</a>{% endfor %}</div>
-<div class="list">{% for o in orders %}{% set href = '/mi-cuenta/pedidos/' + o.code %}{% include 'partials/order-row.njk' %}{% else %}<div class="empty"><h3>No hay pedidos acá</h3><a class="btn" href="/productos">Hacer un pedido</a></div>{% endfor %}</div>
-{% endblock %}

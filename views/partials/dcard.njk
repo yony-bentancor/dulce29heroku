@@ -1,7 +1,0 @@
-{# tarjeta de entrega: o (hidratado), n (número en la ruta) #}
-<a class="dcard{% if o.status == 'en_camino' %} going{% endif %}" href="/repartidor/entregas/{{ o.code }}">
- <div class="top"><span>{% if n %}<span class="seq">{{ n }}</span>{% endif %}<b>#{{ o.code }}</b></span><span class="pill {{ o.status|tone }}">{{ 'Retirado' if (o.picked and o.status == 'listo') else o.status|status }}</span></div>
- <div class="addr">{{ o.delivery.street }}</div>
- <div class="meta"><span>{{ o.customer.name }}</span><span>{{ o.delivery.zone }}</span><span>{{ o.delivery.slot }}{% if o.delivery.date != today %} · {{ o.delivery.date|date }}{% endif %}</span>{% if o.collect %}<span class="cash">Cobrar {{ o.collect|money }}</span>{% else %}<span>{{ o.payment.method }} · {{ 'pagado' if o.payment.status == 'pagado' else 'pendiente' }}</span>{% endif %}</div>
- {% if o.delivery.notes or o.notes %}<p class="dnote">{{ o.delivery.notes }}{% if o.delivery.notes and o.notes %} · {% endif %}{{ o.notes }}</p>{% endif %}
-</a>

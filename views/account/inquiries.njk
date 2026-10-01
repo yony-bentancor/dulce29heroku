@@ -1,8 +1,0 @@
-{% extends 'layouts/account.njk' %}{% from 'partials/macros.njk' import leadBadge %}
-{% block title %}Mis consultas · Dulce29{% endblock %}
-{% block account %}
-<h1>Mis consultas</h1>
-<div class="list">{% for i in items %}<article class="box" style="margin:0"><div class="actions-row" style="justify-content:space-between"><b>{{ i.kind|kind }}</b>{{ leadBadge(i.status) }}</div><p class="small muted" style="margin:4px 0 8px">{{ i.createdAt|datetime }}{% if i.preferred %} · prefiere {{ i.preferred|lower }}{% endif %}</p><p style="margin:0">{{ i.message or 'Sin mensaje' }}</p>
- {% if i.notes|length %}<p class="small" style="margin:10px 0 0;padding:10px;background:var(--piedra);border-radius:8px"><b>Respuesta de Dulce29:</b> {{ i.notes[i.notes.length-1].text }}</p>{% endif %}</article>
-{% else %}<div class="empty"><h3>No tenés consultas</h3><p>Consultá por el test epigenético o pedí una demostración de Thermomix.</p><div class="actions-row" style="justify-content:center"><a class="btn" href="/epigenetica">Test epigenético</a><a class="btn ghost" href="/thermomix">Thermomix</a></div></div>{% endfor %}</div>
-{% endblock %}

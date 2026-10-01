@@ -1,2 +1,0 @@
-{% extends 'layouts/base.njk' %}{% block title %}Algo falló · Dulce29{% endblock %}
-{% block content %}<div class="errpage"><div><b>500</b><h1 style="font-size:56px">Algo falló de nuestro lado</h1><p class="lead" style="margin:16px auto 24px">Probá de nuevo en unos segundos. Si sigue, escribinos por WhatsApp.</p>{% if error %}<pre style="text-align:left;white-space:pre-wrap;font-size:12px;max-width:800px;overflow:auto">{{ error.stack }}</pre>{% endif %}<a class="btn" href="/">Volver al inicio</a></div></div>{% endblock %}
