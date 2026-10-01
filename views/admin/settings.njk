@@ -40,7 +40,7 @@
   </div>
  </div>
  <div class="box"><header><h2>Zonas de envío</h2><button type="button" class="btn sm ghost" data-addrow-to="zonas">Agregar zona</button></header>
-  <div class="table-wrap"><table class="t"><thead><tr><th>Zona</th><th style="width:130px">Costo ($)</th><th style="width:170px">Demora estimada</th><th style="width:90px">Activa</th><th style="width:90px"></th></tr></thead>
+  <div class="table-wrap"><table class="t cards"><thead><tr><th>Zona</th><th style="width:130px">Costo ($)</th><th style="width:170px">Demora estimada</th><th style="width:90px">Activa</th><th style="width:90px"></th></tr></thead>
   <tbody id="zonas" data-rows>{% for z in zones %}<tr data-row><td><input type="hidden" name="zones[{{ loop.index0 }}][id]" value="{{ z.id }}"><input class="input" name="zones[{{ loop.index0 }}][name]" value="{{ z.name }}" aria-label="Nombre de la zona"></td>
    <td><input class="input" type="number" min="0" step="10" name="zones[{{ loop.index0 }}][cost]" value="{{ z.cost }}" aria-label="Costo"></td>
    <td><input class="input" name="zones[{{ loop.index0 }}][eta]" value="{{ z.eta }}" aria-label="Demora"></td>

@@ -18,6 +18,7 @@
  <div class="box"><header><h2>Sabores de la botella 3D</h2><span class="small muted">Cada bloque del inicio cambia el color del líquido y del fondo</span></header>
   <div class="g3">{% for f in c.flavors %}<fieldset style="border:1px solid var(--linea);border-radius:12px;padding:14px 14px 4px;margin:0">
    <legend style="padding:0 6px;font-weight:700"><span class="dot" style="background:{{ f.liquid }}"></span> {{ f.name }}</legend>
+   {{ field('flavors[' ~ loop.index0 ~ '][name]','Nombre del sabor',f.name,'text','Se ve en los botones junto a la botella y en «Agregar … a la bolsa».',true,'maxlength="18"') }}
    {{ field('flavors[' ~ loop.index0 ~ '][title]','Título',f.title) }}
    {{ area('flavors[' ~ loop.index0 ~ '][text]','Texto',f.text,'',3) }}
    <div class="g3">{{ field('flavors[' ~ loop.index0 ~ '][liquid]','Líquido',f.liquid,'color') }}{{ field('flavors[' ~ loop.index0 ~ '][bg]','Fondo',f.bg,'color') }}{{ field('flavors[' ~ loop.index0 ~ '][accent]','Texto',f.accent,'color') }}</div>

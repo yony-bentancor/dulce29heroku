@@ -1,6 +1,7 @@
 {% extends 'layouts/base.njk' %}
 {% from 'partials/macros.njk' import img %}
 {% block content %}
+<<<<<<< HEAD
   <section class="stage" data-stage style="--stage:{{ content.flavors[0].bg }};--accent:{{ content.flavors[0].accent }}">
     <div class="stage-grid">
       <div class="stage-copy">
@@ -49,6 +50,37 @@
   <script type="application/json" id="flavors">
     {{ content.flavors|json }}
   </script>
+=======
+<section class="stage" data-stage style="--stage:{{ content.flavors[0].bg }};--accent:{{ content.flavors[0].accent }}">
+ <div class="stage-grid">
+  <div class="stage-copy">
+   <div class="stage-block" data-flavor="0">
+    <h1><span class="stack">Hábitos que</span><span class="stack">te hacen bien.</span></h1>
+    <p class="lead">{{ content.hero.text }}</p>
+    <div class="hero-actions"><a class="btn" href="/productos">{{ content.hero.cta }}</a><a class="btn ghost" href="#sabores">Ver los sabores</a></div>
+    <p class="scroll-cue"><i></i>Bajá: la botella cambia de sabor</p>
+   </div>
+   {% for f in content.flavors %}{% set p = flavorProducts[loop.index0] %}
+   <div class="stage-block" data-flavor="{{ loop.index0 }}" {% if loop.first %}id="sabores"{% endif %}>
+    {% if p and p.image %}<img class="flav-photo" src="{{ p.image }}" alt="{{ p.name }}" loading="lazy">{% endif %}
+    <h2>{{ f.title }}</h2>
+    <p class="lead">{{ f.text }}</p>
+    {% if p %}<div class="flav-meta"><span class="price-tag">{{ p.price|money }}</span><span class="muted">{{ p.size }} · botella de vidrio retornable</span></div>
+    <form class="hero-actions" style="margin-top:22px" method="post" action="/carrito/agregar" data-add><input type="hidden" name="type" value="product"><input type="hidden" name="id" value="{{ p.id }}"><button class="btn" {% if p.stock <= 0 %}disabled{% endif %}>Agregar {{ f.name|lower }} a la bolsa</button><a class="link" href="/producto/{{ p.slug }}">Ingredientes y detalles</a></form>{% endif %}
+   </div>{% endfor %}
+  </div>
+  <div class="stage-visual">
+   <div class="bottle-sticky">
+    <canvas data-bottle aria-label="Botella de leche vegetal Dulce29 en 3D. Arrastrala para girarla." role="img"></canvas>
+    <img class="bottle-fallback" src="/images/hero/botellas.jpg" alt="Botellas de leche vegetal Dulce29: cacao, matcha y dorada">
+    <span class="drag-hint">Arrastrá para girarla</span>
+    <div class="flavors" role="group" aria-label="Elegir sabor">{% for f in content.flavors %}<button type="button" data-pick="{{ loop.index0 }}" style="--c:{{ f.liquid }}" aria-pressed="{{ 'true' if loop.first else 'false' }}"><i></i>{{ f.name }}</button>{% endfor %}</div>
+   </div>
+  </div>
+ </div>
+</section>
+<script type="application/json" id="flavors">{{ content.flavors|json }}</script>
+>>>>>>> acd7c4aa0d4c4bce58eb094f4468d71f27eecc37
 
   {# <div class="ticker" aria-hidden="true"><div>{% for i in range(2) %}{% for c in categories %}<span>{{ c.name }}</span>{% endfor %}{% endfor %}</div><div>{% for i in range(2) %}{% for c in categories %}<span>{{ c.name }}</span>{% endfor %}{% endfor %}</div></div>
  #}
