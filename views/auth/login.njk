@@ -1,0 +1,13 @@
+{% extends 'layouts/base.njk' %}{% from 'partials/macros.njk' import field %}
+{% block title %}Ingresar · Dulce29{% endblock %}
+{% block content %}
+<div class="auth"><div class="side"><p>Tus pedidos, tus direcciones y tus favoritos en un solo lugar.</p></div>
+ <div class="form"><div><h1>Ingresar</h1><p class="muted">¿Primera vez? <a class="link" href="/registrarse">Creá tu cuenta</a> en un minuto.</p>
+  {% if error %}<p class="errors" style="padding-left:18px" role="alert">{{ error }}</p>{% endif %}
+  <form method="post" action="/ingresar" style="margin-top:24px"><input type="hidden" name="volver" value="{{ values.volver }}">
+   {{ field('email','Email',values.email,'email','',true,'autocomplete="email"') }}{{ field('password','Contraseña','','password','',true,'autocomplete="current-password"') }}
+   <div class="actions-row" style="justify-content:space-between"><button class="btn">Ingresar</button><a class="link small" href="/recuperar">Olvidé mi contraseña</a></div></form>
+  <div class="demo-box"><b>Demo: entrar sin contraseña</b><br><span class="muted small">Todas las cuentas demo usan la contraseña <b>dulce29</b>.</span>
+   <div class="row"><a class="btn sm ghost" href="/demo/client">Cliente · Sofía</a><a class="btn sm ghost" href="/demo/admin">Admin · Natalia</a><a class="btn sm ghost" href="/demo/delivery">Repartidor · Martín</a></div></div>
+ </div></div></div>
+{% endblock %}

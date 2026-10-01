@@ -1,0 +1,15 @@
+{% extends 'layouts/admin.njk' %}{% from 'partials/macros.njk' import field %}
+{% block title %}Repartidores{% endblock %}{% block heading %}Repartidores{% endblock %}
+{% block actions %}<a class="btn sm ghost" href="/admin/entregas">Asignar entregas</a>{% endblock %}
+{% block body %}
+<div class="cols-2">
+ <div class="table-wrap"><table class="t cards"><thead><tr><th>Repartidor</th><th>Zonas</th><th class="r">Hoy</th><th class="r">En camino</th><th class="r">Entregados</th><th class="r">Fallidos</th><th>Estado</th><th></th></tr></thead><tbody>
+ {% for r in riders %}<tr><td><b>{{ r.name }}</b><br><span class="tiny muted">{{ r.vehicle }} · {{ r.phone }}{% if r.user %} · {{ r.user.email }}{% else %} · sin usuario{% endif %}</span></td><td class="small">{{ r.zones|join(', ') }}</td><td class="r">{{ r.today }}</td><td class="r">{{ r.onRoute }}</td><td class="r">{{ r.done }}</td><td class="r">{{ r.failed }}</td><td><span class="pill {{ 'ok' if r.active else 'bad' }}">{{ 'Activo' if r.active else 'Inactivo' }}</span></td><td><a class="btn sm ghost" href="?editar={{ r.id }}">Editar</a></td></tr>{% endfor %}</tbody></table></div>
+ <form class="box" method="post" action="/admin/repartidores"><header><h2>{{ 'Editar ' + edit.name if edit else 'Nuevo repartidor' }}</h2></header>{% if edit %}<input type="hidden" name="id" value="{{ edit.id }}">{% endif %}
+  {{ field('name','Nombre',edit.name if edit else '','text','',true) }}<div class="g2">{{ field('phone','Teléfono',edit.phone if edit else '','tel') }}<label class="field"><span>Vehículo</span><select name="vehicle">{% for v in ['Moto','Bicicleta','Bicicleta eléctrica','Auto','A pie'] %}<option {% if edit and edit.vehicle == v %}selected{% endif %}>{{ v }}</option>{% endfor %}</select></label></div>
+  <fieldset class="fs" style="margin-bottom:14px"><legend style="font-size:18px">Zonas</legend><div class="chips">{% for z in zones %}<label class="chip"><input type="checkbox" name="zones" value="{{ z.name }}" {% if edit and z.name in edit.zones %}checked{% endif %}> {{ z.name }}</label>{% endfor %}</div></fieldset>
+  {% if not edit %}<p class="small muted" style="margin:0 0 8px">Acceso a la app de reparto (opcional):</p><div class="g2">{{ field('email','Email','','email') }}{{ field('password','Contraseña','','text','Mínimo 6 caracteres.') }}</div>{% endif %}
+  <label class="check" style="margin-bottom:14px"><input type="checkbox" name="active" value="1" {% if not edit or edit.active %}checked{% endif %}> Activo</label>
+  <div class="actions-row"><button class="btn">Guardar</button>{% if edit %}<a class="link" href="/admin/repartidores">Cancelar</a>{% endif %}</div></form>
+</div>
+{% endblock %}

@@ -1,0 +1,6 @@
+{% extends 'layouts/base.njk' %}
+{% block title %}{{ title }} · Dulce29{% endblock %}
+{% block content %}
+<div class="wrap" style="padding-bottom:96px"><header class="page-head"><h1>{{ title }}</h1><p class="small muted">Última actualización: 1 de octubre de 2026</p></header>
+ <div class="prose">{% for p in paras %}<p>{{ p }}</p>{% endfor %}<p>Consultas: <a class="link" href="mailto:{{ biz.email }}">{{ biz.email }}</a>.</p></div></div>
+{% endblock %}

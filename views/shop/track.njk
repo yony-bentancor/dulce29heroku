@@ -1,0 +1,22 @@
+{% extends 'layouts/base.njk' %}{% from 'partials/macros.njk' import timeline, badge, icon %}
+{% block title %}Seguimiento de pedido · Dulce29{% endblock %}
+{% block content %}
+<div class="wrap" style="max-width:860px;padding-bottom:96px">
+ <header class="page-head"><h1>{% if o %}Pedido #{{ o.code }}{% else %}Seguí tu pedido{% endif %}</h1>
+ {% if o %}<p class="lead">{{ badge(o.status) }} &nbsp;Actualizado {{ o.history[o.history.length-1].at|ago }}</p>{% else %}<p class="lead">Ingresá el número de pedido y el teléfono con el que lo hiciste.</p>{% endif %}</header>
+ {% if o %}
+  {{ timeline(o) }}
+  <div class="cols-2e">
+   <div class="panel"><h3>Entrega</h3><dl class="kv"><dt>{{ 'Retiro' if o.delivery.method == 'retiro' else 'Dirección' }}</dt><dd>{{ settings.delivery.pickupAddress if o.delivery.method == 'retiro' else o.delivery.street + ' (' + o.delivery.zone + ')' }}</dd><dt>Día</dt><dd>{{ o.delivery.date|date('long') }}, {{ o.delivery.slot }}</dd>{% if o.deliverer and o.status == 'en_camino' %}<dt>Repartidor</dt><dd>{{ o.deliverer.name }} · {{ o.deliverer.vehicle }}</dd>{% endif %}<dt>Pago</dt><dd>{{ o.payment.method }} · {{ o.payment.status }}</dd></dl></div>
+   <div class="panel"><h3>Productos</h3>{% for i in o.items %}<div class="actions-row small" style="justify-content:space-between;padding:4px 0"><span>{{ i.qty }} × {{ i.name }}</span><span>{{ (i.price*i.qty)|money }}</span></div>{% endfor %}<div class="sum" style="margin-top:8px"><div class="total"><span>Total</span><span>{{ o.total|money }}</span></div></div></div>
+  </div>
+  <div class="panel" style="margin-top:16px"><h3>Historial</h3><ul class="history">{% for h in o.history|reverse %}<li><time>{{ h.at|datetime }}</time><span><b>{{ h.status|status }}</b>{% if h.note %} · {{ h.note }}{% endif %}</span></li>{% endfor %}</ul></div>
+  <p style="margin-top:24px" class="actions-row"><a class="btn wa" href="{{ wa }}" target="_blank" rel="noopener">{{ icon('wa') }} Consultar por WhatsApp</a><span class="tiny muted">Esta página se actualiza sola.</span></p>
+  <script>setTimeout(function(){location.reload()},30000)</script>
+ {% else %}
+  {% if error %}<p class="errors" style="padding-left:18px" role="alert">{{ error }}</p>{% endif %}
+  <form class="trackbox" style="margin-top:0" method="get" action="/seguimiento"><label class="field"><span>Número de pedido</span><input name="pedido" inputmode="numeric" value="{{ values.pedido if values }}" required></label><label class="field"><span>Teléfono</span><input name="tel" inputmode="tel" value="{{ values.tel if values }}" required></label><button class="btn">Ver estado</button></form>
+  <p class="small muted" style="margin-top:16px">{% if hint %}Para probar la demo: pedido <b>{{ hint.code }}</b> con teléfono <b>{{ hint.phone }}</b>.{% endif %}</p>
+ {% endif %}
+</div>
+{% endblock %}

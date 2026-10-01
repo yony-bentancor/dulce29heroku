@@ -1,0 +1,2 @@
+{% from 'partials/macros.njk' import badge %}
+<a class="orow" href="{{ href }}"><span class="code">#{{ o.code }}</span><span><b>{{ o.qty }} producto{{ 's' if o.qty != 1 }}</b><br><span class="small muted">{{ o.createdAt|date('full') }} · {{ 'Retiro' if o.delivery.method == 'retiro' else o.delivery.zone }}</span></span><span class="hide-s num"><b>{{ o.total|money }}</b></span>{{ badge(o.status) }}</a>

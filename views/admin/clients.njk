@@ -1,0 +1,11 @@
+{% extends 'layouts/admin.njk' %}
+{% block title %}Clientes{% endblock %}{% block heading %}Clientes{% endblock %}
+{% block actions %}<a class="btn sm" href="/admin/clientes/nuevo">Nuevo cliente</a>{% endblock %}
+{% block body %}
+<form class="filters-bar" method="get"><input class="input" type="search" name="q" value="{{ q.q }}" placeholder="Nombre, email o teléfono" style="min-width:240px">
+ <select class="input" name="tipo"><option value="">Todos</option>{% for x in [['recurrentes','Recurrentes (3+ pedidos)'],['nuevos','Nuevos (30 días)'],['inactivos','Sin pedir hace 3 semanas']] %}<option value="{{ x[0] }}" {% if q.tipo == x[0] %}selected{% endif %}>{{ x[1] }}</option>{% endfor %}</select>
+ <select class="input" name="orden">{% for x in [['reciente','Último pedido'],['gasto','Mayor gasto'],['pedidos','Más pedidos'],['nombre','Nombre']] %}<option value="{{ x[0] }}" {% if q.orden == x[0] %}selected{% endif %}>{{ x[1] }}</option>{% endfor %}</select>
+ <button class="btn sm">Filtrar</button><span class="small muted" style="margin-left:auto">{{ clients|length }} clientes</span></form>
+<div class="table-wrap"><table class="t cards"><thead><tr><th>Cliente</th><th>Contacto</th><th>Zona</th><th class="r">Pedidos</th><th class="r">Gasto total</th><th>Último pedido</th><th>Cuenta</th></tr></thead><tbody>
+{% for c in clients %}<tr class="click" data-href="/admin/clientes/{{ c.id }}"><td><a href="/admin/clientes/{{ c.id }}"><b>{{ c.name }}</b></a>{% if c.notes %}<br><span class="tiny muted">{{ c.notes|truncate(48) }}</span>{% endif %}</td><td class="small">{{ c.phone }}<br>{{ c.email }}</td><td>{{ c.addresses[0].zone if c.addresses|length else '—' }}</td><td class="r">{{ c.orders }}</td><td class="r num">{{ c.spent|money }}</td><td class="nw small">{{ c.last.createdAt|ago if c.last else 'Nunca' }}</td><td>{% if hasAccount(c.id) %}<span class="pill ok">Registrado</span>{% else %}<span class="pill">Invitado</span>{% endif %}</td></tr>{% endfor %}</tbody></table></div>
+{% endblock %}

@@ -1,0 +1,8 @@
+{% from 'partials/macros.njk' import img, icon %}
+<article class="card{% if p.stock <= 0 %} soldout{% endif %}">
+ <div class="ph" style="--c:{{ p.color }}">{{ img(p.image, p.name) }}</div>
+ <div class="tags">{% if p.stock <= 0 %}<span class="pill bad">Sin stock</span>{% elif p.stock <= p.minStock %}<span class="pill warn">Quedan {{ p.stock }}</span>{% endif %}{% if p.compareAt %}<span class="pill dark">Oferta</span>{% endif %}</div>
+ <form class="fav" method="post" action="/favoritos/{{ p.id }}" data-fav><button class="favbtn" aria-label="Guardar en favoritos" aria-pressed="{{ 'true' if p.id in favs else 'false' }}">{{ icon('heart') }}</button></form>
+ <div class="info"><a href="/producto/{{ p.slug }}">{{ p.name }}</a><span class="price">{{ p.price|money }}{% if p.compareAt %}<s>{{ p.compareAt|money }}</s>{% endif %}</span><small>{{ p.size }} · {{ p.category }}</small></div>
+ <form method="post" action="/carrito/agregar" data-add><input type="hidden" name="type" value="product"><input type="hidden" name="id" value="{{ p.id }}"><button class="add" {% if p.stock <= 0 %}disabled{% endif %}>{{ 'Sin stock' if p.stock <= 0 else 'Agregar a la bolsa' }}</button></form>
+</article>

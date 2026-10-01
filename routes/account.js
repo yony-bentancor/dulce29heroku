@@ -1,0 +1,10 @@
+const r = require('express').Router(), c = require('../controllers/accountController'), { requireUser } = require('../middleware/auth'), { role } = require('../middleware/roles');
+r.use(requireUser, role('client'), c.guard);
+r.get('/', c.dashboard);
+r.get('/pedidos', c.orders); r.get('/pedidos/:code', c.order); r.get('/pedidos/:code/seguimiento', c.track);
+r.post('/pedidos/:code/cancelar', c.cancel); r.post('/pedidos/:code/repetir', c.reorder);
+r.get('/volver-a-pedir', c.reorderList);
+r.get('/datos', c.profile); r.post('/datos', c.saveProfile);
+r.get('/direcciones', c.addresses); r.post('/direcciones', c.saveAddress); r.post('/direcciones/:id/eliminar', c.deleteAddress);
+r.get('/favoritos', c.favorites); r.get('/consultas', c.inquiries);
+module.exports = r;

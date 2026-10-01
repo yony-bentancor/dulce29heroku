@@ -1,0 +1,11 @@
+const r = require('express').Router(), c = require('../controllers/authController');
+r.get('/ingresar', c.loginForm); r.post('/ingresar', c.login());
+r.get('/login', (q, s) => s.redirect('/ingresar'));
+r.get('/registrarse', c.registerForm); r.post('/registrarse', c.register);
+r.get('/recuperar', c.recoverForm); r.post('/recuperar', c.recover);
+r.get('/recuperar/:token', c.resetForm); r.post('/recuperar/:token', c.reset);
+r.get('/salir', c.logout); r.get('/logout', c.logout);
+r.get('/demo/:role', c.demo);
+r.get('/admin/ingresar', c.staffForm('admin')); r.post('/admin/ingresar', c.login('admin'));
+r.get('/repartidor/ingresar', c.staffForm('delivery')); r.post('/repartidor/ingresar', c.login('delivery'));
+module.exports = r;

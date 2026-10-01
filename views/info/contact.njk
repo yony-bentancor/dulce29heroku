@@ -1,0 +1,25 @@
+{% extends 'layouts/base.njk' %}{% from 'partials/macros.njk' import field, area, icon %}
+{% block title %}Contacto · Dulce29{% endblock %}
+{% block head %}<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">{% endblock %}
+{% block content %}
+<div class="wrap">
+ <header class="page-head"><h1>Contacto</h1><p class="lead">Respondemos en el día. Para pedidos, lo más rápido es WhatsApp.</p></header>
+ <div class="contact-grid">
+  <section id="form">{% if sent %}<div class="flash" style="margin:0 0 20px;width:auto">Recibimos tu consulta. Te respondemos hoy mismo.</div>{% endif %}
+   {% if errors %}<ul class="errors">{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+   <form method="post" action="/contacto">
+    {{ field('name','Nombre',values.name,'text','',true,'autocomplete="name"') }}
+    <div class="g2">{{ field('phone','Teléfono',values.phone,'tel','',false,'autocomplete="tel"') }}{{ field('email','Email',values.email,'email','',false,'autocomplete="email"') }}</div>
+    {{ area('message','Tu consulta',values.message,'',5) }}
+    <button class="btn">Enviar consulta</button></form></section>
+  <aside class="contact-card">
+   <div><small>WhatsApp</small><a class="link" href="https://wa.me/{{ biz.whatsapp }}" target="_blank" rel="noopener">{{ biz.phone }}</a></div>
+   <div><small>Email</small><a class="link" href="mailto:{{ biz.email }}">{{ biz.email }}</a></div>
+   <div><small>Instagram</small><a class="link" href="https://www.instagram.com/{{ biz.instagram }}/" target="_blank" rel="noopener">@{{ biz.instagram }}</a></div>
+   <div><small>Local y retiro</small><b>{{ biz.address }}</b><br><span class="small">{{ biz.hours }}</span></div>
+   <div class="map" data-map data-points='[{"lat":{{ biz.lat }},"lng":{{ biz.lng }},"label":"Dulce29"}]'></div>
+  </aside>
+ </div>
+</div>
+{% endblock %}
+{% block scripts %}<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><script src="/js/mapa.js"></script>{% endblock %}

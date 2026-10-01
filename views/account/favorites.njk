@@ -1,0 +1,7 @@
+{% extends 'layouts/account.njk' %}
+{% block title %}Favoritos · Dulce29{% endblock %}
+{% block account %}
+<h1>Favoritos</h1>
+{% if products|length %}<div class="grid">{% for p in products %}{% include 'partials/product-card.njk' %}{% endfor %}</div>
+{% else %}<div class="empty"><h3>Todavía no guardaste favoritos</h3><p>Tocá el corazón en cualquier producto para guardarlo acá.</p><a class="btn" href="/productos">Ir a la tienda</a></div>{% endif %}
+{% endblock %}

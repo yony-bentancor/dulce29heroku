@@ -1,0 +1,13 @@
+{% extends 'layouts/admin.njk' %}{% from 'partials/macros.njk' import leadBadge, icon %}
+{% block title %}{{ title }}{% endblock %}{% block heading %}{{ title }}{% endblock %}
+{% block actions %}<a class="btn sm ghost" href="{{ '/contacto' if kind == 'contacto' else '/' + kind }}" target="_blank">Ver formulario público</a>{% endblock %}
+{% block body %}
+<nav class="seg" style="margin-bottom:16px"><a href="?estado=abiertas" aria-current="{{ 'true' if f == 'abiertas' else 'false' }}">Abiertas</a>{% for s, v in LEAD %}<a href="?estado={{ s }}" aria-current="{{ 'true' if f == s else 'false' }}">{{ v.label }}<small>{{ counts[s] }}</small></a>{% endfor %}<a href="?estado=todas" aria-current="{{ 'true' if f == 'todas' else 'false' }}">Todas</a></nav>
+<div class="list">{% for i in items %}<article class="box" style="margin:0">
+ <header><div><b style="font-size:18px">{{ i.name }}</b> {{ leadBadge(i.status) }}<br><span class="small muted">{{ i.createdAt|datetime }} · {{ i.phone or 'sin teléfono' }} · {{ i.email or 'sin email' }}{% if i.preferred %} · prefiere {{ i.preferred|lower }}{% endif %}</span></div>
+  <span class="actions-row">{% if i.clientId %}<a class="btn sm ghost" href="/admin/clientes/{{ i.clientId }}">Ficha</a>{% endif %}{% if i.phone %}<a class="btn sm wa" href="{{ waFor(i) }}" target="_blank" rel="noopener">{{ icon('wa') }} WhatsApp</a>{% endif %}</span></header>
+ <p style="margin:0 0 12px">{{ i.message or 'Sin mensaje.' }}</p>
+ {% if i.notes|length %}<ul class="notes" style="margin-bottom:12px">{% for n in i.notes %}<li><time>{{ n.at|datetime }}{% if n.by %} · {{ n.by }}{% endif %}</time>{{ n.text }}</li>{% endfor %}</ul>{% endif %}
+ <form class="actions-row" method="post" action="/admin/consultas/{{ i.id }}"><select class="input" name="status" style="min-height:38px;width:auto">{% for s, v in LEAD %}<option value="{{ s }}" {% if s == i.status %}selected{% endif %}>{{ v.label }}</option>{% endfor %}</select><input class="input" name="note" placeholder="Agregar seguimiento: llamada, cita, respuesta…" style="flex:1;min-height:38px;min-width:220px">{% if not i.clientId %}<label class="check small"><input type="checkbox" name="toClient" value="1"> Crear ficha de cliente</label>{% endif %}<button class="btn sm">Guardar</button></form>
+</article>{% else %}<div class="empty">No hay consultas en esta vista.</div>{% endfor %}</div>
+{% endblock %}

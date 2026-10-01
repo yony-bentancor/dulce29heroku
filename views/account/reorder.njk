@@ -1,0 +1,8 @@
+{% extends 'layouts/account.njk' %}
+{% block title %}Volver a pedir · Dulce29{% endblock %}
+{% block account %}
+<h1>Volver a pedir</h1><p class="lead" style="margin-top:-8px;margin-bottom:24px">Repetí un pedido entero en un clic: lo pasamos a tu bolsa y revisamos el stock.</p>
+{% if top|length %}<h2 style="font-size:36px;margin-bottom:16px">Lo que más pedís</h2><div class="grid" style="margin-bottom:36px">{% for x in top %}{% set p = x.p %}{% include 'partials/product-card.njk' %}{% endfor %}</div>{% endif %}
+<h2 style="font-size:36px;margin-bottom:16px">Pedidos anteriores</h2>
+<div class="list">{% for o in orders %}<div class="orow" style="grid-template-columns:auto 1fr auto"><span class="code">#{{ o.code }}</span><span><b>{% for i in o.items %}{{ i.qty }} {{ i.name }}{{ ', ' if not loop.last }}{% endfor %}</b><br><span class="small muted">{{ o.createdAt|date('full') }} · {{ o.total|money }}</span></span><form method="post" action="/mi-cuenta/pedidos/{{ o.code }}/repetir"><button class="btn sm">Repetir</button></form></div>{% else %}<div class="empty"><h3>Todavía no tenés pedidos entregados</h3><a class="btn" href="/productos">Ir a la tienda</a></div>{% endfor %}</div>
+{% endblock %}

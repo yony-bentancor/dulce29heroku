@@ -1,0 +1,32 @@
+{% extends 'layouts/admin.njk' %}{% from 'partials/macros.njk' import field, area %}
+{% block title %}{{ 'Nuevo producto' if isNew else p.name }}{% endblock %}{% block heading %}{{ 'Nuevo producto' if isNew else 'Editar producto' }}{% endblock %}
+{% block actions %}{% if not isNew %}<a class="btn sm ghost" href="/producto/{{ p.slug }}" target="_blank">Ver en la tienda</a>{% endif %}<a class="btn sm ghost" href="/admin/productos">Volver</a>{% endblock %}
+{% block body %}
+{% if errors %}<ul class="errors">{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+<form class="form-grid" method="post" action="/admin/productos/guardar">{% if p.id %}<input type="hidden" name="id" value="{{ p.id }}">{% endif %}
+ <div><div class="box">
+  {{ field('name','Nombre',p.name,'text','',true) }}
+  <div class="g2"><label class="field"><span>Categoría</span><select name="categoryId" required><option value="">Elegí</option>{% for c in categories %}<option value="{{ c.id }}" {% if p.categoryId == c.id %}selected{% endif %}>{{ c.name }}</option>{% endfor %}</select></label>{{ field('size','Presentación',p.size,'text','Ej.: 910 cc, 250 g, pack') }}</div>
+  {{ area('description','Descripción',p.description,'Se muestra en la tienda.',3) }}{{ area('ingredients','Ingredientes',p.ingredients,'',2) }}{{ area('conservation','Conservación',p.conservation,'',2) }}
+  {{ field('tags','Etiquetas',p.tags|join(', '),'text','Separadas por coma: Vegana, Sin gluten…') }}
+  {{ field('slug','Dirección web',p.slug,'text','Se genera sola a partir del nombre si la dejás vacía.') }}
+ </div></div>
+ <div>
+  <div class="box"><header><h2>Precio y stock</h2></header>
+   <div class="g2">{{ field('price','Precio',p.price,'number','',true,'min="1" step="1"') }}{{ field('compareAt','Precio anterior',p.compareAt,'number','Opcional: muestra "Oferta".','','min="0" step="1"') }}</div>
+   <div class="g2">{{ field('stock','Stock',p.stock,'number','',true,'min="0" step="1"') }}{{ field('minStock','Avisar con menos de',p.minStock,'number','','','min="0" step="1"') }}</div></div>
+  <div class="box"><header><h2>Imagen</h2></header>
+   <div style="aspect-ratio:4/5;border-radius:12px;overflow:hidden;background:var(--piedra);margin-bottom:12px"><img data-preview src="{{ p.image }}" alt="" style="width:100%;height:100%;object-fit:cover" onerror="this.style.opacity=0" onload="this.style.opacity=1"></div>
+   {{ field('image','Dirección de la imagen',p.image,'text','Pegá un enlace o subí un archivo.','','data-img') }}
+   <label class="btn sm ghost">Subir imagen<input type="file" accept="image/*" hidden data-upload></label> <span class="tiny muted" data-upmsg></span>
+   <label class="field" style="margin-top:14px"><span>Color de fondo</span><input type="color" name="color" value="{{ p.color }}" style="min-height:40px;padding:4px"></label></div>
+  <div class="box"><label class="check"><input type="checkbox" name="active" value="1" {% if p.active %}checked{% endif %}> Visible en la tienda</label><label class="check" style="margin-top:10px"><input type="checkbox" name="featured" value="1" {% if p.featured %}checked{% endif %}> Destacado en el inicio</label>
+   <div class="actions-row" style="margin-top:18px"><button class="btn">Guardar producto</button>{% if isNew %}<button class="btn ghost" name="again" value="1">Guardar y crear otro</button>{% endif %}</div></div>
+  {% if not isNew %}<button form="del-product" class="btn sm danger" data-confirm="¿Eliminar {{ p.name }}? Si tiene pedidos, se oculta en lugar de borrarse.">Eliminar producto</button>{% endif %}
+ </div>
+</form>
+{% if not isNew %}<form id="del-product" method="post" action="/admin/productos/{{ p.id }}/eliminar" hidden></form>{% endif %}
+{% endblock %}
+{% block scripts %}<script>(function(){const i=document.querySelector('[data-img]'),pv=document.querySelector('[data-preview]'),up=document.querySelector('[data-upload]'),m=document.querySelector('[data-upmsg]');
+i.addEventListener('input',()=>pv.src=i.value);up.addEventListener('change',async()=>{const f=up.files[0];if(!f)return;m.textContent='Subiendo…';
+try{const r=await fetch('/admin/subir',{method:'POST',headers:{'X-Filename':encodeURIComponent(f.name)},body:f});const j=await r.json();if(!r.ok)throw new Error(j.error);i.value=j.path;pv.src=j.path;m.textContent='Imagen subida.'}catch(e){m.textContent='No se pudo subir: '+e.message}})})();</script>{% endblock %}
