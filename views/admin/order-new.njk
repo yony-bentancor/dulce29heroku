@@ -6,7 +6,7 @@
 <form class="form-grid" method="post" action="/admin/pedidos/nuevo" data-manual>
  <div>
   <div class="box"><header><h2>Productos</h2><input class="input" type="search" placeholder="Filtrar productos" data-pfilter style="min-height:38px;width:220px"></header>
-   <div class="table-wrap" style="border:0;max-height:520px;overflow:auto"><table class="t"><thead><tr><th>Producto</th><th class="r">Precio</th><th class="r">Stock</th><th style="width:110px">Cantidad</th></tr></thead><tbody>
+   <div class="table-wrap" style="border:0;max-height:520px;overflow:auto"><table class="t cards"><thead><tr><th>Producto</th><th class="r">Precio</th><th class="r">Stock</th><th style="width:110px">Cantidad</th></tr></thead><tbody>
    {% for p in products %}<tr data-row="{{ p.name|lower }}"><td>{{ p.name }} <span class="tiny muted">{{ p.size }}</span></td><td class="r num">{{ p.price|money }}</td><td class="r"><span class="pill {{ 'bad' if p.stock <= 0 else ('warn' if p.stock <= p.minStock else '') }}">{{ p.stock }}</span></td><td><input class="input" type="number" min="0" max="{{ p.stock }}" name="qty[product-{{ p.id }}]" value="{{ values.qty['product-' + p.id] if values.qty else '' }}" data-price="{{ p.price }}" style="min-height:36px"></td></tr>{% endfor %}
    {% for pr in promos %}<tr data-row="{{ pr.name|lower }} pack"><td>{{ pr.name }} <span class="pill">pack</span></td><td class="r num">{{ pr.price|money }}</td><td class="r"><span class="pill">{{ pr.stock }}</span></td><td><input class="input" type="number" min="0" max="{{ pr.stock }}" name="qty[promo-{{ pr.id }}]" value="{{ values.qty['promo-' + pr.id] if values.qty else '' }}" data-price="{{ pr.price }}" style="min-height:36px"></td></tr>{% endfor %}
    </tbody></table></div>

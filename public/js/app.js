@@ -44,6 +44,9 @@
     const del = e.target.closest('[data-delrow]');
     if (del) { const row = del.closest('[data-row]'), box = row.closest('[data-rows]'); if ($$('[data-row]', box).length > 1) { row.remove(); renum(box); } else $$('input:not([type=checkbox]),textarea', row).forEach(el => el.value = ''); }
   });
+  // tablas que en el celular se ven como tarjetas: cada dato lleva el nombre de su columna
+  $$('table.cards').forEach(t => { const hs = $$('thead th', t).map(th => th.textContent.trim()); const first = hs.findIndex(Boolean);
+    $$('tbody tr', t).forEach(tr => [...tr.children].forEach((td, i) => { if (i > first && hs[i] && td.colSpan === 1) td.dataset.l = hs[i]; })); });
   // menú lateral (admin)
-  const sb = $('[data-side-toggle]'), side = $('.side-nav'); if (sb && side) sb.addEventListener('click', () => side.classList.toggle('open'));
+  const sb = $('[data-side-toggle]'), side = $('.side-nav'); if (sb && side) { sb.addEventListener('click', e => { e.stopPropagation(); side.classList.toggle('open'); }); document.addEventListener('click', e => { if (side.classList.contains('open') && !side.contains(e.target)) side.classList.remove('open'); }); }
 })();

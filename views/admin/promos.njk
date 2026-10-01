@@ -2,7 +2,7 @@
 {% block title %}Promociones{% endblock %}{% block heading %}Promociones y packs{% endblock %}
 {% block actions %}<a class="btn sm" href="/admin/promociones/nueva">Nueva promoción</a>{% endblock %}
 {% block body %}
-<div class="table-wrap"><table class="t"><thead><tr><th>Promoción</th><th>Tipo</th><th>Incluye</th><th class="r">Precio</th><th class="r">Por separado</th><th class="r">Stock</th><th>Estado</th><th></th></tr></thead><tbody>
+<div class="table-wrap"><table class="t cards"><thead><tr><th>Promoción</th><th>Tipo</th><th>Incluye</th><th class="r">Precio</th><th class="r">Por separado</th><th class="r">Stock</th><th>Estado</th><th></th></tr></thead><tbody>
 {% for pr in promos %}<tr><td><b>{{ pr.name }}</b><br><span class="tiny muted">{{ pr.badge }}{% if pr.until %} · hasta {{ pr.until|date }}{% endif %}{% if pr.featured %} · destacada{% endif %}</span></td><td>{{ pr.kind }}</td><td class="small">{% for l in pr.lines %}{{ l.qty }}× {{ l.name }}<br>{% endfor %}</td>
  <td class="r num"><b>{{ pr.price|money }}</b></td><td class="r num muted">{{ pr.regular|money }}<br><span class="tiny">ahorro {{ (pr.regular - pr.price)|money }}</span></td><td class="r">{{ pr.stock }}</td>
  <td><form method="post" action="/admin/promociones/{{ pr.id }}/alternar"><button class="pill {{ 'ok' if pr.active else 'bad' }}" style="border:0;cursor:pointer">{{ 'Activa' if pr.active else 'Pausada' }}</button></form></td>

@@ -5,7 +5,7 @@
 <div class="kpis"><div class="kpi"><small>Pedidos</small><b>{{ st.orders }}</b></div><div class="kpi"><small>Gasto acumulado (entregado)</small><b>{{ st.spent|money }}</b></div><div class="kpi"><small>Ticket promedio</small><b>{{ ticket|money }}</b></div><div class="kpi"><small>Cliente desde</small><b style="font-size:28px">{{ c.createdAt|date('full') }}</b><em>{{ 'Con cuenta: ' + account.email if account else 'Compra como invitado' }}</em></div></div>
 <div class="cols-2">
  <div>
-  <div class="box"><header><h2>Pedidos</h2></header><div class="table-wrap" style="border:0"><table class="t"><thead><tr><th>Pedido</th><th>Fecha</th><th>Productos</th><th class="r">Total</th><th>Estado</th></tr></thead><tbody>
+  <div class="box"><header><h2>Pedidos</h2></header><div class="table-wrap" style="border:0"><table class="t cards"><thead><tr><th>Pedido</th><th>Fecha</th><th>Productos</th><th class="r">Total</th><th>Estado</th></tr></thead><tbody>
   {% for o in os %}<tr class="click" data-href="/admin/pedidos/{{ o.id }}"><td><a href="/admin/pedidos/{{ o.id }}"><b>#{{ o.code }}</b></a></td><td class="nw small">{{ o.createdAt|date('full') }}</td><td class="small">{% for i in o.items %}{{ i.qty }} {{ i.name }}{{ ', ' if not loop.last }}{% endfor %}</td><td class="r num">{{ o.total|money }}</td><td>{{ badge(o.status) }}</td></tr>{% else %}<tr><td colspan="5" class="muted">Sin pedidos.</td></tr>{% endfor %}</tbody></table></div></div>
   {% if top|length %}<div class="box"><header><h2>Lo que más pide</h2></header><div class="bars">{% for t in top %}<div><span>{{ t[0] }}</span><i style="width:{{ t[1]|pct(top[0][1]) }}%"></i><span>{{ t[1] }} u.</span></div>{% endfor %}</div></div>{% endif %}
  </div>

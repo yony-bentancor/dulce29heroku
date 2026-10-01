@@ -2,7 +2,7 @@
 {% block title %}Categorías{% endblock %}{% block heading %}Categorías{% endblock %}
 {% block body %}
 <div class="cols-2">
- <div class="table-wrap"><table class="t"><thead><tr><th></th><th>Categoría</th><th>Descripción</th><th class="r">Productos</th><th></th></tr></thead><tbody>
+ <div class="table-wrap"><table class="t cards"><thead><tr><th></th><th>Categoría</th><th>Descripción</th><th class="r">Productos</th><th></th></tr></thead><tbody>
  {% for c in cats %}<tr><td><span class="dot" style="background:{{ c.color }};width:16px;height:16px"></span></td><td><b>{{ c.name }}</b><br><span class="tiny muted">/productos?categoria={{ c.slug }}</span></td><td class="small">{{ c.description }}</td><td class="r">{{ c.n }}</td>
   <td class="nw"><a class="btn sm ghost" href="?editar={{ c.id }}">Editar</a> <form class="inline" method="post" action="/admin/categorias/{{ c.id }}/eliminar"><button class="btn sm danger" data-confirm="¿Eliminar la categoría {{ c.name }}?">Eliminar</button></form></td></tr>{% endfor %}</tbody></table></div>
  <form class="box" method="post" action="/admin/categorias"><header><h2>{{ 'Editar ' + edit.name if edit else 'Nueva categoría' }}</h2></header>{% if edit %}<input type="hidden" name="id" value="{{ edit.id }}">{% endif %}
