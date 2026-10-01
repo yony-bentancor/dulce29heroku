@@ -1,72 +1,184 @@
 {% extends 'layouts/base.njk' %}
 {% from 'partials/macros.njk' import img %}
 {% block content %}
-<section class="stage" data-stage style="--stage:{{ content.flavors[0].bg }};--accent:{{ content.flavors[0].accent }}">
- <div class="stage-grid">
-  <div class="stage-copy">
-   <div class="stage-block" data-flavor="0">
-    <h1><span class="stack">Hábitos que</span><span class="stack">te hacen bien.</span></h1>
-    <p class="lead">{{ content.hero.text }}</p>
-    <div class="hero-actions"><a class="btn" href="/productos">{{ content.hero.cta }}</a><a class="btn ghost" href="#sabores">Ver los sabores</a></div>
-    <p class="scroll-cue"><i></i>Bajá: la botella cambia de sabor</p>
-   </div>
-   {% for f in content.flavors %}{% set p = flavorProducts[loop.index0] %}
-   <div class="stage-block" data-flavor="{{ loop.index0 }}" {% if loop.first %}id="sabores"{% endif %}>
-    {% if p and p.image %}<img class="flav-photo" src="{{ p.image }}" alt="{{ p.name }}" loading="lazy">{% endif %}
-    <h2>{{ f.title }}</h2>
-    <p class="lead">{{ f.text }}</p>
-    {% if p %}<div class="flav-meta"><span class="price-tag">{{ p.price|money }}</span><span class="muted">{{ p.size }} · botella de vidrio retornable</span></div>
-    <form class="hero-actions" style="margin-top:22px" method="post" action="/carrito/agregar" data-add><input type="hidden" name="type" value="product"><input type="hidden" name="id" value="{{ p.id }}"><button class="btn" {% if p.stock <= 0 %}disabled{% endif %}>Agregar {{ f.name|lower }} a la bolsa</button><a class="link" href="/producto/{{ p.slug }}">Ingredientes y detalles</a></form>{% endif %}
-   </div>{% endfor %}
-  </div>
-  <div class="stage-visual">
-   <div class="bottle-sticky">
-    <canvas data-bottle aria-label="Botella de leche vegetal Dulce29 en 3D. Arrastrala para girarla." role="img"></canvas>
-    <img class="bottle-fallback" src="/images/hero/botellas.jpg" alt="Botellas de leche vegetal Dulce29: cacao, matcha y dorada">
-    <span class="drag-hint">Arrastrá para girarla</span>
-    <div class="flavors" role="group" aria-label="Elegir sabor">{% for f in content.flavors %}<button type="button" data-pick="{{ loop.index0 }}" style="--c:{{ f.liquid }}" aria-pressed="{{ 'true' if loop.first else 'false' }}"><i></i>{{ f.name }}</button>{% endfor %}</div>
-   </div>
-  </div>
- </div>
-</section>
-<script type="application/json" id="flavors">{{ content.flavors|json }}</script>
+  <section class="stage" data-stage style="--stage:{{ content.flavors[0].bg }};--accent:{{ content.flavors[0].accent }}">
+    <div class="stage-grid">
+      <div class="stage-copy">
+        <div class="stage-block" data-flavor="0">
+          <h1>
+            <span class="stack">Hábitos que</span>
+            <span class="stack">te hacen bien.</span></h1>
+          <p class="lead">{{ content.hero.text }}</p>
+          <div class="hero-actions">
+            <a class="btn" href="/productos">{{ content.hero.cta }}</a>
+            <a class="btn ghost" href="#sabores">Ver los sabores</a>
+          </div>
+          <p class="scroll-cue">
+            <i></i>Bajá: la botella cambia de sabor</p>
+        </div>
+        {% for f in content.flavors %}{% set p = flavorProducts[loop.index0] %}
+          <div class="stage-block" data-flavor="{{ loop.index0 }}" {% if loop.first %}id="sabores"{% endif %}>
+            {% if p and p.image %}<img class="flav-photo" src="{{ p.image }}" alt="{{ p.name }}" loading="lazy">{% endif %}
+            <h2>{{ f.title }}</h2>
+            <p class="lead">{{ f.text }}</p>
+            {% if p %}
+              <div class="flav-meta">
+                <span class="price-tag">{{ p.price|money }}</span><span class="muted">{{ p.size }} · botella de vidrio retornable</span></div>
+              <form class="hero-actions" style="margin-top:22px" method="post" action="/carrito/agregar" data-add><input type="hidden" name="type" value="product"><input type="hidden" name="id" value="{{ p.id }}">
+                <button class="btn" {% if p.stock <= 0 %}disabled{% endif %}>Agregar {{ f.name|lower }} a la bolsa</button>
+                <a class="link" href="/producto/{{ p.slug }}">Ingredientes y detalles</a>
+              </form>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+      <div class="stage-visual">
+        <div class="bottle-sticky">
+          <canvas data-bottle aria-label="Botella de leche vegetal Dulce29 en 3D. Arrastrala para girarla." role="img"></canvas>
+          <img class="bottle-fallback" src="/images/hero/botellas.jpg" alt="Botellas de leche vegetal Dulce29: cacao, matcha y dorada">
+          <span class="drag-hint">Arrastrá para girarla</span>
+          <div class="flavors" role="group" aria-label="Elegir sabor">
+            {% for f in content.flavors %}
+              <button type="button" data-pick="{{ loop.index0 }}" style="--c:{{ f.liquid }}" aria-pressed="{{ 'true' if loop.first else 'false' }}">
+                <i></i>{{ f.name }}</button>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script type="application/json" id="flavors">
+    {{ content.flavors|json }}
+  </script>
 
-<div class="ticker" aria-hidden="true"><div>{% for i in range(2) %}{% for c in categories %}<span>{{ c.name }}</span>{% endfor %}{% endfor %}</div><div>{% for i in range(2) %}{% for c in categories %}<span>{{ c.name }}</span>{% endfor %}{% endfor %}</div></div>
+  {# <div class="ticker" aria-hidden="true"><div>{% for i in range(2) %}{% for c in categories %}<span>{{ c.name }}</span>{% endfor %}{% endfor %}</div><div>{% for i in range(2) %}{% for c in categories %}<span>{{ c.name }}</span>{% endfor %}{% endfor %}</div></div>
+ #}
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Para cada momento del día</h2>
+        <p>Todo se elabora en Colonia en tandas chicas. Elegí una categoría o mirá la tienda completa.</p>
+      </div>
+      <div class="cats">
+        {% for c in categories %}
+          <a class="cat" href="/productos?categoria={{ c.slug }}" style="--c:{{ c.color }}">
+            <b>{{ c.name }}</b>
+            <small>{{ c.description }}</small>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
 
-<section class="section"><div class="wrap">
- <div class="section-head"><h2>Para cada momento del día</h2><p>Todo se elabora en Colonia en tandas chicas. Elegí una categoría o mirá la tienda completa.</p></div>
- <div class="cats">{% for c in categories %}<a class="cat" href="/productos?categoria={{ c.slug }}" style="--c:{{ c.color }}"><b>{{ c.name }}</b><small>{{ c.description }}</small></a>{% endfor %}</div>
-</div></section>
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Lo más pedido</h2>
+        <a class="link" href="/productos">Ver los {{ productCount }} productos</a>
+      </div>
+      <div class="grid">
+        {% for p in featured %}{% include 'partials/product-card.njk' %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
 
-<section class="section" style="padding-top:0"><div class="wrap">
- <div class="section-head"><h2>Lo más pedido</h2><a class="link" href="/productos">Ver los {{ productCount }} productos</a></div>
- <div class="grid">{% for p in featured %}{% include 'partials/product-card.njk' %}{% endfor %}</div>
-</div></section>
+  <section class="section band">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Packs que conviene llevar juntos</h2>
+        <p class="muted">Precios armados para la semana. Se controlan por stock, igual que los productos sueltos.</p>
+      </div>
+      <div class="packs">
+        {% for pr in promos %}
+          <article class="pack" id="{{ pr.slug }}">
+            <div class="ph">{{ img(pr.image, pr.name) }}
+              <span class="pill dark">{{ pr.badge }}</span></div>
+            <div class="bd">
+              <h3>{{ pr.name }}</h3>
+              <p class="muted" style="margin:0">{{ pr.description }}</p>
+              <ul>
+                {% for i in pr.lines %}
+                  <li>{{ i.qty }} × {{ i.name }}</li>
+                {% endfor %}
+              </ul>
+              <form class="row" method="post" action="/carrito/agregar" data-add>
+                <span>
+                  <b>{{ pr.price|money }}</b>
+                  {% if pr.regular > pr.price %}
+                    <s>{{ pr.regular|money }} por separado</s>
+                  {% endif %}
+                </span><input type="hidden" name="type" value="promo"><input type="hidden" name="id" value="{{ pr.id }}">
+                <button class="btn sm" {% if pr.stock <= 0 %}disabled{% endif %}>{{ 'Sin stock' if pr.stock <= 0 else 'Agregar' }}</button>
+              </form>
+            </div>
+          </article>
+        {% endfor %}
+      </div>
+      <p style="margin-top:28px">
+        <a class="btn light" href="/promociones">Ver todos los packs</a>
+      </p>
+    </div>
+  </section>
 
-<section class="section band"><div class="wrap">
- <div class="section-head"><h2>Packs que conviene llevar juntos</h2><p class="muted">Precios armados para la semana. Se controlan por stock, igual que los productos sueltos.</p></div>
- <div class="packs">{% for pr in promos %}<article class="pack" id="{{ pr.slug }}"><div class="ph">{{ img(pr.image, pr.name) }}<span class="pill dark">{{ pr.badge }}</span></div><div class="bd"><h3>{{ pr.name }}</h3><p class="muted" style="margin:0">{{ pr.description }}</p>
-  <ul>{% for i in pr.lines %}<li>{{ i.qty }} × {{ i.name }}</li>{% endfor %}</ul>
-  <form class="row" method="post" action="/carrito/agregar" data-add><span><b>{{ pr.price|money }}</b>{% if pr.regular > pr.price %}<s>{{ pr.regular|money }} por separado</s>{% endif %}</span><input type="hidden" name="type" value="promo"><input type="hidden" name="id" value="{{ pr.id }}"><button class="btn sm" {% if pr.stock <= 0 %}disabled{% endif %}>{{ 'Sin stock' if pr.stock <= 0 else 'Agregar' }}</button></form></div></article>{% endfor %}</div>
- <p style="margin-top:28px"><a class="btn light" href="/promociones">Ver todos los packs</a></p>
-</div></section>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Cómo funciona un pedido</h2>
+        <p>Tu pedido queda registrado con número desde el primer momento. WhatsApp lo usamos para coordinar, no para anotar la venta.</p>
+      </div>
+      <ol class="steps" style="padding:0">
+        {% for s in content.steps %}
+          <li>
+            <b>{{ s.title }}</b>
+            <p>{{ s.text }}</p>
+          </li>
+        {% endfor %}
+      </ol>
+      <form class="trackbox" method="get" action="/seguimiento">
+        <label class="field">
+          <span>Número de pedido</span><input name="pedido" inputmode="numeric" placeholder="Ej.: 1042" required></label>
+        <label class="field">
+          <span>Teléfono</span><input name="tel" inputmode="tel" placeholder="099 123 456" required></label>
+        <button class="btn">Seguir mi pedido</button>
+      </form>
+    </div>
+  </section>
 
-<section class="section"><div class="wrap">
- <div class="section-head"><h2>Cómo funciona un pedido</h2><p>Tu pedido queda registrado con número desde el primer momento. WhatsApp lo usamos para coordinar, no para anotar la venta.</p></div>
- <ol class="steps" style="padding:0">{% for s in content.steps %}<li><b>{{ s.title }}</b><p>{{ s.text }}</p></li>{% endfor %}</ol>
- <form class="trackbox" method="get" action="/seguimiento"><label class="field"><span>Número de pedido</span><input name="pedido" inputmode="numeric" placeholder="Ej.: 1042" required></label><label class="field"><span>Teléfono</span><input name="tel" inputmode="tel" placeholder="099 123 456" required></label><button class="btn">Seguir mi pedido</button></form>
-</div></section>
+  <section class="section" style="padding-top:0">
+    <div class="wrap story">
+      <img src="/images/hero/botellas.jpg" alt="Tres botellas de leche vegetal Dulce29 sobre fondo verde con almendras y matcha" loading="lazy">
+      <div>
+        <h2>{{ content.about.title }}</h2>
+        <p class="lead" style="margin-top:16px">{{ content.about.text }}</p>
+        <div class="values">
+          {% for v in content.about.values %}
+            <div>
+              <b>{{ v.title }}</b>
+              <span class="muted">{{ v.text }}</span></div>
+          {% endfor %}
+        </div>
+        <p style="margin-top:28px">
+          <a class="btn ghost" href="/nosotros">Conocer nuestra historia</a>
+        </p>
+      </div>
+    </div>
+  </section>
 
-<section class="section" style="padding-top:0"><div class="wrap story">
- <img src="/images/hero/botellas.jpg" alt="Tres botellas de leche vegetal Dulce29 sobre fondo verde con almendras y matcha" loading="lazy">
- <div><h2>{{ content.about.title }}</h2><p class="lead" style="margin-top:16px">{{ content.about.text }}</p>
-  <div class="values">{% for v in content.about.values %}<div><b>{{ v.title }}</b><span class="muted">{{ v.text }}</span></div>{% endfor %}</div>
-  <p style="margin-top:28px"><a class="btn ghost" href="/nosotros">Conocer nuestra historia</a></p></div>
-</div></section>
-
-<section class="section" style="padding-top:0"><div class="wrap services">
- <a class="service" href="/epigenetica"><img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" onerror="this.remove()"><h3>Test epigenético</h3><p>Entendé cómo responde tu cuerpo a lo que comés y ajustá con información.</p><span class="link">Cómo es el test</span></a>
- <a class="service" href="/thermomix" style="background:#6B4632"><img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" onerror="this.remove()"><h3>Thermomix</h3><p>Pedí una demostración en tu casa y cociná nuestras recetas.</p><span class="link">Agendar una demo</span></a>
-</div></section>
+  <section class="section" style="padding-top:0">
+    <div class="wrap services">
+      <a class="service" href="/epigenetica"><img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" onerror="this.remove()">
+        <h3>Test epigenético</h3>
+        <p>Entendé cómo responde tu cuerpo a lo que comés y ajustá con información.</p>
+        <span class="link">Cómo es el test</span></a>
+      <a class="service" href="/thermomix" style="background:#6B4632"><img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=1200&q=80" alt="" loading="lazy" onerror="this.remove()">
+        <h3>Thermomix</h3>
+        <p>Pedí una demostración en tu casa y cociná nuestras recetas.</p>
+        <span class="link">Agendar una demo</span></a>
+    </div>
+  </section>
 {% endblock %}
-{% block scripts %}<script src="/js/botella3d.js"></script><script src="/js/home.js"></script>{% endblock %}
+{% block scripts %}
+  <script src="/js/botella3d.js"></script>
+  <script src="/js/home.js"></script>
+{% endblock %}
