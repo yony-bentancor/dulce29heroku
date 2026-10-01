@@ -1,2 +1,10 @@
-const r=require('express').Router(),c=require('../controllers/deliveryController'),{requireUser}=require('../middleware/auth'),{role}=require('../middleware/roles');
-r.get('/',requireUser,role('delivery'),c.dashboard);r.post('/pedido/:id/estado',requireUser,role('delivery'),c.status);module.exports=r;
+const r = require('express').Router(), c = require('../controllers/deliveryController'), { requireUser } = require('../middleware/auth'), { role } = require('../middleware/roles');
+r.use(requireUser, role('delivery'), c.guard);
+r.get('/', c.dashboard);
+r.get('/entregas', c.list);
+r.get('/ruta', c.map);
+r.get('/entregas/:code', c.detail);
+r.post('/entregas/:code/estado', c.status);
+r.post('/entregas/:code/tomar', c.take);
+r.get('/historial', c.history);
+module.exports = r;

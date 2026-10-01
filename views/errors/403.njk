@@ -1,1 +1,2 @@
-{% extends 'layouts/base.njk' %}{% block content %}<section class="error-page"><span class="eyebrow">403</span><h1>No tenés acceso a esta sección.</h1><a class="btn" href="/">Volver al inicio</a></section>{% endblock %}
+{% extends 'layouts/base.njk' %}{% block title %}Sin acceso · Dulce29{% endblock %}
+{% block content %}<div class="errpage"><div><b>403</b><h1 style="font-size:56px">Esta sección no es para tu usuario</h1><p class="lead" style="margin:16px auto 24px">Ingresaste como {{ user.role if user else 'visitante' }}. Cambiá de usuario para continuar.</p><a class="btn" href="/salir">Cerrar sesión</a> <a class="btn ghost" href="{{ accountHref }}">Ir a mi panel</a></div></div>{% endblock %}

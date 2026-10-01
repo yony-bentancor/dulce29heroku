@@ -1,0 +1,13 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{ 'Administración' if area == 'admin' else 'Repartidores' }} · Dulce29</title>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/css/d29.css"></head>
+<body>{% from 'partials/macros.njk' import field %}
+<div class="staff"><div class="box">
+ <img src="/images/brand/logo-dulce29.svg" alt="Dulce29">
+ <h1 style="font-size:52px">{{ 'Administración' if area == 'admin' else 'Repartidores' }}</h1>
+ <p class="muted">{{ 'Pedidos, stock, clientes y entregas.' if area == 'admin' else 'Tus entregas del día, el mapa y los estados.' }}</p>
+ {% if error %}<p class="errors" style="padding-left:18px" role="alert">{{ error }}</p>{% endif %}
+ <form method="post" action="/{{ 'admin' if area == 'admin' else 'repartidor' }}/ingresar" style="margin-top:20px">
+  {{ field('email','Email',values.email,'email','',true,'autocomplete="username"') }}{{ field('password','Contraseña','','password','',true,'autocomplete="current-password"') }}
+  <button class="btn block">Ingresar</button></form>
+ <div class="demo-box"><b>Demo</b> · {{ 'natalia@dulce29.uy' if area == 'admin' else 'martin@dulce29.demo' }} / dulce29<div class="row"><a class="btn sm ghost" href="/demo/{{ area }}">Entrar como {{ 'Natalia' if area == 'admin' else 'Martín' }}</a><a class="btn sm ghost" href="/">Ir a la tienda</a></div></div>
+</div></div></body></html>

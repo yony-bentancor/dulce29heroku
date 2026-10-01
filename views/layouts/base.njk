@@ -1,1 +1,17 @@
-<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Dulce29 · Inspirando hábitos</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="/css/app.css"><link rel="stylesheet" href="/css/ajustes-v4.css"></head><body>{% include 'partials/header.njk' %}<main>{% block content %}{% endblock %}</main><a class="wa" href="https://wa.me/{{brand.WHATSAPP}}" target="_blank">WA</a>{% include 'partials/contact-modal.njk' %}{% include 'partials/footer.njk' %}<script src="/js/app.js"></script></body></html>
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>{% block title %}Dulce29 · Leches vegetales, kéfir y jugos en Colonia{% endblock %}</title>
+<meta name="description" content="{% block desc %}Leches vegetales, kéfir y jugos artesanales hechos en Colonia del Sacramento. Pedí online y recibí en el día.{% endblock %}">
+<meta name="theme-color" content="#0E3B2E"><link rel="icon" href="/images/brand/logo-dulce29.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Instrument+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/d29.css">{% block head %}{% endblock %}</head>
+<body class="{% block bodyclass %}{% endblock %}">
+<a class="sr" href="#main">Saltar al contenido</a>
+{% include 'partials/header.njk' %}
+{% if flash %}<div class="flash {{ flash.type }}" role="status">{{ flash.text }}</div>{% endif %}
+<main id="main">{% block content %}{% endblock %}</main>
+{% include 'partials/footer.njk' %}
+<a class="wa-float" href="https://wa.me/{{ biz.whatsapp }}" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">{% from 'partials/macros.njk' import icon %}{{ icon('wa') }}</a>
+<div class="toast" role="status" aria-live="polite" data-toast></div>
+<script src="/js/app.js"></script>{% block scripts %}{% endblock %}
+</body></html>

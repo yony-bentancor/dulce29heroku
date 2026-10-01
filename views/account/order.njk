@@ -1,0 +1,27 @@
+{% extends 'layouts/account.njk' %}{% from 'partials/macros.njk' import badge, timeline, icon %}
+{% block title %}Pedido #{{ o.code }} · Dulce29{% endblock %}
+{% block account %}
+<nav class="crumbs"><a href="/mi-cuenta/pedidos">Mis pedidos</a> / #{{ o.code }}</nav>
+<div class="actions-row" style="justify-content:space-between;margin-bottom:12px"><h1 style="margin:0">Pedido #{{ o.code }}</h1>{{ badge(o.status) }}</div>
+<p class="muted">Hecho el {{ o.createdAt|datetime }}{% if o.channel != 'web' %} · por {{ o.channel }}{% endif %}</p>
+{{ timeline(o) }}
+<div class="cols-2e">
+ <div class="box"><header><h2>Productos</h2></header>
+  {% for i in o.items %}<div class="line" style="grid-template-columns:56px 1fr auto"><a class="ph" style="width:56px;height:64px" href="{{ '/producto/' + i.product.slug if i.product else '/promociones' }}">{% if i.product %}<img src="{{ i.product.image }}" alt="">{% endif %}</a><div><b>{{ i.name }}</b><span class="small muted">{{ i.qty }} × {{ i.price|money }}</span></div><b class="num">{{ (i.qty*i.price)|money }}</b></div>{% endfor %}
+  <div class="sum" style="margin-top:12px"><div><span>Productos</span><span>{{ o.subtotal|money }}</span></div><div><span>Envío</span><span>{{ 'Sin costo' if o.shipping == 0 else (o.shipping|money) }}</span></div><div class="total"><span>Total</span><span>{{ o.total|money }}</span></div></div></div>
+ <div>
+  <div class="box"><header><h2>Entrega y pago</h2></header><dl class="kv">
+   <dt>{{ 'Retiro' if o.delivery.method == 'retiro' else 'Dirección' }}</dt><dd>{{ settings.delivery.pickupAddress if o.delivery.method == 'retiro' else o.delivery.street + ' · ' + o.delivery.zone }}</dd>
+   <dt>Día y horario</dt><dd>{{ o.delivery.date|date('long') }}, {{ o.delivery.slot }}</dd>
+   <dt>Pago</dt><dd>{{ o.payment.method }} · {{ 'Pagado' if o.payment.status == 'pagado' else 'Pendiente' }}</dd>
+   {% if o.notes %}<dt>Observaciones</dt><dd>{{ o.notes }}</dd>{% endif %}
+   {% if o.deliverer %}<dt>Repartidor</dt><dd>{{ o.deliverer.name }}</dd>{% endif %}</dl></div>
+  <div class="actions-row">
+   <form method="post" action="/mi-cuenta/pedidos/{{ o.code }}/repetir"><button class="btn">Volver a pedir</button></form>
+   <a class="btn ghost" href="/mi-cuenta/pedidos/{{ o.code }}/seguimiento">Seguimiento</a>
+   <a class="btn wa" href="{{ wa }}" target="_blank" rel="noopener">{{ icon('wa') }} Consultar</a>
+   {% if canCancel %}<form method="post" action="/mi-cuenta/pedidos/{{ o.code }}/cancelar"><button class="btn danger" data-confirm="¿Cancelar el pedido #{{ o.code }}? Los productos vuelven al stock.">Cancelar pedido</button></form>{% endif %}
+  </div>
+ </div>
+</div>
+{% endblock %}

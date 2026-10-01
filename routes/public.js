@@ -1,1 +1,7 @@
-const r=require('express').Router(),c=require('../controllers/homeController');r.get('/',c.home);r.get('/nosotros',c.about);r.get('/contacto',c.contact);r.post('/contacto',c.sendContact);r.get('/cursos',c.courses);r.get('/epigenetica',(q,s,n)=>{q.params.kind='Epigenética';c.service(q,s,n)});r.get('/thermomix',(q,s,n)=>{q.params.kind='Thermomix';c.service(q,s,n)});module.exports=r;
+const r = require('express').Router(), c = require('../controllers/publicController');
+r.get('/', c.home); r.get('/nosotros', c.about); r.get('/cursos', c.courses);
+r.get('/contacto', c.contact); r.post('/contacto', c.inquiry('contacto'));
+r.get('/epigenetica', c.service('epigenetica')); r.post('/epigenetica', c.inquiry('epigenetica'));
+r.get('/thermomix', c.service('thermomix')); r.post('/thermomix', c.inquiry('thermomix'));
+r.get('/preguntas-frecuentes', c.faq); r.get('/terminos', c.legal('terms')); r.get('/privacidad', c.legal('privacy'));
+module.exports = r;

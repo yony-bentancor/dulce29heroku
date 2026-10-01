@@ -1,1 +1,25 @@
-{% extends 'layouts/base.njk' %}{% block content %}<section class="page-head"><span class="eyebrow">DULCE29 MARKET</span><h1>Productos</h1><p>Elegí lo que suma a tu día.</p></section><div class="filters"><a href="/productos" class="{{'selected' if not selected}}">Todos</a>{% for c in categories %}<a class="{{'selected' if selected==c}}" href="/productos?categoria={{c|urlencode}}">{{c}}</a>{% endfor %}</div><section class="product-grid shop">{% for p in products %}{% include 'partials/product-card.njk' %}{% endfor %}</section>{% endblock %}
+{% extends 'layouts/base.njk' %}{% from 'partials/macros.njk' import icon %}
+{% block title %}{{ cat.name if cat else 'Tienda' }} · Dulce29{% endblock %}
+{% block content %}
+<div class="wrap">
+ <header class="page-head"><nav class="crumbs"><a href="/">Inicio</a> / {% if cat %}<a href="/productos">Tienda</a> / {{ cat.name }}{% else %}Tienda{% endif %}</nav>
+  <h1>{{ cat.name if cat else 'Tienda' }}</h1><p class="lead">{{ cat.description if cat else 'Todo lo que elaboramos esta semana. El stock se actualiza con cada pedido.' }}</p></header>
+ <div class="shop">
+  <aside class="filters" aria-label="Categorías"><div><h4>Categorías</h4>
+   <a class="opt" href="/productos{% if q.q %}?q={{ q.q }}{% endif %}" aria-current="{{ 'true' if not cat else 'false' }}">Todo <small>{{ total }}</small></a>
+   {% for c in categories %}<a class="opt" href="/productos?categoria={{ c.slug }}{% if q.q %}&q={{ q.q }}{% endif %}" aria-current="{{ 'true' if cat and cat.id == c.id else 'false' }}">{{ c.name }} <small>{{ counts[c.slug] }}</small></a>{% endfor %}
+   <a class="opt" href="/promociones">Packs y promociones</a></div></aside>
+  <section>
+   <form class="toolbar" method="get" action="/productos">
+    {% if cat %}<input type="hidden" name="categoria" value="{{ cat.slug }}">{% endif %}
+    <label class="search">{{ icon('search') }}<span class="sr">Buscar</span><input type="search" name="q" value="{{ q.q }}" placeholder="Buscar: matcha, kéfir, sin gluten…"><button class="btn sm">Buscar</button></label>
+    <label class="actions-row"><span class="small muted">Ordenar</span><select class="input" name="orden" onchange="this.form.submit()" style="min-height:40px;width:auto">{% for o in [['destacados','Destacados'],['precio','Menor precio'],['-precio','Mayor precio'],['nombre','Nombre']] %}<option value="{{ o[0] }}" {% if q.orden == o[0] %}selected{% endif %}>{{ o[1] }}</option>{% endfor %}</select></label>
+   </form>
+   <div class="chips" style="margin-bottom:24px">{% for t in tags %}<a class="chip{% if q.tag == t %} on{% endif %}" href="?{% if cat %}categoria={{ cat.slug }}&{% endif %}{% if q.tag != t %}tag={{ t }}{% endif %}">{{ t }}</a>{% endfor %}<a class="chip{% if q.stock == '1' %} on{% endif %}" href="?{% if cat %}categoria={{ cat.slug }}&{% endif %}{% if q.stock != '1' %}stock=1{% endif %}">Solo con stock</a></div>
+   <p class="small muted">{{ products|length }} producto{{ 's' if products|length != 1 }}{% if q.q %} para «{{ q.q }}»{% endif %}</p>
+   {% if products|length %}<div class="grid">{% for p in products %}{% include 'partials/product-card.njk' %}{% endfor %}</div>
+   {% else %}<div class="empty"><h3>No encontramos productos</h3><p>Probá con otra palabra o mirá todas las categorías.</p><a class="btn" href="/productos">Ver toda la tienda</a></div>{% endif %}
+  </section>
+ </div>
+</div>
+{% endblock %}

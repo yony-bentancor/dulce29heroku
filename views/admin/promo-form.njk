@@ -1,0 +1,23 @@
+{% extends 'layouts/admin.njk' %}{% from 'partials/macros.njk' import field, area %}
+{% block title %}{{ 'Nueva promoción' if isNew else pr.name }}{% endblock %}{% block heading %}{{ 'Nueva promoción' if isNew else 'Editar promoción' }}{% endblock %}
+{% block actions %}<a class="btn sm ghost" href="/admin/promociones">Volver</a>{% endblock %}
+{% block body %}
+{% if errors %}<ul class="errors">{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+<form class="form-grid" method="post" action="/admin/promociones/guardar" data-promo>{% if pr.id %}<input type="hidden" name="id" value="{{ pr.id }}">{% endif %}
+ <div><div class="box">{{ field('name','Nombre',pr.name,'text','',true) }}
+  <div class="g2"><label class="field"><span>Tipo</span><select name="kind">{% for k in [['pack','Pack'],['semanal','Pack semanal'],['combo','Combo'],['oferta','Oferta']] %}<option value="{{ k[0] }}" {% if pr.kind == k[0] %}selected{% endif %}>{{ k[1] }}</option>{% endfor %}</select></label>{{ field('badge','Etiqueta',pr.badge,'text','Ej.: Ahorrás $90, -10%') }}</div>
+  {{ area('description','Descripción',pr.description,'',2) }}
+  <h3 style="font-size:24px;margin:8px 0 10px">Productos incluidos</h3>
+  <div data-items>{% for it in pr.items %}<div class="actions-row" data-item style="margin-bottom:8px;flex-wrap:nowrap"><select class="input" name="items[{{ loop.index0 }}][productId]" style="flex:1"><option value="">Producto</option>{% for p in products %}<option value="{{ p.id }}" data-price="{{ p.price }}" {% if p.id == it.productId %}selected{% endif %}>{{ p.name }} · {{ p.price|money }}</option>{% endfor %}</select><input class="input" type="number" min="1" name="items[{{ loop.index0 }}][qty]" value="{{ it.qty }}" style="width:80px"><button type="button" class="btn sm ghost" data-del>Quitar</button></div>{% endfor %}</div>
+  <button type="button" class="btn sm ghost" data-addrow>Agregar producto</button>
+  <p class="small" style="margin:14px 0 0">Precio por separado: <b data-regular>$ 0</b></p></div></div>
+ <div><div class="box">{{ field('price','Precio del pack',pr.price,'number','',true,'min="1"') }}{{ field('image','Imagen (enlace)',pr.image) }}{{ field('until','Válida hasta',pr.until,'date','Opcional') }}
+  <label class="check"><input type="checkbox" name="active" value="1" {% if pr.active %}checked{% endif %}> Activa en la tienda</label><label class="check" style="margin-top:10px"><input type="checkbox" name="featured" value="1" {% if pr.featured %}checked{% endif %}> Mostrar en el inicio</label>
+  <button class="btn" style="margin-top:18px">Guardar promoción</button></div></div>
+</form>
+{% endblock %}
+{% block scripts %}<script>(function(){const f=document.querySelector('[data-promo]'),box=f.querySelector('[data-items]'),fmt=n=>'$ '+Math.round(n).toLocaleString('es-UY').replace(/,/g,'.');
+const reidx=()=>box.querySelectorAll('[data-item]').forEach((r,i)=>{r.querySelector('select').name=`items[${i}][productId]`;r.querySelector('input').name=`items[${i}][qty]`});
+const sum=()=>{let s=0;box.querySelectorAll('[data-item]').forEach(r=>{const o=r.querySelector('select').selectedOptions[0];s+=(o&&+o.dataset.price||0)*(+r.querySelector('input').value||0)});f.querySelector('[data-regular]').textContent=fmt(s)};
+f.querySelector('[data-addrow]').onclick=()=>{const r=box.querySelector('[data-item]').cloneNode(true);r.querySelector('select').value='';r.querySelector('input').value=1;box.append(r);reidx();sum()};
+box.addEventListener('click',e=>{if(e.target.matches('[data-del]')&&box.children.length>1){e.target.closest('[data-item]').remove();reidx();sum()}});f.addEventListener('input',sum);f.addEventListener('change',sum);sum()})();</script>{% endblock %}

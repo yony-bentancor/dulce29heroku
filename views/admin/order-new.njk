@@ -1,0 +1,37 @@
+{% extends 'layouts/admin.njk' %}{% from 'partials/macros.njk' import field %}
+{% block title %}Nuevo pedido{% endblock %}{% block heading %}Nuevo pedido manual{% endblock %}
+{% block body %}
+<p class="muted" style="margin-top:0">Para pedidos que llegan por teléfono, WhatsApp o en el local. Se descuenta el stock igual que en la web.</p>
+{% if errors %}<ul class="errors">{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+<form class="form-grid" method="post" action="/admin/pedidos/nuevo" data-manual>
+ <div>
+  <div class="box"><header><h2>Productos</h2><input class="input" type="search" placeholder="Filtrar productos" data-pfilter style="min-height:38px;width:220px"></header>
+   <div class="table-wrap" style="border:0;max-height:520px;overflow:auto"><table class="t"><thead><tr><th>Producto</th><th class="r">Precio</th><th class="r">Stock</th><th style="width:110px">Cantidad</th></tr></thead><tbody>
+   {% for p in products %}<tr data-row="{{ p.name|lower }}"><td>{{ p.name }} <span class="tiny muted">{{ p.size }}</span></td><td class="r num">{{ p.price|money }}</td><td class="r"><span class="pill {{ 'bad' if p.stock <= 0 else ('warn' if p.stock <= p.minStock else '') }}">{{ p.stock }}</span></td><td><input class="input" type="number" min="0" max="{{ p.stock }}" name="qty[product-{{ p.id }}]" value="{{ values.qty['product-' + p.id] if values.qty else '' }}" data-price="{{ p.price }}" style="min-height:36px"></td></tr>{% endfor %}
+   {% for pr in promos %}<tr data-row="{{ pr.name|lower }} pack"><td>{{ pr.name }} <span class="pill">pack</span></td><td class="r num">{{ pr.price|money }}</td><td class="r"><span class="pill">{{ pr.stock }}</span></td><td><input class="input" type="number" min="0" max="{{ pr.stock }}" name="qty[promo-{{ pr.id }}]" value="{{ values.qty['promo-' + pr.id] if values.qty else '' }}" data-price="{{ pr.price }}" style="min-height:36px"></td></tr>{% endfor %}
+   </tbody></table></div>
+   <p class="actions-row" style="justify-content:flex-end;margin:12px 0 0"><span class="muted">Productos:</span> <b data-subtotal class="num">$ 0</b></p></div>
+ </div>
+ <div>
+  <div class="box"><header><h2>Cliente</h2><a class="link" href="/admin/clientes/nuevo">Crear cliente</a></header>
+   <label class="field"><span>Cliente existente</span><select name="clientId" data-client><option value="">— Nuevo / sin cuenta —</option>{% for c in clients %}<option value="{{ c.id }}" data-phone="{{ c.phone }}" data-street="{{ c.addresses[0].street if c.addresses|length }}" data-zone="{{ c.addresses[0].zone if c.addresses|length }}" {% if values.clientId == c.id|string %}selected{% endif %}>{{ c.name }} · {{ c.phone }}</option>{% endfor %}</select></label>
+   <div data-newc><div class="g2">{{ field('name','Nombre',values.name) }}{{ field('phone','Teléfono',values.phone,'tel') }}</div></div>
+   <label class="field"><span>Canal</span><select name="channel">{% for x in [['whatsapp','WhatsApp'],['manual','Teléfono'],['local','En el local']] %}<option value="{{ x[0] }}" {% if values.channel == x[0] %}selected{% endif %}>{{ x[1] }}</option>{% endfor %}</select></label></div>
+  <div class="box"><header><h2>Entrega</h2></header>
+   <div class="choice"><label><input type="radio" name="method" value="envio" {% if values.method != 'retiro' %}checked{% endif %}><b>Envío</b></label><label><input type="radio" name="method" value="retiro" {% if values.method == 'retiro' %}checked{% endif %}><b>Retiro</b></label></div>
+   {{ field('street','Dirección',values.street) }}
+   <label class="field"><span>Zona</span><select name="zone"><option value="">—</option>{% for z in zones %}<option {% if values.zone == z.name %}selected{% endif %}>{{ z.name }}</option>{% endfor %}</select></label>
+   <div class="g2"><label class="field"><span>Día</span><select name="date">{% for d in dates %}<option value="{{ d.iso }}" {% if values.date == d.iso %}selected{% endif %}>{{ d.label }}</option>{% endfor %}</select></label><label class="field"><span>Horario</span><select name="slot">{% for s in slots %}<option {% if values.slot == s %}selected{% endif %}>{{ s }}</option>{% endfor %}</select></label></div></div>
+  <div class="box"><header><h2>Pago</h2></header>
+   <label class="field"><span>Forma de pago</span><select name="payment">{% for m in ['Efectivo','Transferencia','Mercado Pago'] %}<option {% if values.payment == m %}selected{% endif %}>{{ m }}</option>{% endfor %}</select></label>
+   <label class="check small" style="margin-bottom:12px"><input type="checkbox" name="paid" value="1" {% if values.paid %}checked{% endif %}> Ya está pagado</label>
+   <label class="field"><span>Observaciones</span><textarea name="notes" rows="2">{{ values.notes }}</textarea></label>
+   <button class="btn block">Crear pedido</button></div>
+ </div>
+</form>
+{% endblock %}
+{% block scripts %}<script>(function(){const f=document.querySelector('[data-manual]'),fmt=n=>'$ '+Math.round(n).toLocaleString('es-UY').replace(/,/g,'.');
+const upd=()=>{let s=0;f.querySelectorAll('[data-price]').forEach(i=>s+=(+i.value||0)*+i.dataset.price);f.querySelector('[data-subtotal]').textContent=fmt(s);
+ const c=f.querySelector('[data-client]').selectedOptions[0];f.querySelector('[data-newc]').style.display=c.value?'none':''};
+f.addEventListener('input',upd);f.querySelector('[data-client]').addEventListener('change',e=>{const o=e.target.selectedOptions[0];if(o.value){f.street.value=o.dataset.street||'';f.zone.value=o.dataset.zone||''}upd()});
+f.querySelector('[data-pfilter]').addEventListener('input',e=>{const t=e.target.value.toLowerCase();f.querySelectorAll('[data-row]').forEach(r=>r.style.display=r.dataset.row.includes(t)?'':'none')});upd()})();</script>{% endblock %}

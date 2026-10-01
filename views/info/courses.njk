@@ -1,1 +1,6 @@
-{% extends 'layouts/base.njk' %}{% block content %}<section class="page-head"><span class="eyebrow">APRENDER</span><h1>Cursos</h1></section><section class="course-grid">{% for c in courses %}<article><small>{{c.date}}</small><h2>{{c.name}}</h2><strong>$ {{c.price}}</strong><a class="btn" href="/contacto">Consultar</a></article>{% endfor %}</section>{% endblock %}
+{% extends 'layouts/base.njk' %}
+{% block title %}Cursos · Dulce29{% endblock %}
+{% block content %}
+<div class="wrap" style="padding-bottom:96px"><header class="page-head"><h1>Cursos</h1><p class="lead">Encuentros chicos en el local, con degustación y recetas para llevar.</p></header>
+ <div class="list">{% for c in courses %}<article class="orow" style="grid-template-columns:110px 1fr auto"><div><b class="code">{{ c.date|date }}</b><br><span class="small muted">{{ c.time }} h</span></div><div><b>{{ c.name }}</b><p class="small muted" style="margin:2px 0 0">{{ c.text }} · {{ c.place }} · {{ c.seats - c.taken }} lugares libres</p></div><div class="actions-row"><b>{{ c.price|money }}</b><a class="btn sm" href="https://wa.me/{{ biz.whatsapp }}?text={{ ('Hola, quiero anotarme al curso ' + c.name)|urlencode }}" target="_blank" rel="noopener">Anotarme</a></div></article>{% endfor %}</div></div>
+{% endblock %}

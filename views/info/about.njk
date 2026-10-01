@@ -1,1 +1,10 @@
-{% extends 'layouts/base.njk' %}{% block content %}<section class="editorial"><span class="eyebrow">NOSOTROS</span><h1>Inspirando hábitos.</h1><div class="editorial-grid"><p class="lead">Dulce29 busca acercar alimentación real, producción artesanal y herramientas que hagan más simple cuidarse.</p><img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1400&q=90"><p>Desde Colonia, la propuesta conecta productos, aprendizaje y acompañamiento en una misma experiencia.</p></div></section>{% endblock %}
+{% extends 'layouts/base.njk' %}
+{% block title %}Nosotros · Dulce29{% endblock %}
+{% block content %}
+<div class="wrap">
+ <header class="page-head"><h1>{{ content.about.title }}</h1><p class="lead">{{ content.about.text }}</p></header>
+ <div class="story" style="padding-bottom:72px"><img src="/images/hero/botellas.jpg" alt="Botellas de vidrio de leche vegetal Dulce29"><div class="prose">{% for p in content.about.story %}<p>{{ p }}</p>{% endfor %}</div></div>
+ <section style="padding-bottom:96px"><div class="svc-points">{% for v in content.about.values %}<div><b>{{ v.title }}</b><p class="muted">{{ v.text }}</p></div>{% endfor %}</div>
+  <p style="margin-top:40px" class="actions-row"><a class="btn" href="/productos">Ver la tienda</a><a class="btn ghost" href="/contacto">Escribinos</a></p></section>
+</div>
+{% endblock %}

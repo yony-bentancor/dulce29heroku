@@ -1,0 +1,11 @@
+{% extends 'layouts/base.njk' %}{% from 'partials/macros.njk' import img %}
+{% block title %}Packs y promociones · Dulce29{% endblock %}
+{% block content %}
+<div class="wrap"><header class="page-head"><h1>Packs y promociones</h1><p class="lead">Combinaciones armadas para la semana, detox y combos. El precio del pack ya tiene el descuento aplicado.</p></header>
+ {% set kinds = {'pack':'Packs','semanal':'Semanales','combo':'Combos','oferta':'Ofertas'} %}
+ <div class="packs" style="padding-bottom:96px">{% for pr in promos %}<article class="pack" id="{{ pr.slug }}" style="border:1px solid var(--linea)"><div class="ph">{{ img(pr.image, pr.name) }}<span class="pill dark">{{ pr.badge }}</span></div><div class="bd">
+  <span class="small muted">{{ kinds[pr.kind] }}{% if pr.until %} · hasta el {{ pr.until|date }}{% endif %}</span><h3>{{ pr.name }}</h3><p class="muted" style="margin:0">{{ pr.description }}</p>
+  <ul>{% for i in pr.lines %}<li>{{ i.qty }} × {{ i.name }} <span class="tiny">({{ i.price|money }} c/u)</span></li>{% endfor %}</ul>
+  <form class="row" method="post" action="/carrito/agregar" data-add><span><b>{{ pr.price|money }}</b>{% if pr.regular > pr.price %}<s>{{ pr.regular|money }} por separado</s>{% endif %}</span><input type="hidden" name="type" value="promo"><input type="hidden" name="id" value="{{ pr.id }}"><button class="btn sm" {% if pr.stock <= 0 %}disabled{% endif %}>{{ 'Sin stock' if pr.stock <= 0 else 'Agregar pack' }}</button></form></div></article>{% endfor %}</div>
+</div>
+{% endblock %}

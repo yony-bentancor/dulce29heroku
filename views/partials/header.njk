@@ -1,1 +1,15 @@
-<header class="site-header"><a class="logo" href="/"><img src="/images/brand/logo-dulce29.png" alt="Dulce29"></a><button class="menu-btn" data-menu>Menú</button><nav data-nav><a href="/productos">Productos</a><a href="/epigenetica">Epigenética</a><a href="/thermomix">Thermomix</a><a href="/cursos">Cursos</a><a href="/nosotros">Nosotros</a><button class="contact-trigger" type="button" data-contact-open>Contacto</button><a class="mobile-account" style="display:none" href="{% if user %}{% if user.role == 'admin' %}/admin{% elif user.role == 'delivery' %}/repartidor{% else %}/mi-dulce29{% endif %}{% else %}/login{% endif %}">{% if user %}Mi cuenta{% else %}Ingresar / registrarse{% endif %}</a></nav><div class="head-actions">{% if user %}<a href="{% if user.role == 'admin' %}/admin{% elif user.role == 'delivery' %}/repartidor{% else %}/mi-dulce29{% endif %}">{{user.name}}</a>{% else %}<a href="/login">Ingresar</a>{% endif %}<a class="cart" href="/carrito">Bolsa <b>{{cart|length}}</b></a></div></header>
+{% from 'partials/macros.njk' import icon %}
+{% set bnr = null %}{% for b in content.banners %}{% if b.active and not bnr %}{% set bnr = b %}{% endif %}{% endfor %}
+{% if bnr %}<div class="promo-bar">{{ bnr.text }}</div>{% endif %}
+<header class="site-header"><div class="in">
+ <a class="logo" href="/" aria-label="Dulce29, inicio"><img src="/images/brand/logo-dulce29.svg" alt="Dulce29 · Inspirando hábitos" width="174" height="128"></a>
+ <nav class="nav" data-nav aria-label="Principal">
+  {% set links = [['/productos','Tienda'],['/promociones','Packs'],['/epigenetica','Test epigenético'],['/thermomix','Thermomix'],['/nosotros','Nosotros'],['/contacto','Contacto']] %}
+  {% for l in links %}<a href="{{ l[0] }}" {% if currentPath == l[0] or (l[0] == '/productos' and currentPath.startsWith('/producto')) %}aria-current="page"{% endif %}>{{ l[1] }}</a>{% endfor %}
+ </nav>
+ <div class="actions">
+  <a class="account-link" href="{{ accountHref }}">{% if user %}<i class="avatar">{{ user.name|initials }}</i><span>{{ user.name.split(' ')[0] }}</span>{% else %}<span>Ingresar</span>{% endif %}</a>
+  <a class="bag" href="/carrito" data-bag>{{ icon('bag') }}<span>Bolsa</span><b data-bag-count>{{ cartCount }}</b></a>
+  <button class="iconbtn menu-btn" data-menu aria-label="Abrir menú" aria-expanded="false">{{ icon('menu') }}</button>
+ </div>
+</div></header>

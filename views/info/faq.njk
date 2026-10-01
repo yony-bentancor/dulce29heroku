@@ -1,0 +1,8 @@
+{% extends 'layouts/base.njk' %}
+{% block title %}Preguntas frecuentes · Dulce29{% endblock %}
+{% block content %}
+<div class="wrap" style="max-width:900px;padding-bottom:96px">
+ <header class="page-head"><h1>Preguntas frecuentes</h1><p class="lead">Entregas, conservación, pagos y pedidos. Si no encontrás tu respuesta, <a class="link" href="/contacto">escribinos</a>.</p></header>
+ {% for t in topics %}<section class="faq" style="margin-bottom:40px"><h2 style="font-size:40px;margin-bottom:6px">{{ t }}</h2>{% for f in faq %}{% if f.topic == t %}<details><summary>{{ f.q }}</summary><p>{{ f.a }}</p></details>{% endif %}{% endfor %}</section>{% endfor %}
+</div>
+{% endblock %}

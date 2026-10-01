@@ -1,1 +1,70 @@
-{% extends 'layouts/base.njk' %}{% block content %}<section class="admin-shell"><aside class="admin-nav"><a href="/admin">Resumen</a><a href="/admin/products">Productos</a><a href="/admin/clients">Clientes</a><a href="/admin/orders">Pedidos</a><a href="/admin/configuracion">Configuración</a><a href="/logout">Salir</a></aside><div class="admin-main"><h1>Configuración</h1><p class="muted">Variables generales del sitio.</p><form class="config-form" method="post"><label>Email de contacto<input type="email" name="contactEmail" value="{{settings.contactEmail}}" required></label><label>WhatsApp<input name="whatsapp" value="{{settings.whatsapp}}" required></label><label>Ubicación<input name="location" value="{{settings.location}}"></label><button class="btn dark">Guardar cambios</button></form></div></section>{% endblock %}
+{% extends 'layouts/admin.njk' %}{% from 'partials/macros.njk' import field, area %}
+{% block title %}Configuración{% endblock %}{% block heading %}Configuración{% endblock %}
+{% block body %}
+<nav class="seg" style="margin-bottom:18px" aria-label="Secciones">
+ <a href="/admin/configuracion/negocio" aria-current="{{ 'true' if tab == 'negocio' else 'false' }}">Negocio</a>
+ <a href="/admin/configuracion/entregas" aria-current="{{ 'true' if tab == 'entregas' else 'false' }}">Entregas y zonas</a>
+ <a href="/admin/configuracion/pagos" aria-current="{{ 'true' if tab == 'pagos' else 'false' }}">Formas de pago</a>
+</nav>
+
+{% if tab == 'negocio' %}
+<form class="form-grid" method="post" action="/admin/configuracion/negocio">
+ <div class="box"><header><h2>Datos del negocio</h2></header>
+  <div class="g2">{{ field('name','Nombre comercial',s.business.name,'text','',true) }}{{ field('legalName','Razón social o bajada',s.business.legalName) }}</div>
+  <div class="g2">{{ field('email','Email de contacto',s.business.email,'email') }}{{ field('phone','Teléfono',s.business.phone) }}</div>
+  <div class="g2">{{ field('whatsapp','WhatsApp (con código de país)',s.business.whatsapp,'tel','Solo números. Ej.: 59895789647. Se usa en todos los botones de WhatsApp.') }}{{ field('instagram','Instagram',s.business.instagram,'text','Sin @') }}</div>
+  {{ field('address','Dirección del local',s.business.address) }}
+  {{ field('hours','Horario de atención',s.business.hours) }}
+  <button class="btn" style="margin-top:8px">Guardar datos del negocio</button>
+ </div>
+ <aside class="box"><header><h2>Así se ve en la web</h2></header>
+  <dl class="kv"><dt>Pie de página</dt><dd>{{ s.business.address }}<br>{{ s.business.hours }}</dd><dt>WhatsApp</dt><dd><a href="https://wa.me/{{ s.business.whatsapp }}" target="_blank" rel="noopener">wa.me/{{ s.business.whatsapp }}</a></dd><dt>Instagram</dt><dd>@{{ s.business.instagram }}</dd><dt>Email</dt><dd>{{ s.business.email }}</dd></dl>
+  <p class="small muted" style="margin:14px 0 0">Los cambios se aplican al instante en el pie, la página de contacto y los mensajes de WhatsApp de los pedidos.</p>
+ </aside>
+</form>
+
+{% elif tab == 'entregas' %}
+<form method="post" action="/admin/configuracion/entregas">
+ <div class="cols-2e">
+  <div class="box"><header><h2>Reglas del pedido</h2></header>
+   <div class="g2">{{ field('minOrder','Pedido mínimo ($)',s.delivery.minOrder,'number','Aplica a los pedidos hechos en la web.',false,'min="0" step="10"') }}{{ field('freeFrom','Envío sin costo desde ($)',s.delivery.freeFrom,'number','0 = nunca',false,'min="0" step="10"') }}</div>
+   {{ field('cutoff','Hora de corte para entregar en el día',s.delivery.cutoff,'time','Los pedidos después de esta hora se agendan para el siguiente día de reparto.') }}
+   <fieldset style="border:0;padding:0;margin:0 0 16px"><legend style="font-weight:600;font-size:14.5px;margin-bottom:8px;padding:0">Días de reparto</legend>
+    <div class="actions-row">{% for d in [[1,'Lun'],[2,'Mar'],[3,'Mié'],[4,'Jue'],[5,'Vie'],[6,'Sáb'],[0,'Dom']] %}<label class="chip check" style="align-items:center"><input type="checkbox" name="days" value="{{ d[0] }}" {% if d[0] in s.delivery.days %}checked{% endif %}> {{ d[1] }}</label>{% endfor %}</div></fieldset>
+   {{ area('slots','Franjas horarias (una por línea)',s.delivery.slots|join('\n'),'Se ofrecen en el checkout y en el pedido manual.',4) }}
+  </div>
+  <div class="box"><header><h2>Retiro en el local</h2></header>
+   <label class="check" style="margin-bottom:14px"><input type="checkbox" name="pickup" value="1" {% if s.delivery.pickup %}checked{% endif %}> Ofrecer retiro sin costo en el checkout</label>
+   {{ field('pickupAddress','Dirección de retiro',s.delivery.pickupAddress) }}
+   <p class="small muted" style="margin:0">Cuando un pedido de retiro pasa a «Listo», el detalle del pedido ofrece avisar al cliente por WhatsApp con esta dirección.</p>
+  </div>
+ </div>
+ <div class="box"><header><h2>Zonas de envío</h2><button type="button" class="btn sm ghost" data-addrow-to="zonas">Agregar zona</button></header>
+  <div class="table-wrap"><table class="t"><thead><tr><th>Zona</th><th style="width:130px">Costo ($)</th><th style="width:170px">Demora estimada</th><th style="width:90px">Activa</th><th style="width:90px"></th></tr></thead>
+  <tbody id="zonas" data-rows>{% for z in zones %}<tr data-row><td><input type="hidden" name="zones[{{ loop.index0 }}][id]" value="{{ z.id }}"><input class="input" name="zones[{{ loop.index0 }}][name]" value="{{ z.name }}" aria-label="Nombre de la zona"></td>
+   <td><input class="input" type="number" min="0" step="10" name="zones[{{ loop.index0 }}][cost]" value="{{ z.cost }}" aria-label="Costo"></td>
+   <td><input class="input" name="zones[{{ loop.index0 }}][eta]" value="{{ z.eta }}" aria-label="Demora"></td>
+   <td><label class="check"><input type="checkbox" name="zones[{{ loop.index0 }}][active]" value="1" {% if z.active %}checked{% endif %}> Sí</label></td>
+   <td><button type="button" class="btn sm ghost" data-delrow>Quitar</button></td></tr>{% endfor %}</tbody></table></div>
+  <p class="small muted" style="margin:12px 0 0">Una zona inactiva deja de aparecer en el checkout; los pedidos existentes la conservan.</p>
+ </div>
+ <button class="btn">Guardar entregas</button>
+</form>
+
+{% else %}
+<form method="post" action="/admin/configuracion/pagos">
+ <div class="cols-2e">
+  <div class="box"><header><h2>Efectivo</h2><label class="check"><input type="checkbox" name="cash_on" value="1" {% if s.payments.cash.on %}checked{% endif %}> Activo</label></header>
+   {{ area('cash_note','Indicación para el cliente',s.payments.cash.note,'Se muestra al elegir esta forma de pago y en la confirmación.',2) }}
+   <p class="small muted" style="margin:0">Los pedidos en efectivo se marcan como cobrados al entregarse.</p></div>
+  <div class="box"><header><h2>Mercado Pago</h2><label class="check"><input type="checkbox" name="mp_on" value="1" {% if s.payments.mercadopago.on %}checked{% endif %}> Activo</label></header>
+   {{ field('mp_link','Link de pago',s.payments.mercadopago.link,'url') }}
+   {{ area('mp_note','Indicación para el cliente',s.payments.mercadopago.note,'',2) }}</div>
+ </div>
+ <div class="box"><header><h2>Transferencia bancaria</h2><label class="check"><input type="checkbox" name="transfer_on" value="1" {% if s.payments.transfer.on %}checked{% endif %}> Activa</label></header>
+  <div class="g3">{{ field('bank','Banco y tipo de cuenta',s.payments.transfer.bank) }}{{ field('account','Número de cuenta',s.payments.transfer.account) }}{{ field('holder','Titular',s.payments.transfer.holder) }}</div>
+  {{ area('transfer_note','Indicación para el cliente',s.payments.transfer.note,'Los datos de la cuenta se muestran en la confirmación del pedido.',2) }}</div>
+ <button class="btn">Guardar formas de pago</button>
+</form>
+{% endif %}
+{% endblock %}

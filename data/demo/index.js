@@ -1,1 +1,8 @@
-module.exports={products:require('./products'),clients:require('./clients'),users:require('./users'),deliverers:require('./deliveries'),orders:require('./orders'),content:require('./content'),settings:require('./settings'),categories:['Kéfir','Jugos','Detox','Mermeladas','Untables','Almacén','Shots','Leches vegetales'],zones:['Centro','Real de San Carlos','El General','El Calabrés'],payments:['Efectivo','Transferencia','Mercado Pago'],courses:[{id:1,name:'Fermentos en casa',date:'2026-10-10',price:890},{id:2,name:'Organización con Thermomix',date:'2026-10-24',price:990}]};
+/* Almacén en memoria. Todas las capas leen/escriben este objeto (db.products, db.orders, ...).
+   reset() vuelve a cargar la semilla sin reemplazar la referencia exportada. */
+const seed = require('./seed');
+const db = {};
+db.reset = () => { const fresh = JSON.parse(JSON.stringify(seed())); Object.keys(db).forEach(k => { if (k !== 'reset' && k !== 'nextId') delete db[k]; }); Object.assign(db, fresh); };
+db.nextId = name => Math.max(0, ...(db[name] || []).map(x => Number(x.id) || 0)) + 1;
+db.reset();
+module.exports = db;

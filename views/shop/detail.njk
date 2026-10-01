@@ -1,1 +1,31 @@
-{% extends 'layouts/base.njk' %}{% block content %}<section class="detail"><div class="detail-image"><img src="{{p.image}}" alt="{{p.name}}"></div><div class="detail-copy"><span class="eyebrow">{{p.category}}</span><h1>{{p.name}}</h1><p>{{p.description}}</p><div class="price">$ {{p.price}}</div><p class="muted">{{p.size}} · Stock {{p.stock}}</p><form method="post" action="/carrito/agregar/{{p.id}}"><button class="btn dark">Agregar al pedido</button></form></div></section>{% endblock %}
+{% extends 'layouts/base.njk' %}{% from 'partials/macros.njk' import img, icon %}
+{% block title %}{{ p.name }} · Dulce29{% endblock %}{% block desc %}{{ p.description }}{% endblock %}
+{% block content %}
+<div class="wrap">
+ <nav class="crumbs" style="padding-top:28px"><a href="/">Inicio</a> / <a href="/productos">Tienda</a> / <a href="/productos?categoria={{ pcat.slug }}">{{ p.category }}</a> / {{ p.name }}</nav>
+ <div class="pdp">
+  <div class="gal"><div class="main" style="--c:{{ p.color }}">{{ img(p.image, p.name) }}</div></div>
+  <div>
+   <div class="chips">{% for t in p.tags %}<span class="pill" style="background:var(--piedra)">{{ t }}</span>{% endfor %}</div>
+   <h1>{{ p.name }}</h1>
+   <p class="price">{{ p.price|money }}{% if p.compareAt %}<s>{{ p.compareAt|money }}</s>{% endif %}</p>
+   <p class="muted" style="margin-top:6px">{{ p.size }}</p>
+   <p class="lead" style="margin-top:18px">{{ p.description }}</p>
+   {% if p.stock <= 0 %}<span class="stock out">Sin stock por hoy</span>{% elif p.stock <= p.minStock %}<span class="stock low">Quedan {{ p.stock }} unidades</span>{% else %}<span class="stock">Disponible para entregar hoy</span>{% endif %}
+   <form class="buy" method="post" action="/carrito/agregar" data-add>
+    <input type="hidden" name="type" value="product"><input type="hidden" name="id" value="{{ p.id }}">
+    <div class="qty"><button type="button" data-d="-1" aria-label="Menos">−</button><input type="number" name="qty" value="1" min="1" max="{{ p.stock if p.stock > 0 else 1 }}" aria-label="Cantidad"><button type="button" data-d="1" aria-label="Más">+</button></div>
+    <button class="btn" {% if p.stock <= 0 %}disabled{% endif %}>Agregar a la bolsa</button>
+   </form>
+   <form method="post" action="/favoritos/{{ p.id }}" data-fav style="display:inline"><button class="favbtn" style="width:auto;padding:0 14px;border-radius:999px;border:1px solid var(--linea);gap:8px;display:inline-flex;height:40px" aria-pressed="{{ 'true' if p.id in favs else 'false' }}">{{ icon('heart') }} Favorito</button></form>
+   <div class="specs">
+    <details open><summary>Ingredientes</summary><p>{{ p.ingredients or 'Consultanos por los ingredientes.' }}</p></details>
+    <details><summary>Conservación</summary><p>{{ p.conservation }}</p></details>
+    <details><summary>Entrega</summary><p>Pedidos confirmados antes de las {{ settings.delivery.cutoff }} h se entregan en el día. Envío sin costo desde {{ settings.delivery.freeFrom|money }} o retiro en {{ settings.delivery.pickupAddress }}.</p></details>
+   </div>
+   {% if inPromos|length %}<div class="panel" style="margin-top:24px"><h3>También en packs</h3>{% for pr in inPromos %}<form class="actions-row" style="justify-content:space-between;padding:8px 0" method="post" action="/carrito/agregar" data-add><span><b>{{ pr.name }}</b><br><span class="small muted">{{ pr.price|money }} · {{ pr.badge }}</span></span><input type="hidden" name="type" value="promo"><input type="hidden" name="id" value="{{ pr.id }}"><button class="btn sm ghost">Agregar pack</button></form>{% endfor %}</div>{% endif %}
+  </div>
+ </div>
+ <section style="padding-bottom:96px"><div class="section-head"><h2>Va bien con</h2></div><div class="grid">{% for p in related %}{% include 'partials/product-card.njk' %}{% endfor %}</div></section>
+</div>
+{% endblock %}

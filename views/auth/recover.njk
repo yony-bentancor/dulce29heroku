@@ -1,0 +1,12 @@
+{% extends 'layouts/base.njk' %}{% from 'partials/macros.njk' import field %}
+{% block title %}Recuperar contraseña · Dulce29{% endblock %}
+{% block content %}
+<div class="auth"><div class="side"><p>Te ayudamos a volver a entrar.</p></div>
+ <div class="form"><div><h1>Recuperar contraseña</h1>
+  {% if sent %}<div class="flash" style="width:auto;margin:16px 0">Si hay una cuenta con {{ values.email }}, te enviamos un enlace para crear una contraseña nueva. Vence en una hora.</div>
+   {% if demoLink %}<div class="demo-box"><b>Demo</b>: el email no se envía. Usá este enlace: <a class="link" href="{{ demoLink }}">crear contraseña nueva</a></div>{% endif %}
+  {% else %}<p class="muted">Escribí el email de tu cuenta y te mandamos un enlace.</p>
+   <form method="post" action="/recuperar" style="margin-top:24px">{{ field('email','Email',values.email,'email','',true,'autocomplete="email"') }}<button class="btn">Enviar enlace</button></form>{% endif %}
+  <p style="margin-top:24px"><a class="link" href="/ingresar">Volver a ingresar</a></p>
+ </div></div></div>
+{% endblock %}

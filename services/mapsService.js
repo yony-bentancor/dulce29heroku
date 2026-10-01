@@ -1,5 +1,3 @@
-function mapsUrl(client){
-  if(client.lat && client.lng) return `https://www.google.com/maps/search/?api=1&query=${client.lat},${client.lng}`;
-  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(client.address||'Colonia del Sacramento')}`;
-}
-module.exports={mapsUrl};
+const mapsUrl = x => x && x.lat && x.lng ? `https://www.google.com/maps/search/?api=1&query=${x.lat},${x.lng}` : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(((x && (x.street || x.address)) || '') + ', Colonia del Sacramento')}`;
+const routeUrl = pts => 'https://www.google.com/maps/dir/' + pts.map(p => p.lat + ',' + p.lng).join('/');
+module.exports = { mapsUrl, routeUrl };

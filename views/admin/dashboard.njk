@@ -1,1 +1,27 @@
-{% extends 'layouts/base.njk' %}{% block content %}<section class="admin-shell"><aside class="admin-nav"><span class="eyebrow">ADMIN DULCE29</span><a href="/admin">Resumen</a><a href="/admin/products">Productos</a><a href="/admin/clients">Clientes</a><a href="/admin/orders">Pedidos</a><a href="/admin/deliverers">Repartidores</a><a href="/admin/courses">Cursos</a><a href="/logout">Salir</a></aside><div class="admin-main"><h1>Hola, Natalia.</h1><p class="muted">Vista general del negocio.</p><div class="kpis"><article><small>PRODUCTOS</small><b>{{kpis.products}}</b></article><article><small>CLIENTES</small><b>{{kpis.clients}}</b></article><article><small>PEDIDOS</small><b>{{kpis.orders}}</b></article><article><small>PENDIENTES</small><b>{{kpis.pending}}</b></article><article><small>COBRADO</small><b>$ {{kpis.sales}}</b></article></div><div class="admin-cards"><a href="/admin/products"><b>Gestionar productos</b><span>Crear, editar, stock, precio e imagen →</span></a><a href="/admin/orders"><b>Gestionar pedidos</b><span>Estados, pagos y reparto →</span></a><a href="/admin/clients"><b>Gestionar clientes</b><span>Datos y direcciones →</span></a></div></div></section>{% endblock %}
+{% extends 'layouts/admin.njk' %}{% from 'partials/macros.njk' import badge %}
+{% block title %}Resumen{% endblock %}{% block heading %}Hola, {{ user.name.split(' ')[0] }}{% endblock %}
+{% block actions %}<a class="btn sm" href="/admin/pedidos/nuevo">Nuevo pedido</a>{% endblock %}
+{% block body %}
+<div class="kpis">
+ <a class="kpi" href="/admin/pedidos?fecha=hoy"><small>Ventas de hoy</small><b>{{ k.salesToday|money }}</b><em>{{ k.ordersToday }} pedidos</em></a>
+ <a class="kpi" href="/admin/pedidos?estado=abiertos"><small>Pedidos en curso</small><b>{{ k.open }}</b><em>sin entregar</em></a>
+ <a class="kpi" href="/admin/entregas"><small>Entregas de hoy</small><b>{{ k.delivered }} / {{ k.deliveriesToday }}</b><em>entregadas</em></a>
+ <a class="kpi" href="/admin/ventas"><small>Ventas 30 días</small><b>{{ k.sales30|money }}</b><em>ticket {{ k.ticket|money }}</em></a>
+ <a class="kpi" href="/admin/clientes"><small>Clientes</small><b>{{ k.clients }}</b><em>+{{ k.newClients }} en 30 días</em></a>
+ <a class="kpi{% if k.lowStock %} alert{% endif %}" href="/admin/stock"><small>Stock a reponer</small><b>{{ k.lowStock }}</b><em>de {{ k.products }} productos</em></a>
+</div>
+{% if alerts|length %}<div class="box"><header><h2>Para atender</h2></header><ul class="notes">{% for a in alerts %}<li><span class="pill {{ a.tone }}">{{ {'warn':'Atención','bad':'Urgente','info':'Pendiente'}[a.tone] }}</span> {{ a.text }} <a class="link" href="{{ a.href }}">Resolver</a></li>{% endfor %}</ul></div>{% endif %}
+<div class="cols-2">
+ <div class="box"><header><h2>Ventas, últimos 14 días</h2><a class="link" href="/admin/ventas">Ver economía</a></header>{{ chart|safe }}</div>
+ <div class="box"><header><h2>Estado de los pedidos</h2><a class="link" href="/admin/pedidos?vista=tablero">Tablero</a></header>
+  <div class="bars">{% set mx = 1 %}{% for s in byStatus %}{% if s.n > mx %}{% set mx = s.n %}{% endif %}{% endfor %}{% for s in byStatus %}<div><span>{{ s.s|status }}</span><i style="width:{{ (s.n / mx * 100)|round }}%;min-width:4px"></i><span>{{ s.n }}</span></div>{% endfor %}</div>
+  <h3 style="font-size:22px;margin:22px 0 10px">Repartidores hoy</h3>{% for r in riders %}<div class="actions-row" style="justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--piedra)"><span>{{ r.d.name }} <span class="tiny muted">{{ r.d.vehicle }}</span></span><span class="num">{{ r.done }} / {{ r.n }}</span></div>{% endfor %}</div>
+</div>
+<div class="cols-2">
+ <div class="box"><header><h2>Pedidos por atender</h2><a class="link" href="/admin/pedidos?estado=abiertos">Ver todos</a></header>
+  <div class="table-wrap" style="border:0"><table class="t"><thead><tr><th>Pedido</th><th>Cliente</th><th>Entrega</th><th class="r">Total</th><th>Estado</th></tr></thead><tbody>
+  {% for o in open %}<tr class="click{% if o.isNew %} isnew{% endif %}" data-href="/admin/pedidos/{{ o.id }}"><td><a href="/admin/pedidos/{{ o.id }}"><b>#{{ o.code }}</b></a><br><span class="tiny muted">{{ o.createdAt|ago }}</span></td><td>{{ o.customer.name }}</td><td class="nw">{{ 'Retiro' if o.delivery.method == 'retiro' else o.delivery.zone }}<br><span class="tiny muted">{{ o.delivery.date|date }} {{ o.delivery.slot }}</span></td><td class="r num">{{ o.total|money }}</td><td>{{ badge(o.status) }}</td></tr>{% else %}<tr><td colspan="5" class="muted">No hay pedidos en curso.</td></tr>{% endfor %}</tbody></table></div></div>
+ <div class="box"><header><h2>Stock bajo</h2><a class="link" href="/admin/stock">Reponer</a></header>{% for p in lowList %}<div class="actions-row" style="justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--piedra)"><span>{{ p.name }}</span><span class="pill {{ 'bad' if p.stock <= 0 else 'warn' }}">{{ p.stock }} u.</span></div>{% else %}<p class="muted">Todo el stock está por encima del mínimo.</p>{% endfor %}
+  <form method="post" action="/admin/demo/restablecer" style="margin-top:22px"><button class="btn sm ghost" data-confirm="¿Volver a los datos de demostración? Se pierden los cambios hechos en esta sesión.">Restablecer datos de demo</button></form></div>
+</div>
+{% endblock %}

@@ -1,1 +1,29 @@
-{% extends 'layouts/base.njk' %}{% block content %}<section class="page-head compact"><span class="eyebrow">TU PEDIDO</span><h1>Bolsa</h1></section><section class="cart-page">{% if rows.length %}<div>{% for row in rows %}<article class="cart-row"><img src="{{row.p.image}}"><div><h3>{{row.p.name}}</h3><p>{{row.qty}} × $ {{row.p.price}}</p></div><strong>$ {{row.p.price * row.qty}}</strong><form method="post" action="/carrito/eliminar/{{row.p.id}}"><button class="link-danger">Quitar</button></form></article>{% endfor %}</div><aside><small>TOTAL</small><div class="price">$ {{total}}</div><a class="btn dark full" href="/checkout">Continuar</a></aside>{% else %}<div class="empty"><h2>Tu bolsa está vacía.</h2><a class="btn" href="/productos">Ver productos</a></div>{% endif %}</section>{% endblock %}
+{% extends 'layouts/base.njk' %}{% from 'partials/macros.njk' import img %}
+{% block title %}Tu bolsa · Dulce29{% endblock %}
+{% block content %}
+<div class="wrap"><header class="page-head"><h1>Tu bolsa</h1></header>
+{% if lines|length %}
+<div class="two">
+ <section>
+  {% for l in lines %}<div class="line">
+   <a class="ph" href="{{ l.href }}">{{ img(l.image, l.name) }}</a>
+   <div><a href="{{ l.href }}" style="text-decoration:none"><b>{{ l.name }}</b></a><span class="small muted">{{ l.size }} · {{ l.price|money }} c/u{% if l.type == 'promo' %} · pack{% endif %}</span>
+    {% if l.short %}<div class="warn">Quedan {{ l.available }}: ajustá la cantidad para poder confirmar.</div>{% endif %}</div>
+   <div class="end"><b class="num">{{ l.total|money }}</b>
+    <form method="post" action="/carrito/actualizar" data-autosubmit><input type="hidden" name="key" value="{{ l.type }}-{{ l.item.id }}"><div class="qty" style="height:40px"><button type="button" data-d="-1" aria-label="Menos">−</button><input type="number" name="qty" value="{{ l.qty }}" min="0" max="{{ l.available }}" aria-label="Cantidad de {{ l.name }}"><button type="button" data-d="1" aria-label="Más">+</button></div></form>
+    <form method="post" action="/carrito/quitar/{{ l.type }}-{{ l.item.id }}"><button class="link" style="background:none;border:0;cursor:pointer;font-size:14px">Quitar</button></form></div>
+  </div>{% endfor %}
+  <p style="margin-top:20px"><a class="link" href="/productos">Seguir comprando</a></p>
+ </section>
+ <aside class="panel sticky"><h3>Resumen</h3>
+  <div class="sum"><div><span>Productos ({{ t.count }})</span><span>{{ t.subtotal|money }}</span></div><div class="muted"><span>Envío</span><span>se calcula con tu zona</span></div><div class="total"><span>Total</span><span>{{ t.subtotal|money }}</span></div></div>
+  {% if t.missingForFree > 0 %}<p class="small" style="margin:16px 0 0">Te faltan <b>{{ t.missingForFree|money }}</b> para el envío sin costo.</p><div class="meter"><i style="width:{{ (t.subtotal / settings.delivery.freeFrom * 100)|round }}%"></i></div>{% else %}<p class="small" style="margin:16px 0 0;color:var(--ok)"><b>Tu envío es sin costo.</b></p>{% endif %}
+  {% if t.missingForMin > 0 %}<p class="errors" style="padding-left:16px;margin-top:16px">El pedido mínimo es {{ settings.delivery.minOrder|money }}. Te faltan {{ t.missingForMin|money }}.</p>{% endif %}
+  <a class="btn block" style="margin-top:18px" href="/checkout" {% if t.missingForMin > 0 %}aria-disabled="true" disabled{% endif %}>Continuar con la compra</a>
+  <p class="tiny muted" style="margin:12px 0 0">Pagás con efectivo, transferencia o Mercado Pago.</p>
+ </aside>
+</div>
+{% else %}<div class="empty" style="margin-bottom:56px"><h3>Tu bolsa está vacía</h3><p>Agregá productos desde la tienda o elegí un pack armado.</p><div class="actions-row" style="justify-content:center"><a class="btn" href="/productos">Ir a la tienda</a><a class="btn ghost" href="/promociones">Ver packs</a></div></div>{% endif %}
+{% if suggest|length %}<section style="padding-bottom:96px"><div class="section-head"><h2>Sumá algo más</h2></div><div class="grid">{% for p in suggest %}{% include 'partials/product-card.njk' %}{% endfor %}</div></section>{% endif %}
+</div>
+{% endblock %}

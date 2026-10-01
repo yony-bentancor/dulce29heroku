@@ -1,0 +1,13 @@
+{% extends 'layouts/account.njk' %}{% from 'partials/macros.njk' import field %}
+{% block title %}Mis datos · Dulce29{% endblock %}
+{% block account %}
+<h1>Mis datos</h1>
+{% if errors %}<ul class="errors">{% for e in errors %}<li>{{ e }}</li>{% endfor %}</ul>{% endif %}
+<form method="post" action="/mi-cuenta/datos" class="box" style="max-width:640px">
+ {{ field('name','Nombre y apellido',values.name,'text','',true,'autocomplete="name"') }}
+ <div class="g2">{{ field('email','Email',values.email,'email','',true,'autocomplete="email"') }}{{ field('phone','Teléfono',values.phone,'tel','',true,'autocomplete="tel"') }}</div>
+ <h3 style="font-size:26px;margin:12px 0">Cambiar contraseña</h3><p class="small muted">Dejalo vacío si no querés cambiarla.</p>
+ <div class="g2">{{ field('current','Contraseña actual','','password','',false,'autocomplete="current-password"') }}{{ field('newpass','Contraseña nueva','','password','Mínimo 6 caracteres.',false,'autocomplete="new-password"') }}</div>
+ <button class="btn">Guardar cambios</button>
+</form>
+{% endblock %}
