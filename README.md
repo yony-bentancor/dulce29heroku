@@ -1,11 +1,14 @@
 # Dulce29 · Inspirando hábitos
 
-Tienda, cuenta de cliente, panel de administración y app de reparto. Funciona con **datos de demostración en memoria**: no necesita base de datos. Cada vez que se reinicia el servidor (o con «Restablecer datos de demo» en el panel) vuelve a los datos iniciales, siempre fechados alrededor del día de hoy.
+Tienda, cuenta de cliente, panel de administración y app de reparto.
+
+- **Con `MONGO_URI`** (producción): los datos se guardan en MongoDB. La primera vez, con la base vacía, se cargan unos pocos datos de ejemplo (un caso de cada cosa) que después se editan o borran desde el panel.
+- **Sin `MONGO_URI`** (local): demo en memoria; al reiniciar vuelve a los datos de ejemplo.
 
 ## Ejecutar
 
 ```bash
-npm install      # solo la primera vez (node_modules ya viene incluido)
+npm install      # solo la primera vez
 npm start
 ```
 
@@ -50,8 +53,26 @@ Los enlaces «Entrar como…» también aparecen en cada pantalla de ingreso.
 - `public/css/d29.css`: sistema de diseño completo.
 - `public/uploads/`: imágenes que se suben desde el panel.
 
-## Cuando se active la base de datos
+## Base de datos (MongoDB)
 
-Los controladores leen y escriben sobre `data/demo`. Para pasar a MongoDB hay que implementar los métodos de `models/` contra la base y reemplazar los accesos directos a `db.*` por esos modelos. La conexión se configura en `config/` con la variable `MONGO_URI`.
+Todas las pantallas leen y escriben el objeto en memoria de `data/demo`. `data/mongo.js` lo carga desde MongoDB al arrancar y, después de cada formulario enviado, guarda en la base solo los registros que cambiaron (además, cada 30 s y antes de que Heroku reinicie).
+
+| Colección | Contenido |
+|---|---|
+| `products`, `categories`, `promotions`, `zones`, `clients`, `deliverers`, `users`, `orders`, `inquiries`, `courses` | un documento por registro (`_id` = id) |
+| `config` | configuración y contenidos del sitio (`settings`, `content`, …) y la marca `__meta` de base inicializada |
+| `uploads` | imágenes subidas desde el panel (Heroku borra los archivos del disco al reiniciar) |
+| `sessions` | ingresos y bolsas de compra; se borran solas al vencer |
+
+Variables de entorno (en Heroku: *Settings → Config Vars*):
+
+| Variable | Para qué |
+|---|---|
+| `MONGO_URI` | cadena de conexión de MongoDB Atlas. Si está y no conecta, el sitio no arranca (para no perder pedidos sin aviso). |
+| `MONGO_DB` | opcional: nombre de la base si no va en `MONGO_URI` |
+| `SESSION_SECRET` | texto largo al azar para firmar las sesiones |
+| `DEMO_MODE` | `off` oculta los accesos «Entrar como…», `/demo/...`, el enlace de recuperación en pantalla y «Restablecer datos de demo». **Ponerlo en `off` antes de usar datos reales.** |
+
+Funciona con un solo dyno web. Para volver a empezar de cero, borrar la base en Atlas: al arrancar se vuelve a cargar la semilla mínima.
 
 Los mapas usan OpenStreetMap con Leaflet. Si no hay conexión, se muestra un plano esquemático.

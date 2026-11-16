@@ -1,6 +1,7 @@
 const crypto = require('crypto');
 const db = require('../data/demo');
 const A = require('../services/authService');
+const demoOn = () => String(process.env.DEMO_MODE || 'on').toLowerCase() !== 'off';
 const home = u => u.role === 'admin' ? '/admin' : u.role === 'delivery' ? '/repartidor' : '/mi-cuenta';
 function signIn(req, u) { req.session.user = A.sessionUser(u); u.lastLogin = new Date().toISOString();
   // si tenía favoritos como visitante, se suman a su cuenta
@@ -17,6 +18,7 @@ exports.login = (area) => (req, res) => {
 };
 exports.staffForm = area => (req, res) => res.render('auth/staff', { area, values: {} });
 exports.demo = (req, res) => {
+  if (!demoOn()) return res.redirect('/ingresar');
   const u = db.users.find(x => x.role === req.params.role && x.active); if (!u) return res.redirect('/ingresar');
   signIn(req, u); res.redirect(back(req, u));
 };
@@ -41,7 +43,7 @@ exports.register = (req, res) => {
 exports.recoverForm = (req, res) => res.render('auth/recover', { values: {} });
 exports.recover = (req, res) => {
   const u = A.findByEmail(req.body.email); let demoLink = null;
-  if (u) { const token = crypto.randomBytes(16).toString('hex'); db.resets.push({ token, userId: u.id, exp: Date.now() + 3600e3 }); demoLink = '/recuperar/' + token; }
+  if (u) { const token = crypto.randomBytes(16).toString('hex'); db.resets.push({ token, userId: u.id, exp: Date.now() + 3600e3 }); demoLink = demoOn() ? '/recuperar/' + token : null; }
   // en producción se envía por email; en la demo mostramos el enlace
   res.render('auth/recover', { sent: true, demoLink, values: req.body });
 };

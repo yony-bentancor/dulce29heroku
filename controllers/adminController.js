@@ -1,6 +1,7 @@
 /* Administración Dulce29 */
 const fs = require('fs'), path = require('path');
-const db = require('../data/demo');
+const db = require('../data/demo'), mongo = require('../data/mongo');
+const demoOn = () => String(process.env.DEMO_MODE || 'on').toLowerCase() !== 'off';
 const O = require('../services/orderService'), A = require('../services/authService'), cart = require('../services/cartService');
 const wa = require('../services/whatsappService'), chart = require('../services/chartService');
 const { STATUS, FLOW, LEAD, money, today, slug, TZ } = require('../utils/format');
@@ -153,7 +154,9 @@ exports.upload = (req, res) => {
   if (!['.jpg', '.jpeg', '.png', '.webp', '.avif'].includes(ext)) return res.status(400).json({ error: 'Formato no permitido (jpg, png, webp).' });
   const file = Date.now() + '-' + slug(path.basename(name, ext)).slice(0, 40) + ext;
   fs.writeFileSync(path.join(__dirname, '..', 'public', 'uploads', file), req.body);
-  res.json({ path: '/uploads/' + file });
+  const types = { '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.png': 'image/png', '.webp': 'image/webp', '.avif': 'image/avif' };
+  // con MongoDB la imagen también se guarda en la base, porque Heroku borra los archivos al reiniciar
+  mongo.saveUpload(file, req.body, types[ext]).then(() => res.json({ path: '/uploads/' + file }), e => { console.error(e); res.status(500).json({ error: 'No pudimos guardar la imagen. Probá de nuevo.' }); });
 };
 exports.categories = (req, res) => res.render('admin/categories', { cats: db.categories.map(c => ({ ...c, n: db.products.filter(p => p.categoryId === c.id).length })), edit: req.query.editar ? db.categories.find(c => c.id === +req.query.editar) : null });
 exports.saveCategory = (req, res) => {
@@ -333,5 +336,6 @@ exports.saveContent = (req, res) => {
   if (tab === 'novedades') c.news = arr(b.news).filter(x => x.title);
   req.flash('ok', 'Contenido publicado. Ya se ve en la web.'); res.redirect('/admin/contenido/' + tab);
 };
-exports.resetDemo = (req, res) => { const u = req.session.user; db.reset(); req.flash('ok', 'Restablecimos los datos de demostración.'); req.session.user = u; res.redirect('/admin'); };
+exports.resetDemo = (req, res) => { if (!demoOn()) { req.flash('error', 'Restablecer está desactivado: el sitio trabaja con datos reales.'); return res.redirect('/admin'); }
+  const u = req.session.user; db.reset(); req.flash('ok', 'Restablecimos los datos de demostración.'); req.session.user = u; res.redirect('/admin'); };
 exports.products_ = { products: () => db.products };
