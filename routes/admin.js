@@ -1,6 +1,7 @@
 const express = require('express'), r = express.Router(), c = require('../controllers/adminController'), { requireUser } = require('../middleware/auth'), { role } = require('../middleware/roles');
 r.use(requireUser, role('admin'), c.locals);
-r.get('/', c.dashboard); r.get('/api/novedades', c.poll);
+r.get('/', c.dashboard);
+const pw = require('../controllers/authController'); r.get('/mi-contrasena', pw.passwordForm('admin')); r.post('/mi-contrasena', pw.changePassword('admin')); r.get('/api/novedades', c.poll);
 r.get('/pedidos', c.orders); r.get('/pedidos/exportar.csv', c.exportOrders); r.get('/pedidos/nuevo', c.newOrder); r.post('/pedidos/nuevo', c.createOrder);
 r.get('/pedidos/:id', c.order); r.post('/pedidos/:id/estado', c.orderStatus); r.post('/pedidos/:id/asignar', c.orderAssign); r.post('/pedidos/asignar', c.orderAssign);
 r.post('/pedidos/:id/pago', c.orderPayment); r.post('/pedidos/:id/nota', c.orderNote); r.post('/pedidos/:id/entrega', c.orderDelivery);

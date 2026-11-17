@@ -55,3 +55,17 @@ exports.reset = (req, res) => {
   const u = db.users.find(x => x.id === r.userId); u.pass = A.hash(req.body.password); db.resets = db.resets.filter(x => x !== r);
   signIn(req, u); req.flash('ok', 'Cambiaste tu contraseña.'); res.redirect(home(u));
 };
+
+/* Cambiar mi contraseña (administración y reparto; los clientes lo hacen en Mi cuenta → Mis datos) */
+const pwView = area => area === 'admin' ? 'admin/password' : 'delivery/password';
+exports.passwordForm = area => (req, res) => res.render(pwView(area), { errors: null });
+exports.changePassword = area => (req, res) => {
+  const u = db.users.find(x => x.id === req.session.user.id), b = req.body, errors = [];
+  if (!u || !A.verify(b.current, u.pass)) errors.push('La contraseña actual no es correcta.');
+  if (String(b.newpass || '').length < 6) errors.push('La contraseña nueva necesita al menos 6 caracteres.');
+  else if (b.newpass !== b.newpass2) errors.push('Las dos contraseñas nuevas no coinciden.');
+  if (errors.length) return res.status(422).render(pwView(area), { errors });
+  u.pass = A.hash(b.newpass); u.passChangedAt = new Date().toISOString();
+  req.flash('ok', 'Listo, tu contraseña nueva ya funciona.');
+  res.redirect(area === 'admin' ? '/admin' : '/repartidor');
+};

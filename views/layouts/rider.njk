@@ -6,7 +6,7 @@
 <div class="rider">
  <header>{% block back %}<a href="/repartidor" aria-label="Inicio de reparto"><img src="/images/brand/logo-dulce29-blanco.svg" alt="Dulce29"></a>{% endblock %}
   <h1>{% block heading %}Reparto{% endblock %}</h1>
-  <details class="rider-me"><summary aria-label="Mi sesión">{{ rider.name|initials }}</summary><div><b>{{ rider.name }}</b><span>{{ rider.vehicle }} · {{ rider.zones|join(', ') }}</span><a href="/salir">Cerrar sesión</a></div></details>
+  <details class="rider-me"><summary aria-label="Mi sesión">{{ rider.name|initials }}</summary><div><b>{{ rider.name }}</b><span>{{ rider.vehicle }} · {{ rider.zones|join(', ') }}</span><a href="/repartidor/mi-contrasena">Cambiar mi contraseña</a><a href="/salir">Cerrar sesión</a></div></details>
  </header>
  {% if flash %}<div class="flash {{ flash.type }}" style="width:auto;margin:12px 16px 0" role="status">{{ flash.text }}</div>{% endif %}
  <main>{% block body %}{% endblock %}</main>
