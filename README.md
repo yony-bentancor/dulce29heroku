@@ -22,7 +22,7 @@ Abrir http://localhost:3000. Requiere Node 20 o superior.
 | Repartidor | martin@dulce29.demo · joaquin@dulce29.demo | /demo/delivery |
 | Cliente | sofia@dulce29.demo · lucia@dulce29.demo | /demo/client |
 
-Los enlaces «Entrar como…» también aparecen en cada pantalla de ingreso.
+Los enlaces «Entrar como…» aparecen en cada pantalla de ingreso mientras `DEMO_MODE` no esté en `off`. Cada persona cambia su contraseña en «Cambiar mi contraseña» (panel y app de reparto) o en Mi cuenta → Mis datos (clientes).
 
 ## Cómo probar el circuito completo
 

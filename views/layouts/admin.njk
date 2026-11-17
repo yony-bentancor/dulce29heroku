@@ -13,7 +13,7 @@
    ['Negocio', [['/admin/ventas','Ventas',null],['/admin/reportes','Reportes',null],['/admin/contenido','Contenido web',null],['/admin/configuracion','Configuración',null],['/admin/usuarios','Usuarios y roles',null]]]
   ] %}
   {% for g in groups %}<h6>{{ g[0] }}</h6>{% for l in g[1] %}<a href="{{ l[0] }}" {% if path == l[0] or (l[0] != '/admin' and l[0] != '/admin/pedidos' and path.startsWith(l[0])) or (l[0] == '/admin/pedidos' and path.startsWith('/admin/pedidos') and path != '/admin/pedidos/nuevo') %}aria-current="page"{% endif %}>{{ l[1] }}{% if l[2] %}<b>{{ l[2] }}</b>{% endif %}</a>{% endfor %}{% endfor %}
-  <div class="foot"><p style="margin:0 0 8px">{{ user.name }} · administración</p><a href="/" target="_blank">Ver la tienda</a><a href="/salir">Cerrar sesión</a></div>
+  <div class="foot"><p style="margin:0 0 8px">{{ user.name }} · administración</p><a href="/" target="_blank">Ver la tienda</a><a href="/admin/mi-contrasena">Cambiar mi contraseña</a><a href="/salir">Cerrar sesión</a></div>
  </aside>
  <div class="admin-main">
   <div class="topbar"><button class="iconbtn menu-btn" data-side-toggle aria-label="Menú">{{ icon('menu') }}</button><h1>{% block heading %}{% endblock %}</h1>{% block actions %}{% endblock %}</div>

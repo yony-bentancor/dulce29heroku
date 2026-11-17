@@ -1,6 +1,7 @@
 const r = require('express').Router(), c = require('../controllers/deliveryController'), { requireUser } = require('../middleware/auth'), { role } = require('../middleware/roles');
 r.use(requireUser, role('delivery'), c.guard);
 r.get('/', c.dashboard);
+const pw = require('../controllers/authController'); r.get('/mi-contrasena', pw.passwordForm('delivery')); r.post('/mi-contrasena', pw.changePassword('delivery'));
 r.get('/entregas', c.list);
 r.get('/ruta', c.map);
 r.get('/entregas/:code', c.detail);
