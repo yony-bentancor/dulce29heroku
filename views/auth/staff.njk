@@ -9,5 +9,5 @@
  <form method="post" action="/{{ 'admin' if area == 'admin' else 'repartidor' }}/ingresar" style="margin-top:20px">
   {{ field('email','Email',values.email,'email','',true,'autocomplete="username"') }}{{ field('password','Contraseña','','password','',true,'autocomplete="current-password"') }}
   <button class="btn block">Ingresar</button></form>
- <div class="demo-box"><b>Demo</b> · {{ 'natalia@dulce29.uy' if area == 'admin' else 'martin@dulce29.demo' }} / dulce29<div class="row"><a class="btn sm ghost" href="/demo/{{ area }}">Entrar como {{ 'Natalia' if area == 'admin' else 'Martín' }}</a><a class="btn sm ghost" href="/">Ir a la tienda</a></div></div>
+ {% if demoMode %}<div class="demo-box"><b>Demo</b> · {{ 'natalia@dulce29.uy' if area == 'admin' else 'martin@dulce29.demo' }} / dulce29<div class="row"><a class="btn sm ghost" href="/demo/{{ area }}">Entrar como {{ 'Natalia' if area == 'admin' else 'Martín' }}</a><a class="btn sm ghost" href="/">Ir a la tienda</a></div></div>{% else %}<p class="small muted" style="text-align:center;margin-top:14px"><a class="link" href="/">Ir a la tienda</a></p>{% endif %}
 </div></div></body></html>
