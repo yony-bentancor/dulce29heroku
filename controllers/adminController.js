@@ -199,6 +199,15 @@ exports.savePromo = (req, res) => {
 exports.togglePromo = (req, res) => { const p = db.promotions.find(x => x.id === +req.params.id); if (p) p.active = !p.active; res.redirect('/admin/promociones'); };
 exports.deletePromo = (req, res) => { db.promotions = db.promotions.filter(x => x.id !== +req.params.id); req.flash('ok', 'Promoción eliminada.'); res.redirect('/admin/promociones'); };
 
+exports.deleteOrders = (req, res) => {
+  const ids = [].concat(req.params.id || req.body.ids || []).map(Number);
+  const os = db.orders.filter(o => ids.includes(o.id)), codes = os.map(o => '#' + o.code);
+  os.forEach(o => O.remove(o));
+  if (!os.length) req.flash('error', 'No seleccionaste pedidos.');
+  else req.flash('ok', os.length === 1 ? `Eliminamos el pedido ${codes[0]}.` : `Eliminamos ${os.length} pedidos (${codes.join(', ')}).`);
+  res.redirect('/admin/pedidos');
+};
+
 // ---------- clientes ----------
 function clientStats(c) { const os = db.orders.filter(o => o.clientId === c.id), ok = os.filter(o => o.status === 'entregado'); return { orders: os.length, spent: ok.reduce((a, o) => a + o.total, 0), last: os.sort((a, b) => b.id - a.id)[0] || null }; }
 exports.clients = (req, res) => {
@@ -215,6 +224,18 @@ exports.client = (req, res) => {
   const cnt = {}; os.forEach(o => o.items.forEach(i => { cnt[i.name] = (cnt[i.name] || 0) + i.qty; }));
   res.render('admin/client', { c, os, st, ticket: os.length ? os.reduce((a, o) => a + o.total, 0) / os.length : 0, top: Object.entries(cnt).sort((a, b) => b[1] - a[1]).slice(0, 5),
     favs: db.products.filter(p => c.favorites.includes(p.id)), inq: db.inquiries.filter(i => i.clientId === c.id), account: db.users.find(u => u.clientId === c.id), wa: wa.link(`Hola ${c.name.split(' ')[0]}, te escribimos de Dulce29.`, c.phone.replace(/\D/g, '').replace(/^0?9/, '5989')), zones: db.zones });
+};
+exports.deleteClient = (req, res) => {
+  const c = db.clients.find(x => x.id === +req.params.id); if (!c) return res.redirect('/admin/clientes');
+  const os = db.orders.filter(o => o.clientId === c.id), withOrders = !!req.body.withOrders;
+  if (withOrders) os.forEach(o => O.remove(o)); else os.forEach(o => { o.clientId = null; });
+  db.inquiries.forEach(i => { if (i.clientId === c.id) i.clientId = null; });
+  // su cuenta para ingresar a la tienda se borra con la ficha (nunca la del usuario que está borrando)
+  const acc = db.users.filter(u => u.clientId === c.id);
+  acc.forEach(u => { if (u.role === 'client' && u.id !== req.session.user.id) db.users.splice(db.users.indexOf(u), 1); else delete u.clientId; });
+  db.clients.splice(db.clients.indexOf(c), 1);
+  req.flash('ok', `Eliminamos a ${c.name}` + (os.length ? (withOrders ? ` y sus ${os.length} pedido(s).` : `. Sus ${os.length} pedido(s) quedan en Pedidos, sin ficha de cliente.`) : '.'));
+  res.redirect('/admin/clientes');
 };
 exports.saveClient = (req, res) => {
   const b = req.body; let c = b.id ? db.clients.find(x => x.id === +b.id) : null;
@@ -269,6 +290,12 @@ exports.updateInquiry = (req, res) => {
   if (String(req.body.note || '').trim()) i.notes.push({ at: new Date().toISOString(), text: req.body.note.trim(), by: by(req) });
   if (req.body.toClient && !i.clientId) { let c = db.clients.find(x => i.phone && x.phone.replace(/\D/g, '') === i.phone.replace(/\D/g, '')); if (!c) { c = { id: db.nextId('clients'), name: i.name, email: i.email, phone: i.phone, notes: `Desde consulta de ${i.kind}`, createdAt: new Date().toISOString(), favorites: [], addresses: [] }; db.clients.push(c); } i.clientId = c.id; }
   req.flash('ok', 'Consulta actualizada.'); back(req, res, '/admin');
+};
+
+exports.deleteInquiry = (req, res) => {
+  const i = db.inquiries.find(x => x.id === +req.params.id);
+  if (i) { db.inquiries.splice(db.inquiries.indexOf(i), 1); req.flash('ok', `Eliminamos la consulta de ${i.name}.`); }
+  back(req, res, '/admin/consultas');
 };
 
 // ---------- economía y reportes ----------

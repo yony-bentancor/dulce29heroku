@@ -7,6 +7,7 @@
 <div class="box"><header><h2>Acciones</h2></header><div class="actions-row">
  {% if next %}<form method="post" action="/admin/pedidos/{{ o.id }}/estado"><input type="hidden" name="status" value="{{ next }}"><button class="btn">Pasar a {{ next|status|lower }}</button></form>{% endif %}
  <form class="actions-row" method="post" action="/admin/pedidos/{{ o.id }}/estado"><select class="input" name="status" style="min-height:40px;width:auto" aria-label="Cambiar estado">{% for s, v in STATUS %}<option value="{{ s }}" {% if s == o.status %}selected{% endif %}>{{ v.label }}</option>{% endfor %}</select><input class="input" name="note" placeholder="Motivo (opcional)" style="min-height:40px;width:200px"><button class="btn sm ghost">Cambiar estado</button></form>
+ <form method="post" action="/admin/pedidos/{{ o.id }}/eliminar" style="margin-left:auto"><button class="btn sm danger" data-confirm="¿Eliminar el pedido #{{ o.code }}? No se puede deshacer.{% if o.stockApplied and not (o.status in ['entregado','cancelado']) %} Los productos vuelven al stock.{% endif %}">Eliminar pedido</button></form>
  <a class="btn sm wa" href="{{ wa }}" target="_blank" rel="noopener">{{ icon('wa') }} Escribir al cliente</a>
  {% if o.status == 'listo' or o.status == 'en_camino' %}<a class="btn sm ghost" href="{{ waReady }}" target="_blank" rel="noopener">Avisar que salió / está listo</a>{% endif %}
 </div></div>

@@ -18,6 +18,10 @@
   <div class="box"><header><h2>Direcciones</h2></header>{% for a in c.addresses %}<p style="margin:0 0 10px"><b>{{ a.label }}</b> · {{ a.street }}<br><span class="small muted">{{ a.zone }}{% if a.notes %} · {{ a.notes }}{% endif %}</span></p>{% else %}<p class="muted">Sin direcciones.</p>{% endfor %}</div>
   {% if favs|length %}<div class="box"><header><h2>Favoritos</h2></header><p class="small" style="margin:0">{% for p in favs %}{{ p.name }}{{ ', ' if not loop.last }}{% endfor %}</p></div>{% endif %}
   {% if inq|length %}<div class="box"><header><h2>Consultas</h2></header>{% for i in inq %}<p class="small" style="margin:0 0 8px">{{ i.kind|kind }} {{ leadBadge(i.status) }}<br><span class="muted">{{ i.message }}</span></p>{% endfor %}</div>{% endif %}
+  <form class="box" method="post" action="/admin/clientes/{{ c.id }}/eliminar"><header><h2>Eliminar cliente</h2></header>
+   <p class="small muted" style="margin:0 0 10px">Borra la ficha{% if account %}, su cuenta para entrar a la tienda ({{ account.email }}){% endif %} y sus direcciones. No se puede deshacer.</p>
+   {% if os|length %}<label class="check small" style="margin-bottom:12px"><input type="checkbox" name="withOrders" value="1"> Eliminar también sus {{ os|length }} pedido(s). Si no lo marcás, los pedidos quedan en Pedidos y en las ventas.</label>{% endif %}
+   <button class="btn sm danger" data-confirm="¿Eliminar a {{ c.name }}? No se puede deshacer.">Eliminar cliente</button></form>
  </div>
 </div>
 {% endblock %}
