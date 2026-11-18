@@ -67,6 +67,12 @@ function setStatus(o, status, by, note) {
   if (status === 'entregado' && o.payment.method === 'Efectivo') o.payment.status = 'pagado';
   o.history.push({ at: new Date().toISOString(), status, by: by || 'Sistema', note: note || '' });
 }
+/* Borra un pedido. Si no llegó a entregarse y todavía tenía el stock descontado, lo devuelve. */
+function remove(o) {
+  const i = db.orders.indexOf(o); if (i < 0) return false;
+  if (o.stockApplied && !['entregado', 'cancelado'].includes(o.status)) applyStock(o.items, +1);
+  db.orders.splice(i, 1); return true;
+}
 function nextStatus(o) { const i = FLOW.indexOf(o.status); if (i < 0 || i >= FLOW.length - 1) return null; let n = FLOW[i + 1]; if (n === 'en_camino' && o.delivery.method === 'retiro') n = 'entregado'; return n; }
 function deliveryDates(n = 6) {
   const s = db.settings.delivery, out = [], base = new Date(), nowH = +new Date().toLocaleTimeString('en-GB', { timeZone: 'America/Montevideo', hour: '2-digit' });
@@ -78,4 +84,4 @@ function deliveryDates(n = 6) {
   }
   return out;
 }
-module.exports = { hydrate, create, setStatus, nextStatus, checkStock, deliveryDates, units, today };
+module.exports = { hydrate, create, setStatus, remove, nextStatus, checkStock, deliveryDates, units, today };
